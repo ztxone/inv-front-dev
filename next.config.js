@@ -5,7 +5,7 @@ const nextConfig = {
     loader: "default",
     //domains: ["localhost"],
 	domains: [process.env.NEXT_PUBLIC_STRAPI_API_URL || "localhost"],
-	path: `${basePath}`,
+	path: "/",
 	remotePatterns: [
 		{
 		  hostname: process.env.NEXT_PUBLIC_STRAPI_API_URL,
