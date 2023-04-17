@@ -11,7 +11,7 @@ const Home = ({ articles, categories, homepage }) => {
       <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>{homepage.attributes.hero.title}</h1>
-          <Articles articles={articles} />
+          {/*<Articles articles={articles} />*/}
         </div>
       </div>
     </Layout>
