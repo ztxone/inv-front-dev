@@ -4,7 +4,7 @@ const nextConfig = {
   images: {
     loader: "default",
     //domains: ["localhost"],
-	domains: [process.env.NEXT_PUBLIC_STRAPI_API_URL,  "localhost"],
+	domains: ["inv.ptzsite.ru"],
 	//path: process.env.NEXT_PUBLIC_STRAPI_API_URL,
 
   },
