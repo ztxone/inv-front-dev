@@ -4,11 +4,10 @@ const nextConfig = {
   images: {
     loader: "default",
     //domains: ["localhost"],
-	domains: [process.env.NEXT_PUBLIC_STRAPI_API_URL],
-	//domains: ["https://inv.ptzsite.ru"],
+	domains: [process.env.NEXT_PUBLIC_STRAPI_API_URL || "localhost"],
+	path: `${basePath}`,
 	remotePatterns: [
 		{
-		  protocol: 'https',
 		  hostname: process.env.NEXT_PUBLIC_STRAPI_API_URL,
 		},
 	  ],
