@@ -10,6 +10,7 @@ import Image from 'next/image';
 
 const Article = ({ article, categories }) => {
   const imageUrl = getStrapiMedia(article.attributes.image);
+  console.log(article.attributes);
 
   const seo = {
     metaTitle: article.attributes.title,
