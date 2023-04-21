@@ -7,8 +7,8 @@ import Burger from "./ui/Burger";
 
 export default function Header() {
   return (
-    <header className="py-6 px-4 items-center">
-      <div className="container mx-auto flex flex-row justify-between">
+    <header className="py-6 px-4 border-b border-eclipse text-white md:py-[17px] md:px-3.8">
+      <div className="mx-auto flex flex-row justify-between items-center  md:px-0 lg:max-w-[1746px]">
         <Logo />
         <Language />
         <Nav />
