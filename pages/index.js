@@ -1,18 +1,24 @@
 import React from "react";
-import Articles from "../components/articles";
 import Layout from "../components/layout";
-import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
+import About from '../components/pages/index/About';
+import Services from '../components/pages/index/Services';
+import Projects from '../components/pages/index/Projects';
+import Blog from '../components/pages/index/Blog';
+import {useLayoutEffect} from 'react';
 
-const Home = ({ articles, categories, homepage }) => {
+const Home = ({  projects }) => {
+	useLayoutEffect(() => {
+		document.body.classList.add("bg-black");
+		document.body.classList.add("text-white");
+	  })
   return (
-    <Layout categories={categories}>
-      <Seo seo={homepage.attributes.seo} />
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>{homepage.attributes.hero.title}</h1>
-          {/*<Articles articles={articles} />*/}
-        </div>
+    <Layout >
+       <div className="mx-auto py-6">
+        <About />
+        <Services />
+        <Projects projects={projects} />
+        <Blog />
       </div>
     </Layout>
   );
@@ -20,22 +26,15 @@ const Home = ({ articles, categories, homepage }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
-    fetchAPI("/articles", { populate: ["image", "category"] }),
-    fetchAPI("/categories", { populate: "*" }),
-    fetchAPI("/homepage", {
-      populate: {
-        hero: "*",
-        seo: { populate: "*" },
-      },
-    }),
+  const [projectsRes] = await Promise.all([
+   
+	fetchAPI("/projects", { populate: "*" })
+    
   ]);
 
   return {
     props: {
-      articles: articlesRes.data,
-      categories: categoriesRes.data,
-      homepage: homepageRes.data,
+      projects: projectsRes.data,
     },
     revalidate: 1,
   };

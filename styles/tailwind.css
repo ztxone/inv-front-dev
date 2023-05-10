@@ -1,0 +1,55 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@font-face {
+    font-family: "Inter Tight";
+    src: url("../public/fonts/InterTight-Regular.woff2");
+}
+
+.services-card {
+    @apply w-full h-[600px] mb-2.5 pt-9 px-9 rounded-5xl
+}
+
+.description {
+    @apply font-interTight text-lg flex flex-col
+}
+
+.input {
+    @apply w-full py-5 px-7 bg-nero rounded-lr mb-2.5
+}
+
+.footnote {
+    @apply font-interTight opacity-30
+}
+
+.project-title {
+    @apply text-xl tracking-tight pb-2.5 border-b
+    border-blackRussian inline-block mt-7
+}
+
+/* className='min-h-[550px]' */
+
+.button-all {
+    @apply uppercase text-xl font-interTight text-blackRussian py-4.5 flex items-center justify-center border-1 w-full rounded-lr
+}
+
+.marquee {
+    @apply text-6xl tracking-tight
+}
+
+.button-pagination {
+    @apply w-15 h-15 flex flex-col justify-center items-center rounded-lr border opacity-30
+}
+
+.trans-default {
+    @apply duration-100 transition-all ease-in
+}
+
+.pillow-link {
+    @apply text-base tracking-tight pl-[24px] py-[4px] pr-[4px] w-max flex justify-center items-center rounded-6xl
+}
+
+.pillow-link-svg {
+    @apply w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-[48px]
+}
