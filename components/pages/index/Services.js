@@ -3,7 +3,7 @@ import ServiceItem from '@/components/ui/ServiceItem';
 import PillowLink from '@/components/ui/PillowLink';
 
 
-export default function Services() {
+export default function Services({ services }) {
   return (
     <section className='px-4 pt-10 pb-[4.5rem]
     -mt-50 
@@ -32,14 +32,16 @@ export default function Services() {
         </div>
 
         <div className='lg:flex'>
+		{services.map((service, i) => (
           <ServiceItem
-            title='Архитектурная'
+		    key={i}
+            title={service.attributes.name}
             subtitle='3D визуализация'
-            descriptionItem1='Для экстерьеров'
+            descriptionItem1={service.attributes.description}
             descriptionItem2='Для интерьеров'
-            link='/image/content/izm.jpg' />
-
-          <ServiceItem
+            link={service.attributes.image}
+			))}
+          {/* <ServiceItem
             title='Продуктовая'
             subtitle='3D визуализация'
             descriptionItem1='Разработка визуализации'
@@ -51,7 +53,7 @@ export default function Services() {
             subtitle='Видеопродакшн'
             descriptionItem1='Разработка уникального видео'
             descriptionItem2='ролика для вашего продукта'
-            link="/image/content/iphone.jpg" />
+            link="/image/content/iphone.jpg" /> */}
         </div>
 
         <form action="" method="get" className='pt-7 max-w-[562px] m-auto md:pt-10 lg:flex lg:max-w-none

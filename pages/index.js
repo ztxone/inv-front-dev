@@ -7,7 +7,7 @@ import Projects from '../components/pages/index/Projects';
 import Blog from '../components/pages/index/Blog';
 import {useLayoutEffect} from 'react';
 
-const Home = ({  projects }) => {
+const Home = ({  projects, services }) => {
 	useLayoutEffect(() => {
 		document.body.classList.add("bg-black");
 		document.body.classList.add("text-white");
@@ -16,7 +16,7 @@ const Home = ({  projects }) => {
     <Layout >
        <div className="mx-auto py-6">
         <About />
-        <Services />
+        <Services services={services} />
         <Projects projects={projects} />
         <Blog />
       </div>
@@ -26,15 +26,17 @@ const Home = ({  projects }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [projectsRes] = await Promise.all([
+  const [projectsRes, servicesRes] = await Promise.all([
    
-	fetchAPI("/projects", { populate: "*" })
+	fetchAPI("/projects", { populate: "*" }),
+	fetchAPI("/services", { populate: "*" })
     
   ]);
 
   return {
     props: {
       projects: projectsRes.data,
+	  services: servicesRes.data,
     },
     revalidate: 1,
   };
