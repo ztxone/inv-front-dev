@@ -1,4 +1,4 @@
-export default function Project() {
+export default function Projects( { projects }) {
   return (
     <section className='bg-whisper rounded-5xl pt-16 text-blackRussian pb-20'>
       <div className='px-[15px]'>
@@ -12,6 +12,7 @@ export default function Project() {
           При создании могут решаться уникальные задачи, но&nbsp;это всегда проекты с&nbsp;характером</p>
 
         <ul className='pt-14'>
+		{projects.map((project, i) => {
           <li className='w-full pb-5 mb-10'>
             <div className='aspect-[398/302] overflow-hidden
            bg-gradient-to-r from-chetwode-blue to-lucky-point rounded-l15 pl-9'>
@@ -22,7 +23,7 @@ export default function Project() {
                 </div>
                 <div className='bg-white rounded-full px-5 py-1 inline-flex items-center w-auto m-4'>
                   <span className='dot'></span>
-                  <p className='text-xxs tag-text'>МОДЕЛИРОВАНИЕ</p>
+                  <p className='text-xxs tag-text'>{project.attributes.predescription}</p>
                 </div>
               </div>
               <div className='flex overflow-hidden'>
@@ -32,9 +33,10 @@ export default function Project() {
               </div>
             </div>
 
-            <h3 className='project-title'>Екатерининская улица Мурино</h3>
+            <h3 className='project-title'>{project.attributes.title}</h3>
           </li>
-          <li className='relative pb-5 mb-10'>
+		  })}
+          {/* <li className='relative pb-5 mb-10'>
             <div className='absolute'>
               <div>
                 <div className='bg-white rounded-full px-5 py-1 inline-flex items-center w-auto m-4'>
@@ -103,7 +105,7 @@ export default function Project() {
             </div>
 
             <h3 className='project-title'>Рекламный ролик «MEATBROTHERS»</h3>
-          </li>
+          </li> */}
         </ul>
         <div className='text-center mb-20'>
           <p className='font-interTight opacity-5 font-semibold text-6xl'>More</p>

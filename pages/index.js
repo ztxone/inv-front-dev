@@ -5,11 +5,11 @@ import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 import About from '../components/pages/index/About';
 import Services from '../components/pages/index/Services';
-import Project from '../components/pages/index/Project';
+import Project from '../components/pages/index/Projects';
 import Blog from '../components/pages/index/Blog';
 import {useLayoutEffect} from 'react';
 
-const Home = ({ articles, categories, homepage }) => {
+const Home = ({ articles, projects, categories, homepage }) => {
 	useLayoutEffect(() => {
 		document.body.classList.add("bg-black");
 	  })
@@ -19,7 +19,7 @@ const Home = ({ articles, categories, homepage }) => {
 	  <div className="mx-auto py-6">
         <About />
         <Services />
-        <Project />
+        <Projects projects={projects} />
         <Blog />
       </div>
 	  <div className="uk-section">
@@ -34,9 +34,10 @@ const Home = ({ articles, categories, homepage }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
+  const [articlesRes, projectsRes, categoriesRes, homepageRes] = await Promise.all([
     fetchAPI("/articles", { populate: ["image", "category"] }),
     fetchAPI("/categories", { populate: "*" }),
+	fetchAPI("/projects", { populate: "*" }),
     fetchAPI("/homepage", {
       populate: {
         hero: "*",
@@ -48,6 +49,7 @@ export async function getStaticProps() {
   return {
     props: {
       articles: articlesRes.data,
+	  projects: projectsRes.data,
       categories: categoriesRes.data,
       homepage: homepageRes.data,
     },
