@@ -1,4 +1,4 @@
-export default function Projects( { projects }) {
+export default function Projects( {projects }) {
   return (
     <section className='bg-whisper rounded-5xl pt-16 text-blackRussian pb-20'>
       <div className='px-[15px]'>
@@ -12,8 +12,10 @@ export default function Projects( { projects }) {
           При создании могут решаться уникальные задачи, но&nbsp;это всегда проекты с&nbsp;характером</p>
 
         <ul className='pt-14'>
-		{projects.map((project, i) => {
-          <li className='w-full pb-5 mb-10'>
+		
+		{projects.map((project, i) => (
+          <li className='w-full pb-5 mb-10' key={i}>
+			
             <div className='aspect-[398/302] overflow-hidden
            bg-gradient-to-r from-chetwode-blue to-lucky-point rounded-l15 pl-9'>
               <div>
@@ -23,7 +25,7 @@ export default function Projects( { projects }) {
                 </div>
                 <div className='bg-white rounded-full px-5 py-1 inline-flex items-center w-auto m-4'>
                   <span className='dot'></span>
-                  <p className='text-xxs tag-text'>{project.attributes.predescription}</p>
+                  <p className='text-xxs tag-text'>{project.attributes.Predescription}</p>
                 </div>
               </div>
               <div className='flex overflow-hidden'>
@@ -33,9 +35,9 @@ export default function Projects( { projects }) {
               </div>
             </div>
 
-            <h3 className='project-title'>{project.attributes.title}</h3>
+            <h3 className='project-title'>{project.attributes.Title}</h3>
           </li>
-		  })}
+		  ))}
           {/* <li className='relative pb-5 mb-10'>
             <div className='absolute'>
               <div>
