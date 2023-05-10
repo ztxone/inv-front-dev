@@ -13,7 +13,7 @@ export default function Language() {
         height='5'
         viewBox='0 0 10 5'
       >
-        <path fill-rule='evenodd' clip-rule='evenodd' d='m0 0 5 5 5-5H0Z' />
+        <path fillRule='evenodd' clipRule='evenodd' d='m0 0 5 5 5-5H0Z' />
       </svg>
     </div>
   );

@@ -3,12 +3,26 @@ import Articles from "../components/articles";
 import Layout from "../components/layout";
 import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
+import About from '../components/pages/index/About';
+import Services from '../components/pages/index/Services';
+import Project from '../components/pages/index/Project';
+import Blog from '../components/pages/index/Blog';
+import {useLayoutEffect} from 'react';
 
 const Home = ({ articles, categories, homepage }) => {
+	useLayoutEffect(() => {
+		document.body.classList.add("bg-black");
+	  })
   return (
     <Layout categories={categories}>
       <Seo seo={homepage.attributes.seo} />
-      <div className="uk-section">
+	  <div className="mx-auto py-6">
+        <About />
+        <Services />
+        <Project />
+        <Blog />
+      </div>
+	  <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>{homepage.attributes.hero.title}</h1>
           {/*<Articles articles={articles} />*/}
