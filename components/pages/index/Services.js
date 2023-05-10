@@ -32,14 +32,16 @@ export default function Services({ services }) {
         </div>
 
         <div className='lg:flex'>
+		{console.log(services)}
 		{services.map((service, i) => (
+			
           <ServiceItem
 		    key={i}
             title={service.attributes.name}
-            subtitle='3D визуализация'
+            subtitle=''
             descriptionItem1={service.attributes.description}
-            descriptionItem2='Для интерьеров'
-            link={service.attributes.image}
+            descriptionItem2=''
+            link={service.attributes.image.data.attributes.url} />
 			))}
           {/* <ServiceItem
             title='Продуктовая'
