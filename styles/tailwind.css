@@ -25,13 +25,12 @@
 
 .project-title {
     @apply text-xl tracking-tight pb-2.5 border-b
-    border-blackRussian inline-block mt-7
+    border-black-russian inline-block mt-7
 }
 
-/* className='min-h-[550px]' */
 
 .button-all {
-    @apply uppercase text-xl font-interTight text-blackRussian py-4.5 flex items-center justify-center border-1 w-full rounded-lr
+    @apply uppercase text-xl font-interTight text-black-russian py-4.5 flex items-center justify-center border-1 w-full rounded-lr
 }
 
 .marquee {

@@ -12,7 +12,7 @@ export default function About() {
           для вашего бизнеса</span>
         </h2>
 
-        <div className='w-[398px] ml-auto xl:mt-[156px] md:pb-2.5 row-start-1 row-end-3 col-start-2 col-end-3'>
+        <div className='w-[398px] max-w-full ml-auto xl:mt-[156px] md:pb-2.5 row-start-1 row-end-3 col-start-2 col-end-3'>
           <a href="#" className='bg-blackRussian relative block rounded-4xl w-[286px] h-[286px] p-[25px]'>
             <div className='absolute top-0 bottom-0 left-0 right-0'>
               <Image src='/image/content/flyer-paper-mockup.png' width="389"

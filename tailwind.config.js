@@ -20,8 +20,10 @@ module.exports={
       'gray-light': '#d3dce6',
       black: '#0C0C0C',
       white: '#FFFFFF',
-      blackRussian: '#1C1D21',
+      'black-russian': '#1C1D21',
+      'black-russian2': '#27282E',
       nero: '#232323',
+      nero2: '#151515',
       whisper: '#E9E9E9',
       'chetwode-blue': '#5D6FC0',
       'lucky-point': '#141F52',
@@ -29,6 +31,8 @@ module.exports={
       'gulf-blue': '#364362',
       'baker-chocolate': '#593B0F',
       'royal-blue': '#4574EF',
+      eclipse: '#393939',
+      'suva-grey': '#909090',
     },
     borderWidth: {
       DEFAULT: '1px',
@@ -44,22 +48,27 @@ module.exports={
       serif: ['Merriweather', 'serif'],
     },
     fontSize: {
-      xxs: ['0.625rem', {lineHeight: '0.625rem'}],
-      // xs: ['0.75rem', {lineHeight: '1rem'}],
-      sm: ['0.875rem', {lineHeight: '1.25rem'}],
+      xxs: ['0.625rem', {lineHeight: '0.625rem'}],//10px
+      xs: ['0.75rem', {lineHeight: '1rem'}],//12px
+      sm: ['0.875rem', {lineHeight: '1.25rem'}],//14px
       base: ['1rem', {lineHeight: '1.1875rem'}],
       // lg: ['1.125rem', {lineHeight: '1.75rem'}],
-      lg: ['1.125rem', {lineHeight: '1.375rem'}],
-      xl: ['1.25rem', {lineHeight: '1.25rem'}],
-      // '2xl': ['1.5rem', {lineHeight: '2rem'}],
-      '3xl': ['1.75rem', {lineHeight: '2.125rem'}],
-      '3.5xl': ['1.875rem', {lineHeight: '1.875rem'}],
-      '4xl': ['2.5rem', {lineHeight: '2.5rem'}],
+      lg: ['1.125rem', {lineHeight: '1.375rem'}],//18px
+      xl: ['1.25rem', {lineHeight: '1.5rem'}],//20px
+      '1xl': ['1.375rem', {lineHeight: '1.5rem'}],//22 px 
+      '2xl': ['1.5rem', {lineHeight: '2rem'}],//24px
+      '3xl': ['1.75rem', {lineHeight: '2.125rem'}], //28px
+      '3.5xl': ['1.875rem', {lineHeight: '1.875rem'}],//30px
+      '3.8xl': ['2rem', {lineHeight: '2rem'}],//32px
+      '4xl': ['2.5rem', {lineHeight: '2.5rem'}], //40px
       // '5xl': ['3rem', {lineHeight: '1'}],
       '6xl': ['3.75rem', {lineHeight: '1'}], //60px
-      // '7xl': ['4.5rem', {lineHeight: '1'}],
+      '6.5xl': ['4.5rem', {lineHeight: '1'}], //76px
+      '7xl': ['5rem', {lineHeight: '1'}],// 80px
+      '7.5xl': ['5.625rem', {lineHeight: '1'}],//90px
       // '8xl': ['6rem', {lineHeight: '1'}],
       // '9xl': ['8rem', {lineHeight: '1'}],
+      '10xl': ['9.6875rem', {lineHeight: '1'}],//155px
     },
     fontWeight: {
       thin: '100',
@@ -72,6 +81,7 @@ module.exports={
       extrabold: '800',
       black: '900',
     },
+    mode: 'jit',
     extend: {
       spacing: {
         '8xl': '96rem',
@@ -90,9 +100,24 @@ module.exports={
         '2xl': '1rem',
         '3xl': '1.5rem',
         '4xl': '1.874rem',
-        '5xl': '1.875rem',
+        '5xl': '1.875rem',//30px
         '6xl': '2.5625rem', //41px
+        '7xl': '3.125rem', //50px
         full: '9999px',
+      },
+      animation: {
+        marquee: 'marquee 25s linear infinite',
+        marquee2: 'marquee2 25s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': {transform: 'translateX(0%)'},
+          '100%': {transform: 'translateX(-100%)'},
+        },
+        marquee2: {
+          '0%': {transform: 'translateX(100%)'},
+          '100%': {transform: 'translateX(0%)'},
+        },
       },
     },
     height: ({theme}) => ({
@@ -201,30 +226,39 @@ module.exports={
       4: '1rem',
       4.5: '1.125rem', //18px
       5: '1.25rem',//20px
-      6: '1.5rem',
+      6: '1.5rem',//24px
       // 7: '1.75rem',
       7: '1.875rem', //30px
       8: '2rem',
       // 9: '2.25rem',
-      9: '2.1875rem',
+      9: '2.1875rem',//35px
       10: '2.5rem',  //40px
       10.5: '2.8125rem',//45px
       11: '2.75rem',
-      12: '3rem',
+      12: '3.125rem',//50px
       14: '3.5rem',
       15: '3.75rem',//60px
       16: '4rem',
+      18: '4.375rem',//70px
       20: '5rem',//80px
+      21: '5.3125rem', //85px
       24: '6rem',
+      24.2: '5.3125',//
+      24.5: '5.625rem', //90px
+      25: '6.25rem',//100px
       28: '7rem',
       32: '8rem',
-      36: '9rem',
-      40: '10rem',
+      33: '8.125rem',//130px
+      34: '8.75rem',//140px
+      36: '9.375rem',//150px
+      40: '10rem',//160px
       44: '11rem',
+      47: '11.875rem',//190px
       48: '12rem',
+      50: '12.5rem',
       52: '13rem',
       56: '14rem',
-      60: '15rem',
+      60: '15rem',//240px
       64: '16rem',
       72: '18rem',
       80: '20rem',
@@ -268,4 +302,5 @@ module.exports={
   },
   plugins: [],
 };
+
 
