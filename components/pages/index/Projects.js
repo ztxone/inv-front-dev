@@ -1,6 +1,6 @@
 import Title from '@/components/ui/Title';
 // import ProjectItem from '@/components/ui/ProjectItem';
-// import Tag from '@/components/ui/Tag';
+import Tag from '@/components/ui/Tag';
 import Marquee from '@/components/ui/Marquee';
 
 
