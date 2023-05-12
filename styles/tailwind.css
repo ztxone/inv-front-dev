@@ -16,13 +16,16 @@
 }
 
 .input {
-    @apply w-full py-5 px-7 bg-nero rounded-lr mb-2.5
+    @apply w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5
 }
 
 .footnote {
-    @apply font-interTight opacity-30
+    @apply font-interTight opacity-30 text-sm
 }
 
+.button-all {
+    @apply uppercase text-xl font-interTight text-blackRussian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px]
+=======
 .project-title {
     @apply text-xl tracking-tight pb-2.5 border-b
     border-black-russian inline-block mt-7
@@ -35,6 +38,7 @@
 
 .marquee {
     @apply text-6xl tracking-tight
+
 }
 
 .button-pagination {
@@ -52,3 +56,23 @@
 .pillow-link-svg {
     @apply w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-[48px]
 }
+.title-h3 {
+    @apply text-xl tracking-tight
+}
+
+.tag-text {
+    @apply text-blackRussian font-interTight uppercase font-medium text-xxs
+}
+
+.dot {
+    @apply bg-blackRussian rounded-full w-[4px] h-[4px] mr-[5px]
+}
+
+.button-round {
+    @apply rounded-full w-[37px] h-[37px] flex flex-col justify-center items-center text-white
+}
+
+.container {
+    @apply max-w-[1920px] w-full m-auto
+}
+

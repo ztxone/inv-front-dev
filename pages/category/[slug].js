@@ -1,6 +1,6 @@
 import Seo from "../../components/seo";
 import Layout from "../../components/layout";
-import Articles from "../../components/articles";
+import Projects from "@/components/pages/index/Projects";
 
 import { fetchAPI } from "../../lib/api";
 
@@ -11,12 +11,12 @@ const Category = ({ category, categories }) => {
   };
 
   return (
-    <Layout categories={categories.data}>
+    <Layout>
       <Seo seo={seo} />
       <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>{category.attributes.name}</h1>
-          <Articles articles={category.attributes.articles.data} />
+          <Projects projects={category.attributes.projects.data} />
         </div>
       </div>
     </Layout>
@@ -40,7 +40,7 @@ export async function getStaticProps({ params }) {
   const matchingCategories = await fetchAPI("/categories", {
     filters: { slug: params.slug },
     populate: {
-      articles: {
+      projects: {
         populate: "*",
       },
     },

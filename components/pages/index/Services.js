@@ -41,7 +41,7 @@ export default function Services({ services }) {
             subtitle=''
             descriptionItem1={service.attributes.description}
             descriptionItem2=''
-            link={service.attributes.image.data.attributes.url} />
+            link={service.attributes.image} />
 			))}
           {/* <ServiceItem
             title='Продуктовая'
