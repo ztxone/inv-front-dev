@@ -20,9 +20,11 @@ export default function Projects( {projects }) {
 				<Title text="® /. 22" variant='black'></Title>
 			  </div>
 
-			  {projects.length > 0 && (
+			  {/* {projects.length > 0 && (
+					{projects.map((project, i) => (<></>	))}
+					)} */}
 			  <ul className='pt-15 border-t border-black-russian md:pt-10 lg:grid grid-cols-2 gap-x-7 lg:pt-12'>
-				{projects.map((project, i) => (<></>	))}
+			
 				<ProjectItem name='Екатерининская улица Мурино'>
 				  {
 					<div className='aspect-[398/302] md:aspect-[805/483] overflow-hidden 
@@ -35,9 +37,9 @@ export default function Projects( {projects }) {
 					  </div>
 					  <div className='flex overflow-hidden pt-9 gap-2 md:justify-center'>
 						<Image className='rounded-l15 mr-[21px] md:mr-0' width='230' height='322'
-						  src='/image/content/murino-11.png' />
-						<Image className='rounded-l15' width='230' height='322' src='/image/content/murino-13.png' />
-						<Image className='rounded-l15' width='230' height='322' src='/image/content/murino-12.png' />
+						  src='/image/content/murino-11.png'  alt=""/>
+						<Image className='rounded-l15' width='230' height='322' src='/image/content/murino-13.png' alt=""/>
+						<Image className='rounded-l15' width='230' height='322' src='/image/content/murino-12.png'  alt=""/>
 					  </div>
 					</div>
 				  }
@@ -55,7 +57,7 @@ export default function Projects( {projects }) {
 					  </div>
 					  <div className='absolute top-0 bottom-0 left-0 right-0'>
 						<Image className='w-full h-full obj rounded-l15 object-cover' width='230'
-						  height='322' src='/image/content/time.png' />
+						  height='322' src='/image/content/time.png' alt="" />
 					  </div>
 					</div>
 				  }
@@ -68,7 +70,7 @@ export default function Projects( {projects }) {
 					<Tag text='3D анимация' />
 					<div className='h-[117px] absolute top-[50%] left-[50%] -translate-x-2/4 -translate-y-1/2
 					md:w-[216px] md:top-[45%]'>
-					  <Image src='/image/content/logo1.png'  width='610' height='440' className='w-[154px] h-[117px] md:w-full md:h-auto' />
+					  <Image src='/image/content/logo1.png'  width='610' height='440' className='w-[154px] h-[117px] md:w-full md:h-auto' alt="" />
 					</div>
 				  </div>
 				</ProjectItem>
@@ -82,7 +84,7 @@ export default function Projects( {projects }) {
 	
 					<div className='overflow-hidden rounded-l15 h-full'>
 					  <Image className='max-w-none h-full 
-					  md:w-full' width='610' height='440' src='/image/content/anniversary.png' />
+					  md:w-full' width='610' height='440' src='/image/content/anniversary.png'  alt=""/>
 					</div>
 				  </div>
 				</ProjectItem>
@@ -96,7 +98,7 @@ export default function Projects( {projects }) {
 					</div>
 					<div className='self-end overflow-hidden aspect-[336/280] pt-9
 					md:aspect-[635/527] md:self-center md:w-full'>
-					  <Image className='w-full h-full' width='635' height='527' src='/image/content/ptz.png' />
+					  <Image className='w-full h-full' width='635' height='527' src='/image/content/ptz.png'  alt=""/>
 					</div>
 				  </div>
 				</ProjectItem>
@@ -109,12 +111,12 @@ export default function Projects( {projects }) {
 					  <Tag text='3D анимация' />
 					</div>
 					<div className='self-center aspect-square md:m-auto'>
-					  <Image width='420' height='420' src='/image/content/meatbrothers.png' />
+					  <Image width='420' height='420' src='/image/content/meatbrothers.png'  alt=""/>
 					</div>
 				  </div>
 				</ProjectItem>
 			  </ul>
-			  )}
+
 
 			  <div className='text-center pb-9 md:flex md:flex-col md:items-center md:pt-5
 			  lg:pt-20'>
