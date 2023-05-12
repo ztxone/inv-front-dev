@@ -3,7 +3,7 @@ export default function Nav() {
     <nav className='hidden lg:block lg:mr-auto'>
       <ul className='flex items-center justify-between'>
         <li>
-          <a href='about.html' className='p-5'>О&nbsp;студии</a>
+          <a href='/about' className='p-5'>О&nbsp;студии</a>
         </li>
         <li>
           <a href='services' className='p-5 flex items-center'>Услуги
@@ -25,10 +25,10 @@ export default function Nav() {
           </ul>
         </li>
         <li>
-          <a href='works' className='p-5'>Портфолио</a>
+          <a href='/works' className='p-5'>Портфолио</a>
         </li>
         <li>
-          <a href='contacts' className='p-5'>Контакты</a>
+          <a href='/contacts' className='p-5'>Контакты</a>
         </li>
       </ul>
     </nav>
