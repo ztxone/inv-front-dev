@@ -24,11 +24,11 @@
 }
 
 .button-all {
-    @apply uppercase text-xl font-interTight text-blackRussian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px]
-=======
+    @apply uppercase text-xl font-interTight text-black-russian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px]
+}
 .project-title {
     @apply text-xl tracking-tight pb-2.5 border-b
-    border-black-russian inline-block mt-7
+     inline-block mt-7
 }
 
 
@@ -61,11 +61,11 @@
 }
 
 .tag-text {
-    @apply text-blackRussian font-interTight uppercase font-medium text-xxs
+    @apply text-black-russian font-interTight uppercase font-medium text-xxs
 }
 
 .dot {
-    @apply bg-blackRussian rounded-full w-[4px] h-[4px] mr-[5px]
+    @apply bg-black-russian rounded-full w-[4px] h-[4px] mr-[5px]
 }
 
 .button-round {
