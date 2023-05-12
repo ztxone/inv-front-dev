@@ -25,6 +25,20 @@
 
 .button-all {
     @apply uppercase text-xl font-interTight text-blackRussian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px]
+=======
+.project-title {
+    @apply text-xl tracking-tight pb-2.5 border-b
+    border-black-russian inline-block mt-7
+}
+
+
+.button-all {
+    @apply uppercase text-xl font-interTight text-black-russian py-4.5 flex items-center justify-center border-1 w-full rounded-lr
+}
+
+.marquee {
+    @apply text-6xl tracking-tight
+
 }
 
 .button-pagination {
@@ -42,8 +56,6 @@
 .pillow-link-svg {
     @apply w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-[48px]
 }
-
-
 .title-h3 {
     @apply text-xl tracking-tight
 }
@@ -63,3 +75,4 @@
 .container {
     @apply max-w-[1920px] w-full m-auto
 }
+
