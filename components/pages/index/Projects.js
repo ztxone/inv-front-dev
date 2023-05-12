@@ -5,7 +5,7 @@ import ProjectItem from '@/components/ui/ProjectItem';
 import Tag from '@/components/ui/Tag';
 import Marquee from '@/components/ui/Marquee';
 
-export default function Projects( {projects }) {
+export default function Projects( {projects, moreProjects = false }) {
 	return (
 		<section className='bg-whisper rounded-5xl pb-7 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl'>
 		  <div className='container'>
@@ -117,7 +117,7 @@ export default function Projects( {projects }) {
 				</ProjectItem>
 			  </ul>
 
-
+			  {moreProjects && (
 			  <div className='text-center pb-9 md:flex md:flex-col md:items-center md:pt-5
 			  lg:pt-20'>
 				<p className='font-interTight font-semibold text-6xl text-black opacity-5
@@ -128,6 +128,7 @@ export default function Projects( {projects }) {
 				  <span className='bg-royal-blue rounded-full w-[37px] h-[37px] flex 
 			  justify-center items-center text-white ml-5'>&#8250;</span></button>
 			  </div>
+			  )}
 			</div>
 		  </div>
 		  <Marquee item1='Визуализация^' item2='Motion*' item3='3D моделирование' />
