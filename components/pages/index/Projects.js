@@ -27,36 +27,34 @@ export default function Projects({projects, moreProjects=false}) {
           <ul className='pt-15 border-t border-black-russian md:pt-10 lg:grid grid-cols-2 gap-x-7 lg:pt-12'>
 
             <ProjectItem name='Екатерининская улица Мурино'>
-              <Tag text='3D анимация' />
-              <Tag text='МОДЕЛИРОВАНИЕ' />
-              <ProjectItemImage link='/image/content/murino-14.png' width='398' height='302' />
+              <Tag text1='3D анимация' text2='МОДЕЛИРОВАНИЕ' />
+              <ProjectItemImage link='/image/content/murino-14.png' width='398' height='302' variant='imageBlock' />
             </ProjectItem>
 
 
             <ProjectItem name='Жилой комплекс «ТАЙМ»'>
-              <Tag text='3D анимация' />
-              <Tag text='МОДЕЛИРОВАНИЕ' />
-              <ProjectItemImage link='/image/content/time.png' width='398' height='557' />
+              <Tag text1='3D анимация' text2='МОДЕЛИРОВАНИЕ' />
+              <ProjectItemImage link='/image/content/time.png' width='398' height='557' variant='imageBlock' />
             </ProjectItem>
 
             <ProjectItem name='3D презентация ЖК «АВИАТОР»' color='bg-cornflower-blue'>
-              <Tag text='3D анимация' />
-              <ProjectItemImage link='/image/content/logo1.png' width='154' height='120' />
+              <Tag text1='3D анимация' text2='' />
+              <ProjectItemImage link='/image/content/logo1.png' width='154' height='120' variant='centerImage' />
             </ProjectItem>
 
             <ProjectItem name='Агрохолдинг «ЮБИЛЕЙНЫЙ»'>
-              <Tag text='3D анимация' />
-              <ProjectItemImage link='/image/content/anniversary.png' width='610' height='440' />
+              <Tag text1='3D анимация' text2='' />
+              <ProjectItemImage link='/image/content/anniversary.png' width='610' height='440' variant='imageBlock' />
             </ProjectItem>
 
             <ProjectItem name='Конвейер ПТЗ' color='bg-gulf-blue'>
-              <Tag text='3D анимация' />
-              <ProjectItemImage link='/image/content/ptz.png' width='635' height='527' />
+              <Tag text1='3D анимация' text2='' />
+              <ProjectItemImage link='/image/content/ptz.png' width='635' height='527' variant='centerImage' />
             </ProjectItem>
 
             <ProjectItem name='Рекламный ролик «MEATBROTHERS»' color='bg-baker-chocolate'>
-              <Tag text='3D анимация' />
-              <ProjectItemImage link='/image/content/meatbrothers.png' width='420' height='420' />
+              <Tag text1='3D анимация' text2='' />
+              <ProjectItemImage link='/image/content/meatbrothers.png' width='420' height='420' variant='centerImage' />
             </ProjectItem>
           </ul>
 
