@@ -3,10 +3,13 @@ export default function Nav() {
     <nav className='hidden lg:block lg:mr-auto'>
       <ul className='flex items-center justify-between'>
         <li>
-          <a href='/about' className='p-5'>О&nbsp;студии</a>
+          <a href='/about' className='p-5'>
+            О&nbsp;студии
+          </a>
         </li>
         <li>
-          <a href='services' className='p-5 flex items-center'>Услуги
+          <a href='services' className='p-5 flex items-center'>
+            Услуги
             <svg
               className='fill-gray ml-2.5'
               xmlns='http://www.w3.org/2000/svg'
@@ -18,17 +21,21 @@ export default function Nav() {
             </svg>
           </a>
           <ul className='hidden'>
-            <li >Архитектурная 3D визуализация</li>
+            <li>Архитектурная 3D визуализация</li>
             <li>Продуктовая 3D визуализация</li>
             <li>Моушн & Видеопродакшн</li>
             <li>3D моделирование</li>
           </ul>
         </li>
         <li>
-          <a href='/works' className='p-5'>Портфолио</a>
+          <a href='/works' className='p-5'>
+            Портфолио
+          </a>
         </li>
         <li>
-          <a href='/contacts' className='p-5'>Контакты</a>
+          <a href='/contacts' className='p-5'>
+            Контакты
+          </a>
         </li>
       </ul>
     </nav>
