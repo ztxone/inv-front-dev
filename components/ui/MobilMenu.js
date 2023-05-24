@@ -1,32 +1,50 @@
 import NavItem from './NavItem';
 import Logo from './Logo';
 import PillowLink from './PillowLink';
-import { useState } from "react";
+import {useState} from 'react';
 
 export default function MobilMenu({onClose}) {
-  const [isNavOpen, setIsNavOpen]=useState(false); 
-  
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
-    <div className={`flex flex-col z-10 absolute top-0 left-0 right-0 bg-white px-3.8 pt-6 pb-10 lg:hidden`} onClick={onClose}>
-      <Logo color='black'/>
-      <div onClick={() => setIsNavOpen(false)} >
-        <div className='absolute top-0 right-0 px-8 py-8'>
-          <svg
-            className='h-8 w-8 text-black'
-            viewBox='0 0 24 24'
-            fill='none'
-            stroke='currentColor'
-            strokeWidth='2'
-            strokeLinecap='round'
-            strokeLinejoin='round'
-          >
-            <line x1='18' y1='6' x2='6' y2='18' />
-            <line x1='6' y1='6' x2='18' y2='18' />
-          </svg>
+    <div
+      className={`flex flex-col z-10 absolute top-0 left-0 right-0 bg-white pt-6 pb-10 px-3.8 lg:hidden`}
+      onClick={onClose}
+    >
+      <div className='flex justify-between items-center pb-7 color-black'>
+        <Logo color='black' />
+        <div onClick={() => setIsNavOpen(false)}>
+          <div className=''>
+            <svg
+              width='40'
+              height='40'
+              viewBox='0 0 40 40'
+              fill='none'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <g clip-path='url(#clip0_307_5508)'>
+                <path
+                  d='M9.57031 9.82019L30.43 30.6798'
+                  stroke='black'
+                  stroke-width='1.5'
+                />
+                <path
+                  d='M30.4297 9.82019L9.57004 30.6798'
+                  stroke='black'
+                  stroke-width='1.5'
+                />
+              </g>
+              <defs>
+                <clipPath id='clip0_307_5508'>
+                  <rect width='40' height='40' fill='white' />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
         </div>
       </div>
-      
-      <nav >
+
+      <nav className='pt-5 border-b border-eclipse border-opacity-20'>
         <ul className='flex flex-col'>
           <li>
             <NavItem text='О студии' link='/about' />
@@ -48,14 +66,14 @@ export default function MobilMenu({onClose}) {
           </li>
         </ul>
       </nav>
-      <div className='hidden md:flex items-center'>
+      <div className='flex justify-between pt-25'>
+        <PillowLink text='Оставить заявку' link='#' variant='white' />
         <a
           href='tel:+78129092533'
-          className='p-2.5 mr-9 tracking-tight  hover:text-suva-grey'
+          className='p-2.5 tracking-tight text-black  hover:text-suva-grey'
         >
           8&nbsp;812&nbsp;909&nbsp;25&nbsp;33
         </a>
-        <PillowLink text='Отправить заявку' link='#' variant='white' />
       </div>
     </div>
   );

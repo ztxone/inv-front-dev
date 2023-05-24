@@ -49,13 +49,13 @@
     @apply duration-100 transition-all ease-in
 }
 
-.pillow-link {
+/* .pillow-link {
     @apply text-base tracking-tight pl-[24px] py-[4px] pr-[4px] w-max flex justify-center items-center rounded-6xl
 }
 
 .pillow-link-svg {
-    @apply w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-[48px]
-}
+    @apply w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-[48px] */
+/* } */
 .title-h3 {
     @apply text-xl tracking-tight
 }
