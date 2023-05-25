@@ -2,6 +2,8 @@ import NavItem from './NavItem';
 import Logo from './Logo';
 import PillowLink from './PillowLink';
 import {useState} from 'react';
+import NavItemAccordion from './NavItemAccordion';
+import NavSubItem from './NavSubItem';
 
 export default function MobilMenu({onClose}) {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -46,24 +48,10 @@ export default function MobilMenu({onClose}) {
 
       <nav className='pt-5 border-b border-eclipse border-opacity-20'>
         <ul className='flex flex-col'>
-          <li>
             <NavItem text='О студии' link='/about' />
-          </li>
-          <li>
-            <NavItem text='Услуги' link='services' />
-            <ul className='hidden'>
-              <li>Архитектурная 3D визуализация</li>
-              <li>Продуктовая 3D визуализация</li>
-              <li>Моушн & Видеопродакшн</li>
-              <li>3D моделирование</li>
-            </ul>
-          </li>
-          <li>
+            <NavItemAccordion text='Услуги'/>
             <NavItem text='Портфолио' link='/works' />
-          </li>
-          <li>
             <NavItem text='Контакты' link='/contacts' />
-          </li>
         </ul>
       </nav>
       <div className='flex justify-between pt-25'>

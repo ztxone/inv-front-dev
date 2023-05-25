@@ -3,7 +3,8 @@ import ServiceItem from '@/components/ui/ServiceItem';
 import PillowLink from '@/components/ui/PillowLink';
 
 
-export default function Services({ services }) {
+
+export default function Services({services}) {
   return (
     <section className='px-4 pt-10 pb-[4.5rem]
     -mt-50 
@@ -32,18 +33,18 @@ export default function Services({ services }) {
         </div>
 
         <div className='lg:flex'>
-		{console.log(services)}
-		{services.map((service, i) => (
-			
-          <ServiceItem
-		    key={i}
-            title={service.attributes.name}
-            subtitle=''
-            descriptionItem1={service.attributes.text}
-            descriptionItem2=''
-            image={service.attributes.image} />
-			
-			))}
+          {console.log(services)}
+          {services.map((service, i) => (
+
+            <ServiceItem
+              key={i}
+              title={service.attributes.name}
+              subtitle=''
+              descriptionItem1={service.attributes.text}
+              descriptionItem2=''
+              image={service.attributes.image} />
+
+          ))}
           {/* <ServiceItem
             title='Продуктовая'
             subtitle='3D визуализация'

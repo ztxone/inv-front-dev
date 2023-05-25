@@ -5,11 +5,13 @@ import ProjectItem from '@/components/ui/ProjectItem';
 import Tag from '@/components/ui/Tag';
 import Marquee from '@/components/ui/Marquee';
 import ProjectItemImage from '@/components/ui/ProjectItemImage';
+import NavItemAccordion from '@/components/ui/NavItemAccordion';
 
 export default function Projects({projects, moreProjects=false}) {
   return (
     <section className='bg-whisper rounded-5xl pb-7 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl'>
       <div className='container'>
+      <NavItemAccordion text='Услуги'/>
         <div className='px-3.8 lg:px-24.5 lg:pb-20'>
           <div className='flex flex-wrap justify-between lg:items-center lg:flex-nowrap lg:gap-20 lg:pb-[26px]'>
             <Title text="/ Проекты" variant='black'></Title>
