@@ -1,3 +1,5 @@
+import NavSubItem from './NavSubItem';
+
 export default function Nav() {
   return (
     <nav className='hidden lg:block lg:mr-auto'>
@@ -7,24 +9,22 @@ export default function Nav() {
             О&nbsp;студии
           </a>
         </li>
-        <li>
-          <a href='services' className='p-5 flex items-center'>
+        <li className='group relative'>
+          <p className='p-5 flex items-center cursor-pointer'>
             Услуги
             <svg
-              className='fill-gray ml-2.5'
+              className='w-[10px] ml-[8px] group-hover:rotate-180'
               xmlns='http://www.w3.org/2000/svg'
-              width='10'
-              height='5'
-              viewBox='0 0 10 5'
+              viewBox='0 0 10 7'
             >
-              <path fillRule='evenodd' clipRule='evenodd' d='m0 0 5 5 5-5H0Z' />
+              <path d='m1 1.3 4 4 4-4' stroke='#fff' />
             </svg>
-          </a>
-          <ul className='hidden'>
-            <li>Архитектурная 3D визуализация</li>
-            <li>Продуктовая 3D визуализация</li>
-            <li>Моушн & Видеопродакшн</li>
-            <li>3D моделирование</li>
+          </p>
+          <ul className='hidden group-hover:block absolute left-8 min-w-[300px] min-h-[150px] bg-white rounded-[2px] p-6'>
+            <NavSubItem link='#' text='Архитектурная 3D визуализация'/>
+            <NavSubItem link='#' text='Продуктовая 3D визуализация'/>
+            <NavSubItem link='#' text='Моушн & Видеопродакшн'/>
+            <NavSubItem link='#' text='3D моделирование'/>
           </ul>
         </li>
         <li>
