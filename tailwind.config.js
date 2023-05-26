@@ -53,7 +53,7 @@ module.exports = {
       xs: ['0.75rem', {lineHeight: '1rem'}], //12px
       sm: ['0.875rem', {lineHeight: '1.25rem'}], //14px
       sl: ['0.9375rem', {lineHeight: '1.25rem'}], //14px
-      base: ['1rem', {lineHeight: '1.5625rem'}],//15px
+      base: ['1rem', {lineHeight: '1.5625rem'}], //15px
       // lg: ['1.125rem', {lineHeight: '1.75rem'}],
       lg: ['1.125rem', {lineHeight: '1.375rem'}], //18px
       xl: ['1.25rem', {lineHeight: '1.5rem'}], //20px
@@ -220,7 +220,7 @@ module.exports = {
       0.5: '0.125rem',
       0.7: '0.1875rem',
       1: '0.25rem',
-      1.5: '0.375rem',
+      1.5: '0.375rem', //6px
       2: '0.5rem',
       2.5: '0.625rem', //10px
       3: '0.75rem',
@@ -303,7 +303,5 @@ module.exports = {
       fit: 'fit-content',
     }),
   },
-  plugins: [
-    require('flowbite/plugin'),
-  ],
+  plugins: [require('flowbite/plugin')],
 };

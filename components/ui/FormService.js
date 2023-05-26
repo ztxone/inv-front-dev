@@ -13,11 +13,10 @@ export default function FormService() {
     >
       <TitleH3 text='Оставить заявку' subtext='на консультацию' />
       <fieldset className='lg:grid grid-cols-3  items-center'>
-      <FormInput type='text' placeholder='Имя' />
-      <FormInput type='tel' placeholder='Телефон*' />
-      <FormButton text='Отправить' />
+        <FormInput type='text' placeholder='Имя' />
+        <FormInput type='tel' placeholder='Телефон*' />
+        <FormButton text='Отправить' />
       </fieldset>
-
     </form>
   );
 }
