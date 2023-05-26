@@ -33,7 +33,7 @@ export default function Services({services}) {
         </div>
 
         <div className='lg:flex'>
-          {console.log(services)}
+          {/*console.log(services)*/}
           {services.map((service, i) => (
 
             <ServiceItem

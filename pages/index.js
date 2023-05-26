@@ -13,7 +13,7 @@ const Home=({projects, services}) => {
     document.body.classList.add("text-white");
   })
 
-  console.log(projects);
+  //console.log(projects);
 
   return (
     <Layout >

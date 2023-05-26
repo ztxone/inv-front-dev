@@ -5,7 +5,7 @@ import {Accordion} from 'flowbite-react';
 export default function NavItemAccordion({text}) {
 
   return (
-    <Accordion alwaysOpen={true} flush={true} className='border-t border-eclipse'>
+    <Accordion alwaysOpen={false} flush={true} className='border-t border-eclipse'>
       <Accordion.Panel>
         <Accordion.Title className='p-0'>
           <p className='px-0 text-1xl text-black tracking-tight flex justify-between'>

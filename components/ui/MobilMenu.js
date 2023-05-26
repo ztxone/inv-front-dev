@@ -1,21 +1,17 @@
 import NavItem from './NavItem';
 import Logo from './Logo';
 import PillowLink from './PillowLink';
-import {useState} from 'react';
 import NavItemAccordion from './NavItemAccordion';
-import NavSubItem from './NavSubItem';
 
 export default function MobilMenu({onClose}) {
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
+  
   return (
     <div
       className={`flex flex-col z-10 absolute top-0 left-0 right-0 bg-white pt-6 pb-10 px-3.8 lg:hidden`}
-      onClick={onClose}
     >
       <div className='flex justify-between items-center pb-7 color-black'>
         <Logo color='black' />
-        <div onClick={() => setIsNavOpen(false)}>
+        <div onClick={onClose} className='cursor-pointer'>
           <div className=''>
             <svg
               width='40'
@@ -24,16 +20,16 @@ export default function MobilMenu({onClose}) {
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
             >
-              <g clip-path='url(#clip0_307_5508)'>
+              <g clipPath='url(#clip0_307_5508)'>
                 <path
                   d='M9.57031 9.82019L30.43 30.6798'
                   stroke='black'
-                  stroke-width='1.5'
+                  strokeWidth='1.5'
                 />
                 <path
                   d='M30.4297 9.82019L9.57004 30.6798'
                   stroke='black'
-                  stroke-width='1.5'
+                  strokeWidth='1.5'
                 />
               </g>
               <defs>
