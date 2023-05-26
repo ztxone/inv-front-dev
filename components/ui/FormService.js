@@ -1,38 +1,23 @@
 import TitleH3 from './TitleH3';
 import FormButton from './FormButton';
+import FormInput from './FormInput';
 
 export default function FormService() {
   return (
     <form
       action=''
       method='get'
-      className='pt-7 max-w-[562px] m-auto md:pt-10 lg:flex lg:max-w-none
-      flex-wrap justify-between items-start 
+      className='flex flex-col pt-7 max-w-[562px] m-auto items-center justify-center pb-2.5 md:pt-10 
+      lg:flex-nowrap lg:max-w-none 
       lg:px-10 lg:rounded-5xl lg:bg-nero2 lg:pb-[52px]'
     >
       <TitleH3 text='Оставить заявку' subtext='на консультацию' />
-      <input
-        className='input lg:w-[31.5%] lg:mr-7'
-        type='text'
-        placeholder='Имя'
-      />
-      <input
-        className='input lg:w-[33.5%] lg:mr-7'
-        type='tel'
-        placeholder='Телефон*'
-      />
+      <fieldset className='lg:grid grid-cols-3  items-center'>
+      <FormInput type='text' placeholder='Имя' />
+      <FormInput type='tel' placeholder='Телефон*' />
+      <FormButton text='Отправить' />
+      </fieldset>
 
-          <div className='mt-7 md:flex items-center md:py-5 md:mt-0 lg:w-[30%] lg:py-0 lg:items-start'>
-              <FormButton text='Отправить'/>
-        <p
-          className='footnote w-10/12 mt-5 md:mt-0 md:w-2/4
-          lg:w-auto lg:text-xs'
-        >
-          нажимая на кнопку &laquo;Отправить&raquo;, вы&nbsp;соглашаетесь
-          на&nbsp;
-          <span className='underline'>обработку персональных данных</span>
-        </p>
-      </div>
     </form>
   );
 }
