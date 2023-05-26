@@ -4,7 +4,6 @@ import Language from "./ui/Language";
 import Burger from "./ui/Burger";
 import MobilMenu from './ui/MobilMenu';
 import {useState} from "react";
-import DesktopMenu from './ui/DesktopMenu';
 import Nav from './ui/Nav';
 import Order from './ui/Order';
 
