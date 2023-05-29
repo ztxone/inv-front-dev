@@ -7,7 +7,7 @@ export default function MobilMenu({onClose}) {
   
   return (
     <div
-      className={`flex flex-col z-10 absolute top-0 left-0 right-0 bg-white pt-6 pb-10 px-3.8 lg:hidden`}
+      className={`flex flex-col z-10 absolute top-0 left-0 right-0 bg-white pt-[24px] pb-5 px-3.8 lg:hidden`}
     >
       <div className='flex justify-between items-center pb-7 color-black'>
         <Logo color='black' />

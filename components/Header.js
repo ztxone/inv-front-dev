@@ -11,7 +11,7 @@ export default function Header() {
   const [isNavOpen, setIsNavOpen]=useState(false); 
 
   return (
-    <header className="py-6 px-4 border-b border-eclipse text-white md:py-[17px] md:px-3.8 lg:py-10 relative">
+    <header className="pt-[24px] pb-5 px-4 border-b border-eclipse text-white md:py-[17px] md:px-3.8 lg:py-10 relative">
       <div className="mx-auto flex justify-between items-center  md:px-0 lg:max-w-[1746px]">
         <Logo color='white'/>
         <Language />
