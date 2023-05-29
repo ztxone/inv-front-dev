@@ -13,7 +13,7 @@ export default function Services({services}) {
     xl:px-20'
     >
       <div className='container'>
-        <div className='flex items-center pb-15 md:pb-9 lg:mb-33'>
+        <div className='flex items-center pb-15 md:pb-9 lg:mb-24.5'>
           <svg className='mr-5' width='30' height='30' viewBox='0 0 30 30'>
             <path
               d='M13.125 30L13.125 -1.63918e-07L16.875
@@ -39,7 +39,7 @@ export default function Services({services}) {
           </svg>
           <Title text='Основные услуги' />
           <div className='hidden lg:block ml-auto'>
-            <PillowLink text='Все услуги' link='#' />
+            <PillowLink text='Все услуги' link='#' variant = 'dark' variantSvg = 'whiteSvg'/>
           </div>
         </div>
 

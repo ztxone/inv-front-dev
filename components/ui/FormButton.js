@@ -1,7 +1,7 @@
 export default function FormButton({text}) {
   return (
     <div className='pt-7 md:flex items-center 
-    md:py-3.8  lg:w-[30%] lg:py-0 lg:items-start'>
+    md:py-3.8  lg:w-1/3 lg:py-0'>
       <button
         type='submit'
         className='w-[220px] flex items-center justify-between
@@ -22,7 +22,7 @@ export default function FormButton({text}) {
       </button>
       <p
           className='footnote w-10/12 mt-5 md:mt-0 md:w-2/4
-          lg:w-auto lg:text-xs leading-4'
+          lg:w-auto lg:text-xs leading-4 lg:items-center cursor-pointer'
         >
           нажимая на кнопку &laquo;Отправить&raquo;, вы&nbsp;соглашаетесь
           на&nbsp;

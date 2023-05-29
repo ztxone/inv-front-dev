@@ -105,6 +105,7 @@ module.exports = {
         '5xl': '1.875rem', //30px
         '6xl': '2.5625rem', //41px
         '7xl': '3.125rem', //50px
+        '8xl': '3.75rem', //60px
         full: '9999px',
       },
       animation: {
