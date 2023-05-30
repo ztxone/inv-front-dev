@@ -9,7 +9,8 @@ export default function About() {
     >
       <div className='container lg:grid lg:grid-cols-[2fr, 1fr] lg:grid-rows-2 gap-5'>
         <h2 className='text-4xl tracking-tight mb-[116px] flex flex-wrap items-baseline md:text-6xl xl:text-7.5xl md:mb-15
-        lg:justify-between lg:max-w-[887px]'>
+        lg:justify-between lg:max-w-[887px]
+        lg:gap-4'>
           <span className='w-full mb-4.5
           lg:mb-0'>Креативный продакшн</span>
           <svg className='text-royal-blue mr-2.5
