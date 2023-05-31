@@ -7,10 +7,6 @@
     src: url("../public/fonts/InterTight-Regular.woff2");
 }
 
-/* .services-card {
-    @apply w-full h-[600px] mb-2.5 pt-9 px-9 rounded-5xl
-} */
-
 .description {
     @apply font-interTight text-lg flex flex-col
 }
@@ -32,9 +28,9 @@
 }
 
 
-.button-all {
+/* .button-all {
     @apply uppercase text-xl font-interTight text-black-russian py-4.5 flex items-center justify-center border-1 w-full rounded-lr
-}
+} */
 
 /* .marquee {
     @apply text-6xl tracking-tight
