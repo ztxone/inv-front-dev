@@ -28,13 +28,13 @@ export default function Projects({projects, moreProjects=false}) {
 					)} */}
           <ul className='pt-15 border-t border-black-russian md:pt-10 lg:grid grid-cols-2 gap-x-7 lg:pt-12'>
 
-            <ProjectItem name='Екатерининская улица Мурино' asp='aspect-[398/302]' aspTab='aspect-[805/483]'>
+            <ProjectItem name='Екатерининская улица Мурино' asp='aspect-[398/302]' aspTab='aspect-[805/483]' aspDesktop='aspect-[858/483]'>
               <Tag text1='3D анимация' text2='МОДЕЛИРОВАНИЕ' />
               <ProjectItemImage link='/image/content/murino-14.png' width='398' height='302' variant='imageBlock' />
             </ProjectItem>
 
 
-            <ProjectItem name='Жилой комплекс «ТАЙМ»'>
+            <ProjectItem name='Жилой комплекс «ТАЙМ»' asp='aspect-[398/557]' aspTab='aspect-[804/858]' aspDesktop='aspect-[858/483]'>
               <Tag text1='3D анимация' text2='МОДЕЛИРОВАНИЕ' />
               <ProjectItemImage link='/image/content/time.png' width='398' height='557' variant='imageBlock' />
             </ProjectItem>
