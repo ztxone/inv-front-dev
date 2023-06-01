@@ -4,9 +4,11 @@ import Layout from '../components/layout';
 // import Projects from '../components/pages/index/Projects';
 import Intro from '@/components/pages/about/Intro';
 import {useLayoutEffect} from 'react';
+import Projects from '../components/pages/index/Projects';
+import Blog from '@/components/pages/index/Blog';
 
 
-export default function About({}) {
+export default function About({projects}) {
   useLayoutEffect(() => {
     document.body.classList.add('bg-whisper');
     document.body.classList.add('text-black-russian');
@@ -14,7 +16,9 @@ export default function About({}) {
   return (
     <Layout>
           <div className='mx-auto'>
-           <Intro/> 
+        <Intro /> 
+        <Projects projects={projects} moreProjects={true} />
+        <Blog />
       </div>
     </Layout>
   );
