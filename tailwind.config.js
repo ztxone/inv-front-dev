@@ -54,7 +54,7 @@ module.exports = {
       xs: ['0.75rem', {lineHeight: '1rem'}], //12px
       sm: ['0.875rem', {lineHeight: '1.25rem'}], //14px
       sl: ['0.9375rem', {lineHeight: '1.25rem'}], //14px
-      base: ['1rem', {lineHeight: '1.5625rem'}], //15px
+      base: ['1rem', {lineHeight: '1.5625rem'}], //16px
       // lg: ['1.125rem', {lineHeight: '1.75rem'}],
       lg: ['1.125rem', {lineHeight: '1.375rem'}], //18px
       xl: ['1.25rem', {lineHeight: '1.5rem'}], //20px

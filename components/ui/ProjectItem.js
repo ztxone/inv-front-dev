@@ -13,3 +13,6 @@ export default function ProjectItem({name, asp='aspect-[398/300]', aspTab='aspec
     </li>
   )
 }
+// url('/image/content/video.png')
+// bg-[url('/image/content/video.png')]
+// bg-[url('/image/content/video.png')]

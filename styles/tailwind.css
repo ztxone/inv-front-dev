@@ -2,10 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@font-face {
+/* @font-face {
     font-family: "Inter Tight";
     src: url("../public/fonts/InterTight-Regular.woff2");
-}
+} */
 
 .description {
     @apply font-interTight text-lg flex flex-col
@@ -45,9 +45,9 @@
     @apply duration-100 transition-all ease-in
 }
 
-.title-h3 {
+/* .title-h3 {
     @apply text-xl tracking-tight
-}
+} */
 
 .tag-text {
     @apply text-black-russian font-interTight uppercase font-medium text-xxs
