@@ -1,6 +1,6 @@
 const darkClasses = 'bg-nero text-white hover:text-black hover:bg-white';
 const whiteClasses = 'text-black bg-white hover:text-white hover:bg-nero border-black';
-const darkClassesSvg = ' bg-blue';
+const darkClassesSvg = ' bg-royal-blue text-white';
 const whiteClassesSvg = 'bg-white text-black group-hover:bg-royal-blue group-hover:text-white';
 
 export default function PillowLink({

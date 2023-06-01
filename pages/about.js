@@ -2,7 +2,7 @@ import React from 'react';
 import Layout from '../components/layout';
 // import {fetchAPI} from "../lib/api";
 // import Projects from '../components/pages/index/Projects';
-import Intro from '@/components/ui/Intro';
+import Intro from '@/components/pages/about/Intro';
 import {useLayoutEffect} from 'react';
 
 

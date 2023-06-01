@@ -8,6 +8,9 @@ module.exports = {
     'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
+    backgroundPosition: {
+      'right-top-30': 'top right 30%',
+    },
     colors: {
       'body-bg': '#e9e9e9',
       'baker-chocolate': '#593B0F',
