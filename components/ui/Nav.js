@@ -2,7 +2,7 @@ import NavSubItem from './NavSubItem';
 
 export default function Nav() {
   return (
-    <nav className='hidden lg:block lg:mr-auto'>
+    <nav className='hidden lg:block lg:mr-auto text-inherit'>
       <ul className='flex items-center justify-between'>
         <li>
           <a href='/about' className='p-5'>

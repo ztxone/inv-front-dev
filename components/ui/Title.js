@@ -1,4 +1,4 @@
-const textWhite='text-white lg:text-6xl';
+const textWhite='text-inherit lg:text-6xl';
 const textBlack='text-black lg:text-7xl';
 
 export default function Title({text, variant='white', subtext=''}) {

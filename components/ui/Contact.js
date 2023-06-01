@@ -4,7 +4,7 @@ import Logo from './Logo';
 export default function Contact() {
   return (
     <div className='pb-15 px-3.8'>
-      <ul className='flex flex-wrap pb-10 text-white text-lg items-center md:justify-between md:w-9/12
+      <ul className='flex flex-wrap pb-10 text-inherit text-lg items-center md:justify-between md:w-9/12
       md:ml-2.5 lg:items-start lg:flex-col lg:w-full'>
         <li className='w-full mt-7 mb-10 lg:mt-0'>
           <a href="#" className='tracking-[-0.036em] text-lg opacity-50 flex items-start w-full'>

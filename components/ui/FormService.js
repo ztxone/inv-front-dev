@@ -9,7 +9,7 @@ export default function FormService() {
       method='get'
       className='flex flex-col pt-7 max-w-[562px] m-auto items-center justify-center pb-2.5 md:pt-10 
       lg:flex-nowrap lg:max-w-none 
-      lg:px-10 lg:rounded-5xl lg:bg-nero2 lg:pb-[52px]
+      lg:px-10 lg:rounded-5xl lg:pb-[52px]
       lg:mt-5'
     >
       <TitleH3 text='Оставить заявку' subtext='на&#160;консультацию' />
