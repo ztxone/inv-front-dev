@@ -1,18 +1,27 @@
 import React from "react";
-import Articles from "../components/articles";
 import Layout from "../components/layout";
-import Seo from "../components/seo";
-import { fetchAPI } from "../lib/api";
+import {fetchAPI} from "../lib/api";
+import About from '../components/pages/index/About';
+import Projects from '../components/pages/index/Projects';
+import Blog from '../components/pages/index/Blog';
+import {useLayoutEffect} from 'react';
+import Services from '@/components/pages/index/Services';
 
-const Home = ({ articles, categories, homepage }) => {
+const Home=({projects, services}) => {
+  useLayoutEffect(() => {
+    document.body.classList.add("bg-black");
+    document.body.classList.add("text-white");
+  })
+
+  //console.log(projects);
+
   return (
-    <Layout categories={categories}>
-      <Seo seo={homepage.attributes.seo} />
-      <div className="uk-section">
-        <div className="uk-container uk-container-large">
-          <h1>{homepage.attributes.hero.title}</h1>
-          {/*<Articles articles={articles} />*/}
-        </div>
+    <Layout >
+      <div className="mx-auto py-6">
+        <About />
+        <Services services={services} /> 
+        <Projects projects={projects} moreProjects={true}/>
+        <Blog />
       </div>
     </Layout>
   );
@@ -20,22 +29,30 @@ const Home = ({ articles, categories, homepage }) => {
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [articlesRes, categoriesRes, homepageRes] = await Promise.all([
-    fetchAPI("/articles", { populate: ["image", "category"] }),
-    fetchAPI("/categories", { populate: "*" }),
-    fetchAPI("/homepage", {
-      populate: {
-        hero: "*",
-        seo: { populate: "*" },
-      },
-    }),
+  const [projectsRes, servicesRes]=await Promise.all([
+
+    fetchAPI("/projects", {
+		sort: ['ListPosition:asc'],
+		populate: "*",
+		fields: ['title', 'Poster', 'slug'],
+		filters: {
+			ShowOnMainPage: true
+		}
+	}),
+	fetchAPI("/categories", { 
+		populate: "*",
+		fields: ['name', 'image', 'slug', 'text'],
+		filters: {
+			ShowOnMainPage: true
+		} 
+	})
+
   ]);
 
   return {
     props: {
-      articles: articlesRes.data,
-      categories: categoriesRes.data,
-      homepage: homepageRes.data,
+      projects: projectsRes.data,
+      services: servicesRes.data,
     },
     revalidate: 1,
   };
