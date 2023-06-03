@@ -4,19 +4,11 @@ import {fetchAPI} from "../lib/api";
 import About from '../components/pages/index/About';
 import Projects from '../components/pages/index/Projects';
 import Blog from '../components/pages/index/Blog';
-import {useLayoutEffect} from 'react';
 import Services from '@/components/pages/index/Services';
 
 const Home=({projects, services}) => {
-  useLayoutEffect(() => {
-    document.body.classList.add("bg-black");
-    document.body.classList.add("text-white");
-  })
-
-  //console.log(projects);
-
   return (
-    <Layout >
+    <Layout>
       <div className="mx-auto py-6">
         <About />
         <Services services={services} /> 
