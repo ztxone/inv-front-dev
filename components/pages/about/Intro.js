@@ -1,5 +1,5 @@
 import {Container} from 'postcss';
-import Title from '../../ui/Title';
+
 import BreadCrumbs from '../../ui/Breadcrumbs';
 // import Tag from './Tag';
 // import IntroButton from './IntroButton';
@@ -8,12 +8,13 @@ import IntroSlides from '../../ui/IntroSlides';
 import IntroDescription from '../../ui/IntroDescription';
 import IntroCost from '@/components/ui/IntroCost';
 import useTranslation from 'next-translate/useTranslation';
+import TitleSection from '@/components/ui/TitleSection';
 
 export default function Intro({info}) {
   const {t} = useTranslation('common');
   return (
-    <div className='container border-t border-light-grey pt-20 pb-15 px-3.8 lg:max-w-[1746px]'>
-      <Title text={info.attributes.Title} variant='white' />
+    <div className='container  px-3.8 lg:max-w-[1746px]'>
+      <TitleSection text={info.attributes.Title} />
       <BreadCrumbs
         item1='Главная'
         link1='/index'
