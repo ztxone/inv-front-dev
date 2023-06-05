@@ -8,11 +8,17 @@ import Projects from '../components/pages/index/Projects';
 import Blog from '@/components/pages/index/Blog';
 
 
-export default function About({projects}) {
+function useCreatePage(class1, class2, class3) {
   useLayoutEffect(() => {
-    document.body.classList.add('bg-whisper');
-    document.body.classList.add('text-black-russian');
-  });
+    document.body.classList.add(class1);
+    document.body.classList.add(class2);
+    document.body.classList.add(class3);
+  }, []);  
+}
+
+export default function About({projects}) {
+  useCreatePage('bg-whisper', 'text-black-russian', 'dark')
+
   return (
     <Layout>
           <div className='mx-auto'>

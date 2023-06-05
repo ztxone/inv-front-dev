@@ -6,7 +6,8 @@ export default function Blog() {
   return (
     <section className='pt-[68px] pb-[38px] 
     md:pb-20 md:pt-[72px]
-    lg:pt-[93px] lg:pb-20'>
+    lg:pt-[93px] lg:pb-20
+    dark:bg-black dark:text-white'>
       <div className='container'>
         <div className='flex justify-between px-3.8 pb-10 items-center
         md:pb-15 lg:px-20 lg:pb-20'>
