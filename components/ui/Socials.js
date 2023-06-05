@@ -1,12 +1,14 @@
 import SocialItem from './SocialItem';
 
-const whiteItem='bg-white fill-black'
-const blackItem='bg-nero  fill-white'
+export default function Socials({variant = 'black'}) {
+  const variantColor = {
+    white: 'bg-white fill-black',
+    black: 'bg-nero  fill-white',
+  };
 
-export default function Socials({variant='black'}) {
   return (
-    <ul className={`${variant==="black"? blackItem: whiteItem } flex py-1.5 px-2.5`}>
-      <SocialItem name='Youtube'>
+    <ul className='flex py-1.5 px-2.5'>
+      <SocialItem name='Youtube' color={variantColor[variant]}>
         <svg
           width='16'
           height='11'
@@ -29,7 +31,7 @@ export default function Socials({variant='black'}) {
           />
         </svg>
       </SocialItem>
-      <SocialItem name='Телеграмм'>
+      <SocialItem name='Телеграмм' color={variantColor[variant]}>
         <svg
           width='18'
           height='15'
@@ -46,7 +48,7 @@ export default function Socials({variant='black'}) {
           />
         </svg>
       </SocialItem>
-      <SocialItem name='WhatsApp'>
+      <SocialItem name='WhatsApp' color={variantColor[variant]}>
         <svg
           width='16'
           height='16'

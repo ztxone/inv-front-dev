@@ -3,6 +3,7 @@ import AddressText from './AddressText';
 import Socials from './Socials';
 
 export default function Address() {
+
   return (
     <div className='container  px-3.8 lg:max-w-[1746px] pt-5'>
       <AddressTitle title='адрес офиса' />
@@ -11,7 +12,7 @@ export default function Address() {
       <AddressText
         text='8 (812) 909-25-33 info@invert.studio '
       />
-      <Socials></Socials>
+      <Socials variant='white'></Socials>
     </div>
   );
 }
