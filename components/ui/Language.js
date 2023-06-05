@@ -1,9 +1,14 @@
+import setLanguage from 'next-translate/setLanguage';
+import useTranslation from 'next-translate/useTranslation';
+
+
 export default function Language() {
+	const i18n = useTranslation();
   return (
     <div className='flex flex-row items-center ml-auto pr-2.5 md:order-2 lg:order-none lg:ml-0
-     lg:mr-auto hover:text-suva-grey trans-default'>
-      <button type='button'>RU</button>
-      <button type='button' className='hidden lg:block ml-3.8'>
+     lg:mr-auto trans-default'>
+      <button type='button' onClick={async () => await setLanguage('ru')} className={`hover:text-suva-grey lg:block ${i18n.lang === 'en' ? ' mr-3.8' : ' text-suva-grey '}`}>RU</button>
+      <button type='button' onClick={async () => await setLanguage('en')} className={`hover:text-suva-grey lg:block ${i18n.lang === 'ru' ? ' ml-3.8' : ' text-suva-grey'}`}>
         EN
       </button>
       <svg

@@ -1,31 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/layout';
 // import {fetchAPI} from "../lib/api";
 // import Projects from '../components/pages/index/Projects';
+import {fetchAPI} from "lib/api";
 import Intro from '@/components/pages/about/Intro';
-import {useLayoutEffect} from 'react';
 import Projects from '../components/pages/index/Projects';
 import Blog from '@/components/pages/index/Blog';
+import useTranslation from 'next-translate/useTranslation';
 
+export default function About({projects, about}) {
 
-function useCreatePage(class1, class2, class3) {
-  useLayoutEffect(() => {
-    document.body.classList.add(class1);
-    document.body.classList.add(class2);
-    document.body.classList.add(class3);
-  }, []);  
-}
-
-export default function About({projects}) {
-  useCreatePage('bg-whisper', 'text-black-russian', 'dark')
+  const i18n = useTranslation();
+  const locale = i18n.lang;
+  //console.log( locale);
 
   return (
-    <Layout>
+    <Layout bg="grey">
           <div className='mx-auto'>
-        <Intro /> 
+        <Intro info={about}/> 
         <Projects projects={projects} moreProjects={true} />
         <Blog />
       </div>
     </Layout>
   );
 }
+
+export async function getStaticProps({ locale  }) {
+	
+	const [aboutRes]=await Promise.all([
+	  fetchAPI("/about", {
+		  populate: "*",
+		  locale: locale
+	  })  
+	]);
+  
+	return {
+	  props: {
+		about: aboutRes.data,
+	  },
+	  revalidate: 1,
+	};
+  }
+  
