@@ -7,12 +7,13 @@ import Intro from '@/components/pages/about/Intro';
 import Projects from '../components/pages/index/Projects';
 import Blog from '@/components/pages/index/Blog';
 import useTranslation from 'next-translate/useTranslation';
+import useDarkFooter from 'hooks/useDarkFooter';
 
 export default function About({projects, about}) {
 
   const i18n = useTranslation();
   const locale = i18n.lang;
-  //console.log( locale);
+  // useDarkFooter();
 
   return (
     <Layout bg="grey">
