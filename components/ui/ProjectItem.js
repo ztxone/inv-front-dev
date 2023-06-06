@@ -1,6 +1,7 @@
 export default function ProjectItem({name, children}) {
   return (
-    <li className='w-full pb-5 mb-10 lg:max-w-[858px] lg:mb-0 lg:pb-0'>
+    <div className='w-full pb-5 mb-2.5 
+    lg:mb-0 lg:pb-50'>
       {children}
       <h3
         className='text-xl text-black tracking-tight pb-[8px] border-b
@@ -9,6 +10,6 @@ export default function ProjectItem({name, children}) {
       >
         {name}
       </h3>
-    </li>
+    </div>
   );
 }

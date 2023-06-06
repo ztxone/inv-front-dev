@@ -7,24 +7,35 @@
     src: url("../public/fonts/InterTight-Regular.woff2");
 } */
 
+@layer utilities {
+  .masonry-lg {
+    column-gap: 1.5em;
+    column-count: 2;
+  }
+
+  .break-inside {
+    break-inside: avoid;
+  }
+}
+
 .description {
-    @apply font-interTight text-lg flex flex-col
+  @apply font-interTight text-lg flex flex-col
 }
 
 .input {
-    @apply w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5
+  @apply w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5
 }
 
 .footnote {
-    @apply font-interTight opacity-30 text-sm
+  @apply font-interTight opacity-30 text-sm
 }
 
 .button-all {
-    @apply uppercase text-xl font-interTight text-black-russian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px]
+  @apply uppercase text-xl font-interTight text-black-russian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px]
 }
+
 .project-title {
-    @apply text-xl tracking-tight pb-2.5 border-b
-     inline-block mt-7
+  @apply text-xl tracking-tight pb-2.5 border-b inline-block mt-7
 }
 
 
@@ -38,11 +49,11 @@
 } */
 
 .button-pagination {
-    @apply w-15 h-15 flex flex-col justify-center items-center rounded-lr border opacity-30
+  @apply w-15 h-15 flex flex-col justify-center items-center rounded-lr border opacity-30
 }
 
 .trans-default {
-    @apply duration-100 transition-all ease-in
+  @apply duration-100 transition-all ease-in
 }
 
 /* .title-h3 {
@@ -50,21 +61,21 @@
 } */
 
 .tag-text {
-    @apply text-black-russian font-interTight uppercase font-medium text-xxs
+  @apply text-black-russian font-interTight uppercase font-medium text-xxs
 }
 
 .dot {
-    @apply bg-black-russian rounded-full w-[4px] h-[4px] mr-[5px]
+  @apply bg-black-russian rounded-full w-[4px] h-[4px] mr-[5px]
 }
 
 .button-round {
-    @apply rounded-full w-[37px] h-[37px] flex flex-col justify-center items-center text-white
+  @apply rounded-full w-[37px] h-[37px] flex flex-col justify-center items-center text-white
 }
 
 .container {
-    @apply max-w-[1920px] w-full m-auto
+  @apply max-w-[1920px] w-full m-auto
 }
 
 .transition {
-    @apply transition-all duration-300 ease-in-out
+  @apply transition-all duration-300 ease-in-out
 }
