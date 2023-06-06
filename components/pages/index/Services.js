@@ -6,7 +6,7 @@ import FormService from '@/components/ui/FormService';
 export default function Services({services}) {
   return (
     <section
-      className='px-4 pt-10 pb-15
+      className='px-4 pt-10 pb-10
     -mt-50 
     md:pb-[106px] md:border-t-1 border-eclipse md:pt-20 
     lg:px-10 lg:pb-34
