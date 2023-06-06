@@ -1,36 +1,31 @@
 import React from 'react';
 import Layout from '../components/layout';
-import {fetchAPI} from "lib/api";
+import {fetchAPI} from 'lib/api';
 import useTranslation from 'next-translate/useTranslation';
+import IntroContacts from '@/components/pages/contacts/IntroContacts';
+import Address from '@/components/ui/Address';
+import IntroSlides from '@/components/ui/IntroSlides';
+import Socials from '@/components/ui/Socials';
 
 
-export default function Contacts ({}) {
-
+export default function Contacts({}) {
   const i18n = useTranslation();
   const locale = i18n.lang;
-  // useDarkFooter();
 
   return (
-    <Layout bg="grey">
-
+    <Layout bg='grey'>
+      <div>
+        {/* <IntroContacts info='{contacts}' /> */}
+        <IntroContacts info='#' />
+        <Address />
+        <Socials variant='white'></Socials>
+        {/* TODO */}
+        <div className='lg:flex flex-wrap justify-between p-3.8'>
+        <IntroSlides />
+      </div>
+     
+      </div>
     </Layout>
   );
 }
 
-// export async function getStaticProps({ locale  }) {
-	
-// 	const [aboutRes]=await Promise.all([
-// 	  fetchAPI("/contacts", {
-// 		  populate: "*",
-// 		  locale: locale
-// 	  })  
-// 	]);
-  
-// 	return {
-// 	  props: {
-// 		about: aboutRes.data,
-// 	  },
-// 	  revalidate: 1,
-// 	};
-//   }
-  
