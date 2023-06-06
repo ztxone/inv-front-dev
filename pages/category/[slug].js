@@ -1,5 +1,5 @@
 import Seo from "../../components/seo";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
 import Projects from "@/components/pages/index/Projects";
 
 import { fetchAPI } from "../../lib/api";

@@ -1,6 +1,11 @@
 {
+	"mainPage": "Main page",
 	"about": {
 		"aboutPurpose": "our main purpose",
 		"aboutOpportunities": "our main opportunities"
+	  },
+	  "works": {
+		"title": "Portfolio"
 	  }
+
 }

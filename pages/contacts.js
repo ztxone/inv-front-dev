@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import {fetchAPI} from 'lib/api';
 import useTranslation from 'next-translate/useTranslation';
 import IntroContacts from '@/components/pages/contacts/IntroContacts';
@@ -14,16 +14,14 @@ export default function Contacts({}) {
 
   return (
     <Layout bg='grey'>
-      <div>
+      
         {/* <IntroContacts info='{contacts}' /> */}
         <IntroContacts info='#' />
         <Address />
         <Socials variant='white'></Socials>
         {/* TODO */}
         <div className='lg:flex flex-wrap justify-between p-3.8'>
-        <IntroSlides />
-      </div>
-     
+        	<IntroSlides />
       </div>
     </Layout>
   );

@@ -1,7 +1,10 @@
 {
+	"mainPage": "Главная",
 	"about": {
 		"aboutPurpose": "наша основная цель",
 		"aboutOpportunities": "наши возможности"
+	  },
+	  "works": {
+		"title": "Портфолио"
 	  }
-	
 }
