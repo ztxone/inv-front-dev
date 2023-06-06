@@ -2,10 +2,11 @@ import React from 'react';
 import Layout from '../components/layout';
 import {fetchAPI} from 'lib/api';
 import useTranslation from 'next-translate/useTranslation';
-import TitleSection from '@/components/ui/TitleSection';
-import BreadCrumbs from '@/components/ui/Breadcrumbs';
 import IntroContacts from '@/components/pages/contacts/IntroContacts';
 import Address from '@/components/ui/Address';
+import IntroSlides from '@/components/ui/IntroSlides';
+import Socials from '@/components/ui/Socials';
+
 
 export default function Contacts({}) {
   const i18n = useTranslation();
@@ -16,24 +17,15 @@ export default function Contacts({}) {
       <div>
         {/* <IntroContacts info='{contacts}' /> */}
         <IntroContacts info='#' />
-        <Address/>
+        <Address />
+        <Socials variant='white'></Socials>
+        {/* TODO */}
+        <div className='lg:flex flex-wrap justify-between p-3.8'>
+        <IntroSlides />
+      </div>
+     
       </div>
     </Layout>
   );
 }
 
-// export async function getStaticProps({locale}) {
-//   const [aboutRes] = await Promise.all([
-//     fetchAPI('/contacts', {
-//       populate: '*',
-//       locale: locale,
-//     }),
-//   ]);
-
-//   return {
-//     props: {
-//       about: contactsRes.data,
-//     },
-//     revalidate: 1,
-//   };
-// }

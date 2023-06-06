@@ -7,7 +7,7 @@ export default function Socials({variant = 'black'}) {
   };
 
   return (
-    <ul className='flex py-1.5 px-2.5'>
+    <ul className='flex py-1.5 px-3.8'>
       <SocialItem name='Youtube' color={variantColor[variant]}>
         <svg
           width='16'
