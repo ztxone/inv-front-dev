@@ -43,7 +43,7 @@ export default function About() {
             <div className='relative z-1 flex flex-col items-start h-full'>
               <div className='bg-white rounded-full px-[11px] py-1 inline-flex items-center w-auto mb-5'>
                 <span className='dot'></span>
-                <p className='tag-text'>pdf</p>
+                <p className='text-black-russian font-interTight uppercase font-medium text-xxs'>pdf</p>
               </div>
               <h3 className='title-h3 max-w-min'>Архитектурная визуализация</h3>
               <div className='button-round bg-black-russian2 mt-auto'>
@@ -84,7 +84,7 @@ export default function About() {
             <div className='relative z-1 flex flex-col items-start h-full'>
               <div className='bg-white rounded-full px-[11px] py-1 inline-flex items-center w-auto mb-[16px]'>
                 <span className='dot'></span>
-                <p className='tag-text'>Showreel</p>
+                <p className='text-black-russian font-interTight uppercase font-medium text-xxs'>Showreel</p>
               </div>
               <h3 className='title-h3 max-w-min'>Моушн & Видеопродакшн</h3>
               <div className='button-round bg-black-russian opacity-30 mt-auto'>
