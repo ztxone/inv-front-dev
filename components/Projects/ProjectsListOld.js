@@ -1,9 +1,10 @@
 import ProjectItem from '@/components/ui/ProjectItem';
 import Tag from '@/components/ui/Tag';
 import ProjectItemImage from '@/components/ui/ProjectItemImage';
+import Masonry, {ResponsiveMasonry} from 'react-responsive-masonry';
 
-export default function ProjectsList({projects}) {
-	console.log(projects[0].attributes.tags.data[1]);
+export default function ProjectsListOld({projects}) {
+	//console.log(projects[0].attributes.tags.data[1]);
   return (
     <section className='bg-whisper rounded-5xl pb-6 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl'>
       <div className='container'>
