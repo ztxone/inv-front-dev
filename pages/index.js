@@ -1,20 +1,20 @@
 import React from "react";
-import Layout from "../components/layout";
-import {fetchAPI} from "../lib/api";
-import About from '../components/pages/index/About';
-import Projects from '../components/pages/index/Projects';
-import Blog from '../components/pages/index/Blog';
+import Layout from "@/components/Layout";
+import {fetchAPI} from "lib/api";
+import About from '@/components/pages/index/About';
+import Projects from '@/components/pages/index/Projects';
+import Blog from '@/components/pages/index/Blog';
 import Services from '@/components/pages/index/Services';
 
 const Home=({projects, services}) => {
   return (
     <Layout>
-      <div className="mx-auto py-6">
+      {/* <div className="mx-auto py-6"> */}
         <About />
         <Services services={services} /> 
         <Projects projects={projects} moreProjects={true}/>
         <Blog />
-      </div>
+      {/* </div> */}
     </Layout>
   );
 };

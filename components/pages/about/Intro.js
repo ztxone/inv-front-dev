@@ -15,10 +15,7 @@ export default function Intro({info}) {
   return (
     <div className='container  px-3.8 lg:max-w-[1746px]'>
       <TitleSection text={info.attributes.Title} />
-      <BreadCrumbs
-        item1='Главная'
-        link1='/index'
-        itemLast={info.attributes.Title}
+      <BreadCrumbs itemLast={info.attributes.Title}
       />
       <div className='lg:flex flex-wrap justify-between pb-15'>
         <IntroDescription

@@ -8,22 +8,15 @@ import ProjectItemImage from '@/components/ui/ProjectItemImage';
 import NavItemAccordion from '@/components/ui/NavItemAccordion';
 import ProjectButton from '@/components/ui/ProjectButton';
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
+import ProjectsTitle from '@/components/Projects/ProjectsTitle';
+
 
 export default function Projects({projects, moreProjects = false}) {
   return (
     <section className='bg-whisper rounded-5xl pb-6 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl'>
       <div className='container'>
         <div className='px-3.8 lg:px-24.5 lg:pb-20'>
-          <div className='flex flex-wrap justify-between lg:items-center lg:flex-nowrap lg:gap-20 lg:pb-[26px]'>
-            <Title text='/ Проекты' variant='black'></Title>
-            <p className='order-last tracking-tight pb-[27px] pt-10  text-black w-full md:pr-[50%] md:pb-[16px] lg:order-none lg:m-0 lg:p-0 lg:text-xl lg:w-[30%] lg:ml-auto'>
-              Мы&nbsp;работаем с&nbsp;ведущими компаниями и&nbsp;брендами
-              из&nbsp;различных отраслей. При создании могут решаться уникальные
-              задачи, но&nbsp;это всегда проекты с&nbsp;характером
-            </p>
-            <Title text='® /. 22' variant='black'></Title>
-          </div>
-
+          <ProjectsTitle />
           {/* {projects.length > 0 && (
 					{projects.map((project, i) => (<></>	))}
 					)} */}

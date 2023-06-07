@@ -1,27 +1,40 @@
-import React from 'react';
-import Layout from '../components/layout';
-import {fetchAPI} from '../lib/api';
-import ProjectWorks from '@/components/pages/works/ProjectsWork';
-import IntroProjects from '@/components/pages/works/IntroProjects';
+import Layout from "@/components/Layout";
+import {fetchAPI} from "lib/api";
+import ProjectsList from '@/components/Projects/ProjectsList';
+import TitleSection from '@/components/ui/TitleSection';
+import BreadCrumbs from '@/components/ui/Breadcrumbs';
+import useTranslation from 'next-translate/useTranslation';
 
-
-export default function Works({projects}) {
+export default function  Works( {projects} ) {
+	const { t } = useTranslation("common");
   return (
-    <Layout>
+    <Layout bg="grey">
       <section className='px-3.8 py bg-whisper rounded-b-5xl pb-12 text-black'>
         <div className='container mx-auto'>
-        <IntroProjects/>
+	  <TitleSection text={t`works.title`} />
+      <BreadCrumbs
+        itemLast={t`works.title`}
+      />
         <ProjectWorks />
-        </div>
-      </section>
+        <ProjectsList projects={projects}/>
+      </div>
+</section>
+
     </Layout>
   );
 }
 
 export async function getStaticProps() {
   // Run API calls in parallel
-  const [projectsRes] = await Promise.all([
-    fetchAPI('/projects', {populate: '*'}),
+
+  const [projectsRes]=await Promise.all([
+
+    fetchAPI("/projects", {
+		sort: ['ListPosition:asc'],
+		populate: ['Poster', 'tags'],
+		fields: ['Title', 'slug'],
+	}),
+
   ]);
 
   return {
