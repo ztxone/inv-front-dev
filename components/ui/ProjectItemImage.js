@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import { getStrapiMedia } from "lib/media";
 
-// const imageBlock='w-full translate-y-0 translate-x-0 ';
-// const centerImage='w-auto';
-
 export default function ProjectItemImage({link, width, height, variant}) {
   if (variant==='imageBlock') {
     return (

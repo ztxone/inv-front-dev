@@ -9,19 +9,24 @@ export default function  Works( {projects} ) {
 	const { t } = useTranslation("common");
   return (
     <Layout bg="grey">
-      <div className="mx-auto">
+      <section className='px-3.8 py bg-whisper rounded-b-5xl pb-12 text-black'>
+        <div className='container mx-auto'>
 	  <TitleSection text={t`works.title`} />
       <BreadCrumbs
         itemLast={t`works.title`}
       />
+        <ProjectWorks />
         <ProjectsList projects={projects}/>
       </div>
+</section>
+
     </Layout>
   );
 }
 
 export async function getStaticProps() {
   // Run API calls in parallel
+
   const [projectsRes]=await Promise.all([
 
     fetchAPI("/projects", {
@@ -39,4 +44,3 @@ export async function getStaticProps() {
     revalidate: 1,
   };
 }
-

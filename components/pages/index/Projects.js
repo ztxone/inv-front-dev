@@ -7,7 +7,9 @@ import Marquee from '@/components/ui/Marquee';
 import ProjectItemImage from '@/components/ui/ProjectItemImage';
 import NavItemAccordion from '@/components/ui/NavItemAccordion';
 import ProjectButton from '@/components/ui/ProjectButton';
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import ProjectsTitle from '@/components/Projects/ProjectsTitle';
+
 
 export default function Projects({projects, moreProjects = false}) {
   return (
@@ -18,7 +20,10 @@ export default function Projects({projects, moreProjects = false}) {
           {/* {projects.length > 0 && (
 					{projects.map((project, i) => (<></>	))}
 					)} */}
-          <ul className='pt-15 border-t border-black-russian md:pt-10 lg:grid grid-cols-2 gap-x-7 lg:pt-12'>
+          <ResponsiveMasonry className='pt-15 border-t border-black-russian md:pt-10 
+          lg:pt-12 pb-7'
+          columnsCountBreakPoints={{350: 1, 750: 1, 1024: 2}}>
+            <Masonry gutter='30px'>
             <ProjectItem name='Екатерининская улица Мурино'>
               <div
                 className='rounded-l15 relative py-5 px-9
@@ -119,7 +124,9 @@ export default function Projects({projects, moreProjects = false}) {
                 />
               </div>
             </ProjectItem>
-          </ul>
+            </Masonry>
+
+          </ResponsiveMasonry>
 
           {moreProjects && (
             <div
