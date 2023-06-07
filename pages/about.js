@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 // import {fetchAPI} from "../lib/api";
 // import Projects from '../components/pages/index/Projects';
 import {fetchAPI} from "lib/api";

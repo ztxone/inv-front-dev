@@ -1,13 +1,17 @@
-export default function BreadCrumbs({item1, link1, itemLast}) {
+import useTranslation from 'next-translate/useTranslation';
+import Link from 'next/link';
+
+export default function BreadCrumbs({itemLast}) {
+  const {t} = useTranslation("common");
   return (
     <div className='pt-[12px] pb-[5px]'>
       <ol className='flex text-base tracking-tight items-center opacity-50'>
         <li className='p-2 pl-0'>
-          <a href={link1}>{item1}</a>
+          <Link href="/">{t("mainPage")}</Link>
         </li>
         <li>/</li>
         <li className='p-2'>
-          <a>{itemLast}</a>
+          {itemLast}
         </li>
       </ol>
     </div>
