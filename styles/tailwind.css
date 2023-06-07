@@ -38,30 +38,12 @@
   @apply text-xl tracking-tight pb-2.5 border-b inline-block mt-7
 }
 
-
-/* .button-all {
-    @apply uppercase text-xl font-interTight text-black-russian py-4.5 flex items-center justify-center border-1 w-full rounded-lr
-} */
-
-/* .marquee {
-    @apply text-6xl tracking-tight
-
-} */
-
 .button-pagination {
   @apply w-15 h-15 flex flex-col justify-center items-center rounded-lr border opacity-30
 }
 
 .trans-default {
   @apply duration-100 transition-all ease-in
-}
-
-/* .title-h3 {
-    @apply text-xl tracking-tight
-} */
-
-.tag-text {
-  @apply text-black-russian font-interTight uppercase font-medium text-xxs
 }
 
 .dot {

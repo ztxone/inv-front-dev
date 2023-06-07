@@ -16,7 +16,7 @@ export default function Header({variant='white'}) {
   };
 
   return (
-    <header className="pt-[24px] pb-5 px-4 md:py-[17px] md:px-3.8 lg:py-10 relative text-inherit">
+    <header className="pt-[24px] pb-5 px-4 md:py-[17px] md:px-3.8 lg:py-10 relative text-inherit border-b border-light-grey">
       <div className="mx-auto flex justify-between items-center  md:px-0 lg:max-w-[1746px]">
         <Logo color='inherit'/>
         <Language />

@@ -6,7 +6,7 @@ import TitleSection from '@/components/ui/TitleSection';
 
 export default function IntroContacts({info}) {
   return (
-    <div className='container  px-3.8 lg:max-w-[1746px]'>
+    <div className='container lg:max-w-[1746px]'>
       <TitleSection text='Контакты' />
       <BreadCrumbs
         item1='Главная'

@@ -17,7 +17,7 @@ export default function Article({link, tag, title, text}) {
       <div className='bg-white rounded-full px-[15px] py-[8px] inline-flex items-center w-auto m-4 self-start
       md:absolute md:top-[45%] '>
         <span className='dot'></span>
-        <p className='text-xxs tag-text text-black'>{tag}</p>
+        <p className='text-black-russian font-interTight uppercase font-medium text-xxs'>{tag}</p>
       </div>
 
       <div className='px-5 max-h-[170px] overflow-hidden'>
