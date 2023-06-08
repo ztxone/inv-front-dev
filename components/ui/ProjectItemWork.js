@@ -1,6 +1,6 @@
 export default function ProjectItemWork({name, children}) {
   return (
-    <div className='md:pb-[33px]'>
+    <div className='md:pb-[31px]'>
       <div
         className='rounded-l15 relative p-5 w-full mb-2.5 
         lg:mb-0 lg:pb-50
