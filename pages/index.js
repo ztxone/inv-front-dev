@@ -2,7 +2,7 @@ import React from "react";
 import Layout from "@/components/Layout";
 import {fetchAPI} from "lib/api";
 import About from '@/components/pages/index/About';
-import Projects from '@/components/pages/index/Projects';
+import ProjectsMainList from '@/components/Projects/ProjectsMainList';
 import Blog from '@/components/pages/index/Blog';
 import Services from '@/components/pages/index/Services';
 
@@ -12,7 +12,7 @@ const Home=({projects, services}) => {
       {/* <div className="mx-auto py-6"> */}
         <About />
         <Services services={services} /> 
-        <Projects projects={projects} moreProjects={true}/>
+        <ProjectsMainList projects={projects} moreProjects={true}/>
         <Blog />
       {/* </div> */}
     </Layout>
@@ -25,8 +25,8 @@ export async function getStaticProps() {
 
     fetchAPI("/projects", {
 		sort: ['ListPosition:asc'],
-		populate: "*",
-		fields: ['title', 'Poster', 'slug'],
+		populate: ['Poster', 'tags'],
+		fields: ['Title', 'slug'],
 		filters: {
 			ShowOnMainPage: true
 		}

@@ -1,9 +1,11 @@
 import Layout from "@/components/Layout";
 import {fetchAPI} from "lib/api";
-import ProjectsList from '@/components/Projects/ProjectsList';
+import ProjectsListOld from '@/components/Projects/ProjectsListOld';
 import TitleSection from '@/components/ui/TitleSection';
 import BreadCrumbs from '@/components/ui/Breadcrumbs';
 import useTranslation from 'next-translate/useTranslation';
+import ProjectsList from '@/components/Projects/ProjectsList';
+import TagItemSection from '@/components/ui/TagItemSection';
 
 export default function  Works( {projects} ) {
 	const { t } = useTranslation("common");
@@ -11,12 +13,21 @@ export default function  Works( {projects} ) {
     <Layout bg="grey">
       <section className='px-3.8 py bg-whisper rounded-b-5xl pb-12 text-black'>
         <div className='container mx-auto'>
-	  <TitleSection text={t`works.title`} />
-      <BreadCrumbs
-        itemLast={t`works.title`}
-      />
-        <ProjectWorks />
+			<div className='pb-15
+			md:pb-[28px]'>
+				<TitleSection text={t`works.title`} />
+				<BreadCrumbs
+					itemLast={t`works.title`}
+				/>
+	  	        <div className='flex flex-wrap md:w-4/5'>
+					<TagItemSection text='Архитектурная 3D визуализация' color='blue' />
+					<TagItemSection text='Продуктовая 3D визуализация' color='white' />
+					<TagItemSection text='Моушн & Видеопродакшн' color='white' />
+					<TagItemSection text='3D моделирование' color='white' />
+				</div>
+			</div>
         <ProjectsList projects={projects}/>
+        {/* <ProjectsListOld projects={projects}/> */}
       </div>
 </section>
 
