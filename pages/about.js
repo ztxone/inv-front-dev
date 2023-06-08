@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 // import Projects from '../components/pages/index/Projects';
 import {fetchAPI} from "lib/api";
 import Intro from '@/components/pages/about/Intro';
-import Projects from '../components/pages/index/Projects';
+import Projects from '../components/Projects/ProjectsMainList';
 import Blog from '@/components/pages/index/Blog';
 import useTranslation from 'next-translate/useTranslation';
 import useDarkFooter from 'hooks/useDarkFooter';

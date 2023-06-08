@@ -1,10 +1,10 @@
 import Layout from "@/components/Layout";
 import {fetchAPI} from "lib/api";
-import ProjectsList from '@/components/Projects/ProjectsListOld';
+import ProjectsListOld from '@/components/Projects/ProjectsListOld';
 import TitleSection from '@/components/ui/TitleSection';
 import BreadCrumbs from '@/components/ui/Breadcrumbs';
 import useTranslation from 'next-translate/useTranslation';
-import ProjectsWorks from '@/components/Projects/ProjectsWork';
+import ProjectsList from '@/components/Projects/ProjectsList';
 import TagItemSection from '@/components/ui/TagItemSection';
 
 export default function  Works( {projects} ) {
@@ -26,8 +26,8 @@ export default function  Works( {projects} ) {
 					<TagItemSection text='3D моделирование' color='white' />
 				</div>
 			</div>
-        <ProjectsWorks projects={projects}/>
-        {/* <ProjectsList projects={projects}/> */}
+        <ProjectsList projects={projects}/>
+        {/* <ProjectsListOld projects={projects}/> */}
       </div>
 </section>
 
