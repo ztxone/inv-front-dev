@@ -2,14 +2,14 @@ import PillowLink from '../../ui/PillowLink';
 import Title from '@/components/ui/Title';
 import Article from '@/components/ui/Article';
 
+
 export default function Blog() {
   return (
-    <section className='pt-[68px] pb-[38px] 
-    md:pb-20 md:pt-[72px]
+    <section className='text-white pt-20 pb-[38px] 
+    md:pb-20 md:pt-[117px]
     lg:pt-[93px] lg:pb-20
-    dark:bg-black dark:text-white'>
-      <div className='container'>
-        <div className='flex justify-between px-3.8 pb-10 items-center
+    lg:max-w-[1746px] mx-auto'>
+        <div className='flex justify-between pb-10 items-center
         md:pb-15 lg:px-20 lg:pb-20'>
           <Title text='Блог invert' />
 
@@ -43,9 +43,9 @@ export default function Blog() {
           </div>
         </div>
 
-        <ul className='flex pl-3.8 overflow-hidden pb-7 gap-2.5
-        md:pb-10 
-        lg:pl-21 lg:gap-7 lg:pb-9'>
+        <ul className='flex overflow-hidden pb-7 gap-2.5
+        md:pb-10 md:gap-7
+        lg:pl-21 lg:pb-9'>
           <li className='w-[288px] md:w-[562px] shrink-0'>
             <Article
               link='/image/content/image-10.png'
@@ -91,10 +91,9 @@ export default function Blog() {
           </li>
         </ul>
 
-        <div className='px-3.8 lg:pl-21'>
-          <PillowLink text='Все новости' link='#' />
+        <div className='lg:pl-21'>
+          <PillowLink text='Все новости' link='#' variant='dark' variantSvg='whiteSvg' />
         </div>
-      </div>
     </section>
   );
 }

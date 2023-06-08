@@ -1,4 +1,4 @@
-const darkClasses = 'bg-nero text-white hover:text-black hover:bg-white';
+const darkClasses = 'bg-nero text-white hover:text-black hover:bg-white border-transparent';
 const whiteClasses = 'text-black bg-white hover:text-white hover:bg-nero border-black';
 const darkClassesSvg = ' bg-royal-blue text-white';
 const whiteClassesSvg = 'bg-white text-black group-hover:bg-royal-blue group-hover:text-white';
@@ -14,7 +14,7 @@ export default function PillowLink({
       href={link}
       className={`${
         variant =='dark' ? darkClasses : whiteClasses
-      } text-base tracking-tight pl-[24px] py-[4px] pr-[2px] w-max flex justify-center items-center rounded-6xl trans-default group border`}
+      } text-base tracking-tight pl-[24px] py-[4px] pr-[4px] w-max flex justify-center items-center rounded-6xl trans-default group border`}
     >
       {text}
       <span
