@@ -5,6 +5,7 @@ import About from '@/components/pages/index/About';
 import Projects from '@/components/pages/index/Projects';
 import Blog from '@/components/pages/index/Blog';
 import Services from '@/components/pages/index/Services';
+import ProjectsMainList from '@/components/Projects/ProjectsMainList';
 
 const Home=({projects, services}) => {
   return (
