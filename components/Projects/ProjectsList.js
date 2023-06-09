@@ -1,6 +1,6 @@
 import ProjectItem from '@/components/ui/ProjectItem';
 import Tag from '@/components/ui/Tag';
-import ProjectItemImage from '@/components/ui/ProjectItemImage';
+import ProjectImage from '@/components/Projects/ProjectImage';
 
 export default function ProjectsList({projects}) {
 	console.log(projects[0].attributes.tags.data[1]);
@@ -15,7 +15,7 @@ export default function ProjectsList({projects}) {
 				  <ProjectItem key={project.id} name={project.attributes.Title}>
 					<div className='rounded-l15 relative py-5 px-9'>
 						{project.attributes.tags.data[0] && <Tag text1={project.attributes.tags.data[0].attributes.Name}  text2={project.attributes.tags.data[1] ? project.attributes.tags.data[1].attributes.Name : ''}/>} 
-						<ProjectItemImage
+						<ProjectImage
 							link={project.attributes.Poster}
 							width='398'
 							height='302'

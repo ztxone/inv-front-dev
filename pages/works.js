@@ -4,6 +4,7 @@ import ProjectsList from '@/components/Projects/ProjectsList';
 import TitleSection from '@/components/ui/TitleSection';
 import BreadCrumbs from '@/components/ui/Breadcrumbs';
 import useTranslation from 'next-translate/useTranslation';
+import ProjectWorks from '@/components/pages/works/ProjectsWork';
 
 export default function  Works( {projects} ) {
 	const { t } = useTranslation("common");
