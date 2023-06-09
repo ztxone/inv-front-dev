@@ -12,7 +12,8 @@ const Home=({projects, services}) => {
       {/* <div className="mx-auto py-6"> */}
         <About />
         <Services services={services} /> 
-        <Projects projects={projects} moreProjects={true}/>
+		<ProjectsMainList projects={projects} moreProjects={true}/>
+        {/* <Projects projects={projects} moreProjects={true}/> */}
         <Blog />
       {/* </div> */}
     </Layout>
