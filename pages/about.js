@@ -5,14 +5,13 @@ import Intro from "@/components/pages/about/Intro";
 import Projects from "@/components/pages/index/Projects";
 import Blog from "@/components/pages/index/Blog";
 import useTranslation from "next-translate/useTranslation";
-import useDarkFooter from "hooks/useDarkFooter";
 
 export default function About({ projects, about }) {
   const i18n = useTranslation();
   const locale = i18n.lang;
 
   return (
-    <Layout bg="grey">
+    <Layout bg="grey" footerBg="footer--dark">
       <div className="mx-auto">
         <Intro info={about} />
         <Projects projects={projects} moreProjects={true} />

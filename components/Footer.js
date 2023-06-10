@@ -8,8 +8,10 @@ import { useEffect, useState } from "react";
 
 export default function Footer() {
   const [data, setData] = useState();
+  const [menu, setMenu] = useState([]);
   const i18n = useTranslation();
   const locale = i18n.lang;
+
   useEffect(() => {
     async function fetchData() {
       const contactRes = await fetchAPI("/contact", {
@@ -17,11 +19,15 @@ export default function Footer() {
         locale: locale,
         populate: "*",
       });
+      const menuRes = await fetchAPI("/navigation/render/2", {
+        fields: ["title", "path"],
+        locale: locale,
+      });
       setData(contactRes.data);
-      //console.log(data);
+      setMenu(menuRes);
     }
     fetchData();
-  }, []);
+  }, [locale]);
 
   return (
     <footer className="mx-auto pb-[38px] lg:px-[72px] text-inherit">
@@ -30,7 +36,7 @@ export default function Footer() {
       flex-wrap xl:justify-end xl:items-start border-t border-eclipse xl:pt-[40px]"
       >
         <Form />
-        <NavFooter />
+        <NavFooter menu={menu} />
         <Contact contact={data} />
         <Copyright />
       </div>

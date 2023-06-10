@@ -1,6 +1,7 @@
 import { fetchAPI } from "lib/api";
 import SocialItem from "./SocialItem";
 import useTranslation from "next-translate/useTranslation";
+import Loading from "./Loading";
 
 export default function Socials({ variant = "black", links }) {
   const variantColor = {
@@ -8,7 +9,7 @@ export default function Socials({ variant = "black", links }) {
     black: "bg-nero  fill-white",
   };
   if (!links) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (

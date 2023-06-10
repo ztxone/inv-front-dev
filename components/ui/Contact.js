@@ -1,11 +1,11 @@
 import Socials from "./Socials";
 import Logo from "./Logo";
 import Link from "next/link";
+import Loading from "./Loading";
 
 export default function Contact({ contact }) {
-  console.log(contact);
   if (!contact) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
