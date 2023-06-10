@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Layout from "../components/Layout";
 import useTranslation from "next-translate/useTranslation";
 import IntroSlides from "@/components/ui/IntroSlides";
 import Socials from "@/components/ui/Socials";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
-import AddressTitle from "@/components/ui/AddressTitle";
-import AddressText from "@/components/ui/AddressText";
 import { fetchAPI } from "lib/api";
 import Address from "@/components/ui/Address";
 
 export default function Contacts({ contact }) {
   const i18n = useTranslation();
   const locale = i18n.lang;
-  console.log(contact);
 
   return (
     <Layout bg="grey">
@@ -26,10 +23,7 @@ export default function Contacts({ contact }) {
         phone={contact.attributes.Phone}
         email={contact.attributes.Email}
       />
-      <Socials
-        variant="white"
-        links={contact.attributes.ContactSocials}
-      ></Socials>
+      <Socials variant="white" links={contact.attributes.ContactSocials} />
       {/* TODO */}
       <div className="lg:flex flex-wrap justify-between p-3.8">
         <IntroSlides />
@@ -39,13 +33,11 @@ export default function Contacts({ contact }) {
 }
 
 export async function getStaticProps({ locale }) {
-  // Run API calls in parallel
-
   const [contactRes] = await Promise.all([
     fetchAPI("/contact", {
-      sort: ["ListPosition:asc"],
-      populate: "*",
+      fields: ["Title", "Address", "Phone", "Email"],
       locale: locale,
+      populate: "*",
     }),
   ]);
 
