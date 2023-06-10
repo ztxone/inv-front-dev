@@ -15,7 +15,11 @@ export default function NavSubMenu({ menu, opened }) {
       {menu
         .filter((item) => item.parent)
         .map((subItem) => (
-          <NavSubMenuItem link={subItem.path} text={subItem.title} />
+          <NavSubMenuItem
+            key={subItem.id}
+            link={subItem.path}
+            text={subItem.title}
+          />
         ))}
     </ul>
   );

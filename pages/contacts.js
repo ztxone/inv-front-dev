@@ -7,6 +7,7 @@ import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import { fetchAPI } from "lib/api";
 import Address from "@/components/ui/Address";
+import ServicesSlides from "@/components/Services/ServicesSlides";
 
 export default function Contacts({ contact }) {
   const i18n = useTranslation();
@@ -26,7 +27,8 @@ export default function Contacts({ contact }) {
       <Socials variant="white" links={contact.attributes.ContactSocials} />
       {/* TODO */}
       <div className="lg:flex flex-wrap justify-between p-3.8">
-        <IntroSlides />
+        {/* <IntroSlides /> */}
+        <ServicesSlides />
       </div>
     </Layout>
   );
