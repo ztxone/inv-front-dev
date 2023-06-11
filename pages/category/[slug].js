@@ -1,8 +1,8 @@
-import Seo from "../../components/seo";
-import Layout from "../../components/Layout";
-import Projects from "@/components/Projects/ProjectsMainList";
+import Seo from "@/components/seo";
+import Layout from "@/components/Layout";
+import Projects from "@/components/pages/index/Projects";
 
-import { fetchAPI } from "../../lib/api";
+import { fetchAPI } from "lib/api";
 
 const Category = ({ category, categories }) => {
   const seo = {
@@ -12,7 +12,7 @@ const Category = ({ category, categories }) => {
 
   return (
     <Layout>
-      <Seo seo={seo} />
+      {/* <Seo seo={seo} /> */}
       <div className="uk-section">
         <div className="uk-container uk-container-large">
           <h1>{category.attributes.name}</h1>

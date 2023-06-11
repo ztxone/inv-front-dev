@@ -2,9 +2,10 @@ import React from "react";
 import Layout from "@/components/Layout";
 import {fetchAPI} from "lib/api";
 import About from '@/components/pages/index/About';
-import ProjectsMainList from '@/components/Projects/ProjectsMainList';
+import Projects from '@/components/pages/index/Projects';
 import Blog from '@/components/pages/index/Blog';
 import Services from '@/components/pages/index/Services';
+import ProjectsMainList from '@/components/Projects/ProjectsMainList';
 
 const Home=({projects, services}) => {
   return (
@@ -12,7 +13,8 @@ const Home=({projects, services}) => {
       {/* <div className="mx-auto py-6"> */}
         <About />
         <Services services={services} /> 
-        <ProjectsMainList projects={projects} moreProjects={true}/>
+		<ProjectsMainList projects={projects} moreProjects={true}/>
+        {/* <Projects projects={projects} moreProjects={true}/> */}
         <Blog />
       {/* </div> */}
     </Layout>
@@ -25,8 +27,8 @@ export async function getStaticProps() {
 
     fetchAPI("/projects", {
 		sort: ['ListPosition:asc'],
-		populate: ['Poster', 'tags'],
-		fields: ['Title', 'slug'],
+		populate: "*",
+		fields: ['title', 'Poster', 'slug'],
 		filters: {
 			ShowOnMainPage: true
 		}

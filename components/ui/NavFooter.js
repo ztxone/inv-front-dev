@@ -1,17 +1,18 @@
-import FooterNavItem from './FooterNavItem';
+import FooterNavItem from "./FooterNavItem";
+import Loading from "./Loading";
 
-export default function NavFooter() {
+export default function NavFooter({ menu }) {
+  //console.log(menu);
+  if (!menu) {
+    return <Loading />;
+  }
   return (
-    <div className='pb-5 px-3.8'>
-      <ul className='grid md:grid-cols-2 md:grid-rows-4 md:grid-flow-col lg:gap-x-15'>
-        <FooterNavItem text='О студии' />
-        <FooterNavItem text='Визуализация' />
-        <FooterNavItem text='Анимация' />
-        <FooterNavItem text='Моделирование' />
-        <FooterNavItem text='Моушн' />
-        <FooterNavItem text='Портфолио' />
-        <FooterNavItem text='Контакты' />
+    <div className="pb-5 px-3.8">
+      <ul className="grid md:grid-cols-2 md:grid-rows-4 md:grid-flow-col lg:gap-x-15">
+        {menu.map((item) => (
+          <FooterNavItem key={item.id} text={item.title} link={item.path} />
+        ))}
       </ul>
     </div>
-  )
+  );
 }

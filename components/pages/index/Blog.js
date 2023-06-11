@@ -2,7 +2,6 @@ import PillowLink from '../../ui/PillowLink';
 import TitleH2 from '@/components/ui/TitleH2';
 import Article from '@/components/ui/Article';
 
-
 export default function Blog() {
   return (
     <section className='text-white pt-20 pb-[38px] mx-auto

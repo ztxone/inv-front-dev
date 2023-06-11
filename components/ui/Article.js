@@ -25,7 +25,7 @@ export default function Article({link, tag, title, text}) {
         md:text-2xl'>
           {title}
         </h3>
-        <p className='text-baseL tracking-tight opacity-70
+        <p className='text-base tracking-tight opacity-70
         md:pr-3.8'>
           {text}
         </p>

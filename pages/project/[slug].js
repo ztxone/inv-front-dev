@@ -1,16 +1,10 @@
 import Seo from "@/components/seo";
 import Layout from "@/components/Layout";
-import Image from 'next/image';
-
+import Image from "next/image";
 import { fetchAPI } from "lib/api";
 import { getStrapiMedia } from "lib/media";
-import { useLayoutEffect } from 'react';
 
-function Project ({ project, categories }) {
-  useLayoutEffect(() => {
-	document.body.classList.add("bg-black");
-	document.body.classList.add("text-white");
-  })
+function Project({ project, categories }) {
   const imageUrl = getStrapiMedia(project.attributes.Poster);
   console.log(project);
 
@@ -25,8 +19,15 @@ function Project ({ project, categories }) {
     <Layout>
       <Seo seo={seo} />
       <h1>{project.attributes.Title}</h1>
-      {project.attributes.Description && (<div>{project.attributes.Description}</div>)}
-	  <Image width='230' height='322' src={imageUrl}  alt={project.attributes.Title} />
+      {project.attributes.Description && (
+        <div>{project.attributes.Description}</div>
+      )}
+      <Image
+        width="230"
+        height="322"
+        src={imageUrl}
+        alt={project.attributes.Title}
+      />
     </Layout>
   );
 }

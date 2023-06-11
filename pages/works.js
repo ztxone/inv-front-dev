@@ -1,14 +1,10 @@
-import Layout from '@/components/Layout';
-import {fetchAPI} from 'lib/api';
-import ProjectsListOld from '@/components/Projects/ProjectsListOld';
-import TitleSection from '@/components/ui/TitleSection';
-import BreadCrumbs from '@/components/ui/Breadcrumbs';
-import useTranslation from 'next-translate/useTranslation';
-import ProjectsList from '@/components/Projects/ProjectsList';
-import TagItemSection from '@/components/ui/TagItemSection';
-import IntroSlides from '@/components/ui/IntroSlides';
-import IntroCost from '@/components/ui/IntroCost';
-import Blog from '@/components/pages/index/Blog';
+import Layout from "@/components/Layout";
+import { fetchAPI } from "lib/api";
+import ProjectsList from "@/components/Projects/ProjectsList";
+import TitleSection from "@/components/ui/TitleSection";
+import BreadCrumbs from "@/components/ui/Breadcrumbs";
+import useTranslation from "next-translate/useTranslation";
+import ProjectWorks from "@/components/pages/works/ProjectsWork";
 
 export default function Works({projects}) {
   const {t}=useTranslation('common');
@@ -35,6 +31,7 @@ export default function Works({projects}) {
             <TagItemSection text='3D моделирование' color='white' />
           </div>
         </div>
+        {/* <ProjectWorks /> */}
         <ProjectsList projects={projects} />
         <div className='bg-black px-3.8 -mt-7 pt-10.5
           md:pt-18
@@ -53,11 +50,11 @@ export default function Works({projects}) {
 export async function getStaticProps() {
   // Run API calls in parallel
 
-  const [projectsRes]=await Promise.all([
-    fetchAPI('/projects', {
-      sort: ['ListPosition:asc'],
-      populate: ['Poster', 'tags'],
-      fields: ['Title', 'slug'],
+  const [projectsRes] = await Promise.all([
+    fetchAPI("/projects", {
+      sort: ["ListPosition:asc"],
+      populate: ["Poster", "tags"],
+      fields: ["Title", "slug"],
     }),
   ]);
 

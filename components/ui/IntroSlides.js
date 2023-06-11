@@ -12,7 +12,7 @@ export default function IntroSlides() {
     >
       <IntroItem background="bg-[url('/image/content/flyer-paper-mockup.png')]">
         <Tag text1='pdf' />
-        <h3 className='text-base mt-3.8 md:text-xl tracking-tight text-white md:mt-3.8 md:tracking-normal'>
+        <h3 className='text-xl tracking-tight text-white mt-5'>
           Архитектурная визуализация
         </h3>
         <IntroButton text='Скачать презентацию'>
@@ -44,7 +44,7 @@ export default function IntroSlides() {
 
       <IntroItem background="bg-[url('/image/content/video.png')]">
         <Tag text1='Showreel' />
-        <h3 className='text-base mt-3.8 md:text-xl tracking-tight text-white md:mt-3.8 md:tracking-normal'>
+        <h3 className='text-xl tracking-tight text-white mt-5'>
           Моушн & Видеопродакшн
         </h3>
         <IntroButton text='Смотреть Showreel компании'>
@@ -72,6 +72,7 @@ export default function IntroSlides() {
             pdf
           </p>
         </div>
+
         <h3
           className='text-base mt-3.8  tracking-tight text-black 
         md:tracking-normal md:text-xl md:mt-3.8'
