@@ -1,14 +1,14 @@
 import Logo from "./ui/Logo";
 import Language from "./ui/Language";
 import Burger from "./ui/Burger";
-import MobilMenu from "./ui/MobilMenu";
+import MobileMenu from "./ui/MobileMenu";
 import { useEffect, useState } from "react";
 import Nav from "./ui/Nav";
 import Order from "./ui/Order";
 import useTranslation from "next-translate/useTranslation";
 import { fetchAPI } from "lib/api";
 
-export default function Header({ variant = "white" }) {
+export default function Header({ variant }) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [menu, setMenu] = useState([]);
   const i18n = useTranslation();
@@ -25,21 +25,15 @@ export default function Header({ variant = "white" }) {
     fetchData();
   }, [locale]);
 
-  const variantColorBurger = {
-    white: "bg-white",
-    black: "bg-black",
-  };
-
   return (
     <header className="pt-[24px] pb-5 px-4 md:py-[17px] md:px-3.8 lg:py-10 relative text-inherit border-b border-light-grey">
       <div className="mx-auto flex justify-between items-center  md:px-0 lg:max-w-[1746px]">
         <Logo color="inherit" />
         <Language />
-        <Burger
-          onClick={() => setIsNavOpen((prev) => !prev)}
-          color={variantColorBurger[variant]}
-        />
-        {isNavOpen && <MobilMenu onClose={() => setIsNavOpen(false)} />}
+        <Burger onClick={() => setIsNavOpen((prev) => !prev)} color={variant} />
+        {isNavOpen && (
+          <MobileMenu menu={menu} onClose={() => setIsNavOpen(false)} />
+        )}
         <Nav menu={menu} />
         <Order />
       </div>

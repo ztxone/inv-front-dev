@@ -34,7 +34,7 @@ export default function ServicesSlides() {
     fetchData();
   }, [locale]);
 
-  console.log(data);
+  //console.log(data);
 
   if (!data) {
     return <Loading />;

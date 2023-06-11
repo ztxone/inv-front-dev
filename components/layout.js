@@ -1,18 +1,16 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function Layout({ bg = "black", footerBg = "", children }) {
+export default function Layout({ bg, headerBg, footerBg, children }) {
   return (
     <div
       className={
-        bg === "grey"
-          ? "bg-whisper text-black-russian"
-          : `bg-black text-white ${footerBg}`
+        bg === "black" ? "bg-black text-white" : "bg-whisper text-black-russian"
       }
     >
-      <Header />
+      <Header variant={headerBg} />
       <main>{children}</main>
-      <Footer />
+      <Footer variant={footerBg} />
     </div>
   );
 }

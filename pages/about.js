@@ -11,7 +11,7 @@ export default function About({ projects, about }) {
   const locale = i18n.lang;
 
   return (
-    <Layout bg="grey" footerBg="footer--dark">
+    <Layout bg="white" headerBg="white" footerBg="black">
       <div className="mx-auto">
         <Intro info={about} />
         <Projects projects={projects} moreProjects={true} />
