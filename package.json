@@ -13,8 +13,6 @@
     "bootstrap": "^5.2.3",
     "eslint": "8.38.0",
     "eslint-config-next": "13.3.0",
-    "flowbite": "^1.6.5",
-    "flowbite-react": "^0.4.4",
     "moment": "^2.29.4",
     "next": "13.3.0",
     "next-translate": "^2.0.4",
