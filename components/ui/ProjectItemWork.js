@@ -1,6 +1,7 @@
 export default function ProjectItemWork({name, children}) {
   return (
-    <div className='md:pb-[31px]'>
+    <div className='md:pb-[31px]
+    lg:pb-3.8'>
       <div
         className='rounded-l15 relative p-5 w-full mb-2.5 
         lg:mb-0 lg:pb-50
@@ -14,7 +15,7 @@ export default function ProjectItemWork({name, children}) {
         className='text-xl text-black tracking-tight pb-0 border-b
         border-black-russian inline-block pt-[8px]
         md:text-1xl
-        lg:text-3.8xl'
+        lg:pt-5'
       >
         {name}
       </h3>

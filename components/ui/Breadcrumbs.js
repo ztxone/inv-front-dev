@@ -6,7 +6,7 @@ export default function BreadCrumbs({itemLast}) {
   return (
     <div className='pt-[12px] pb-[7px]
     md:pb-5
-    lg:pb-15'>
+    lg:pb-10.5'>
       <ol className='flex text-base tracking-tight items-center opacity-50'>
         <li className='p-2 pl-0'>
           <Link href="/">{t("mainPage")}</Link>

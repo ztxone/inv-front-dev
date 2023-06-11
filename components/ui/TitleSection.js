@@ -6,7 +6,8 @@ export default function TitleSection({text, variantColor = 'black'}) {
     <div
       className={`${
         variantColor === 'black' ? black : white
-      } border-b border-light-grey pt-20 pb-10`}
+        } border-b border-light-grey pt-20 pb-10
+      lg:pt-10.5`}
     >
       <h1
         className='text-4xl tracking-tight
