@@ -46,8 +46,12 @@
   @apply duration-100 transition-all ease-in;
 }
 
-.dot {
+.dot-white {
   @apply bg-black-russian rounded-full w-[4px] h-[4px] mr-[5px];
+}
+
+.dot-black {
+  @apply bg-white rounded-full w-[4px] h-[4px] mr-[5px];
 }
 
 .button-round {

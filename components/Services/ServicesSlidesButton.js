@@ -1,17 +1,15 @@
-const white = "text-white";
-const dark = "text-black";
+import Link from "next/link";
 
 export default function ServicesSlidesButton({
   text,
+  link,
   variant = "white",
   children,
 }) {
   return (
-    <button className="flex items-center mt-7">
-      <span className={`${variant === "white" ? white : dark} mr-5 text-sm`}>
-        {text}
-      </span>
+    <Link href={link} className="flex items-center mt-7">
+      <span className={`text-${variant} mr-5 text-sm`}>{text}</span>
       {children}
-    </button>
+    </Link>
   );
 }
