@@ -4,7 +4,12 @@ import Tag from './Tag';
 
 export default function IntroSlides() {
   return (
-    <div className='flex flex-col gap-2.5 pt-7 pb-15 md:flex-row md:overflow-hidden lg:order-3 lg:w-full'>
+    <div
+      className='flex flex-col gap-2.5 pt-7 pb-2.5 
+    md:gap-5 md:flex-row md:overflow-hidden md:pb-10
+    lg:order-3 lg:w-full
+    lg:max-w-[1746px] mx-auto'
+    >
       <IntroItem background="bg-[url('/image/content/flyer-paper-mockup.png')]">
         <Tag text1='pdf' />
         <h3 className='text-xl tracking-tight text-white mt-5'>
@@ -67,7 +72,11 @@ export default function IntroSlides() {
             pdf
           </p>
         </div>
-        <h3 className='text-xl tracking-tight text-black mt-5'>
+
+        <h3
+          className='text-base mt-3.8  tracking-tight text-black 
+        md:tracking-normal md:text-xl md:mt-3.8'
+        >
           Продуктовая визуализация
         </h3>
         <IntroButton text='Скачать презентацию' variant='dark'>

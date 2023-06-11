@@ -32,8 +32,8 @@ export default function Footer() {
   return (
     <footer className="mx-auto pb-[38px] lg:px-[72px] text-inherit">
       <div
-        className="text-white bg-black mx-auto max-w-[1920px] xl:flex 
-      flex-wrap xl:justify-end xl:items-start border-t border-eclipse xl:pt-[40px]"
+        className='text-white  lg:max-w-[1746px] xl:flex 
+      flex-wrap xl:justify-end xl:items-start border-t border-eclipse lg:pt-20'
       >
         <Form />
         <NavFooter menu={menu} />

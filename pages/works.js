@@ -6,18 +6,43 @@ import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import useTranslation from "next-translate/useTranslation";
 import ProjectWorks from "@/components/pages/works/ProjectsWork";
 
-export default function Works({ projects }) {
-  const { t } = useTranslation("common");
+export default function Works({projects}) {
+  const {t}=useTranslation('common');
   return (
-    <Layout bg="grey">
-      <section className="px-3.8 py bg-whisper rounded-b-5xl pb-12 text-black">
-        <div className="container mx-auto">
+    <Layout bg='grey'>
+      <div className='bg-whisper text-black'>
+        <div
+          className='px-3.8 pb-15
+			md:pb-[28px] lg:max-w-[1746px] mx-auto
+      lg:px-0'
+        >
           <TitleSection text={t`works.title`} />
           <BreadCrumbs itemLast={t`works.title`} />
-          <ProjectWorks />
-          <ProjectsList projects={projects} />
+          <div className='flex flex-wrap md:w-4/5'>
+            <TagItemSection
+              text='Архитектурная 3D визуализация'
+              color='blue'
+            />
+            <TagItemSection
+              text='Продуктовая 3D визуализация'
+              color='white'
+            />
+            <TagItemSection text='Моушн & Видеопродакшн' color='white' />
+            <TagItemSection text='3D моделирование' color='white' />
+          </div>
         </div>
-      </section>
+        {/* <ProjectWorks /> */}
+        <ProjectsList projects={projects} />
+        <div className='bg-black px-3.8 -mt-7 pt-10.5
+          md:pt-18
+          lg:pt-33'>
+          <IntroSlides />
+          <IntroCost />
+          <Blog />
+        </div>
+
+        {/* <ProjectsListOld projects={projects}/> */}
+      </div>
     </Layout>
   );
 }
