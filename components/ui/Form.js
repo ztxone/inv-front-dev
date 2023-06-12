@@ -8,7 +8,7 @@ export default function Form() {
       <div className='flex flex-wrap gap-5 pt-9 
       md:pt-12 md:gap-6'>
         <PillowLink text='Заказать звонок' link='tel:#' variant='dark' variantSvg='blueSvg' />
-        <PillowLink text='Заполнить бриф' link='#' variant='dark' />
+        <PillowLink text='Заполнить бриф' link='#' variant='dark' variantSvg='whiteSvg' />
       </div>
     </div>
   )

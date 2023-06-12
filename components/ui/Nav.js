@@ -1,35 +1,45 @@
-export default function Nav() {
+import Link from "next/link";
+import Loading from "./Loading";
+import NavSubMenu from "./NavSubMenu";
+import { useState } from "react";
+
+export default function Nav({ menu }) {
+  if (!menu) {
+    return <Loading />;
+  }
+  const [menuOpened, setMenuOpened] = useState(false);
+
   return (
-    <nav className='hidden lg:block lg:mr-auto'>
-      <ul className='flex items-center justify-between'>
-        <li>
-          <a href='/about' className='p-5'>О&nbsp;студии</a>
-        </li>
-        <li>
-          <a href='services' className='p-5 flex items-center'>Услуги
-            <svg
-              className='fill-gray ml-2.5'
-              xmlns='http://www.w3.org/2000/svg'
-              width='10'
-              height='5'
-              viewBox='0 0 10 5'
-            >
-              <path fillRule='evenodd' clipRule='evenodd' d='m0 0 5 5 5-5H0Z' />
-            </svg>
-          </a>
-          <ul className='hidden'>
-            <li >Архитектурная 3D визуализация</li>
-            <li>Продуктовая 3D визуализация</li>
-            <li>Моушн & Видеопродакшн</li>
-            <li>3D моделирование</li>
-          </ul>
-        </li>
-        <li>
-          <a href='/works' className='p-5'>Портфолио</a>
-        </li>
-        <li>
-          <a href='/contacts' className='p-5'>Контакты</a>
-        </li>
+    <nav className="hidden lg:block lg:mr-auto text-inherit">
+      <ul className="flex items-center justify-between">
+        {menu
+          .filter((item) => !item.parent)
+          .map((item) =>
+            item.collapsed ? (
+              <li key={item.id} className="group relative">
+                <p
+                  className="p-5 flex items-center cursor-pointer"
+                  onClick={() => setMenuOpened(!menuOpened)}
+                >
+                  {item.title}
+                  <svg
+                    className="w-[10px] ml-[8px] group-hover:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 10 7"
+                  >
+                    <path d="m1 1.3 4 4 4-4" stroke="#fff" />
+                  </svg>
+                </p>
+                <NavSubMenu menu={menu} opened={menuOpened} />
+              </li>
+            ) : (
+              <li key={item.id}>
+                <Link href={item.path} className="p-5">
+                  {item.title}
+                </Link>
+              </li>
+            )
+          )}
       </ul>
     </nav>
   );

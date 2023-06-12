@@ -1,0 +1,6 @@
+{
+	"i18next.i18nPaths": "d:/pr/8-invert/inv-blog/frontend/locales",
+	"i18n-ally.localesPaths": [
+		"locales"
+	]
+}

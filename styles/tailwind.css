@@ -2,77 +2,66 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@font-face {
+/* @font-face {
     font-family: "Inter Tight";
     src: url("../public/fonts/InterTight-Regular.woff2");
-}
+} */
 
-.services-card {
-    @apply w-full h-[600px] mb-2.5 pt-9 px-9 rounded-5xl
+@layer utilities {
+  .masonry-lg {
+    column-gap: 1.5em;
+    column-count: 2;
+  }
+
+  .break-inside {
+    break-inside: avoid;
+  }
 }
 
 .description {
-    @apply font-interTight text-lg flex flex-col
+  @apply font-interTight text-lg flex flex-col;
 }
 
 .input {
-    @apply w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5
+  @apply w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5;
 }
 
 .footnote {
-    @apply font-interTight opacity-30 text-sm
+  @apply font-interTight opacity-30 text-sm;
 }
 
 .button-all {
-    @apply uppercase text-xl font-interTight text-black-russian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px]
+  @apply uppercase text-xl font-interTight text-black-russian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px];
 }
+
 .project-title {
-    @apply text-xl tracking-tight pb-2.5 border-b
-     inline-block mt-7
-}
-
-
-.button-all {
-    @apply uppercase text-xl font-interTight text-black-russian py-4.5 flex items-center justify-center border-1 w-full rounded-lr
-}
-
-.marquee {
-    @apply text-6xl tracking-tight
-
+  @apply text-xl tracking-tight pb-2.5 border-b inline-block mt-7;
 }
 
 .button-pagination {
-    @apply w-15 h-15 flex flex-col justify-center items-center rounded-lr border opacity-30
+  @apply w-15 h-15 flex flex-col justify-center items-center rounded-lr border opacity-30;
 }
 
 .trans-default {
-    @apply duration-100 transition-all ease-in
+  @apply duration-100 transition-all ease-in;
 }
 
-.pillow-link {
-    @apply text-base tracking-tight pl-[24px] py-[4px] pr-[4px] w-max flex justify-center items-center rounded-6xl
+.dot-white {
+  @apply bg-black-russian rounded-full w-[4px] h-[4px] mr-[5px];
 }
 
-.pillow-link-svg {
-    @apply w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-[48px]
-}
-.title-h3 {
-    @apply text-xl tracking-tight
-}
-
-.tag-text {
-    @apply text-black-russian font-interTight uppercase font-medium text-xxs
-}
-
-.dot {
-    @apply bg-black-russian rounded-full w-[4px] h-[4px] mr-[5px]
+.dot-black {
+  @apply bg-white rounded-full w-[4px] h-[4px] mr-[5px];
 }
 
 .button-round {
-    @apply rounded-full w-[37px] h-[37px] flex flex-col justify-center items-center text-white
+  @apply rounded-full w-[37px] h-[37px] flex flex-col justify-center items-center text-white;
 }
 
 .container {
-    @apply max-w-[1920px] w-full m-auto
+  @apply max-w-[1920px] w-full m-auto;
 }
 
+.transition {
+  @apply transition-all duration-300 ease-in-out;
+}

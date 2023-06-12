@@ -3,16 +3,20 @@ import { getStrapiMedia } from "lib/media";
 import Image from 'next/image';
 
 export default function ServiceItem({title, subtitle,
-  descriptionItem1, descriptionItem2, link}) {
+  descriptionItem1, image}) {
   return (
-    <div className={`services-card md:mb-5 lg:mr-7 relative`}>
+    <div className={`w-full h-[600px] mb-2.5 pt-9 px-9 rounded-5xl relative
+    md:mb-5
+    lg:mr-7 lg:last-of-type:mr-0`}>
       <TitleH3 text={title} subtext={subtitle} />
-      <p className='relative z-10 text-lg pb-[2px]'>{descriptionItem1}</p>
-      <p className='relative z-10 text-lg'>{descriptionItem2}</p>
-      <div className='absolute top-0 bottom-0 left-0 min-w-[398px] min-h-[600px] lg:min-w-fit'>
-        <Image src={getStrapiMedia(link)} alt={title} width="100" height="100" className='object-cover w-full
+      <p className='relative z-10 text-lg pb-[2px] w-9/12 pt-7
+      md:mt-9'>{descriptionItem1}</p>
+      {image&&(<div className='absolute top-0 bottom-0 left-0 min-w-[398px] min-h-[600px] 
+      lg:max-w-full lg:min-w-fit'>
+        <Image src={getStrapiMedia(image)} alt={title} width="398" height="600" className='object-cover w-full
         h-full rounded-5xl'/>
       </div>
+	  )}
     </div>
   )
 }

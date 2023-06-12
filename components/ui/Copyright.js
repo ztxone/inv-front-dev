@@ -3,9 +3,9 @@ import Logo from "./Logo";
 export default function Copyright() {
   return (
     <div className='border-t border-eclipse pt-[27px] text-sm px-3.8 flex items-end 
-    justify-between flex-wrap md:w-9/12 lg:w-full text-white opacity-50'>
+    justify-between flex-wrap md:w-9/12 lg:w-full text-inherit opacity-50'>
       <div className='w-full lg:hidden'>
-        <Logo />
+        <Logo color='inherit'/>
       </div>
       <p className='mt-5 block w-full mb-[18px] md:w-auto
       md:mb-0'>2022 &copy;  invert.studio</p>

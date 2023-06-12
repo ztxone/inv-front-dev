@@ -1,0 +1,14 @@
+{
+  "mainPage": "Главная",
+  "about": {
+    "aboutPurpose": "наша основная цель",
+    "aboutOpportunities": "наши возможности"
+  },
+  "works": {
+    "title": "Портфолио"
+  },
+  "contacts": {
+    "address": "адрес офиса",
+    "numbers": "как с нами связаться"
+  }
+}
