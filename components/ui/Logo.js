@@ -1,16 +1,22 @@
 import Link from "next/link";
 
-export default function Logo({ color }) {
-  const colorClass = `text-${color}`;
+export default function Logo({color}) {
+  const colorClass=`text-${color}`;
 
   return (
-    <Link href="/" className={`${colorClass} block mr-auto lg:mr-3.8`}>
+    <Link
+      href='/'
+      className={`${colorClass} block mr-auto w-fit
+    md:w-[116px]
+    lg:mr-3.8`}
+    >
       <svg
-        width="102"
-        height="34"
-        viewBox="0 0 102 34"
-        fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg"
+        className='w-full h-auto'
+        width='102'
+        height='34'
+        viewBox='0 0 102 34'
+        fill='currentColor'
+        xmlns='http://www.w3.org/2000/svg'
       >
         <g clipPath="url(#clip0_541_1738)">
           <path

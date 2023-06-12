@@ -3,7 +3,7 @@ import Image from 'next/image';
 export default function About() {
   return (
     <section
-      className='pt-45 md:pt-[214px] md:pb-50 pb-60 bg-[url("../public/image/content/about.jpg")] 
+      className='pt-50 md:pt-[214px] md:pb-50 pb-60 bg-[url("../public/image/content/about.jpg")] 
     bg-cover bg-no-repeat bg-center px-4 -mt-25 
     lg:px-[86px] lg:-mt-36 lg:pb-[334px] lg:pt-[210px]'>
       <div className='container lg:grid lg:grid-cols-[2fr, 1fr] lg:grid-rows-2 gap-5'>
