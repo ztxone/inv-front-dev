@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import Layout from "../components/Layout";
+import Layout from "@/components/Layout";
 import useTranslation from "next-translate/useTranslation";
 import IntroSlides from "@/components/ui/IntroSlides";
 import Socials from "@/components/ui/Socials";
@@ -14,7 +14,7 @@ export default function Contacts({ contact }) {
   const locale = i18n.lang;
 
   return (
-    <Layout bg="grey">
+    <Layout bg="white" headerBg="white" footerBg="white">
       <div className="container lg:max-w-[1746px] px-3.8 ">
         <TitleSection text={contact.attributes.Title} />
         <BreadCrumbs itemLast={contact.attributes.Title} />

@@ -6,7 +6,7 @@ import { fetchAPI } from "lib/api";
 import useTranslation from "next-translate/useTranslation";
 import { useEffect, useState } from "react";
 
-export default function Footer() {
+export default function Footer({ variant }) {
   const [data, setData] = useState();
   const [menu, setMenu] = useState([]);
   const i18n = useTranslation();
@@ -30,10 +30,16 @@ export default function Footer() {
   }, [locale]);
 
   return (
-    <footer className="mx-auto pb-[38px] lg:px-[72px] text-inherit">
+    <footer
+      className={`${
+        variant === "black"
+          ? "bg-black text-white"
+          : "bg-whisper text-black-russian"
+      } mx-auto pb-[38px] lg:px-[72px] text-inherit`}
+    >
       <div
-        className='text-white  lg:max-w-[1746px] xl:flex 
-      flex-wrap xl:justify-end xl:items-start border-t border-eclipse lg:pt-20'
+        className="lg:max-w-[1746px] xl:flex 
+      flex-wrap xl:justify-end xl:items-start border-t border-eclipse lg:pt-20"
       >
         <Form />
         <NavFooter menu={menu} />
