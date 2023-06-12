@@ -5,6 +5,7 @@ import Copyright from "./ui/Copyright";
 import {fetchAPI} from "lib/api";
 import useTranslation from "next-translate/useTranslation";
 import {useEffect, useState} from "react";
+import Logo from './ui/Logo';
 
 export default function Footer({variant}) {
   const [data, setData]=useState();

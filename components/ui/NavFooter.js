@@ -7,9 +7,12 @@ export default function NavFooter({menu}) {
     return <Loading />;
   }
   return (
-    <div className="pb-5 px-3.8">
+    <div className="pb-5 px-3.8
+    lg:w-[445px] lg:pt-10 lg:pl-7">
       <ul className="grid 
-      md:grid-cols-2 md:grid-rows-4 md:grid-flow-col lg:gap-x-15 md:max-w-[62%]">
+      md:grid-cols-2 md:grid-rows-4 md:grid-flow-col md:max-w-[62%]
+      lg:max-w-none
+      ">
         {menu.map((item) => (
           <FooterNavItem key={item.id} text={item.title} link={item.path} />
         ))}
