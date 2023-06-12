@@ -140,7 +140,7 @@ export default function Projects({ projects, moreProjects = false }) {
           )}
         </div>
       </div>
-      <Marquee item1="Визуализация^" item2="Motion*" item3="3D моделирование" />
+      <Marquee />
     </section>
   );
 }

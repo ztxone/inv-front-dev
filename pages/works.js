@@ -13,7 +13,7 @@ import Blog from "@/components/pages/index/Blog";
 export default function Works({ projects }) {
   const { t } = useTranslation("common");
   return (
-    <Layout bg="grey">
+    <Layout bg="white" headerBg="white" footerBg="black">
       <div className="bg-whisper text-black">
         <div
           className="px-3.8 pb-15
