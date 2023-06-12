@@ -2,24 +2,24 @@ import Form from "./ui/Form";
 import NavFooter from "./ui/NavFooter";
 import Contact from "./ui/Contact";
 import Copyright from "./ui/Copyright";
-import { fetchAPI } from "lib/api";
+import {fetchAPI} from "lib/api";
 import useTranslation from "next-translate/useTranslation";
-import { useEffect, useState } from "react";
+import {useEffect, useState} from "react";
 
-export default function Footer({ variant }) {
-  const [data, setData] = useState();
-  const [menu, setMenu] = useState([]);
-  const i18n = useTranslation();
-  const locale = i18n.lang;
+export default function Footer({variant}) {
+  const [data, setData]=useState();
+  const [menu, setMenu]=useState([]);
+  const i18n=useTranslation();
+  const locale=i18n.lang;
 
   useEffect(() => {
     async function fetchData() {
-      const contactRes = await fetchAPI("/contact", {
+      const contactRes=await fetchAPI("/contact", {
         fields: ["Title", "Address", "Phone", "Email"],
         locale: locale,
         populate: "*",
       });
-      const menuRes = await fetchAPI("/navigation/render/2", {
+      const menuRes=await fetchAPI("/navigation/render/2", {
         fields: ["title", "path"],
         locale: locale,
       });
@@ -31,15 +31,15 @@ export default function Footer({ variant }) {
 
   return (
     <footer
-      className={`${
-        variant === "black"
-          ? "bg-black text-white"
-          : "bg-whisper text-black-russian"
-      } mx-auto pb-[38px] lg:px-[72px] text-inherit`}
+      className={`${variant==="black"
+        ? "bg-black text-white"
+        :"bg-whisper text-black-russian"
+        } mx-auto pb-[38px] lg:px-10.5 text-inherit`}
     >
       <div
         className="lg:max-w-[1746px] xl:flex 
-      flex-wrap xl:justify-end xl:items-start border-t border-eclipse lg:pt-20"
+      flex-wrap xl:justify-end xl:items-start border-t border-eclipse lg:pt-20
+      lg:mx-auto"
       >
         <Form />
         <NavFooter menu={menu} />

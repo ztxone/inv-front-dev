@@ -3,21 +3,23 @@ import Logo from "./Logo";
 import Link from "next/link";
 import Loading from "./Loading";
 
-export default function Contact({ contact }) {
+export default function Contact({contact}) {
   if (!contact) {
     return <Loading />;
   }
 
   return (
-    <div className="pb-15 px-3.8">
+    <div className="pb-3.8 px-3.8
+    md:pb-7">
       <ul
-        className="flex flex-wrap pb-10 text-inherit text-lg items-center md:justify-between md:w-9/12
-      md:ml-2.5 lg:items-start lg:flex-col lg:w-full"
+        className="flex flex-wrap pb-10 text-inherit text-lg items-center
+        lg:items-start lg:flex-col"
       >
-        <li className="w-full mt-7 mb-10 lg:mt-0">
+        <li className="w-full pb-7
+        md:pb-3.8">
           <Link
             href="#"
-            className="tracking-[-0.036em] text-lg opacity-50 flex items-start w-full"
+            className="tracking-[-0.036em] text-lg opacity-50 flex items-start w-full p-2.5 pl-0 hover:opacity-100"
           >
             <svg
               className="mr-2.5"
@@ -45,10 +47,14 @@ export default function Contact({ contact }) {
             </span>
           </Link>
         </li>
-        <li className="mr-10 text-lg tracking-[-0.036em] lg:text-1xl">
+        <li className="mr-10 text-lg tracking-[-0.036em]
+        md:mr-29 
+        lg:text-1xl">
           <Link href="tel:+78122010007"> {contact.attributes.Phone}</Link>
         </li>
-        <li className="text-lg tracking-[-0.036em] lg:text-1xl lg:mb-10">
+        <li className="text-lg tracking-[-0.036em]
+        md:mr-29
+        lg:text-1xl lg:mb-10">
           <Link href={`mailto:${contact.attributes.Email}`}>
             {contact.attributes.Email}
           </Link>

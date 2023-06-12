@@ -5,8 +5,10 @@ export default function Logo({color}) {
   const colorClass=`text-${color}`;
 
   return (
-    <Link href='/' className={`${colorClass} block mr-auto lg:mr-3.8`}>
-      <svg
+    <Link href='/' className={`${colorClass} block mr-auto w-fit
+    md:w-[116px]
+    lg:mr-3.8`}>
+      <svg className='w-full h-auto'
         width='102'
         height='34'
         viewBox='0 0 102 34'

@@ -6,8 +6,8 @@ export default function Blog() {
   return (
     <section className='text-white pt-20 pb-[38px] mx-auto
     md:pb-20 md:pt-[117px]
-    lg:pb-20 lg:max-w-[1746px] lg:pt-33'>
-      <div className='flex justify-between pb-10 items-center
+    lg:pb-20 lg:max-w-[1746px] lg:pt-33 pl-3.8'>
+      <div className='flex justify-between pb-10 items-center pr-3.8
         md:pb-15 lg:pb-18'>
         <TitleH2 text='Блог invert' />
 

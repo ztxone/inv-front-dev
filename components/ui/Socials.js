@@ -1,10 +1,10 @@
-import { fetchAPI } from "lib/api";
+import {fetchAPI} from "lib/api";
 import SocialItem from "./SocialItem";
 import useTranslation from "next-translate/useTranslation";
 import Loading from "./Loading";
 
-export default function Socials({ variant = "black", links }) {
-  const variantColor = {
+export default function Socials({variant="black", links}) {
+  const variantColor={
     white: "bg-white fill-black",
     black: "bg-nero  fill-white",
   };
@@ -13,8 +13,8 @@ export default function Socials({ variant = "black", links }) {
   }
 
   return (
-    <ul className="flex py-1.5 px-3.8">
-      {links.LinkYoutube && (
+    <ul className="flex py-1.5">
+      {links.LinkYoutube&&(
         <SocialItem
           name="Youtube"
           link={links.LinkYoutube}
@@ -43,7 +43,7 @@ export default function Socials({ variant = "black", links }) {
           </svg>
         </SocialItem>
       )}
-      {links.LinkTelegram && (
+      {links.LinkTelegram&&(
         <SocialItem
           name="Telegramm"
           link={links.LinkTelegram}
@@ -66,7 +66,7 @@ export default function Socials({ variant = "black", links }) {
           </svg>
         </SocialItem>
       )}
-      {links.LinkWhatsapp && (
+      {links.LinkWhatsapp&&(
         <SocialItem
           name="WhatsApp"
           link={links.LinkWhatsapp}
