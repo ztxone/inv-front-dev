@@ -36,7 +36,7 @@ export default function Contacts({contact}) {
           <ServicesSlides />
         </div>
         <Map />
-        <Blog />
+        <Blog articleColor='inherit' titleColor='black' buttonColor='black' />
       </div>
     </Layout>
   );

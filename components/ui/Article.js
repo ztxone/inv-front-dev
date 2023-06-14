@@ -1,7 +1,10 @@
-export default function Article({link, tag, title, text}) {
+const colorInherit='bg-inherit border-1 border-nobel text-nero2';
+const colorNero='bg-nero';
+
+export default function Article({link, tag, title, text, variant='colorNero'}) {
   return (
-    <article className='rounded-l15 flex flex-col bg-nero pb-6 
-    h-full relative w-full'>
+    <article className={`${variant=='nero'? colorNero:colorInherit} rounded-l15 flex flex-col  pb-6 
+    h-full relative w-full`}>
       <div className='rounded-l15 mb-[23px] w-full'>
         <picture>
           <img
@@ -25,7 +28,7 @@ export default function Article({link, tag, title, text}) {
         md:text-2xl'>
           {title}
         </h3>
-        <p className='text-base tracking-tight opacity-70
+        <p className='text-baseHeight tracking-tight opacity-70
         md:pr-3.8'>
           {text}
         </p>
