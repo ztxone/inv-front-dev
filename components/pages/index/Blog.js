@@ -2,10 +2,41 @@ import PillowLink from '../../ui/PillowLink';
 import TitleH2 from '@/components/ui/TitleH2';
 import Article from '@/components/ui/Article';
 import ButtonPagination from '@/components/ui/ButtonPagination';
+import React, {useRef, useState} from 'react';
+import SwiperCore, {Virtual, Navigation, Pagination} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
 
-// https://www.npmjs.com/package/react-slick
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 export default function Blog({titleColor, articleColor, buttonColor}) {
+  const [swiperRef, setSwiperRef]=useState(null);
+  const appendNumber=useRef(500);
+  const prependNumber=useRef(1);
+  // Create array with 500 slides
+  const [slides, setSlides]=useState(
+    Array.from({length: 500}).map((_, index) => `Slide ${index+1}`)
+  );
+
+  const prepend=() => {
+    setSlides([
+      `Slide ${prependNumber.current-2}`,
+      `Slide ${prependNumber.current-1}`,
+      ...slides,
+    ]);
+    prependNumber.current=prependNumber.current-2;
+    swiperRef.slideTo(swiperRef.activeIndex+2, 0);
+  };
+
+  const append=() => {
+    setSlides([...slides, 'Slide '+ ++appendNumber.current]);
+  };
+
+  const slideTo=(index) => {
+    swiperRef.slideTo(index-1, 0);
+  };
+
   return (
     <section
       className='text-white pt-20 pb-[38px] mx-auto
@@ -49,12 +80,24 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
         </div>
       </div>
 
-      <ul
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={50}
+        slidesPerView={3}
+        scrollbar={{draggable: true}}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={setSwiperRef}
+        centeredSlides={true}
+        pagination={{
+          type: 'fraction',
+        }}
+        navigation={true}
+        virtual
         className='flex overflow-hidden pb-7 gap-2.5
-        md:pb-10 md:gap-7
-        lg:pl-0 lg:pb-9'
+      md:pb-10 md:gap-7
+      lg:pl-0 lg:pb-9'
       >
-        <li className='w-[288px] md:w-[562px] shrink-0'>
+        <SwiperSlide className='min-h-[471px] w-[288px] md:w-[562px] shrink-0'>
           <Article
             link='/image/content/image-10.png'
             tag='VR'
@@ -64,9 +107,9 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
               током до&nbsp;предела личной боли.'
             variant={articleColor}
           />
-        </li>
+        </SwiperSlide>
 
-        <li className='w-[288px] md:w-[562px] shrink-0'>
+        <SwiperSlide className='w-[288px] md:w-[562px] shrink-0'>
           <Article
             link='/image/content/image-11.png'
             tag='3D'
@@ -75,9 +118,9 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
               реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
               током до&nbsp;предела личной боли.'
           />
-        </li>
+        </SwiperSlide>
 
-        <li className='w-[288px] md:w-[562px] shrink-0'>
+        <SwiperSlide className='w-[288px] md:w-[562px] shrink-0'>
           <Article
             link='/image/content/image-12.png'
             tag='Новости'
@@ -86,9 +129,9 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
               реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
               током до&nbsp;предела личной боли.'
           />
-        </li>
+        </SwiperSlide>
 
-        <li className='w-[288px] md:w-[562px] shrink-0'>
+        <SwiperSlide className='w-[288px] md:w-[562px] shrink-0'>
           <Article
             link='/image/content/image-12.png'
             tag='Новости'
@@ -97,8 +140,8 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
               реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
               током до&nbsp;предела личной боли.'
           />
-        </li>
-      </ul>
+        </SwiperSlide>
+      </Swiper>
 
       <div>
         <PillowLink
@@ -111,3 +154,4 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
     </section>
   );
 }
+
