@@ -40,7 +40,7 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
   return (
     <section
       className='text-white pt-20 pb-[38px] mx-auto
-    md:pb-20 md:pt-[117px]
+    md:pb-20 md:pt-20
     lg:pb-20 lg:max-w-[1746px] lg:pt-33 pl-3.8'
     >
       <div
@@ -154,4 +154,3 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
     </section>
   );
 }
-

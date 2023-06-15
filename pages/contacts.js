@@ -10,6 +10,7 @@ import Address from '@/components/ui/Address';
 import ServicesSlides from '@/components/Services/ServicesSlides';
 import Map from '@/components/ui/Map';
 import Blog from '@/components/pages/index/Blog';
+import IntroCost from '@/components/ui/IntroCost';
 
 export default function Contacts({contact}) {
   const i18n=useTranslation();
@@ -17,25 +18,40 @@ export default function Contacts({contact}) {
 
   return (
     <Layout bg='white' headerBg='white' footerBg='white'>
-      <div className='lg:max-w-[1746px] mx-auto'>
-        <div className='px-3.8'>
+      <div className='lg:max-w-[1920px] mx-auto'>
+        <div
+          className='px-3.8
+        lg:px-21'
+        >
           <TitleSection text={contact.attributes.Title} />
           <BreadCrumbs itemLast={contact.attributes.Title} />
         </div>
-        <Address
-          address={contact.attributes.Address}
-          phone={contact.attributes.Phone}
-          email={contact.attributes.Email}
-        />
-        <div className='px-3.8'>
+        <div
+          className='px-3.8 pt-4.5
+        md:pt-10.5 md:flex justify-between items-end
+        md:pb-9
+        lg:justify-start lg:pt-9 lg:px-21 lg:pb-10.5'
+        >
+          <Address
+            address={contact.attributes.Address}
+            phone={contact.attributes.Phone}
+            email={contact.attributes.Email}
+          />
           <Socials variant='white' links={contact.attributes.ContactSocials} />
         </div>
         {/* TODO */}
-        <div className='lg:flex flex-wrap justify-between px-3.8'>
+        <div
+          className='lg:flex flex-wrap justify-between px-3.8
+        md:pb-10
+        lg:px-21 lg:pb-9'
+        >
           {/* <IntroSlides /> */}
           <ServicesSlides />
         </div>
         <Map />
+        <div className='hidden md:block px-3.8 pt-20'>
+          <IntroCost />
+        </div>
         <Blog articleColor='inherit' titleColor='black' buttonColor='black' />
       </div>
     </Layout>
