@@ -1,7 +1,7 @@
 import NavSubMenuItem from "./NavSubMenuItem";
 import Loading from "./Loading";
 
-export default function MobileSubMenu({ menu, opened }) {
+export default function MobileSubMenu({menu, opened}) {
   if (!menu) {
     return <Loading />;
   }
@@ -19,3 +19,4 @@ export default function MobileSubMenu({ menu, opened }) {
     </ul>
   );
 }
+
