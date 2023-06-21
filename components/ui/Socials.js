@@ -13,7 +13,10 @@ export default function Socials({variant='black', links}) {
   }
 
   return (
-    <ul className='flex py-1.5'>
+    <ul
+      className='flex py-1.5
+    lg:pb-0'
+    >
       {links.LinkYoutube&&(
         <SocialItem
           name='Youtube'
