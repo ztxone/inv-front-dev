@@ -16,7 +16,6 @@ const Home = ({ projects, services, servicesAbout, about }) => {
       <ProjectsMainList projects={projects} moreProjects={true} />
       {/* <Projects projects={projects} moreProjects={true}/> */}
       <Blog />
-      {/* </div> */}
     </Layout>
   );
 };
