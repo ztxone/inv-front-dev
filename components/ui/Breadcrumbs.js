@@ -2,6 +2,7 @@ import useTranslation from 'next-translate/useTranslation';
 import Link from 'next/link';
 import BreadCrumbsItems from './BreadcrumbsItem';
 
+
 export default function BreadCrumbs({links}) {
   // const {t}=useTranslation('common');
   return (

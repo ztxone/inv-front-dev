@@ -7,47 +7,68 @@ import Blog from "@/components/pages/index/Blog";
 import Services from "@/components/pages/index/Services";
 import ProjectsMainList from "@/components/Projects/ProjectsMainList";
 
-const Home = ({ projects, services }) => {
+const Home = ({ projects, services, servicesAbout, about }) => {
   return (
     <Layout bg="black" headerBg="black" footerBg="black">
       {/* <div className="mx-auto py-6"> */}
-      <About />
+      <About about={about} servicesAbout={servicesAbout} />
       <Services services={services} />
       <ProjectsMainList projects={projects} moreProjects={true} />
       {/* <Projects projects={projects} moreProjects={true}/> */}
       <Blog />
-      {/* </div> */}
     </Layout>
   );
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   // Run API calls in parallel
-  const [projectsRes, servicesRes] = await Promise.all([
-    fetchAPI("/projects", {
-      sort: ["ListPosition:asc"],
-      populate: {
-        Poster: "*",
-        tags: "*",
-      },
-      fields: ["title", "slug"],
-      filters: {
-        ShowOnMainPage: true,
-      },
-    }),
-    fetchAPI("/categories", {
-      populate: "*",
-      fields: ["name", "image", "slug", "text"],
-      filters: {
-        ShowOnMainPage: true,
-      },
-    }),
-  ]);
+  const [projectsRes, servicesRes, servicesAboutRes, aboutRes] =
+    await Promise.all([
+      fetchAPI("/projects", {
+        sort: ["ListPosition:asc"],
+        populate: {
+          Poster: "*",
+          tags: "*",
+        },
+        fields: ["title", "slug"],
+        locale: locale,
+        filters: {
+          ShowOnMainPage: true,
+        },
+      }),
+      fetchAPI("/categories", {
+        populate: "*",
+        fields: ["name", "slug", "text"],
+        locale: locale,
+        filters: {
+          ShowOnMainPage: true,
+        },
+      }),
+      fetchAPI("/categories", {
+        filters: {
+          ShowAsSlide: true,
+        },
+        fields: ["name", "slug"],
+        locale: locale,
+        populate: {
+          Slides: {
+            sort: ["SlidePosition:asc"],
+            populate: "*",
+          },
+        },
+      }),
+      fetchAPI("/about", {
+        fields: ["SloganPart1", "SloganPart2"],
+        locale: locale,
+      }),
+    ]);
 
   return {
     props: {
       projects: projectsRes.data,
       services: servicesRes.data,
+      servicesAbout: servicesAboutRes.data,
+      about: aboutRes.data,
     },
     revalidate: 1,
   };

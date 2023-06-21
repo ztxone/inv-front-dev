@@ -38,10 +38,6 @@
   @apply text-xl tracking-tight pb-2.5 border-b inline-block mt-7;
 }
 
-.button-pagination {
-  @apply w-15 h-15 flex flex-col justify-center items-center rounded-lr border opacity-30;
-}
-
 .trans-default {
   @apply duration-100 transition-all ease-in;
 }

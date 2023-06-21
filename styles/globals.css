@@ -16,7 +16,7 @@ a {
 }
 
 input:focus {
-  outline:none;
+  outline: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,3 +29,6 @@ input:focus {
   }
 }
 
+.divLayout.bg-black .logoSvg {
+  fill: white;
+}
