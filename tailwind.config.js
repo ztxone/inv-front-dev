@@ -55,29 +55,28 @@ module.exports={
       serif: ['Merriweather', 'serif'],
     },
     fontSize: {
-      xxs: ['0.625rem', {lineHeight: '0.625rem'}], //10px
-      xs: ['0.75rem', {lineHeight: '1rem'}], //12px
-      sm: ['0.875rem', {lineHeight: '1.25rem'}], //14px
-      sl: ['0.9375rem', {lineHeight: '1.25rem'}], //14px
-      base: ['1rem', {lineHeight: '1.5625rem'}], //16px
-      baseHeight: ['1rem', {lineHeight: '1.125rem'}], //16px
+      xxs: ["0.625rem", {lineHeight: "0.625rem"}], //10px
+      xs: ["0.75rem", {lineHeight: "1rem"}], //12px
+      sm: ["0.875rem", {lineHeight: "1.25rem"}], //14px
+      sl: ["0.9375rem", {lineHeight: "1.25rem"}], //14px
+      base: ["1rem", {lineHeight: "1.5625rem"}], //16px
       // lg: ['1.125rem', {lineHeight: '1.75rem'}],
-      lg: ['1.125rem', {lineHeight: '1.375rem'}], //18px
-      xl: ['1.25rem', {lineHeight: '1.5rem'}], //20px
-      '1xl': ['1.375rem', {lineHeight: '1.5rem'}], //22 px
-      '2xl': ['1.5rem', {lineHeight: '2rem'}], //24px
-      '3xl': ['1.75rem', {lineHeight: '2.125rem'}], //28px
-      '3.5xl': ['1.875rem', {lineHeight: '1.875rem'}], //30px
-      '3.8xl': ['2rem', {lineHeight: '2rem'}], //32px
-      '4xl': ['2.5rem', {lineHeight: '2.5rem'}], //40px
+      lg: ["1.125rem", {lineHeight: "1.375rem"}], //18px
+      xl: ["1.25rem", {lineHeight: "1.5rem"}], //20px
+      "1xl": ["1.375rem", {lineHeight: "1.5rem"}], //22 px
+      "2xl": ["1.5rem", {lineHeight: "2rem"}], //24px
+      "3xl": ["1.75rem", {lineHeight: "2.125rem"}], //28px
+      "3.5xl": ["1.875rem", {lineHeight: "1.875rem"}], //30px
+      "3.8xl": ["2rem", {lineHeight: "2rem"}], //32px
+      "4xl": ["2.5rem", {lineHeight: "2.875rem"}], //40px
       // '5xl': ['3rem', {lineHeight: '1'}],
-      '6xl': ['3.75rem', {lineHeight: '1'}], //60px
-      '6.5xl': ['4.5rem', {lineHeight: '1'}], //76px
-      '7xl': ['5rem', {lineHeight: '1'}], // 80px
-      '7.5xl': ['5.625rem', {lineHeight: '1'}], //90px
+      "6xl": ["3.75rem", {lineHeight: "4.5rem"}], //60px
+      "6.5xl": ["4.5rem", {lineHeight: "1"}], //76px
+      "7xl": ["5rem", {lineHeight: "1"}], // 80px
+      "7.5xl": ["5.625rem", {lineHeight: "1"}], //90px
       // '8xl': ['6rem', {lineHeight: '1'}],
       // '9xl': ['8rem', {lineHeight: '1'}],
-      '10xl': ['9.6875rem', {lineHeight: '1'}], //155px
+      "10xl": ["9.6875rem", {lineHeight: "1"}], //155px
     },
     fontWeight: {
       thin: '100',
@@ -121,38 +120,38 @@ module.exports={
       },
       keyframes: {
         marquee: {
-          '0%': {transform: 'translateX(0%)'},
-          '100%': {transform: 'translateX(-100%)'},
+          "0%": {transform: "translateX(0%)"},
+          "100%": {transform: "translateX(-100%)"},
         },
         marquee2: {
-          '0%': {transform: 'translateX(100%)'},
-          '100%': {transform: 'translateX(0%)'},
+          "0%": {transform: "translateX(100%)"},
+          "100%": {transform: "translateX(0%)"},
         },
       },
     },
     height: ({theme}) => ({
-      auto: 'auto',
-      ...theme('spacing'),
-      '1/2': '50%',
-      '1/3': '33.333333%',
-      '2/3': '66.666667%',
-      '1/4': '25%',
-      '2/4': '50%',
-      '3/4': '75%',
-      '1/5': '20%',
-      '2/5': '40%',
-      '3/5': '60%',
-      '4/5': '80%',
-      '1/6': '16.666667%',
-      '2/6': '33.333333%',
-      '3/6': '50%',
-      '4/6': '66.666667%',
-      '5/6': '83.333333%',
-      full: '100%',
-      screen: '100vh',
-      min: 'min-content',
-      max: 'max-content',
-      fit: 'fit-content',
+      auto: "auto",
+      ...theme("spacing"),
+      "1/2": "50%",
+      "1/3": "33.333333%",
+      "2/3": "66.666667%",
+      "1/4": "25%",
+      "2/4": "50%",
+      "3/4": "75%",
+      "1/5": "20%",
+      "2/5": "40%",
+      "3/5": "60%",
+      "4/5": "80%",
+      "1/6": "16.666667%",
+      "2/6": "33.333333%",
+      "3/6": "50%",
+      "4/6": "66.666667%",
+      "5/6": "83.333333%",
+      full: "100%",
+      screen: "100vh",
+      min: "min-content",
+      max: "max-content",
+      fit: "fit-content",
     }),
     letterSpacing: {
       tighter: '-0.05em',
@@ -180,29 +179,29 @@ module.exports={
       13: '3.4375rem', //55px
     },
     margin: ({theme}) => ({
-      auto: 'auto',
-      ...theme('spacing'),
+      auto: "auto",
+      ...theme("spacing"),
     }),
     maxWidth: ({theme, breakpoints}) => ({
-      none: 'none',
-      0: '0rem',
-      xs: '20rem',
-      sm: '24rem',
-      md: '28rem',
-      lg: '32rem',
-      xl: '36rem',
-      '2xl': '42rem',
-      '3xl': '48rem',
-      '4xl': '56rem',
-      '5xl': '64rem',
-      '6xl': '72rem',
-      '7xl': '80rem',
-      full: '100%',
-      min: 'min-content',
-      max: 'max-content',
-      fit: 'fit-content',
-      prose: '65ch',
-      ...breakpoints(theme('screens')),
+      none: "none",
+      0: "0rem",
+      xs: "20rem",
+      sm: "24rem",
+      md: "28rem",
+      lg: "32rem",
+      xl: "36rem",
+      "2xl": "42rem",
+      "3xl": "48rem",
+      "4xl": "56rem",
+      "5xl": "64rem",
+      "6xl": "72rem",
+      "7xl": "80rem",
+      full: "100%",
+      min: "min-content",
+      max: "max-content",
+      fit: "fit-content",
+      prose: "65ch",
+      ...breakpoints(theme("screens")),
     }),
     opacity: {
       0: '0',
@@ -221,7 +220,7 @@ module.exports={
       95: '0.95',
       100: '1',
     },
-    padding: ({theme}) => theme('spacing'),
+    padding: ({theme}) => theme("spacing"),
     spacing: {
       px: '1px',
       0: '0px',
@@ -278,39 +277,39 @@ module.exports={
       96: '24rem',
     },
     width: ({theme}) => ({
-      auto: 'auto',
-      ...theme('spacing'),
-      '1/2': '50%',
-      '1/3': '33.333333%',
-      '2/3': '66.666667%',
-      '1/4': '25%',
-      '2/4': '50%',
-      '3/4': '75%',
-      '1/5': '20%',
-      '2/5': '40%',
-      '3/5': '60%',
-      '4/5': '80%',
-      '1/6': '16.666667%',
-      '2/6': '33.333333%',
-      '3/6': '50%',
-      '4/6': '66.666667%',
-      '5/6': '83.333333%',
-      '1/12': '8.333333%',
-      '2/12': '16.666667%',
-      '3/12': '25%',
-      '4/12': '33.333333%',
-      '5/12': '41.666667%',
-      '6/12': '50%',
-      '7/12': '58.333333%',
-      '8/12': '66.666667%',
-      '9/12': '75%',
-      '10/12': '83.333333%',
-      '11/12': '91.666667%',
-      full: '100%',
-      screen: '100vw',
-      min: 'min-content',
-      max: 'max-content',
-      fit: 'fit-content',
+      auto: "auto",
+      ...theme("spacing"),
+      "1/2": "50%",
+      "1/3": "33.333333%",
+      "2/3": "66.666667%",
+      "1/4": "25%",
+      "2/4": "50%",
+      "3/4": "75%",
+      "1/5": "20%",
+      "2/5": "40%",
+      "3/5": "60%",
+      "4/5": "80%",
+      "1/6": "16.666667%",
+      "2/6": "33.333333%",
+      "3/6": "50%",
+      "4/6": "66.666667%",
+      "5/6": "83.333333%",
+      "1/12": "8.333333%",
+      "2/12": "16.666667%",
+      "3/12": "25%",
+      "4/12": "33.333333%",
+      "5/12": "41.666667%",
+      "6/12": "50%",
+      "7/12": "58.333333%",
+      "8/12": "66.666667%",
+      "9/12": "75%",
+      "10/12": "83.333333%",
+      "11/12": "91.666667%",
+      full: "100%",
+      screen: "100vw",
+      min: "min-content",
+      max: "max-content",
+      fit: "fit-content",
     }),
   },
 };

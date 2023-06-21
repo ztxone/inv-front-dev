@@ -1,17 +1,20 @@
-import Link from "next/link";
-import NavSubMenuItem from "./NavSubMenuItem";
-import Loading from "./Loading";
+import Link from 'next/link';
+import NavSubMenuItem from './NavSubMenuItem';
+import Loading from './Loading';
 
-export default function NavSubMenu({ menu, opened }) {
+export default function NavSubMenu({menu, opened}) {
   if (!menu) {
     return <Loading />;
   }
   return (
     <ul
-      className={`absolute left-8 min-w-[300px] min-h-[150px] bg-white rounded-[2px] p-6 ${
-        !opened && "hidden"
-      }`}
+      className={`absolute left-8 min-w-[300px] min-h-[150px] bg-white rounded-[2px] p-6 ${!opened&&'hidden'
+        }`}
     >
+      {/* TODO */}
+      <a className='text-blue text-xl' href='/service'>
+        Рабочая ссылка для перехода УДОЛИ
+      </a>
       {menu
         .filter((item) => item.parent)
         .map((subItem) => (
