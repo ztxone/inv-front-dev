@@ -10,5 +10,9 @@
   "contacts": {
     "address": "office address",
     "numbers": "how to connect"
+  },
+  "services": {
+    "mainServices": "Main services",
+    "allServices": "All services"
   }
 }

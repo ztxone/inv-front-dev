@@ -10,5 +10,9 @@
   "contacts": {
     "address": "адрес офиса",
     "numbers": "как с нами связаться"
+  },
+  "services": {
+    "mainServices": "Основные услуги",
+    "allServices": "Все услуги"
   }
 }
