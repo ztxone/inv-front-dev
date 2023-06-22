@@ -4,11 +4,12 @@ import {fetchAPI} from 'lib/api';
 import TitleSection from '@/components/ui/TitleSection';
 import BreadCrumbs from '@/components/ui/Breadcrumbs';
 import ServiceIntro from '@/components/Services/ServiceIntro';
-import ServiceBlock from '@/components/Services/ServiceBlock';
+import ServiceBlock from '@/components/SeparateService/ServiceBlock';
 import IntroCost from '@/components/ui/IntroCost';
 import IntroSlides from '@/components/ui/IntroSlides';
 import TagItemSection from '@/components/ui/TagItemSection';
-import ProjectsList from '@/components/Projects/ProjectsList';
+import ProjectsListBlock from '@/components/Projects/ProjectsList';
+import Blog from '@/components/pages/index/Blog';
 
 // todo Тестовые данные удалить
 const breadCrumbsItems=[
@@ -51,12 +52,8 @@ export default function Service({projects}) {
           <TagItemSection text='Моушн & Видеопродакшн' color='white' />
           <TagItemSection text='3D моделирование' color='white' />
         </div>
-        {/* <ProjectsList projects={projects} moreProjects={false} /> */}
-        <div
-          className='bg-black -mt-7 pt-10.5
-          md:pt-18
-          lg:pt-33'
-        ></div>
+        <ProjectsListBlock projects={projects} moreProjects={false} />
+        <Blog articleColor='inherit' titleColor='black' buttonColor='black' />
       </div>
     </Layout>
   );
