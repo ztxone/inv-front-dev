@@ -16,7 +16,7 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
 
   return (
     <section
-      className='text-white pt-20 pb-[38px] mx-auto
+      className='text-white pt-18 pb-[38px] mx-auto
     md:pb-20 md:pt-20
     lg:pb-20 lg:max-w-[1746px] lg:pt-33 pl-3.8'
     >
@@ -62,8 +62,8 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
 
       <Swiper
         modules={[Navigation, Virtual, Pagination]}
-        spaceBetween={50}
-        slidesPerView={1}
+        spaceBetween={20}
+        // slidesPerView={}
         scrollbar={{draggable: true}}
         onSlideChange={() => console.log('slide change')}
         navigation={{
@@ -75,11 +75,11 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
           swiper.params.navigation.nextEl=navigationNextRef.current;
         }}
         virtual
-        className='flex pb-7 gap-2.5
-      md:pb-10 md:gap-7
-      lg:pl-0 lg:pb-9'
+        loop={true}
+        className='mySwiper flex mb-7
+        lg:pl-0 lg:pb-9'
       >
-        <SwiperSlide className='min-h-[471px] w-[288px] md:w-[562px] shrink-0'>
+        <SwiperSlide className='!w-auto shrink-0'>
           <Article
             link='/image/content/image-10.png'
             tag='VR'
@@ -91,7 +91,7 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
           />
         </SwiperSlide>
 
-        <SwiperSlide className='w-[288px] md:w-[562px] shrink-0'>
+        <SwiperSlide className='!w-auto shrink-0'>
           <Article
             link='/image/content/image-11.png'
             tag='3D'
@@ -99,10 +99,11 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
             text='Футболка Owo дает ощутимую обратную связь в&nbsp;виртуальной
               реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
               током до&nbsp;предела личной боли.'
+            variant={articleColor}
           />
         </SwiperSlide>
 
-        <SwiperSlide className='w-[288px] md:w-[562px] shrink-0'>
+        <SwiperSlide className='!w-auto shrink-0'>
           <Article
             link='/image/content/image-12.png'
             tag='Новости'
@@ -110,10 +111,11 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
             text='Футболка Owo дает ощутимую обратную связь в&nbsp;виртуальной
               реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
               током до&nbsp;предела личной боли.'
+            variant={articleColor}
           />
         </SwiperSlide>
 
-        <SwiperSlide className='w-[288px] md:w-[562px] shrink-0'>
+        <SwiperSlide className='!w-auto shrink-0'>
           <Article
             link='/image/content/image-12.png'
             tag='Новости'
@@ -121,6 +123,7 @@ export default function Blog({titleColor, articleColor, buttonColor}) {
             text='Футболка Owo дает ощутимую обратную связь в&nbsp;виртуальной
               реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
               током до&nbsp;предела личной боли.'
+            variant={articleColor}
           />
         </SwiperSlide>
       </Swiper>

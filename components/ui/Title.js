@@ -6,7 +6,7 @@ export default function Title({text, variant='white', subtext=''}) {
     <h2 className={`${variant==='white'? textWhite:textBlack} text-4xl tracking-tight
     flex flex-col shrink-0
     lg:text-6xl`}> {text}
-      {subtext&&<span className='text-blue mt-3.8'>{subtext}</span>}
+      {subtext&&<span className='text-blue mt-1.5'>{subtext}</span>}
     </h2>
   )
 }
