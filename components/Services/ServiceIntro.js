@@ -17,7 +17,7 @@ export default function ServiceIntro({title, text}) {
         ></Image>
       </div>
       <div
-        className='px-3.8
+        className='container
       lg:w-2/4'
       >
         <h2 className='text-base uppercase font-bold pt-6xl'>{title}</h2>

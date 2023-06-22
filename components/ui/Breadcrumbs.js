@@ -7,7 +7,7 @@ export default function BreadCrumbs({links}) {
   // const {t}=useTranslation('common');
   return (
     <div
-      className='pt-[12px] pb-2.5
+      className='pt-[12px] pb-2.5 container
     md:pb-5
     lg:pb-10.5'
     >

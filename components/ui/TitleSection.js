@@ -5,7 +5,7 @@ export default function TitleSection({text, variantColor='black'}) {
   return (
     <div
       className={`${variantColor==='black'? black:white
-        } border-b border-light-grey pt-[76px] pb-5
+        } container border-b border-light-grey pt-[76px] pb-5
         md:pt-18 md:pb-6
       lg:pt-10.5`}
     >
