@@ -4,7 +4,7 @@ import Projects from "@/components/pages/index/Projects";
 
 import { fetchAPI } from "lib/api";
 
-const Category = ({ category, categories }) => {
+export default function Category({ category, categories }) {
   const seo = {
     metaTitle: category.attributes.name,
     metaDescription: `All ${category.attributes.name} articles`,
@@ -21,7 +21,7 @@ const Category = ({ category, categories }) => {
       </div>
     </Layout>
   );
-};
+}
 
 export async function getStaticPaths() {
   const categoriesRes = await fetchAPI("/categories", { fields: ["slug"] });
@@ -55,5 +55,3 @@ export async function getStaticProps({ params }) {
     revalidate: 1,
   };
 }
-
-export default Category;
