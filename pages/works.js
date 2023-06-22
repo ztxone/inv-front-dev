@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import {fetchAPI} from "lib/api";
+import { fetchAPI } from "lib/api";
 import ProjectsList from "@/components/Projects/ProjectsList";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
@@ -10,8 +10,8 @@ import IntroSlides from "@/components/ui/IntroSlides";
 import IntroCost from "@/components/ui/IntroCost";
 import Blog from "@/components/pages/index/Blog";
 
-export default function Works({projects}) {
-  const {t}=useTranslation("common");
+export default function Works({ projects }) {
+  const { t } = useTranslation("common");
   return (
     <Layout bg="white" headerBg="white" footerBg="black">
       <div className="bg-whisper text-black">
@@ -21,7 +21,15 @@ export default function Works({projects}) {
       lg:px-0"
         >
           <TitleSection text={t`works.title`} />
-          <BreadCrumbs itemLast={t`works.title`} />
+          <BreadCrumbs
+            links={[
+              {
+                title: t`works.title`,
+                path: "",
+                active: false,
+              },
+            ]}
+          />
           <div className="flex flex-wrap md:w-4/5">
             <TagItemSection text="Архитектурная 3D визуализация" color="blue" />
             <TagItemSection text="Продуктовая 3D визуализация" color="white" />
@@ -50,7 +58,7 @@ export default function Works({projects}) {
 export async function getStaticProps() {
   // Run API calls in parallel
 
-  const [projectsRes]=await Promise.all([
+  const [projectsRes] = await Promise.all([
     fetchAPI("/projects", {
       sort: ["ListPosition:asc"],
       populate: ["Poster", "tags"],

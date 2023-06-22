@@ -21,7 +21,15 @@ export default function About({ about, projects }) {
       <div className="mx-auto">
         <div className="container  px-3.8 lg:max-w-[1746px]">
           <TitleSection text={about.attributes.Title} />
-          <BreadCrumbs itemLast={about.attributes.Title} />
+          <BreadCrumbs
+            links={[
+              {
+                title: about.attributes.Title,
+                path: "",
+                active: false,
+              },
+            ]}
+          />
           <div className="lg:flex flex-wrap justify-between pb-15">
             <IntroDescription
               title={about.attributes.Title}
