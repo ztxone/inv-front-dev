@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Layout from "@/components/layout";
-import { fetchAPI } from "lib/api";
+import {fetchAPI} from "lib/api";
 //import Projects from "@/components/pages/index/Projects";
 import Blog from "@/components/pages/index/Blog";
 import IntroCost from "@/components/ui/IntroCost";
@@ -11,16 +11,19 @@ import IntroDescription from "@/components/ui/IntroDescription";
 import IntroSlides from "@/components/ui/IntroSlides";
 import ProjectsList from "@/components/Projects/ProjectsList";
 
-export default function About({ about, projects }) {
-  const i18n = useTranslation();
-  const { t } = useTranslation("common");
-  const locale = i18n.lang;
+export default function About({about, projects}) {
+  const i18n=useTranslation();
+  const {t}=useTranslation("common");
+  const locale=i18n.lang;
 
   return (
     <Layout bg="white" headerBg="white" footerBg="black">
       <div className="mx-auto">
         <div className="container  px-3.8 lg:max-w-[1746px]">
           <TitleSection text={about.attributes.Title} />
+<<<<<<< HEAD
+          {/* <BreadCrumbs itemLast={about.attributes.Title} /> */}
+=======
           <BreadCrumbs
             links={[
               {
@@ -30,6 +33,7 @@ export default function About({ about, projects }) {
               },
             ]}
           />
+>>>>>>> f672df4fd4af55a9c71d0f4109ae4e3fc2f05741
           <div className="lg:flex flex-wrap justify-between pb-15">
             <IntroDescription
               title={about.attributes.Title}
@@ -52,8 +56,8 @@ export default function About({ about, projects }) {
   );
 }
 
-export async function getStaticProps({ locale }) {
-  const [aboutRes, projectsRes] = await Promise.all([
+export async function getStaticProps({locale}) {
+  const [aboutRes, projectsRes]=await Promise.all([
     fetchAPI("/about", {
       populate: "*",
       locale: locale,

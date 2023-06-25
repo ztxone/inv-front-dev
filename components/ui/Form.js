@@ -3,7 +3,7 @@ import Title from './Title';
 
 export default function Form() {
   return (
-    <div className='pb-10 pt-[48px] px-3.8 
+    <div className='pb-9 pt-10.5 px-3.8 
     md:pt-16 md:pb-14
     lg:p-0 lg:mr-auto'>
       <Title text='Есть проект?' subtext='Давайте обсудим' />
