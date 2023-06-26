@@ -8,6 +8,7 @@ import Services from "@/components/pages/index/Services";
 import ProjectsMainList from "@/components/Projects/ProjectsMainList";
 
 const Home = ({ projects, services, servicesAbout, about }) => {
+  console.log(services);
   return (
     <Layout bg="black" headerBg="black" footerBg="black">
       {/* <div className="mx-auto py-6"> */}

@@ -6,6 +6,7 @@ import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import ServiceIntro from "@/components/Services/ServiceIntro";
 import { fetchAPI } from "lib/api";
 import useTranslation from "next-translate/useTranslation";
+import { useEffect } from "react";
 
 // todo Тестовые данные удалить
 const breadCrumbsItems = [
@@ -24,12 +25,15 @@ const breadCrumbsItems = [
 
 export default function Service({ category }) {
   const i18n = useTranslation();
+
   const locale = i18n.lang;
-  const seo = {
-    metaTitle: category.attributes.name,
-    metaDescription: `All ${category.attributes.name} articles`,
-  };
+
   console.log(category);
+  const seo = {
+    metaTitle: category.name,
+    metaDescription: `All ${category.name} articles`,
+  };
+  //console.log(category);
 
   return (
     <Layout bg="white" headerBg="white" footerBg="black">
@@ -39,24 +43,24 @@ export default function Service({ category }) {
           className="px-3.8
 	  lg:px-21"
         >
-          <TitleSection text="Архитектурная 3D&nbsp;визуализация" />
+          <TitleSection text={category.name} />
           <BreadCrumbs links={breadCrumbsItems} />
         </div>
-        <ServiceIntro
-          title="об услуге"
-          text="Архитектурная 3D визуализация это доступный и&nbsp;выгодный способ демонстрации внешнего вида ваших проектов от&nbsp;интерьера квартиры до&nbsp;жилого комплекса. Предметная 3D визуализация это отличный вариант презентовать ваш товара, подготовить рекламный контент или показать внутреннее устройство вашего продукта. 3D моделирование будет полезно в&nbsp;прототипирование для дальнейшего изготовления модели на&nbsp;3D принтере или фрезеровки."
-        />
+        <ServiceIntro title="об услуге" text={category.Description} />
       </div>
     </Layout>
   );
 }
 
-export async function getStaticPaths({ locale }) {
+export async function getStaticPaths() {
   const categoriesRes = await fetchAPI("/categories", {
     fields: ["slug"],
-    locale: locale,
+    filters: {
+      ShowOnMainPage: true,
+    },
+    locale: "en",
   });
-  //console.log(categoriesRes);
+
   return {
     paths: categoriesRes.data.map((category) => ({
       params: {
@@ -67,17 +71,18 @@ export async function getStaticPaths({ locale }) {
   };
 }
 
-export async function getStaticProps({ params, locale }) {
+export async function getStaticProps({ params }) {
   const matchingCategories = await fetchAPI("/categories", {
-    filters: { slug: params.slug },
-    fields: ["name", "text"],
-    //locale: locale,
-    // populate: {
-    //   projects: {
-    //     populate: "*",
-    //   },
-    // },
+    filters: {
+      slug: params.slug,
+      ShowOnMainPage: true,
+      locale: "en",
+    },
+    fields: ["name", "text", "Description", "slug"],
+    //populate: "*",
   });
+
+  console.log(params);
 
   return {
     props: {

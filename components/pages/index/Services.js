@@ -6,6 +6,8 @@ import useTranslation from "next-translate/useTranslation";
 
 export default function Services({ services }) {
   const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  console.log(services);
   return (
     <section
       className="px-4 pt-10 pb-10
@@ -39,11 +41,11 @@ export default function Services({ services }) {
               fill="#4574EF"
             />
           </svg>
-          <Title text={t(`services.mainServices`)} />
+          <Title text={t("services.mainServices")} />
           <div className="hidden lg:block ml-auto">
             <PillowLink
-              text={t(`services.allServices`)}
-              link="#"
+              text={t("services.allServices")}
+              link={`${i18n.lang}/services`}
               variant="dark"
               variantSvg="whiteSvg"
             />
@@ -56,6 +58,7 @@ export default function Services({ services }) {
               key={i}
               title={service.attributes.name}
               subtitle=""
+              link={`${i18n.lang}/services/${service.attributes.slug}`}
               descriptionItem1={service.attributes.text}
               image={service.attributes.image}
             />
