@@ -1,3 +1,6 @@
+import { getStrapiMedia } from "lib/media";
+import Image from "next/image";
+
 const colorInherit = "bg-inherit border-1 border-nobel text-nero2";
 const colorNero = "bg-nero";
 
@@ -16,15 +19,13 @@ export default function Article({
     h-full  w-full`}
     >
       <div className="rounded-l15 mb-[23px] w-full relative">
-        <picture>
-          <img
-            className="rounded-l15 md:w-full"
-            width="288"
-            height="147"
-            src={link}
-            alt="#"
-          />
-        </picture>
+        <Image
+          className="rounded-l15 md:w-full"
+          width="288"
+          height="147"
+          src={getStrapiMedia(link)}
+          alt={title}
+        />
 
         <div
           className="bg-white rounded-full px-[15px] py-[8px] inline-flex items-center w-auto m-4 self-start

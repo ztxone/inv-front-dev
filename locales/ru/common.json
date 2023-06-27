@@ -14,5 +14,7 @@
   "services": {
     "mainServices": "Основные услуги",
     "allServices": "Все услуги"
-  }
+  },
+  "All_projects": "Все проекты",
+  "All_news": "Все новости"
 }

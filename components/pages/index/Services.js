@@ -7,7 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 export default function Services({ services }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
-  console.log(services);
+
   return (
     <section
       className="px-4 pt-10 pb-10

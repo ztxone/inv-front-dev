@@ -14,5 +14,6 @@
   "services": {
     "mainServices": "Main services",
     "allServices": "All services"
-  }
+  },
+  "All_news": "All news"
 }

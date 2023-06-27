@@ -9,6 +9,7 @@ import ProjectsTitle from "@/components/Projects/ProjectsTitle";
 import { getStrapiMedia } from "lib/media";
 
 export default function ProjectsMainList({ projects, moreProjects = false }) {
+  //console.log(projects);
   return (
     <section className="bg-whisper rounded-5xl pb-6 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl">
       <div className="container">
@@ -28,6 +29,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -61,6 +63,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -95,6 +98,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -129,6 +133,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -163,6 +168,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -197,6 +203,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9

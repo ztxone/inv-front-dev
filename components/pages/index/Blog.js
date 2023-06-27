@@ -5,14 +5,22 @@ import ButtonPagination from "@/components/ui/ButtonPagination";
 import { useRef } from "react";
 import { Virtual, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import Loading from "@/components/ui/Loading";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import useTranslation from "next-translate/useTranslation";
 
-export default function Blog({ titleColor, articleColor, buttonColor }) {
+export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  if (!blogs) {
+    return <Loading />;
+  }
+  console.log(blogs);
 
   return (
     <section
@@ -79,19 +87,19 @@ export default function Blog({ titleColor, articleColor, buttonColor }) {
       md:pb-10 md:gap-7
       lg:pl-0 lg:pb-9"
       >
-        <SwiperSlide className="min-h-[471px] w-[288px] md:w-[562px] shrink-0">
-          <Article
-            link="/image/content/image-10.png"
-            tag="VR"
-            title="VR-футболка Owo: мнения тестеров"
-            text="Футболка Owo дает ощутимую обратную связь в&nbsp;виртуальной
-              реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
-              током до&nbsp;предела личной боли."
-            variant={articleColor}
-          />
-        </SwiperSlide>
-
-        <SwiperSlide className="w-[288px] md:w-[562px] shrink-0">
+        {blogs[0] &&
+          blogs.map((blog) => (
+            <SwiperSlide className="shrink-0">
+              <Article
+                link={blog.attributes.Image_preview}
+                tag="VR"
+                title={blog.attributes.Title}
+                text={blog.attributes.Preview}
+                variant={articleColor}
+              />
+            </SwiperSlide>
+          ))}
+        {/* <SwiperSlide className="w-[288px] md:w-[562px] shrink-0">
           <Article
             link="/image/content/image-11.png"
             tag="3D"
@@ -99,36 +107,15 @@ export default function Blog({ titleColor, articleColor, buttonColor }) {
             text="Футболка Owo дает ощутимую обратную связь в&nbsp;виртуальной
               реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
               током до&nbsp;предела личной боли."
+            variant={articleColor}
           />
-        </SwiperSlide>
-
-        <SwiperSlide className="w-[288px] md:w-[562px] shrink-0">
-          <Article
-            link="/image/content/image-12.png"
-            tag="Новости"
-            title="Самый инновационный ноутбук от Apple — MacBook Retina"
-            text="Футболка Owo дает ощутимую обратную связь в&nbsp;виртуальной
-              реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
-              током до&nbsp;предела личной боли."
-          />
-        </SwiperSlide>
-
-        <SwiperSlide className="w-[288px] md:w-[562px] shrink-0">
-          <Article
-            link="/image/content/image-12.png"
-            tag="Новости"
-            title="Самый инновационный ноутбук от Apple — MacBook Retina"
-            text="Футболка Owo дает ощутимую обратную связь в&nbsp;виртуальной
-              реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
-              током до&nbsp;предела личной боли."
-          />
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
 
       <div>
         <PillowLink
-          text="Все новости"
-          link="#"
+          text={t("All_news")}
+          link={`/${i18n.lang}/blogs`}
           variant="dark"
           variantSvg="whiteSvg"
         />

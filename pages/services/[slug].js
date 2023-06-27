@@ -28,7 +28,7 @@ export default function Service({ category }) {
 
   const locale = i18n.lang;
 
-  console.log(category);
+  console.log(locale);
   const seo = {
     metaTitle: category.name,
     metaDescription: `All ${category.name} articles`,
@@ -64,25 +64,27 @@ export async function getStaticPaths() {
   return {
     paths: categoriesRes.data.map((category) => ({
       params: {
-        slug: category.attributes.slug,
+        //slug: category.attributes.slug,
+        slug:
+          category.attributes.slug !== null
+            ? category.attributes.slug.toString()
+            : "",
       },
     })),
     fallback: false,
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const matchingCategories = await fetchAPI("/categories", {
     filters: {
       slug: params.slug,
-      ShowOnMainPage: true,
-      locale: "en",
+      //ShowOnMainPage: true,
+      locale: locale,
     },
-    fields: ["name", "text", "Description", "slug"],
-    //populate: "*",
+    fields: ["name", "text", "Description"],
+    populate: "*",
   });
-
-  console.log(params);
 
   return {
     props: {
