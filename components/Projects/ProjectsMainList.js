@@ -4,27 +4,26 @@ import Marquee from "@/components/ui/Marquee";
 import ProjectItemImage from "@/components/ui/ProjectItemImage";
 
 import ProjectButton from "@/components/ui/ProjectButton";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import ProjectsTitle from "@/components/Projects/ProjectsTitle";
-import { getStrapiMedia } from "lib/media";
+import {getStrapiMedia} from "lib/media";
 
-export default function ProjectsMainList({ projects, moreProjects = false }) {
-  //console.log(projects);
+export default function ProjectsMainList({projects, moreProjects=false}) {
   return (
-    <section className="bg-whisper rounded-5xl pb-6 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl">
+    <section className="bg-whisper rounded-5xl pb-3.8 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl">
       <div className="container">
-        <div className="px-3.8 lg:px-24.5 lg:pb-20">
+        <div className="lg:px-24.5 lg:pb-20">
           <ProjectsTitle />
 
           <ResponsiveMasonry
-            className="pt-15 border-t border-black-russian md:pt-10 
-          lg:pt-12 pb-7"
-            columnsCountBreakPoints={{ 350: 1, 750: 1, 1024: 2 }}
+            className="pt-15 pb-3.8 border-t border-black-russian md:pt-10 
+          lg:pt-12"
+            columnsCountBreakPoints={{350: 1, 750: 1, 1024: 2}}
           >
             <Masonry gutter="30px">
-              {projects[0] &&
+              {projects[0]&&
                 projects.map((project, i) => {
-                  if (project.id === 14) {
+                  if (project.id===14) {
                     return (
                       <ProjectItem
                         key={project.id}
@@ -36,7 +35,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
 						aspect-[398/302]
 						md:aspect-[805/483]"
                         >
-                          {project.attributes.tags.data[0] && (
+                          {project.attributes.tags.data[0]&&(
                             <Tag
                               text1={
                                 project.attributes.tags.data[0].attributes.Name
@@ -44,8 +43,8 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                               text2={
                                 project.attributes.tags.data[1]
                                   ? project.attributes.tags.data[1].attributes
-                                      .Name
-                                  : ""
+                                    .Name
+                                  :""
                               }
                             />
                           )}
@@ -58,7 +57,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                         </div>
                       </ProjectItem>
                     );
-                  } else if (project.id === 15) {
+                  } else if (project.id===15) {
                     return (
                       <ProjectItem
                         key={project.id}
@@ -71,7 +70,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
 							md:aspect-[804/858]
 							lg:aspect-square"
                         >
-                          {project.attributes.tags.data[0] && (
+                          {project.attributes.tags.data[0]&&(
                             <Tag
                               text1={
                                 project.attributes.tags.data[0].attributes.Name
@@ -79,8 +78,8 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                               text2={
                                 project.attributes.tags.data[1]
                                   ? project.attributes.tags.data[1].attributes
-                                      .Name
-                                  : ""
+                                    .Name
+                                  :""
                               }
                             />
                           )}
@@ -93,7 +92,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                         </div>
                       </ProjectItem>
                     );
-                  } else if (project.id === 2) {
+                  } else if (project.id===2) {
                     return (
                       <ProjectItem
                         key={project.id}
@@ -106,7 +105,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
 							md:aspect-[804/480]
 							lg:aspect-[858/643]"
                         >
-                          {project.attributes.tags.data[0] && (
+                          {project.attributes.tags.data[0]&&(
                             <Tag
                               text1={
                                 project.attributes.tags.data[0].attributes.Name
@@ -114,8 +113,8 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                               text2={
                                 project.attributes.tags.data[1]
                                   ? project.attributes.tags.data[1].attributes
-                                      .Name
-                                  : ""
+                                    .Name
+                                  :""
                               }
                             />
                           )}
@@ -128,7 +127,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                         </div>
                       </ProjectItem>
                     );
-                  } else if (project.id === 5) {
+                  } else if (project.id===5) {
                     return (
                       <ProjectItem
                         key={project.id}
@@ -141,7 +140,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
 							md:aspect-[803/643]
 							lg:aspect-[858/643]"
                         >
-                          {project.attributes.tags.data[0] && (
+                          {project.attributes.tags.data[0]&&(
                             <Tag
                               text1={
                                 project.attributes.tags.data[0].attributes.Name
@@ -149,8 +148,8 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                               text2={
                                 project.attributes.tags.data[1]
                                   ? project.attributes.tags.data[1].attributes
-                                      .Name
-                                  : ""
+                                    .Name
+                                  :""
                               }
                             />
                           )}
@@ -163,7 +162,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                         </div>
                       </ProjectItem>
                     );
-                  } else if (project.id === 4) {
+                  } else if (project.id===4) {
                     return (
                       <ProjectItem
                         key={project.id}
@@ -176,7 +175,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
 							md:aspect-[804/858]
 							lg:aspect-square"
                         >
-                          {project.attributes.tags.data[0] && (
+                          {project.attributes.tags.data[0]&&(
                             <Tag
                               text1={
                                 project.attributes.tags.data[0].attributes.Name
@@ -184,8 +183,8 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                               text2={
                                 project.attributes.tags.data[1]
                                   ? project.attributes.tags.data[1].attributes
-                                      .Name
-                                  : ""
+                                    .Name
+                                  :""
                               }
                             />
                           )}
@@ -198,7 +197,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                         </div>
                       </ProjectItem>
                     );
-                  } else if (project.id === 3) {
+                  } else if (project.id===3) {
                     return (
                       <ProjectItem
                         key={project.id}
@@ -211,7 +210,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
 								md:aspect-[804/487]
 								lg:aspect-[857/487]"
                         >
-                          {project.attributes.tags.data[0] && (
+                          {project.attributes.tags.data[0]&&(
                             <Tag
                               text1={
                                 project.attributes.tags.data[0].attributes.Name
@@ -219,8 +218,8 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                               text2={
                                 project.attributes.tags.data[1]
                                   ? project.attributes.tags.data[1].attributes
-                                      .Name
-                                  : ""
+                                    .Name
+                                  :""
                               }
                             />
                           )}
@@ -323,7 +322,7 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
             </Masonry>
           </ResponsiveMasonry>
 
-          {moreProjects && (
+          {moreProjects&&(
             <div
               className="text-center pb-9 md:flex md:flex-col md:items-center md:pt-5
 			  lg:pt-20"

@@ -1,14 +1,13 @@
 import React from "react";
 import Layout from "@/components/layout";
-import { fetchAPI } from "lib/api";
+import {fetchAPI} from "lib/api";
 import About from "@/components/pages/index/About";
-import Projects from "@/components/pages/index/Projects";
 import Blog from "@/components/pages/index/Blog";
 import Services from "@/components/pages/index/Services";
 import ProjectsMainList from "@/components/Projects/ProjectsMainList";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 
-const Home = ({ projects, services, servicesAbout, about }) => {
+const Home=({projects, services, servicesAbout, about}) => {
   return (
     <Layout bg="black" headerBg="black" footerBg="black">
       {/* <div className="mx-auto py-6"> */}
@@ -16,12 +15,6 @@ const Home = ({ projects, services, servicesAbout, about }) => {
       <Services services={services} />
       <ProjectsMainList projects={projects} moreProjects={true} />
       {/* <Projects projects={projects} moreProjects={true}/> */}
-      {/* <Blog
-        blogs={blogs}
-        articleColor="nero"
-        titleColor="white"
-        buttonColor="white"
-      /> */}
       <BlogsBlockList
         articleColor="nero"
         titleColor="white"
@@ -31,9 +24,9 @@ const Home = ({ projects, services, servicesAbout, about }) => {
   );
 };
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({locale}) {
   // Run API calls in parallel
-  const [projectsRes, servicesRes, servicesAboutRes, aboutRes] =
+  const [projectsRes, servicesRes, servicesAboutRes, aboutRes]=
     await Promise.all([
       fetchAPI("/projects", {
         sort: ["ListPosition:asc"],

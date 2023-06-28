@@ -55,7 +55,8 @@
 }
 
 .container {
-  @apply max-w-[1920px] w-full m-auto;
+  @apply max-w-[1920px] w-full m-auto px-3.8
+  lg:px-21;
 }
 
 .transition {

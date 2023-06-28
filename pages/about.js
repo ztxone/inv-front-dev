@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Layout from "@/components/layout";
-import { fetchAPI } from "lib/api";
+import {fetchAPI} from "lib/api";
 //import Projects from "@/components/pages/index/Projects";
 import Blog from "@/components/pages/index/Blog";
 import IntroCost from "@/components/ui/IntroCost";

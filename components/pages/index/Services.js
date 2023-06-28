@@ -10,17 +10,16 @@ export default function Services({ services }) {
 
   return (
     <section
-      className="px-4 pt-10 pb-10
+      className="px-4 pt-10 pb-11
     -mt-50 
     md:pb-[106px] md:border-t-1 border-eclipse md:pt-20 
     lg:px-10 lg:pb-34
     xl:px-20"
     >
-      <div className="container">
-        <div className="flex items-center pb-15 md:pb-9 lg:mb-24.5">
-          <svg className="mr-5" width="30" height="30" viewBox="0 0 30 30">
-            <path
-              d="M13.125 30L13.125 -1.63918e-07L16.875
+      <div className="flex items-center pb-15 md:pb-9 lg:mb-24.5">
+        <svg className="mr-5" width="30" height="30" viewBox="0 0 30 30">
+          <path
+            d="M13.125 30L13.125 -1.63918e-07L16.875
            0L16.875 30L13.125 30Z"
               fill="#4574EF"
             />
@@ -51,6 +50,7 @@ export default function Services({ services }) {
             />
           </div>
         </div>
+      </div>
 
         <div className="lg:flex">
           {services.map((service, i) => (
@@ -66,6 +66,7 @@ export default function Services({ services }) {
         </div>
         <FormService />
       </div>
+      <FormService />
     </section>
   );
 }

@@ -11,14 +11,13 @@ export default function Article({
   tag,
   title,
   text,
-  variant = "colorNero",
+  variant='colorNero',
 }) {
   return (
     <article
-      className={`${
-        variant == "nero" ? colorNero : colorInherit
-      } rounded-l15 flex flex-col  pb-6 
-    h-full  w-full`}
+      className={`${variant=='nero'? colorNero:colorInherit
+        } rounded-l15 flex flex-col  h-[422px] pb-6 w-[288px]
+        md:w-[562px]`}
     >
       <div className="rounded-l15 mb-[23px] w-full relative">
         <Image
@@ -29,27 +28,22 @@ export default function Article({
           alt={title}
         />
 
-        <div
-          className="bg-white rounded-full px-[15px] py-[8px] inline-flex items-center w-auto m-4 self-start
-      absolute bottom-[5%] left-[5%] "
-        >
-          <span className="dot"></span>
-          <p className="text-black-russian font-interTight uppercase font-medium text-xxs">
+      <div className='px-5 overflow-hidden'>
+        <div className='bg-white rounded-full px-[15px] py-[8px] inline-flex items-center w-auto self-start mb-5'>
+          <span className='dot'></span>
+          <p className='text-black-russian font-interTight uppercase font-medium text-xxs'>
             {tag}
           </p>
         </div>
-      </div>
-
-      <div className="px-5 max-h-[170px] overflow-hidden">
         <h3
-          className="text-xl tracking-tight mb-3.8 w-9/12
-        md:text-2xl"
+          className='text-xl tracking-tight mb-3.8 w-9/12
+        md:text-2xl'
         >
           <Link href={`blog/${link}`}>{title}</Link>
         </h3>
         <p
-          className="text-baseHeight tracking-tight opacity-70
-        md:pr-3.8"
+          className='text-baseHeight tracking-tight opacity-70
+        md:pr-3.8'
         >
           <Link href={`blog/${link}`}>{text}</Link>
         </p>
