@@ -28,6 +28,7 @@ export default function ProjectsMainList({projects, moreProjects=false}) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -61,6 +62,7 @@ export default function ProjectsMainList({projects, moreProjects=false}) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -95,6 +97,7 @@ export default function ProjectsMainList({projects, moreProjects=false}) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -129,6 +132,7 @@ export default function ProjectsMainList({projects, moreProjects=false}) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -163,6 +167,7 @@ export default function ProjectsMainList({projects, moreProjects=false}) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9
@@ -197,6 +202,7 @@ export default function ProjectsMainList({projects, moreProjects=false}) {
                       <ProjectItem
                         key={project.id}
                         name={project.attributes.Title}
+                        link={project.attributes.slug}
                       >
                         <div
                           className="rounded-l15 relative py-5 px-9

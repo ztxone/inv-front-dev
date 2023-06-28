@@ -1,22 +1,45 @@
-import TitleH3 from './TitleH3';
+import TitleH3 from "./TitleH3";
 import { getStrapiMedia } from "lib/media";
-import Image from 'next/image';
+import Image from "next/image";
+import Link from "next/link";
 
-export default function ServiceItem({title, subtitle,
-  descriptionItem1, image}) {
+export default function ServiceItem({
+  title,
+  subtitle,
+  descriptionItem1,
+  link,
+  image,
+}) {
   return (
-    <div className={`w-full h-[600px] mb-2.5 pt-9 px-9 rounded-5xl relative
+    <div
+      className={`w-full h-[600px] mb-2.5 pt-9 px-9 rounded-5xl relative
     md:mb-5
-    lg:mr-7 lg:last-of-type:mr-0`}>
-      <TitleH3 text={title} subtext={subtitle} />
-      <p className='relative z-10 text-lg pb-[2px] w-9/12 pt-7
-      md:mt-9'>{descriptionItem1}</p>
-      {image&&(<div className='absolute top-0 bottom-0 left-0 min-w-[398px] min-h-[600px] 
-      lg:max-w-full lg:min-w-fit'>
-        <Image src={getStrapiMedia(image)} alt={title} width="398" height="600" className='object-cover w-full
-        h-full rounded-5xl'/>
-      </div>
-	  )}
+    lg:mr-7 lg:last-of-type:mr-0`}
+    >
+      <Link href={link}>
+        <TitleH3 text={title} subtext={subtitle} />
+        <p
+          className="relative z-10 text-lg pb-[2px] w-9/12 pt-7
+      md:mt-9"
+        >
+          {descriptionItem1}
+        </p>
+        {image && (
+          <div
+            className="absolute top-0 bottom-0 left-0 min-w-[398px] min-h-[600px] 
+      lg:max-w-full lg:min-w-fit"
+          >
+            <Image
+              src={getStrapiMedia(image)}
+              alt={title}
+              width="398"
+              height="600"
+              className="object-cover w-full
+        h-full rounded-5xl"
+            />
+          </div>
+        )}
+      </Link>
     </div>
-  )
+  );
 }

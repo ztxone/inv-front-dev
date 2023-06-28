@@ -10,10 +10,15 @@ export default function BreadCrumbs({links}) {
     lg:pb-10.5'
     >
       <ol className="flex text-base tracking-tight items-center opacity-50">
-        <BreadCrumbsItems title={t("mainPage")} path="/" active={false} />
+        <BreadCrumbsItems
+          key="01"
+          title={t("mainPage")}
+          path="/"
+          active={false}
+        />
         {links.map((item, i) => (
           <BreadCrumbsItems
-            key={item.path}
+            key={i}
             title={item.title}
             active={i===links.length-1}
             path={item.path}

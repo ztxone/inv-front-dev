@@ -5,6 +5,7 @@ import About from "@/components/pages/index/About";
 import Blog from "@/components/pages/index/Blog";
 import Services from "@/components/pages/index/Services";
 import ProjectsMainList from "@/components/Projects/ProjectsMainList";
+import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 
 const Home=({projects, services, servicesAbout, about}) => {
   return (
@@ -14,7 +15,11 @@ const Home=({projects, services, servicesAbout, about}) => {
       <Services services={services} />
       <ProjectsMainList projects={projects} moreProjects={true} />
       {/* <Projects projects={projects} moreProjects={true}/> */}
-      <Blog articleColor="nero" titleColor="white" buttonColor="white" />
+      <BlogsBlockList
+        articleColor="nero"
+        titleColor="white"
+        buttonColor="white"
+      />
     </Layout>
   );
 };

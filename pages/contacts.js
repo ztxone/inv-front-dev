@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import Layout from "@/components/layout";
 import useTranslation from "next-translate/useTranslation";
-import IntroSlides from "@/components/ui/IntroSlides";
 import Socials from "@/components/ui/Socials";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
@@ -9,8 +8,8 @@ import { fetchAPI } from "lib/api";
 import Address from "@/components/ui/Address";
 import ServicesSlides from "@/components/Services/ServicesSlides";
 import Map from "@/components/ui/Map";
-import Blog from "@/components/pages/index/Blog";
 import IntroCost from "@/components/ui/IntroCost";
+import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 
 export default function Contacts({ contact }) {
   const i18n = useTranslation();
@@ -53,14 +52,17 @@ export default function Contacts({ contact }) {
         md:pb-10
         lg:px-21 lg:pb-9"
         >
-          {/* <IntroSlides /> */}
           <ServicesSlides />
         </div>
         <Map />
         <div className="hidden md:block px-3.8 pt-20">
           <IntroCost />
         </div>
-        <Blog articleColor="inherit" titleColor="black" buttonColor="black" />
+        <BlogsBlockList
+          articleColor="inherit"
+          titleColor="black"
+          buttonColor="black"
+        />
       </div>
     </Layout>
   );

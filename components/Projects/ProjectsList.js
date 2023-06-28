@@ -8,29 +8,116 @@ import Loading from "../ui/Loading";
 import { getStrapiMedia } from "lib/media";
 import ProjectsTitle from "./ProjectsTitle";
 import Marquee from "../ui/Marquee";
+import useTranslation from "next-translate/useTranslation";
+import { useEffect, useState } from "react";
+import { fetchAPI } from "lib/api";
+import TagItemSection from "../ui/TagItemSection";
 
-export default function ProjectsList({ projects, moreProjects }) {
-  //console.log(projects[0].attributes.tags.data[1]);
+export default function ProjectsList({ moreProject }) {
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
+  const [projects, setProjects] = useState();
+  const [categories, setCategories] = useState([]);
+
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  // Filter projects based on the selected category
+
+  const filteredProjects = selectedCategory
+    ? projects.filter((project) => {
+        const projectCategories = project.attributes.categories.data;
+        // Filter out projects that don't have any categories
+        if (!projectCategories || projectCategories.length === 0) {
+          return false;
+        }
+        const projectCategoryIds = projectCategories.map(
+          (category) => category.id
+        );
+        return projectCategoryIds.includes(selectedCategory);
+      })
+    : projects;
+
+  const handleCategoryClick = (category) => {
+    if (category === selectedCategory) {
+      // If the category is already selected, clear the filter
+      setSelectedCategory(null);
+    } else {
+      // Otherwise, select the clicked category
+      setSelectedCategory(category);
+    }
+  };
+
+  useEffect(() => {
+    async function fetchData() {
+      const [projectsRes, categoriesRes] = await Promise.all([
+        fetchAPI("/projects", {
+          sort: ["ListPosition:asc"],
+          populate: ["Poster", "tags", "categories"],
+          fields: ["Title", "slug"],
+          locale: locale,
+        }),
+        fetchAPI("/categories", {
+          // Fetch categories from the API
+          fields: ["name", "slug", "text"],
+          populate: ["projects"],
+          locale: locale,
+        }),
+      ]);
+
+      const categoriesData =
+        categoriesRes && categoriesRes.data
+          ? categoriesRes.data.filter(
+              (category) =>
+                category.attributes.projects.data &&
+                category.attributes.projects.data.length > 0
+            )
+          : [];
+
+      setProjects(projectsRes.data);
+      setCategories(categoriesData);
+    }
+    fetchData();
+  }, [locale]);
+
   if (!projects) {
     return <Loading />;
   }
+
+  //console.log(projects);
+
   return (
-    <section className="bg-whisper rounded-5xl pb-6 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl">
+    <section className="bg-whisper rounded-5xl pb-6 pt-6 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-12 lg:pb-9 lg:rounded-7xl">
       <div className="container">
+        <div className="flex flex-wrap md:w-4/5">
+          {categories.map((category) => (
+            <TagItemSection
+              key={category.id}
+              text={category.attributes.name}
+              color={category.id === selectedCategory ? "blue" : "white"}
+              onClick={() => handleCategoryClick(category.id)}
+            />
+          ))}
+        </div>
+
         <div className="px-3.8 lg:px-24.5 lg:pb-20">
-          <ProjectsTitle />
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 1, 1024: 2 }}
             className="lg:max-w-[1746px] mx-auto"
           >
             <Masonry gutter="37px">
-              {projects[0] &&
-                projects.map((project, i) => (
+              {filteredProjects[0] &&
+                filteredProjects.map((project) => (
                   <ProjectItemWork
                     key={project.id}
                     name={project.attributes.Title}
                   >
-                    {project.attributes.tags.data[0] && (
+                    <ProjectItemImage
+                      link={getStrapiMedia(project.attributes.Poster)}
+                      width="398"
+                      height="302"
+                      variant="imageBlock"
+                    />{" "}
+                    {project.attributes.tags.data.length > 0 && (
                       <Tag
                         text1={project.attributes.tags.data[0].attributes.Name}
                         text2={
@@ -40,19 +127,12 @@ export default function ProjectsList({ projects, moreProjects }) {
                         }
                       />
                     )}
-                    <ProjectItemImage
-                      link={getStrapiMedia(project.attributes.Poster)}
-                      width="398"
-                      height="302"
-                      variant="imageBlock"
-                    />
                   </ProjectItemWork>
                 ))}
             </Masonry>
           </ResponsiveMasonry>
         </div>
       </div>
-      <Marquee />
     </section>
   );
 }

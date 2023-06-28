@@ -9,9 +9,14 @@ import TagItemSection from "@/components/ui/TagItemSection";
 import IntroSlides from "@/components/ui/IntroSlides";
 import IntroCost from "@/components/ui/IntroCost";
 import Blog from "@/components/pages/index/Blog";
+import { useState } from "react";
+import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 
-export default function Works({ projects }) {
+export default function Portfolio({ projects, categories }) {
   const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
+
   return (
     <Layout bg="white" headerBg="white" footerBg="black">
       <div className="bg-whisper text-black">
@@ -30,15 +35,9 @@ export default function Works({ projects }) {
               },
             ]}
           />
-          <div className="flex flex-wrap md:w-4/5">
-            <TagItemSection text="Архитектурная 3D визуализация" color="blue" />
-            <TagItemSection text="Продуктовая 3D визуализация" color="white" />
-            <TagItemSection text="Моушн & Видеопродакшн" color="white" />
-            <TagItemSection text="3D моделирование" color="white" />
-          </div>
         </div>
         {/* <ProjectWorks /> */}
-        <ProjectsList projects={projects} moreProjects={false} />
+        <ProjectsList moreProjects={false} />
         <div
           className="bg-black -mt-7 pt-10.5
           md:pt-18
@@ -46,30 +45,15 @@ export default function Works({ projects }) {
         >
           <IntroSlides />
           <IntroCost />
-          <Blog />
+          <BlogsBlockList
+            articleColor="nero"
+            titleColor="white"
+            buttonColor="white"
+          />
         </div>
 
         {/* <ProjectsListOld projects={projects}/> */}
       </div>
     </Layout>
   );
-}
-
-export async function getStaticProps() {
-  // Run API calls in parallel
-
-  const [projectsRes] = await Promise.all([
-    fetchAPI("/projects", {
-      sort: ["ListPosition:asc"],
-      populate: ["Poster", "tags"],
-      fields: ["Title", "slug"],
-    }),
-  ]);
-
-  return {
-    props: {
-      projects: projectsRes.data,
-    },
-    revalidate: 1,
-  };
 }
