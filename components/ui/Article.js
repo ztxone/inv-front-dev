@@ -15,8 +15,8 @@ export default function Article({
 }) {
   return (
     <article
-      className={`${variant=='nero'? colorNero:colorInherit
-        } rounded-l15 flex flex-col  h-[422px] pb-6 w-[288px]
+      className={`${variant=='nero'? colorNero : colorInherit}
+         rounded-l15 flex flex-col  h-[422px] pb-6 w-[288px]
         md:w-[562px]`}
     >
       <div className="rounded-l15 mb-[23px] w-full relative">
