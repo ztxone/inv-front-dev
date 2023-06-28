@@ -1,22 +1,22 @@
-import PillowLink from "../../ui/PillowLink";
-import TitleH2 from "@/components/ui/TitleH2";
-import Article from "@/components/ui/Article";
-import ButtonPagination from "@/components/ui/ButtonPagination";
-import { useRef } from "react";
-import { Virtual, Navigation, Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import Loading from "@/components/ui/Loading";
+import PillowLink from '../../ui/PillowLink';
+import TitleH2 from '@/components/ui/TitleH2';
+import Article from '@/components/ui/Article';
+import ButtonPagination from '@/components/ui/ButtonPagination';
+import {useRef} from 'react';
+import {Virtual, Navigation, Pagination} from 'swiper';
+import {Swiper, SwiperSlide} from 'swiper/react';
+import Loading from '@/components/ui/Loading';
 
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import useTranslation from "next-translate/useTranslation";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import useTranslation from 'next-translate/useTranslation';
 
-export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
-  const { t } = useTranslation("common");
-  const i18n = useTranslation();
+export default function Blog({blogs, titleColor, articleColor, buttonColor}) {
+  const navigationPrevRef=useRef(null);
+  const navigationNextRef=useRef(null);
+  const {t}=useTranslation('common');
+  const i18n=useTranslation();
   if (!blogs) {
     return <Loading />;
   }
@@ -69,8 +69,8 @@ export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
 
       <Swiper
         modules={[Navigation, Virtual, Pagination]}
-        spaceBetween={20}
-        // slidesPerView={}
+        spaceBetween={10}
+        slidesPerView={"auto"}
         scrollbar={{draggable: true}}
         onSlideChange={() => console.log('slide change')}
         navigation={{
@@ -83,31 +83,28 @@ export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
         }}
         virtual
         loop={true}
-        className='mySwiper flex mb-7
-        lg:pl-0 lg:pb-9'
       >
-        {blogs[0] &&
+        {blogs[0]&&
           blogs.map((blog) => (
-            <SwiperSlide className="shrink-0">
+            <SwiperSlide>
               <Article
                 image={blog.attributes.Image_preview}
                 link={blog.attributes.slug}
-                tag="VR"
+                tag='VR'
                 title={blog.attributes.Title}
                 text={blog.attributes.Preview}
                 variant={articleColor}
               />
             </SwiperSlide>
           ))}
-       
       </Swiper>
 
-      <div>
+      <div className='mt-7'>
         <PillowLink
-          text={t("All_news")}
+          text={t('All_news')}
           link={`/${i18n.lang}/blogs`}
-          variant="dark"
-          variantSvg="whiteSvg"
+          variant='dark'
+          variantSvg='whiteSvg'
         />
       </div>
     </section>

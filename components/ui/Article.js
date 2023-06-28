@@ -1,9 +1,9 @@
-import { getStrapiMedia } from "lib/media";
+import {getStrapiMedia} from "lib/media";
 import Image from "next/image";
 import Link from "next/link";
 
-const colorInherit = "bg-inherit border-1 border-nobel text-nero2";
-const colorNero = "bg-nero";
+const colorInherit="bg-inherit border-1 border-nobel text-nero2";
+const colorNero="bg-nero";
 
 export default function Article({
   link,
@@ -11,11 +11,11 @@ export default function Article({
   tag,
   title,
   text,
-  variant = "colorNero",
+  variant="colorNero",
 }) {
   return (
     <article
-      className={`${variant == "nero" ? colorNero : colorInherit}
+      className={`${variant=="nero"? colorNero:colorInherit}
          rounded-l15 flex flex-col  h-[422px] pb-6 w-[288px]
         md:w-[562px]`}
     >
