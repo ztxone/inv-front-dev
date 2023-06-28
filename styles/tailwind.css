@@ -62,3 +62,11 @@
 .transition {
   @apply transition-all duration-300 ease-in-out;
 }
+
+.swiper-slide {
+  @apply !w-auto
+}
+
+.swiper-button-lock {
+  @apply !block
+}

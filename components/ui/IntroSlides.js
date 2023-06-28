@@ -5,7 +5,7 @@ import Tag from './Tag';
 export default function IntroSlides() {
   return (
     <div
-      className='flex flex-col gap-2.5 pt-7 pb-2.5 
+      className='px-3.8 flex flex-col gap-2.5 pt-7 pb-2.5 
     md:gap-5 md:flex-row md:overflow-hidden md:pb-10
     lg:order-3 lg:w-full
     lg:max-w-[1746px] mx-auto'
