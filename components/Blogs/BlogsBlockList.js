@@ -1,8 +1,8 @@
-import PillowLink from "../../ui/PillowLink";
+import PillowLink from "@/components/ui/PillowLink";
 import TitleH2 from "@/components/ui/TitleH2";
 import Article from "@/components/ui/Article";
 import ButtonPagination from "@/components/ui/ButtonPagination";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Virtual, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Loading from "@/components/ui/Loading";
@@ -11,16 +11,40 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import useTranslation from "next-translate/useTranslation";
+import { fetchAPI } from "lib/api";
 
-export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
+export default function BlogsBlockList({
+  titleColor,
+  articleColor,
+  buttonColor,
+}) {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const { t } = useTranslation("common");
   const i18n = useTranslation();
-  if (!blogs) {
+
+  const [data, setData] = useState();
+
+  const locale = i18n.lang;
+
+  useEffect(() => {
+    async function fetchData() {
+      const blogsRes = await fetchAPI("/blogs", {
+        fields: ["Title", "slug", "Preview"],
+        populate: ["tags", "Image_preview"],
+        locale: locale,
+      });
+
+      setData(blogsRes.data);
+    }
+    fetchData();
+  }, [locale]);
+
+  if (!data) {
     return <Loading />;
   }
-  console.log(blogs);
+
+  //console.log(data);
 
   return (
     <section
@@ -32,7 +56,7 @@ export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
         className="flex justify-between pb-10 items-center
         md:pb-15 lg:pb-18"
       >
-        <TitleH2 text="Блог invert" variant={titleColor} />
+        <TitleH2 text={t("Blog invert")} variant={titleColor} />
 
         <div className="flex">
           <div ref={navigationPrevRef}>
@@ -87,8 +111,8 @@ export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
       md:pb-10 md:gap-7
       lg:pl-0 lg:pb-9"
       >
-        {blogs[0] &&
-          blogs.map((blog) => (
+        {data[0] &&
+          data.map((blog) => (
             <SwiperSlide className="shrink-0">
               <Article
                 image={blog.attributes.Image_preview}
@@ -100,23 +124,12 @@ export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
               />
             </SwiperSlide>
           ))}
-        {/* <SwiperSlide className="w-[288px] md:w-[562px] shrink-0">
-          <Article
-            link="/image/content/image-11.png"
-            tag="3D"
-            title="3D Max реально освоить самому"
-            text="Футболка Owo дает ощутимую обратную связь в&nbsp;виртуальной
-              реальности, как тактильный жилет, но&nbsp;с&nbsp;электрическим
-              током до&nbsp;предела личной боли."
-            variant={articleColor}
-          />
-        </SwiperSlide> */}
       </Swiper>
 
       <div>
         <PillowLink
           text={t("All_news")}
-          link={`/${i18n.lang}/blogs`}
+          link="/blogs"
           variant="dark"
           variantSvg="whiteSvg"
         />

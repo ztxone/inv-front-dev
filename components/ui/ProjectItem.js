@@ -9,7 +9,7 @@ export default function ProjectItem({ name, link, children }) {
       className="w-full pb-5 mb-2.5 
     lg:mb-0 lg:pb-50"
     >
-      <Link href={`${locale}/project/${link}`}>
+      <Link href={`project/${link}`}>
         {children}
         <h3
           className="text-xl text-black tracking-tight pb-[8px] border-b

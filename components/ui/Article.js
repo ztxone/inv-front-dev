@@ -1,11 +1,13 @@
 import { getStrapiMedia } from "lib/media";
 import Image from "next/image";
+import Link from "next/link";
 
 const colorInherit = "bg-inherit border-1 border-nobel text-nero2";
 const colorNero = "bg-nero";
 
 export default function Article({
   link,
+  image,
   tag,
   title,
   text,
@@ -23,7 +25,7 @@ export default function Article({
           className="rounded-l15 md:w-full"
           width="288"
           height="147"
-          src={getStrapiMedia(link)}
+          src={getStrapiMedia(image)}
           alt={title}
         />
 
@@ -43,13 +45,13 @@ export default function Article({
           className="text-xl tracking-tight mb-3.8 w-9/12
         md:text-2xl"
         >
-          {title}
+          <Link href={`blog/${link}`}>{title}</Link>
         </h3>
         <p
           className="text-baseHeight tracking-tight opacity-70
         md:pr-3.8"
         >
-          {text}
+          <Link href={`blog/${link}`}>{text}</Link>
         </p>
       </div>
     </article>

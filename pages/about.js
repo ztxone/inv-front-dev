@@ -10,8 +10,9 @@ import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import IntroDescription from "@/components/ui/IntroDescription";
 import IntroSlides from "@/components/ui/IntroSlides";
 import ProjectsList from "@/components/Projects/ProjectsList";
+import ServicesSlides from "@/components/Services/ServicesSlides";
 
-export default function About({ about, projects }) {
+export default function About({ about, projects, blogs }) {
   const i18n = useTranslation();
   const { t } = useTranslation("common");
   const locale = i18n.lang;
@@ -34,26 +35,33 @@ export default function About({ about, projects }) {
             <IntroDescription
               title={about.attributes.Title}
               text={about.attributes.AboutPurpose}
-            ></IntroDescription>
-            <IntroSlides />
+            />
+            {/* <IntroSlides /> */}
+
             <IntroDescription
               title={t(`about.aboutOpportunities`)}
               text={about.attributes.AboutOpportunities}
-            ></IntroDescription>
+            />
           </div>
+          <ServicesSlides />
 
           <IntroCost />
         </div>
         <ProjectsList projects={projects} moreProjects={true} />
         {/* <Projects projects={projects} moreProjects={true} /> */}
-        <Blog />
+        <Blog
+          blogs={blogs}
+          articleColor="nero"
+          titleColor="white"
+          buttonColor="white"
+        />
       </div>
     </Layout>
   );
 }
 
 export async function getStaticProps({ locale }) {
-  const [aboutRes, projectsRes] = await Promise.all([
+  const [aboutRes, projectsRes, blogsRes] = await Promise.all([
     fetchAPI("/about", {
       populate: "*",
       locale: locale,
@@ -70,12 +78,18 @@ export async function getStaticProps({ locale }) {
         limit: 6,
       },
     }),
+    fetchAPI("/blogs", {
+      fields: ["Title", "slug", "Preview"],
+      populate: ["tags", "Image_preview"],
+      locale: locale,
+    }),
   ]);
 
   return {
     props: {
       about: aboutRes.data,
       projects: projectsRes.data,
+      blogs: blogsRes.data,
     },
     revalidate: 1,
   };

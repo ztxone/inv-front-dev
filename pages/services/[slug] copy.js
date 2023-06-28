@@ -6,9 +6,7 @@ import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import ServiceIntro from "@/components/Services/ServiceIntro";
 import { fetchAPI } from "lib/api";
 import useTranslation from "next-translate/useTranslation";
-import IntroCost from "@/components/ui/IntroCost";
-import ServicesSlides from "@/components/Services/ServicesSlides";
-import ProjectsList from "@/components/Projects/ProjectsList";
+import { useEffect } from "react";
 
 // todo Тестовые данные удалить
 const breadCrumbsItems = [
@@ -27,7 +25,7 @@ const breadCrumbsItems = [
 
 export default function Service({ category }) {
   const i18n = useTranslation();
-  const { t } = useTranslation("common");
+
   const locale = i18n.lang;
 
   console.log(category);
@@ -35,6 +33,7 @@ export default function Service({ category }) {
     metaTitle: category.name,
     metaDescription: `All ${category.name} articles`,
   };
+  //console.log(category);
 
   return (
     <Layout bg="white" headerBg="white" footerBg="black">
@@ -47,14 +46,7 @@ export default function Service({ category }) {
           <TitleSection text={category.name} />
           <BreadCrumbs links={breadCrumbsItems} />
         </div>
-        <ServiceIntro title={t("About service")} text={category.Description} />
-      </div>
-      <div className="hidden md:block px-3.8 pt-20">
-        <IntroCost />
-        <ServicesSlides />
-      </div>
-      <div className="px-3.8 pt-20">
-        <ProjectsList moreProjects={true} />
+        <ServiceIntro title="об услуге" text={category.Description} />
       </div>
     </Layout>
   );
@@ -79,19 +71,20 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params, locale }) {
+export async function getStaticProps({ params }) {
   const matchingCategories = await fetchAPI("/categories", {
     fields: ["name", "text", "Description"],
-    locale: locale,
     populate: "*",
     filters: {
       slug: params.slug,
+      //ShowOnMainPage: true,
+      //locale: locale,
     },
   });
 
   return {
     props: {
-      category: matchingCategories.data[0].attributes,
+      category: matchingCategories.data[0],
     },
     revalidate: 1,
   };
