@@ -13,13 +13,11 @@ export default function ServicesChildren({ parent }) {
     async function fetchData() {
       const servicesRes = await fetchAPI("/categories", {
         locale: locale,
-        populate: "*",
-        filter: {
+        populate: ["category", "image"],
+        filters: {
           category: {
-            data: {
-              id: {
-                $eq: parent,
-              },
+            id: {
+              $eq: parent,
             },
           },
         },
@@ -34,11 +32,19 @@ export default function ServicesChildren({ parent }) {
     return <Loading />;
   }
 
-  console.log(data);
+  //console.log(data);
 
   return (
     <div className="container">
-      <ServiceChildrenItem
+      {data[0] &&
+        data.map((service, key) => (
+          <ServiceChildrenItem
+            title={service.attributes.name}
+            path={service.attributes.slug}
+            image={service.attributes.image}
+          />
+        ))}
+      {/* <ServiceChildrenItem
         title="3D визуализация экстерьеров"
         path="/image/content/3d-service.png"
       />
@@ -49,7 +55,7 @@ export default function ServicesChildren({ parent }) {
       <ServiceChildrenItem
         title="Предметная 3D визуализация"
         path="/image/content/3d-service.png"
-      />
+      /> */}
     </div>
   );
 }
