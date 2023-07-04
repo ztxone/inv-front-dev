@@ -39,7 +39,7 @@ export default function Footer({variant}) {
     >
       <div
         className="lg:max-w-[1746px] xl:flex 
-      flex-wrap xl:justify-end xl:items-start border-t border-eclipse lg:pt-20
+      flex-wrap xl:justify-end xl:items-start lg:pt-20
       lg:mx-auto"
       >
         <Form />
