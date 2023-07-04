@@ -2,34 +2,34 @@ import PillowLink from "@/components/ui/PillowLink";
 import TitleH2 from "@/components/ui/TitleH2";
 import Article from "@/components/ui/Article";
 import ButtonPagination from "@/components/ui/ButtonPagination";
-import {useEffect, useRef, useState} from "react";
-import {Virtual, Navigation, Pagination} from "swiper";
-import {Swiper, SwiperSlide} from "swiper/react";
+import { useEffect, useRef, useState } from "react";
+import { Virtual, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import Loading from "@/components/ui/Loading";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import useTranslation from "next-translate/useTranslation";
-import {fetchAPI} from "lib/api";
+import { fetchAPI } from "lib/api";
 
 export default function BlogsBlockList({
   titleColor,
   articleColor,
   buttonColor,
 }) {
-  const navigationPrevRef=useRef(null);
-  const navigationNextRef=useRef(null);
-  const {t}=useTranslation("common");
-  const i18n=useTranslation();
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
 
-  const [data, setData]=useState();
+  const [data, setData] = useState();
 
-  const locale=i18n.lang;
+  const locale = i18n.lang;
 
   useEffect(() => {
     async function fetchData() {
-      const blogsRes=await fetchAPI("/blogs", {
+      const blogsRes = await fetchAPI("/blogs", {
         fields: ["Title", "slug", "Preview"],
         populate: ["tags", "Image_preview"],
         locale: locale,
@@ -44,7 +44,7 @@ export default function BlogsBlockList({
     return <Loading />;
   }
 
-  //console.log(data);
+  console.log(data);
 
   return (
     <section
@@ -96,24 +96,24 @@ export default function BlogsBlockList({
         modules={[Navigation, Virtual, Pagination]}
         spaceBetween={50}
         slidesPerView={3}
-        scrollbar={{draggable: true}}
+        scrollbar={{ draggable: true }}
         onSlideChange={() => console.log("slide change")}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
         onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl=navigationPrevRef.current;
-          swiper.params.navigation.nextEl=navigationNextRef.current;
+          swiper.params.navigation.prevEl = navigationPrevRef.current;
+          swiper.params.navigation.nextEl = navigationNextRef.current;
         }}
         virtual
         className="flex pb-7 gap-2.5
       md:pb-10 md:gap-7
       lg:pl-0 lg:pb-9"
       >
-        {data[0]&&
-          data.map((blog) => (
-            <SwiperSlide className="shrink-0">
+        {data[0] &&
+          data.map((blog, key) => (
+            <SwiperSlide key={key} className="shrink-0">
               <Article
                 image={blog.attributes.Image_preview}
                 link={blog.attributes.slug}
@@ -126,7 +126,7 @@ export default function BlogsBlockList({
           ))}
       </Swiper>
 
-      <div className='mt-7'>
+      <div className="mt-7">
         <PillowLink
           text={t("All_news")}
           link="/blogs"
