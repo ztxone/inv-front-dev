@@ -13,7 +13,8 @@
   },
   "services": {
     "mainServices": "Основные услуги",
-    "allServices": "Все услуги"
+    "allServices": "Все услуги",
+    "linkServices": "Услуги"
   },
   "All_projects": "Все проекты",
   "All_news": "Все новости",
