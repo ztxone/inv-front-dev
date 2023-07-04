@@ -21,6 +21,10 @@ export default function ServicesChildren({ parent }) {
             },
           },
         },
+        pagination: {
+          start: 0,
+          limit: 3,
+        },
       });
 
       setData(servicesRes.data);

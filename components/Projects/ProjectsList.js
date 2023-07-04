@@ -88,7 +88,7 @@ export default function ProjectsList({ moreProjects, projectsQuantity }) {
     return <Loading />;
   }
 
-  //console.log(projects);
+  console.log(projects);
   return (
     <section className="bg-whisper relative z-10 rounded-5xl pb-6 pt-6 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-12 lg:pb-9 lg:rounded-7xl">
       <div className="container flex flex-wrap md:md:m-0 lg:m-auto">
