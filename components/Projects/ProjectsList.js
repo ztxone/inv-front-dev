@@ -113,6 +113,7 @@ export default function ProjectsList({ moreProjects, projectsQuantity }) {
                 <ProjectItemWork
                   key={project.id}
                   name={project.attributes.Title}
+                  link={project.attributes.slug}
                 >
                   <ProjectItemImage
                     link={getStrapiMedia(project.attributes.Poster)}
