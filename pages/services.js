@@ -9,31 +9,37 @@ import IntroCost from "@/components/ui/IntroCost";
 import Blog from "@/components/pages/index/Blog";
 import {useState} from "react";
 import Line from '@/components/ui/Line';
-import Services from '@/components/pages/index/Services';
+import Container from '@/components/ui/Container';
+import PortfolioCarusel from '@/components/Portfolio/PortfolioCarusel';
 
-export default function Portfolio({projects, categories}) {
+
+export default function Services({services}) {
   const {t}=useTranslation("common");
   const i18n=useTranslation();
   const locale=i18n.lang;
 
   return (
-    <Layout bg="black" headerBg="black" footerBg="white">
+    <Layout bg="white" headerBg="black" footerBg="white">
       <div>
-        <Line variantColor='grey' />
-        <TitleSection text={t`services.title`} variantColor='white' />
-        <Line />
-        <BreadCrumbs
-          links={[
-            {
-              title: t`services.title`,
-              path: "",
-              active: false,
-            },
-          ]}
-        />
-        <Services services={services} />
-        <IntroCost />
+        <Container>
+          <Line variantColor='grey' />
+          <TitleSection text={t`services.title`} variantColor='white' />
+          <Line />
+          <BreadCrumbs
+            links={[
+              {
+                title: t`services.title`,
+                path: "",
+                active: false,
+              },
+            ]}
+          />
+          {/* <Services services={services} /> */}
+          <IntroCost />
+        </Container>
         <IntroSlides />
+        <PortfolioCarusel />
+
 
 
 
