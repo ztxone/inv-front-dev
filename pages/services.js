@@ -39,10 +39,7 @@ export default function Services({services}) {
         </Container>
         <IntroSlides />
         <PortfolioCarusel />
-
-
-
-
+        <Line variantColor='grey' />
       </div>
     </Layout>
   );
