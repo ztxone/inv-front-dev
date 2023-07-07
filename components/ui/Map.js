@@ -55,7 +55,22 @@ export default function Map() {
         defaultCenter={defaultProps.center}
         defaultZoom={defaultProps.zoom}
       >
-        <Marker lat={59.880902} lng={30.402819} text="Invert.studio" />
+        <div lat={59.880902} lng={30.402819}>
+          <svg
+            width="57"
+            height="93"
+            viewBox="0 0 57 93"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M53.6934 40.3324L28.3446 93L2.99573 40.3324C-5.9936 21.6551 7.61661 0 28.3446 0C49.0725 0 62.6828 21.6551 53.6934 40.3324ZM28.3461 35C32.7085 35 36.245 31.6421 36.245 27.5C36.245 23.3578 32.7085 20 28.3461 20C23.9836 20 20.4471 23.3578 20.4471 27.5C20.4471 31.6421 23.9836 35 28.3461 35Z"
+              fill="#4574EF"
+            />
+          </svg>
+        </div>
       </GoogleMapReact>
     </div>
   );
