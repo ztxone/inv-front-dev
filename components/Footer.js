@@ -6,6 +6,7 @@ import {fetchAPI} from "lib/api";
 import useTranslation from "next-translate/useTranslation";
 import {useEffect, useState} from "react";
 import Logo from './ui/Logo';
+import Line from './ui/Line';
 
 export default function Footer({variant}) {
   const [data, setData]=useState();
@@ -45,6 +46,7 @@ export default function Footer({variant}) {
         <Form />
         <NavFooter menu={menu} />
         <Contact contact={data} />
+        <Line variantColor='grey' />
         <Copyright />
       </div>
     </footer>
