@@ -44,7 +44,7 @@ export default function BlogsBlockList({
     return <Loading />;
   }
 
-  console.log(data);
+  //console.log(data);
 
   return (
     <section

@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import {fetchAPI} from "lib/api";
+import { fetchAPI } from "lib/api";
 import ProjectsList from "@/components/Projects/ProjectsList";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
@@ -9,13 +9,13 @@ import TagItemSection from "@/components/ui/TagItemSection";
 import IntroSlides from "@/components/ui/IntroSlides";
 import IntroCost from "@/components/ui/IntroCost";
 import Blog from "@/components/pages/index/Blog";
-import {useState} from "react";
+import { useState } from "react";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 
-export default function Portfolio({projects, categories}) {
-  const {t}=useTranslation("common");
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+export default function Portfolio({ projects, categories }) {
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
   return (
     <Layout bg="white" headerBg="white" footerBg="black">
@@ -37,7 +37,7 @@ export default function Portfolio({projects, categories}) {
           />
         </div>
         {/* <ProjectWorks /> */}
-        <ProjectsList moreProjects={false} />
+        <ProjectsList moreProjects={false} projectsQuantity="24" />
         <div
           className="bg-black -mt-7 pt-10.5
           md:pt-18
