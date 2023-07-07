@@ -7,23 +7,23 @@ import useTranslation from "next-translate/useTranslation";
 import IntroSlides from "@/components/ui/IntroSlides";
 import IntroCost from "@/components/ui/IntroCost";
 import Blog from "@/components/pages/index/Blog";
-import {useState} from "react";
-import Line from '@/components/ui/Line';
-import Container from '@/components/ui/Container';
-import PortfolioCarusel from '@/components/Portfolio/PortfolioCarusel';
+import { useState } from "react";
+import Line from "@/components/ui/Line";
+import Container from "@/components/ui/Container";
+import PortfolioCarusel from "@/components/Portfolio/PortfolioCarusel";
+import ServicesListPage from "@/components/Services/ServicesListPage";
 
-
-export default function Services({services}) {
-  const {t}=useTranslation("common");
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+export default function Services({ services }) {
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
   return (
     <Layout bg="white" headerBg="black" footerBg="white">
       <div>
         <Container>
-          <Line variantColor='grey' />
-          <TitleSection text={t`services.title`} variantColor='white' />
+          <Line variantColor="grey" />
+          <TitleSection text={t`services.title`} variantColor="white" />
           <Line />
           <BreadCrumbs
             links={[
@@ -34,13 +34,34 @@ export default function Services({services}) {
               },
             ]}
           />
-          {/* <Services services={services} /> */}
+          <ServicesListPage services={services} />
           <IntroCost />
         </Container>
         <IntroSlides />
         <PortfolioCarusel />
-        <Line variantColor='grey' />
+        <Line variantColor="grey" />
       </div>
     </Layout>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  // Run API calls in parallel
+  const [servicesRes] = await Promise.all([
+    fetchAPI("/categories", {
+      populate: "*",
+      fields: ["name", "slug", "text"],
+      locale: locale,
+      filters: {
+        ShowOnMainPage: true,
+      },
+    }),
+  ]);
+
+  return {
+    props: {
+      services: servicesRes.data,
+    },
+    revalidate: 1,
+  };
 }
