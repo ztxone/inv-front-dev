@@ -8,7 +8,7 @@ export default function ServiceItem({
   subtitle,
   descriptionItem1,
   link,
-  image,
+  image = "",
 }) {
   return (
     <div

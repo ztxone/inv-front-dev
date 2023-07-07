@@ -56,9 +56,12 @@ export default function Service({ category }) {
         <IntroCost />
         <ServicesSlides />
       </div>
-      <div className="px-3.8 pt-20">
-        <ProjectsList moreProjects={true} />
-      </div>
+
+      <ProjectsList
+        moreProjects={true}
+        projectsQuantity="6"
+        focusService={category.id}
+      />
     </Layout>
   );
 }
