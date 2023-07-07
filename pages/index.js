@@ -2,20 +2,25 @@ import React from "react";
 import Layout from "@/components/layout";
 import {fetchAPI} from "lib/api";
 import About from "@/components/pages/index/About";
-import Services from "@/components/pages/index/Services";
+
+import Blog from "@/components/pages/index/Blog";
 import ProjectsMainList from "@/components/Projects/ProjectsMainList";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
+import ServicesListHome from "@/components/Services/ServicesListHome";
 import Line from '@/components/ui/Line';
 import Container from '@/components/ui/Container';
+
 
 const Home=({projects, services, servicesAbout, about}) => {
   return (
     <Layout bg="black" headerBg="black" footerBg="black">
       <About about={about} servicesAbout={servicesAbout} />
-      <Services services={services} />
-      <Container color='grey' position='top'>
-        <ProjectsMainList projects={projects} moreProjects={true} />
-      </Container>
+      <ServicesListHome services={services} />
+        <Container color='grey' position='top'>
+      <ProjectsMainList projects={projects} moreProjects={true} />
+      {/* <Projects projects={projects} moreProjects={true}/> */}
+ </Container>
+
       <BlogsBlockList
         articleColor="nero"
         titleColor="white"
