@@ -14,29 +14,34 @@ import { fetchAPI } from "lib/api";
 import TagItemSection from "../ui/TagItemSection";
 import ProjectButton from "../ui/ProjectButton";
 
-export default function ProjectsList({ moreProjects, projectsQuantity }) {
+export default function ProjectsList({
+  moreProjects,
+  projectsQuantity = 100,
+  focusService = null,
+}) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
   const [projects, setProjects] = useState();
   const [categories, setCategories] = useState([]);
 
-  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(focusService);
   // Filter projects based on the selected category
 
-  const filteredProjects = selectedCategory
-    ? projects.filter((project) => {
-        const projectCategories = project.attributes.categories.data;
-        // Filter out projects that don't have any categories
-        if (!projectCategories || projectCategories.length === 0) {
-          return false;
-        }
-        const projectCategoryIds = projectCategories.map(
-          (category) => category.id
-        );
-        return projectCategoryIds.includes(selectedCategory);
-      })
-    : projects;
+  const filteredProjects =
+    selectedCategory && projects
+      ? projects.filter((project) => {
+          const projectCategories = project.attributes.categories.data;
+          // Filter out projects that don't have any categories
+          if (!projectCategories || projectCategories.length === 0) {
+            return false;
+          }
+          const projectCategoryIds = projectCategories.map(
+            (category) => category.id
+          );
+          return projectCategoryIds.includes(selectedCategory);
+        })
+      : projects;
 
   const handleCategoryClick = (category) => {
     if (category === selectedCategory) {
@@ -66,6 +71,13 @@ export default function ProjectsList({ moreProjects, projectsQuantity }) {
           fields: ["name", "slug", "text"],
           populate: ["projects"],
           locale: locale,
+          ...(focusService && {
+            filters: {
+              id: {
+                $eq: focusService,
+              },
+            },
+          }),
         }),
       ]);
 
@@ -79,16 +91,21 @@ export default function ProjectsList({ moreProjects, projectsQuantity }) {
           : [];
 
       setProjects(projectsRes.data);
+
       setCategories(categoriesData);
     }
     fetchData();
   }, [locale]);
 
+  //   useEffect(() => {
+  //     setSelectedCategory(category);
+  //   }, []);
+
   if (!projects) {
     return <Loading />;
   }
 
-  console.log(projects);
+  console.log(selectedCategory);
   return (
     <section className="bg-whisper relative z-10 rounded-5xl pb-6 pt-6 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-12 lg:pb-9 lg:rounded-7xl">
       <div className="container flex flex-wrap md:md:m-0 lg:m-auto">
@@ -113,6 +130,7 @@ export default function ProjectsList({ moreProjects, projectsQuantity }) {
                 <ProjectItemWork
                   key={project.id}
                   name={project.attributes.Title}
+                  link={project.attributes.slug}
                 >
                   <ProjectItemImage
                     link={getStrapiMedia(project.attributes.Poster)}
