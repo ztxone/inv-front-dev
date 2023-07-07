@@ -10,9 +10,9 @@ import {getStrapiMedia} from "lib/media";
 
 export default function ProjectsMainList({projects, moreProjects=false}) {
   return (
-    <section className="bg-whisper rounded-5xl pb-3.8 pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9 lg:rounded-7xl">
+    <section className="pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9">
       <div className="container">
-        <div className="lg:px-24.5 lg:pb-20">
+        <div className="lg:pb-20">
           <ProjectsTitle />
 
           <ResponsiveMasonry
@@ -324,8 +324,7 @@ export default function ProjectsMainList({projects, moreProjects=false}) {
 
           {moreProjects&&(
             <div
-              className="text-center pb-9 md:flex md:flex-col md:items-center md:pt-5
-			  lg:pt-20"
+              className="text-center pb-9 md:flex md:flex-col md:items-center"
             >
               <p
                 className="font-interTight font-semibold text-6xl text-black opacity-5

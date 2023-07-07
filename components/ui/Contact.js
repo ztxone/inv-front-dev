@@ -10,7 +10,7 @@ export default function Contact({contact}) {
 
   return (
     <div
-      className='pb-3.8 px-3.8
+      className='pb-3.8
     md:pb-7
     lg:w-[445px] lg:pt-5 lg:pl-7'
     >

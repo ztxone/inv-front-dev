@@ -3,7 +3,7 @@ import Logo from './Logo';
 export default function Copyright() {
   return (
     <div
-      className='pt-10.5 text-sm flex items-end 
+      className='px-3.8 pt-10.5 text-sm flex items-end 
     justify-between flex-wrap text-inherit
     md:pt-[64px] md:items-baseline md:w-[87%]
     lg:w-full lg:px-0 lg:pt-1.5'

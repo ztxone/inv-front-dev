@@ -36,19 +36,20 @@ export default function Footer({variant}) {
       className={`${variant==="black"
         ? "bg-black text-white"
         :"bg-whisper text-black-russian"
-        } mx-auto pb-[38px] lg:px-10.5 text-inherit`}
+        } mx-auto pb-[38px] text-inherit max-w-[1746px]`}
     >
+
       <div
-        className="lg:max-w-[1746px] xl:flex 
+        className="container xl:flex 
       flex-wrap xl:justify-end xl:items-start lg:pt-20
       lg:mx-auto"
       >
         <Form />
         <NavFooter menu={menu} />
         <Contact contact={data} />
-        <Line variantColor='grey' />
-        <Copyright />
       </div>
+      <Line variantColor='eclipse' />
+      <Copyright />
     </footer>
   );
 }

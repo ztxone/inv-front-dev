@@ -7,7 +7,7 @@ import Nav from "./ui/Nav";
 import Order from "./ui/Order";
 import useTranslation from "next-translate/useTranslation";
 import {fetchAPI} from "lib/api";
-import LineBottom from './ui/Line';
+import Line from './ui/Line';
 
 export default function Header({variant}) {
   const [isNavOpen, setIsNavOpen]=useState(false);
@@ -27,8 +27,9 @@ export default function Header({variant}) {
   }, [locale]);
 
   return (
-    <header className="pt-[24px] pb-5 px-4 md:py-[17px] md:px-3.8 lg:py-10 relative text-inherit">
-      <div className="mx-auto flex justify-between items-center  md:px-0 lg:max-w-[1746px]">
+    <header className="relative text-inherit">
+      <div className="container flex justify-between items-center  
+      pt-[24px] pb-5 md:py-[17px] lg:py-10 ">
         <Logo color="inherit" />
         <Language />
         <Burger onClick={() => setIsNavOpen((prev) => !prev)} color={variant} />
@@ -38,6 +39,7 @@ export default function Header({variant}) {
         <Nav menu={menu} />
         <Order />
       </div>
+      <Line variantColor='grey' />
     </header>
   );
 }
