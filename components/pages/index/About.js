@@ -4,14 +4,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export default function About({about, servicesAbout}) {
-  //console.log(servicesAbout);
+
   return (
     <section
-      className='pt-50 md:pt-[214px] md:pb-50 pb-60 bg-[url("../public/image/content/about.jpg")] 
-    bg-cover bg-no-repeat bg-center px-4 -mt-25 
-    lg:px-[86px] lg:-mt-36 lg:pb-[334px] lg:pt-[210px]'
+      className='bg-[url("../public/image/content/about.jpg")] 
+    bg-cover bg-no-repeat bg-center -mt-25     lg:px-[86px] lg:-mt-36'
     >
-      <div className='lg:grid lg:grid-cols-[2fr, 1fr] lg:grid-rows-2 gap-5'>
+      <div className='pt-50  lg:grid lg:grid-cols-[2fr, 1fr] lg:grid-rows-2 gap-5 container
+      md:pt-[214px] md:pb-50 pb-60 lg:pb-[334px] lg:pt-[210px]'>
         <h2
           className='text-4xl tracking-tight mb-25 flex flex-wrap items-baseline md:text-6xl xl:text-7.5xl md:mb-15
         lg:justify-between lg:max-w-[887px]

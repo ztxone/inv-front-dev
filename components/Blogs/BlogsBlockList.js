@@ -48,9 +48,9 @@ export default function BlogsBlockList({
 
   return (
     <section
-      className='text-white pt-20 pb-[38px] mx-auto
+      className='text-white pt-20 pb-[38px]
     md:pb-20 md:pt-20
-    lg:pb-20 lg:max-w-[1746px] lg:pt-33 pl-3.8'
+    lg:pb-20 lg:pt-33 container'
     >
       <div
         className='flex justify-between pb-10 items-center
@@ -107,7 +107,7 @@ export default function BlogsBlockList({
           swiper.params.navigation.nextEl=navigationNextRef.current;
         }}
         virtual
-        className='flex pb-7 gap-2.5
+        className='!-mr-3.8 flex pb-7 gap-2.5
       md:pb-10 md:gap-7
       lg:pl-0 lg:pb-9'
       >
