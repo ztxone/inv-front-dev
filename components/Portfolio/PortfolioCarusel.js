@@ -11,7 +11,10 @@ import 'swiper/css/navigation';
 
 export default function PortfolioCarusel() {
   return (
-    <div className='pt-21 pb-18 flex flex-col gap-10 -mr-3.8'>
+    <div
+      className='pt-21 pb-18 flex flex-col gap-10 -mr-3.8
+    md:flex-row flex-wrap justify-between   max-w-[1746px] lg:mx-auto'
+    >
       <Title text='Смотреть портфолио' variant='white' />
       <PillowLink
         variant='white'
@@ -26,7 +29,8 @@ export default function PortfolioCarusel() {
         scrollbar={{draggable: true}}
         onSlideChange={() => console.log('slide change')}
         virtual
-        className='flex pb-7 gap-2.5'
+        className='flex pb-7 gap-2.5
+        md:w-full'
       >
         <SwiperSlide>
           <ProjectItemCarusel name='Жилой комплекс «ТАЙМ»'>
