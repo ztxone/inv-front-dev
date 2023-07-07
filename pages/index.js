@@ -3,16 +3,16 @@ import Layout from "@/components/layout";
 import { fetchAPI } from "lib/api";
 import About from "@/components/pages/index/About";
 import Blog from "@/components/pages/index/Blog";
-import Services from "@/components/pages/index/Services";
 import ProjectsMainList from "@/components/Projects/ProjectsMainList";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
+import ServicesListHome from "@/components/Services/ServicesListHome";
 
 const Home = ({ projects, services, servicesAbout, about }) => {
   return (
     <Layout bg="black" headerBg="black" footerBg="black">
       {/* <div className="mx-auto py-6"> */}
       <About about={about} servicesAbout={servicesAbout} />
-      <Services services={services} />
+      <ServicesListHome services={services} />
       <ProjectsMainList projects={projects} moreProjects={true} />
       {/* <Projects projects={projects} moreProjects={true}/> */}
       <BlogsBlockList
