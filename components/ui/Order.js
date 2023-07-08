@@ -3,11 +3,23 @@ import useTranslation from "next-translate/useTranslation";
 import { useEffect, useState } from "react";
 import Loading from "../ui/Loading";
 import { fetchAPI } from "lib/api";
+import Modal from "./Modal";
+import FormOrder from "../Forms/FormOrder";
 
 export default function Order() {
   const [data, setData] = useState();
   const i18n = useTranslation();
   const locale = i18n.lang;
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -35,7 +47,12 @@ export default function Order() {
       >
         {data.Phone}
       </a>
-      <PillowLink text="Отправить заявку" link="#" variant="white" />
+      <div onClick={handleOpenModal}>
+        <PillowLink text="Отправить заявку" variant="white" />
+      </div>
+      <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>
+        <FormOrder />
+      </Modal>
     </div>
   );
 }
