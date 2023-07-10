@@ -1,15 +1,16 @@
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 import sendEmail from "lib/email";
+import ButtonClose from '../ui/ButtonClose';
 
-const FormOrder = () => {
+const FormOrder=() => {
   const {
     register,
     handleSubmit,
 
-    formState: { errors },
-  } = useForm();
+    formState: {errors},
+  }=useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit=async (data) => {
     try {
       await sendEmail(data);
       console.log("Email sent successfully!");
@@ -20,6 +21,7 @@ const FormOrder = () => {
 
   return (
     <>
+      <ButtonClose />
       <h2 className="modal-title">Отправить заявку</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
@@ -27,9 +29,9 @@ const FormOrder = () => {
           <input
             type="text"
             id="name"
-            {...register("name", { required: true })}
+            {...register("name", {required: true})}
           />
-          {errors.name && <span>This field is required</span>}
+          {errors.name&&<span>This field is required</span>}
         </div>
 
         <div>
@@ -45,7 +47,7 @@ const FormOrder = () => {
               },
             })}
           />
-          {errors.email && <span>This field is required</span>}
+          {errors.email&&<span>This field is required</span>}
         </div>
 
         <div>
@@ -53,9 +55,9 @@ const FormOrder = () => {
           <input
             type="text"
             id="phone"
-            {...register("phone", { required: "Phone is required" })}
+            {...register("phone", {required: "Phone is required"})}
           />
-          {errors.phone && <span>This field is required</span>}
+          {errors.phone&&<span>This field is required</span>}
         </div>
 
         <button type="submit">Submit</button>
