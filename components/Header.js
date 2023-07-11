@@ -27,7 +27,10 @@ export default function Header({variant}) {
   }, [locale]);
 
   return (
-    <header className="relative text-inherit">
+    <header className={`${variant==="black"
+      ? "bg-black text-white"
+      :"bg-whisper text-black-russian"
+      } relative text-inherit`}>
       <div className="container flex justify-between items-center  
       pt-[24px] pb-5 md:py-[17px] lg:py-10 ">
         <Logo color="inherit" />
