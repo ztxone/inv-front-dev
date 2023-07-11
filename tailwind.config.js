@@ -40,6 +40,9 @@ module.exports={
       white: '#FFFFFF',
       whisper: '#E9E9E9',
       yellow: '#ffc82c',
+      'link-water': '#C9D6DF',
+      fiord: '#52616B',
+      mandy: '#F05359',
     },
     borderWidth: {
       DEFAULT: '1px',

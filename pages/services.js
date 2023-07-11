@@ -9,7 +9,7 @@ import Blog from "@/components/pages/index/Blog";
 import {useState} from "react";
 import Line from "@/components/ui/Line";
 import Container from "@/components/ui/Container";
-import PortfolioCarusel from "@/components/Portfolio/PortfolioCarusel";
+import PortfolioCarusel from "@/components/Portfolio/PortfolioCarousel";
 import ServicesListPage from "@/components/Services/ServicesListPage";
 
 export default function Services({services}) {

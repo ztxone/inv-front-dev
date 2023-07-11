@@ -5,7 +5,7 @@ const top='rounded-5xl';
 
 export default function Container({color='black', position='bottom', children}) {
   return (
-    <div className={`${color==='black'? black:grey} ${position==='bottom'? bottom:top} pb-25`} >
+    <div className={`${color==='black'? black:grey} ${position==='bottom'? bottom:top} `} >
       {children}
     </div>
   )
