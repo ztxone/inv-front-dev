@@ -13,6 +13,7 @@ import ServiceBlock from '@/components/SeparateService/ServiceBlock';
 import ServicesChildrenItem from '@/components/Services/ServicesChildrenItem';
 import ServicesChildren from '@/components/Services/ServicesChildren';
 import Wrapper from '@/components/ui/Wrapper';
+import ServicesForCategory from "@/components/Services/ServicesForCategory";
 
 export default function Service({category}) {
   const i18n=useTranslation();
@@ -46,20 +47,18 @@ export default function Service({category}) {
           text={category.attributes.Description}
           image={category.attributes.image}
         />
-        {/* {!category.attributes.category.data&&(
-          <ServicesChildren parent={category.id} />
-        )} */}
-        <Wrapper color='grey'>
-          {/* <ServicesChildren /> */}
-        </Wrapper>
+
+          <ServicesForCategory parent={category.id} />
+
         <IntroCost />
         <ServicesSlides />
-        {/* <ProjectsList
-          moreProjects={true}
-          projectsQuantity='6'
-          focusService={category.id}
-        /> */}
+      <ProjectsList
+        moreProjects={true}
+        projectsQuantity="100"
+        focusService={category.id}
+      />
       </Wrapper>
+
     </Layout>
   );
 }

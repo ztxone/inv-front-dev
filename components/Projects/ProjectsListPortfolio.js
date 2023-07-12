@@ -1,31 +1,22 @@
-import ProjectItem from "@/components/ui/ProjectItem";
 import Tag from "@/components/ui/Tag";
-import ProjectImage from "@/components/Projects/ProjectImage";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import ProjectItemWork from "../ui/ProjectItemWork";
 import ProjectItemImage from "../ui/ProjectItemImage";
 import Loading from "../ui/Loading";
 import { getStrapiMedia } from "lib/media";
-import ProjectsTitle from "./ProjectsTitle";
-import Marquee from "../ui/Marquee";
 import useTranslation from "next-translate/useTranslation";
 import { useEffect, useState } from "react";
 import { fetchAPI } from "lib/api";
 import TagItemSection from "../ui/TagItemSection";
-import ProjectButton from "../ui/ProjectButton";
 
-export default function ProjectsList({
-  moreProjects,
-  projectsQuantity = 100,
-  focusService = null,
-}) {
+export default function ProjectsListPortfolio() {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
   const [projects, setProjects] = useState();
   const [categories, setCategories] = useState([]);
 
-  const [selectedCategory, setSelectedCategory] = useState(focusService);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   // Filter projects based on the selected category
 
   const filteredProjects =
@@ -61,30 +52,17 @@ export default function ProjectsList({
           populate: ["Poster", "tags", "categories"],
           fields: ["Title", "slug"],
           locale: locale,
-          //   filters: {
-          //     categories: {
-          //       id: {
-          //         $in: selectedCategory,
-          //       },
-          //     },
-          //   },
-          pagination: {
-            start: 0,
-            limit: projectsQuantity,
-          },
         }),
         fetchAPI("/categories", {
           // Fetch categories from the API
           fields: ["name", "slug", "text"],
           populate: ["projects"],
           locale: locale,
-          //   ...(focusService && {
-          //     filters: {
-          //       id: {
-          //         $eq: focusService,
-          //       },
+          //   filters: {
+          //     id: {
+          //       $in: [13, 9, 8, 25],
           //     },
-          //   }),
+          //   },
         }),
       ]);
 
@@ -100,14 +78,9 @@ export default function ProjectsList({
       setProjects(projectsRes.data);
 
       setCategories(categoriesData);
-      //setCategories(categoriesRes.data);
     }
     fetchData();
   }, [locale]);
-
-  //   useEffect(() => {
-  //     setSelectedCategory(category);
-  //   }, []);
 
   if (!projects) {
     return <Loading />;
@@ -127,53 +100,39 @@ export default function ProjectsList({
           />
         ))}
       </div>
-      {/* {filteredProjects[0] && ( */}
-      <div className="px-3.8 lg:px-24.5 lg:pb-20">
-        <ResponsiveMasonry
-          columnsCountBreakPoints={{ 350: 1, 750: 1, 1024: 2 }}
-          className="lg:max-w-[1746px] mx-auto"
-        >
-          <Masonry gutter="37px">
-            {filteredProjects.map((project) => (
-              <ProjectItemWork
-                key={project.id}
-                name={project.attributes.Title}
-                link={project.attributes.slug}
-              >
-                <ProjectItemImage
-                  link={getStrapiMedia(project.attributes.Poster)}
-                  width="398"
-                  height="302"
-                  variant="imageBlock"
-                />{" "}
-                {project.attributes.tags.data.length > 0 && (
-                  <Tag
-                    text1={project.attributes.tags.data[0].attributes.Name}
-                    text2={
-                      project.attributes.tags.data[1]
-                        ? project.attributes.tags.data[1].attributes.Name
-                        : ""
-                    }
-                  />
-                )}
-              </ProjectItemWork>
-            ))}
-          </Masonry>
-        </ResponsiveMasonry>
-      </div>
-      {/* )} */}
-      {moreProjects && (
-        <div
-          className="text-center pb-9 md:flex md:flex-col md:items-center md:pt-5
-			  lg:pt-20"
-        >
-          <p
-            className="font-interTight font-semibold text-6xl text-black opacity-5
-				lg:text-6.5xl"
+      {filteredProjects[0] && (
+        <div className="px-3.8 lg:px-24.5 lg:pb-20">
+          <ResponsiveMasonry
+            columnsCountBreakPoints={{ 350: 1, 750: 1, 1024: 2 }}
+            className="lg:max-w-[1746px] mx-auto"
           >
-            More
-          </p>
-          <ProjectButton />
+            <Masonry gutter="37px">
+              {filteredProjects.map((project) => (
+                <ProjectItemWork
+                  key={project.id}
+                  name={project.attributes.Title}
+                  link={project.attributes.slug}
+                >
+                  <ProjectItemImage
+                    link={getStrapiMedia(project.attributes.Poster)}
+                    width="398"
+                    height="302"
+                    variant="imageBlock"
+                  />{" "}
+                  {project.attributes.tags.data.length > 0 && (
+                    <Tag
+                      text1={project.attributes.tags.data[0].attributes.Name}
+                      text2={
+                        project.attributes.tags.data[1]
+                          ? project.attributes.tags.data[1].attributes.Name
+                          : ""
+                      }
+                    />
+                  )}
+                </ProjectItemWork>
+              ))}
+            </Masonry>
+          </ResponsiveMasonry>
         </div>
       )}
     </section>

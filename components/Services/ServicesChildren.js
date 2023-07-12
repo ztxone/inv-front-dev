@@ -30,7 +30,7 @@ export default function ServicesChildren() {
       setData(servicesRes.data);
     }
     fetchData();
-  }, [locale]);
+  }, [locale, parent]);
 
   if (!data) {
     return <Loading />;
