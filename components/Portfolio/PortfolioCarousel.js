@@ -3,13 +3,13 @@ import ProjectItemImage from '../ui/ProjectItemImage';
 import Title from '../ui/Title';
 import {Virtual, Navigation, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import ProjectItemCarusel from './ProjectItemCarusel';
+import ProjectItemCarousel from './ProjectItemCarousel';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-export default function PortfolioCarusel() {
+export default function PortfolioCarousel() {
   return (
     <div
       className='container pt-21 pb-18 flex flex-col gap-10 w-full

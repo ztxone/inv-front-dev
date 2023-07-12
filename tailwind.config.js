@@ -40,6 +40,9 @@ module.exports={
       white: '#FFFFFF',
       whisper: '#E9E9E9',
       yellow: '#ffc82c',
+      'link-water': '#C9D6DF',
+      fiord: '#52616B',
+      mandy: '#F05359',
     },
     borderWidth: {
       DEFAULT: '1px',
@@ -58,7 +61,7 @@ module.exports={
       xxs: ["0.625rem", {lineHeight: "0.625rem"}], //10px
       xs: ["0.75rem", {lineHeight: "1rem"}], //12px
       sm: ["0.875rem", {lineHeight: "1.25rem"}], //14px
-      sl: ["0.9375rem", {lineHeight: "1.25rem"}], //14px
+      sl: ["0.9375rem", {lineHeight: "1.25rem"}], //15px
       base: ["1rem", {lineHeight: "1.5625rem"}], //16px
       baseHeight: ["1rem", {lineHeight: "1.125rem"}], //16px - 18px
       // lg: ['1.125rem', {lineHeight: '1.75rem'}],

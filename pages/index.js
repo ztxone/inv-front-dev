@@ -8,17 +8,17 @@ import ProjectsMainList from '@/components/Projects/ProjectsMainList';
 import BlogsBlockList from '@/components/Blogs/BlogsBlockList';
 import ServicesListHome from '@/components/Services/ServicesListHome';
 import Line from '@/components/ui/Line';
-import Container from '@/components/ui/Container';
+import Wrapper from '@/components/ui/Wrapper';
 
 const Home=({projects, services, servicesAbout, about}) => {
   return (
     <Layout bg='black' headerBg='black' footerBg='black'>
       <About about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />
-      <Container color='grey' position='top'>
+      <Wrapper color='grey' position='top'>
         <ProjectsMainList projects={projects} moreProjects={true} />
         {/* <Projects projects={projects} moreProjects={true}/> */}
-      </Container>
+      </Wrapper>
 
       <BlogsBlockList
         articleColor='nero'
