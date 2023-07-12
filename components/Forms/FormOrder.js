@@ -5,6 +5,9 @@ import ModalLabel from '../ui/ModalLabel';
 import ModalFieldset from '../ui/ModalFieldset';
 import ModalInput from '../ui/ModalInput';
 import Tooltip from '../ui/Tooltip';
+import ModalApprove from '../ui/ModalApprove';
+import ButtonSubmit from '../ui/ButtonSubmit';
+import ModalSelect from '../ui/ModalSelect';
 
 const FormOrder=() => {
   const {
@@ -26,13 +29,13 @@ const FormOrder=() => {
   return (
     <>
       <Image
-        className='w-full bg-black min-h-[202px] object-cover'
+        className='w-full bg-black min-h-[202px] object-cover rounded-t-5xl'
         src='/image/content/modal.png'
         width='398'
         height='202'
         alt=''
       />
-      <div className='px-10 pb-15 pt-10 text-center'>
+      <div className='px-10 pb-15 pt-9 text-center'>
         <h2 className='text-xl pb-1.5'>Отправить заявку</h2>
         <p className='pb-15'>
           Оставьте свои контактные данные и мы вышлем вам Коммерческое
@@ -83,16 +86,10 @@ const FormOrder=() => {
           <ModalFieldset>
             <ModalLabel htmlFor='theme' text='Выберите направление' />
             <Tooltip />
-            <ModalInput
-              type='text'
-              id='theme'
-              placeholder='Архитектурная 3D визуализация'
-              error=''
-              pattern=''
-            />
+            <ModalSelect />
           </ModalFieldset>
-
-          <button type='submit'>Submit</button>
+          <ModalApprove />
+          <ButtonSubmit />
         </form>
       </div>
     </>
