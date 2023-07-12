@@ -44,10 +44,9 @@ export default function About({ about, projects }) {
               text={about.attributes.AboutOpportunities}
             />
           </div>
-          <ServicesSlides />
-
-          <IntroCost />
         </div>
+        <ServicesSlides />
+        <IntroCost />
         <ProjectsList moreProjects={true} />
         {/* <Projects projects={projects} moreProjects={true} /> */}
         <BlogsBlockList
