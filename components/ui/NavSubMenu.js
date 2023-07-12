@@ -11,10 +11,6 @@ export default function NavSubMenu({menu, opened}) {
       className={`absolute left-8 min-w-[300px] min-h-[150px] bg-white rounded-[2px] p-6 ${!opened&&'hidden'
         }`}
     >
-      {/* TODO */}
-      <a className='text-blue text-xl' href='/service'>
-        Рабочая ссылка для перехода УДОЛИ
-      </a>
       {menu
         .filter((item) => item.parent)
         .map((subItem) => (

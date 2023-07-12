@@ -8,7 +8,7 @@ export default function Address({address, phone, email}) {
   return (
     <div
       className='pb-6 md:flex md:pb-0
-    lg:w-2/3 justify-between lg:mr-4.5'
+    lg:w-2/3 justify-between'
     >
       <div className='md:max-w-[282px] md:pr-5 md:mr-10.5'>
         <AddressTitle title={t`contacts.address`} />

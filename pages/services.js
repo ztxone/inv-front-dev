@@ -8,7 +8,7 @@ import IntroSlides from "@/components/ui/IntroSlides";
 import Blog from "@/components/pages/index/Blog";
 import {useState} from "react";
 import Line from "@/components/ui/Line";
-import Container from "@/components/ui/Container";
+import Wrapper from "@/components/ui/Wrapper";
 import PortfolioCarusel from "@/components/Portfolio/PortfolioCarousel";
 import ServicesListPage from "@/components/Services/ServicesListPage";
 
@@ -20,7 +20,7 @@ export default function Services({services}) {
   return (
     <Layout bg="white" headerBg="black" footerBg="white">
       <div>
-        <Container>
+        <Wrapper>
           <TitleSection text={t`services.title`} variantColor="white" />
           <Line />
           <BreadCrumbs
@@ -33,7 +33,7 @@ export default function Services({services}) {
             ]}
           />
           <ServicesListPage services={services} />
-        </Container>
+        </Wrapper>
         <IntroSlides />
         <PortfolioCarusel />
         <Line variantColor="grey" />
