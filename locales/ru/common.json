@@ -14,7 +14,8 @@
   "services": {
     "mainServices": "Основные услуги",
     "allServices": "Все услуги",
-    "linkServices": "Услуги"
+    "linkServices": "Услуги",
+    "title": "Услуги"
   },
   "All_projects": "Все проекты",
   "All_news": "Все новости",

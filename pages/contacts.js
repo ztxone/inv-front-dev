@@ -18,21 +18,16 @@ export default function Contacts({ contact }) {
   return (
     <Layout bg="white" headerBg="white" footerBg="white">
       <div className="lg:max-w-[1920px] mx-auto">
-        <div
-          className="px-3.8
-        lg:px-21"
-        >
-          <TitleSection text={contact.attributes.Title} />
-          <BreadCrumbs
-            links={[
-              {
-                title: contact.attributes.Title,
-                path: "",
-                active: false,
-              },
-            ]}
-          />
-        </div>
+        <TitleSection text={contact.attributes.Title} />
+        <BreadCrumbs
+          links={[
+            {
+              title: contact.attributes.Title,
+              path: "",
+              active: false,
+            },
+          ]}
+        />
         <div
           className="px-3.8 pt-4.5
         md:pt-10.5 md:flex justify-between items-end
