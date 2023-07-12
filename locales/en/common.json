@@ -14,7 +14,8 @@
   "services": {
     "mainServices": "Main services",
     "allServices": "All services",
-    "linkServices": "Services"
+    "linkServices": "Services",
+    "title": "Services"
   },
   "All_news": "All news",
   "All_projects": "All projects",

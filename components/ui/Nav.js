@@ -16,12 +16,14 @@ export default function Nav({ menu }) {
           .filter((item) => !item.parent)
           .map((item) =>
             item.collapsed ? (
-              <li key={item.id} className="group relative">
-                <p
-                  className="p-5 flex items-center cursor-pointer"
-                  onClick={() => setMenuOpened(!menuOpened)}
-                >
-                  {item.title}
+              <li
+                key={item.id}
+                className="group relative"
+                onMouseEnter={() => setMenuOpened(true)}
+                onMouseLeave={() => setMenuOpened(false)}
+              >
+                <p className="p-5 flex items-center cursor-pointer">
+                  <Link href={item.path}>{item.title}</Link>
                   <svg
                     className="w-[10px] ml-[8px] group-hover:rotate-180"
                     xmlns="http://www.w3.org/2000/svg"

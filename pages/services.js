@@ -1,21 +1,22 @@
 import Layout from "@/components/layout";
-import {fetchAPI} from "lib/api";
+import { fetchAPI } from "lib/api";
 import ProjectsList from "@/components/Projects/ProjectsList";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import useTranslation from "next-translate/useTranslation";
 import IntroSlides from "@/components/ui/IntroSlides";
 import Blog from "@/components/pages/index/Blog";
-import {useState} from "react";
+import { useState } from "react";
 import Line from "@/components/ui/Line";
 import Container from "@/components/ui/Container";
 import PortfolioCarusel from "@/components/Portfolio/PortfolioCarusel";
 import ServicesListPage from "@/components/Services/ServicesListPage";
+import ServicesSlides from "@/components/Services/ServicesSlides";
 
-export default function Services({services}) {
-  const {t}=useTranslation("common");
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+export default function Services({ services }) {
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
   return (
     <Layout bg="white" headerBg="black" footerBg="white">
@@ -34,7 +35,8 @@ export default function Services({services}) {
           />
           <ServicesListPage services={services} />
         </Container>
-        <IntroSlides />
+        {/* <IntroSlides /> */}
+        <ServicesSlides />
         <PortfolioCarusel />
         <Line variantColor="grey" />
       </div>
@@ -42,9 +44,9 @@ export default function Services({services}) {
   );
 }
 
-export async function getStaticProps({locale}) {
+export async function getStaticProps({ locale }) {
   // Run API calls in parallel
-  const [servicesRes]=await Promise.all([
+  const [servicesRes] = await Promise.all([
     fetchAPI("/categories", {
       populate: "*",
       fields: ["name", "slug", "text"],

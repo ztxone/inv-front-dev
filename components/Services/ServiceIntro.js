@@ -19,10 +19,7 @@ export default function ServiceIntro({ title, text, image }) {
           />
         </div>
       )}
-      <div
-        className="container
-      lg:w-2/4"
-      >
+      <div className="lg:w-2/4">
         <h2 className="text-base uppercase font-bold pt-6xl">{title}</h2>
         <p
           className="leading-snug

@@ -12,6 +12,7 @@ import ProjectsList from "@/components/Projects/ProjectsList";
 import ServiceBlock from "@/components/SeparateService/ServiceBlock";
 import ServicesChildrenItem from "@/components/Services/ServicesChildrenItem";
 import ServicesChildren from "@/components/Services/ServicesChildren";
+import ServicesForCategory from "@/components/Services/ServicesForCategory";
 
 export default function Service({ category }) {
   const i18n = useTranslation();
@@ -48,9 +49,10 @@ export default function Service({ category }) {
         />
       </div>
 
-      {!category.attributes.category.data && (
+      {/* {!category.attributes.category.data && (
         <ServicesChildren parent={category.id} />
-      )}
+      )} */}
+      <ServicesForCategory parent={category.id} />
 
       <div className="hidden md:block px-3.8 pt-20">
         <IntroCost />
@@ -59,7 +61,7 @@ export default function Service({ category }) {
 
       <ProjectsList
         moreProjects={true}
-        projectsQuantity="6"
+        projectsQuantity="100"
         focusService={category.id}
       />
     </Layout>
