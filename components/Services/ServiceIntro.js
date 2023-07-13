@@ -3,9 +3,10 @@ import Image from 'next/image';
 
 export default function ServiceIntro({title, text, image}) {
   return (
-    <div className='pt-6 pb-15 lg:flex lg:w-full lg:container'>
+    <div className='pt-6 pb-15 lg:flex 
+    container mx-auto'>
       {image&&(
-        <div className='lg:w-2/4  lg:order-2 lg:pl-25 flex-shrink-0'>
+        <div className='lg:w-2/4  lg:order-2 lg:pl-25 flex-shrink-0 -mx-3.8'>
           <Image
             className='h-full aspect-[428/320] object-cover w-full
         lg:rounded-l15 lg:aspect-[858/320]'
@@ -17,7 +18,7 @@ export default function ServiceIntro({title, text, image}) {
         </div>
       )}
 
-      <div className='container pt-15'>
+      <div className='pt-15'>
         <h2 className='text-base uppercase font-bold pb-9'>{title}</h2>
         <p
           className='leading-snug
