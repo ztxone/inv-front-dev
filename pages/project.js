@@ -2,13 +2,13 @@ import Layout from "@/components/layout";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import useTranslation from "next-translate/useTranslation";
-import IntroSlides from "@/components/ui/IntroSlides";
-import IntroCost from "@/components/ui/IntroCost";
-import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
-import ProjectsListPortfolio from "@/components/Projects/ProjectsListPortfolio";
 import TagBlock from '@/components/Projects/TagBlock';
 import Line from '@/components/ui/Line';
 import Video from '@/components/Projects/Video';
+import ProjectCarousel from '@/components/Projects/ProjectCarousel';
+import ProjectAbout from '@/components/Projects/ProjectAbout';
+import IntroCost from '@/components/ui/IntroCost';
+import PortfolioCarousel from '@/components/Portfolio/PortfolioCarousel';
 
 export default function Portfolio({projects}) {
   const {t}=useTranslation("common");
@@ -27,13 +27,18 @@ export default function Portfolio({projects}) {
 
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="black">
+    <Layout bg="white" headerBg="white" footerBg="white">
       <TitleSection text='Home of Cool™️' />
       <TagBlock text='3D анимация' />
       <Line variantColor='grey' />
       <BreadCrumbs links={breadCrumbsItems} />
       <Video />
-
+      <ProjectCarousel />
+      <ProjectAbout />
+      <Line variantColor='grey' />
+      <IntroCost />
+      <PortfolioCarousel title='Другие проекты' />
+      <Line variantColor='grey' />
     </Layout>
   );
 }
