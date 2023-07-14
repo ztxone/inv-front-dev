@@ -4,14 +4,14 @@ import PillowLink from "@/components/ui/PillowLink";
 import FormService from "@/components/ui/FormService";
 import useTranslation from "next-translate/useTranslation";
 
-export default function ServicesListHome({ services }) {
-  const { t } = useTranslation("common");
-  const i18n = useTranslation();
-  const locale = i18n.lang;
+export default function ServicesListHome({services}) {
+  const {t}=useTranslation("common");
+  const i18n=useTranslation();
+  const locale=i18n.lang;
 
   return (
     <section
-      className="px-4 pt-10 pb-11
+      className="container px-4 pt-10 pb-11
     -mt-50 
     md:pb-[106px] md:border-t-1 border-eclipse md:pt-20 
     lg:px-10 lg:pb-34

@@ -1,5 +1,5 @@
 const black='bg-black text-white';
-const grey='bg-whisper';
+const grey='bg-whisper text-black-russian';
 const bottom='rounded-b-5xl';
 const top='rounded-5xl';
 
