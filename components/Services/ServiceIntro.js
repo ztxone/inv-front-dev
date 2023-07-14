@@ -3,8 +3,10 @@ import Image from 'next/image';
 
 export default function ServiceIntro({title, text, image}) {
   return (
-    <div className='pt-6 pb-15 lg:flex 
-    container mx-auto'>
+    <div
+      className='pt-6 pb-15 lg:flex 
+    container mx-auto'
+    >
       {image&&(
         <div className='lg:w-2/4  lg:order-2 lg:pl-25 flex-shrink-0 -mx-3.8'>
           <Image
