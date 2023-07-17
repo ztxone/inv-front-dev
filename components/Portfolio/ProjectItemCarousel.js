@@ -9,7 +9,7 @@ export default function ProjectItemCarusel({name, children}) {
         className='rounded-l15 relative p-5 mb-2.5 
         lg:mb-0 lg:pb-50
         aspect-[288/147]
-        lg:aspect-[562/367]
+        md:aspect-[562/367]
         '
       >
         {children}
@@ -17,8 +17,7 @@ export default function ProjectItemCarusel({name, children}) {
       <h3
         className='text-black text-base tracking-tight pb-0 border-b
         border-black-russian inline-block pt-[8px]
-        md:text-2xl
-        lg:pt-5'
+        md:text-2xl md:pt-7'
       >
         {name}
       </h3>
