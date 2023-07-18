@@ -36,9 +36,8 @@ export default function Footer({variant}) {
       className={`${variant==="black"
         ? "bg-black text-white"
         :"bg-whisper text-black-russian"
-        } mx-auto pb-[38px] text-inherit`}
+        } mx-auto pb-[38px] text-inherit shrink-0`}
     >
-
       <div
         className="container xl:flex 
       flex-wrap xl:justify-end xl:items-start lg:pt-20
