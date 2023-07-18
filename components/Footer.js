@@ -48,7 +48,7 @@ export default function Footer({variant}) {
         <NavFooter menu={menu} />
         <Contact contact={data} />
       </div>
-      <Line variantColor='eclipse' />
+      <Line variantColor='grey' />
       <Copyright />
     </footer>
   );

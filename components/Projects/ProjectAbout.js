@@ -5,12 +5,16 @@ import Link from 'next/link';
 
 export default function ProjectAbout() {
   return (
-    <div className='lg:flex flex-wrap lg:container lg:mx-auto'>
-      <div className='flex container pb-10 lg:w-1/2'>
-        <span className='text-royal-blue text-4xl tracking-tight mr-2'>/</span>
+    <div className='lg:flex flex-wrap lg:container lg:mx-auto pb-15
+    md:pb-20
+    lg:pt-15'>
+      <div className='flex container pt-12 pb-9 lg:w-1/2'>
+        <span className='text-royal-blue text-4xl tracking-tight mr-2
+        lg:text-6xl'>/</span>
         <Title text='О проекте ' />
       </div>
-      <div className='lg:w-1/2 container'>
+      <div className='lg:w-1/2 container
+      md:pb-6'>
         <Line variantColor='grey' />
         <IntroDescription
           title='Задача'
@@ -27,9 +31,9 @@ export default function ProjectAbout() {
       </div>
 
       <div className='container lg:w-1/2'>
-        <p className='uppercase opacity-40'>Заказчик</p>
-        <p>MiKA visual kommunikations </p>
-        <Link href='#'>http://mika.group/</Link>
+        <p className='uppercase opacity-40 pb-3.8'>Заказчик</p>
+        <p className='text-3.5xl pb-6'>MiKA visual kommunikations </p>
+        <Link href='#' className='underline'>http://mika.group/</Link>
       </div>
 
     </div>
