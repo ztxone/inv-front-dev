@@ -159,18 +159,7 @@ export default function ProjectsList({
       </div>
       {/* )} */}
       {moreProjects&&(
-        <div
-          className='text-center pb-9 md:flex md:flex-col md:items-center md:pt-5
-			  lg:pt-20'
-        >
-          <p
-            className='font-interTight font-semibold text-6xl text-black opacity-5
-				lg:text-6.5xl'
-          >
-            More
-          </p>
-          <ProjectButton />
-        </div>
+        <ProjectButton />
       )}
     </section>
   );
