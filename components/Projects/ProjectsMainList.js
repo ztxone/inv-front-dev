@@ -323,17 +323,7 @@ export default function ProjectsMainList({projects, moreProjects=false}) {
           </ResponsiveMasonry>
 
           {moreProjects&&(
-            <div
-              className="text-center pb-9 md:flex md:flex-col md:items-center"
-            >
-              <p
-                className="font-interTight font-semibold text-6xl text-black opacity-5
-				lg:text-6.5xl"
-              >
-                More
-              </p>
-              <ProjectButton />
-            </div>
+            <ProjectButton />
           )}
         </div>
       </div>
