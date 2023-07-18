@@ -5,7 +5,8 @@ export default function IntroDescription({title, text}) {
       <h3 className="uppercase font-bold pb-5
       md:pb-7">{title}</h3>
       <p className="leading-5
-      md:text-1xl md:leading-[130%] w-[85%]">{text}</p>
+      md:text-1xl md:leading-[130%] w-[85%]
+      lg:w-full">{text}</p>
     </div>
   );
 }

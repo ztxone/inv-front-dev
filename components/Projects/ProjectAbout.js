@@ -6,9 +6,11 @@ import Link from 'next/link';
 export default function ProjectAbout() {
   return (
     <div className='lg:flex flex-wrap lg:container lg:mx-auto pb-15
-    md:pb-20'>
+    md:pb-20
+    lg:pt-15'>
       <div className='flex container pt-12 pb-9 lg:w-1/2'>
-        <span className='text-royal-blue text-4xl tracking-tight mr-2'>/</span>
+        <span className='text-royal-blue text-4xl tracking-tight mr-2
+        lg:text-6xl'>/</span>
         <Title text='О проекте ' />
       </div>
       <div className='lg:w-1/2 container
