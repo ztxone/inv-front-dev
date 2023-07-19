@@ -64,10 +64,9 @@
 }
 
 .swiper-slide {
-  @apply !w-auto
+  @apply !w-auto;
 }
 
 .swiper-button-lock {
-  @apply !block
+  @apply !block;
 }
-
