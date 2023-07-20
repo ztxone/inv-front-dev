@@ -2,7 +2,7 @@
   "extends": ["next"],
   "rules": {
     "quotes": [2],
-    "space-in-brackets": ["always"],
+    "space-in-brackets": ["1"],
     "react/no-unescaped-entities": "off",
     "@next/next/no-page-custom-font": "off",
     "react/jsx-indent": [1, 2],
