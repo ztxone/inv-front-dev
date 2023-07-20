@@ -36,7 +36,7 @@ export default function Footer({variant}) {
       className={`${variant==="black"
         ? "bg-black text-white"
         :"bg-whisper text-black-russian"
-        } mx-auto pb-[38px] text-inherit shrink-0`}
+        } mx-auto pb-[38px] text-inherit shrink-0 w-full`}
     >
       <div
         className="container xl:flex 
