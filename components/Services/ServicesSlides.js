@@ -41,7 +41,7 @@ export default function ServicesSlides() {
   }
 
   return (
-    <div className="flex flex-col gap-2.5 py-10.5 md:flex-row md:overflow-hidden lg:order-3 lg:w-full container">
+    <div className="flex flex-col gap-2.5 py-6 md:flex-row md:overflow-hidden lg:order-3 lg:w-full container">
       {data.map((item) => (
         <ServicesSlidesItem
           key={item.id}

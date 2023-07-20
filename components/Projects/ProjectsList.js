@@ -112,8 +112,10 @@ export default function ProjectsList({
   }
 
   return (
-    <section className='container bg-whisper relative z-10 rounded-5xl pb-6 pt-6 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-12 lg:pb-9 lg:rounded-7xl'>
-      <div className='flex flex-wrap md:md:m-0 lg:m-auto'>
+    <section className='container bg-whisper relative z-10 rounded-5xl pb-6 pt-6 text-blackRussian
+    md:pb-12 lg:pt-12 lg:pb-9 lg:rounded-7xl'>
+      <div className='flex flex-wrap pb-3.8
+      md:m-0 md:pb-7 lg:m-auto'>
         {categories.map((category) => (
           <TagItemSection
             key={category.id}

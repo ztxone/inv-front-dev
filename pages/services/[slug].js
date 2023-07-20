@@ -13,7 +13,7 @@ import ServiceBlock from '@/components/SeparateService/ServiceBlock';
 import ServicesChildrenItem from '@/components/Services/ServicesChildrenItem';
 import ServicesChildren from '@/components/Services/ServicesChildren';
 import Wrapper from '@/components/ui/Wrapper';
-import ServicesForCategory from "@/components/Services/ServicesForCategory";
+import ServicesForCategory from '@/components/Services/ServicesForCategory';
 
 export default function Service({category}) {
   const i18n=useTranslation();
@@ -26,9 +26,9 @@ export default function Service({category}) {
   };
 
   return (
-    <Layout bg='white' headerBg='white' footerBg='black'>
+    <Layout bg='black' headerBg='white' footerBg='black'>
       {/* <Seo seo={seo} /> */}
-      <Wrapper color='grey'>
+      <Wrapper color='grey' position='bottom'>
         <TitleSection text={category.attributes.name} />
         <BreadCrumbs
           links={[
@@ -48,17 +48,16 @@ export default function Service({category}) {
           image={category.attributes.image}
         />
 
-          <ServicesForCategory parent={category.id} />
+        <ServicesForCategory parent={category.id} />
 
         <IntroCost />
         <ServicesSlides />
-      <ProjectsList
-        moreProjects={true}
-        projectsQuantity="100"
-        focusService={category.id}
-      />
+        <ProjectsList
+          moreProjects={true}
+          projectsQuantity='100'
+          focusService={category.id}
+        />
       </Wrapper>
-
     </Layout>
   );
 }
