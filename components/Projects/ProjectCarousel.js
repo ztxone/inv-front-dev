@@ -22,8 +22,8 @@ export default function ProjectCarousel({ fotos }) {
         className="flex pb-7 
         md:w-full"
       >
-        {fotos.map((foto) => (
-          <SwiperSlide>
+        {fotos.map((foto, key) => (
+          <SwiperSlide key={key}>
             <ProjectSlide foto={foto} />
           </SwiperSlide>
         ))}
