@@ -1,13 +1,9 @@
 import Link from "next/link";
-import Link from "next/link";
 
-export default function Logo({ color }) {
-  const colorClass = `text-${color}`;
 export default function Logo({ color }) {
   const colorClass = `text-${color}`;
 
   return (
-    <Link href="/" className={`${colorClass} block mr-auto lg:mr-3.8`}>
     <Link href="/" className={`${colorClass} block mr-auto lg:mr-3.8`}>
       <svg
         width="102"
@@ -21,7 +17,6 @@ export default function Logo({ color }) {
         fill="currentColor"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clipPath="url(#clip0_541_1738)">
         <g clipPath="url(#clip0_541_1738)">
           <path
             d="M74.8095 33.6646C74.0537 33.6646 73.481 33.5339 73.0912 33.2725C72.7062 33.0063
@@ -111,8 +106,6 @@ export default function Logo({ color }) {
           />
         </g>
         <defs>
-          <clipPath id="clip0_541_1738">
-            <rect width="102" height="34" fill="inherit" />
           <clipPath id="clip0_541_1738">
             <rect width="102" height="34" fill="inherit" />
           </clipPath>
