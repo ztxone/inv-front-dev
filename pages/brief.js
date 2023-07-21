@@ -3,14 +3,8 @@ import useTranslation from 'next-translate/useTranslation';
 import {fetchAPI} from 'lib/api';
 import TitleSection from '@/components/ui/TitleSection';
 import BreadCrumbs from '@/components/ui/Breadcrumbs';
-import ServiceIntro from '@/components/Services/ServiceIntro';
-import ServiceBlock from '@/components/SeparateService/ServiceBlock';
-import IntroCost from '@/components/ui/IntroCost';
-import IntroSlides from '@/components/ui/IntroSlides';
-import TagItemSection from '@/components/ui/TagItemSection';
-import ProjectsListBlock from '@/components/Projects/ProjectsList';
-import Blog from '@/components/pages/index/Blog';
 import Line from '@/components/ui/Line';
+import FormBrief from '@/components/Brief/FormBrief';
 
 // todo Тестовые данные удалить
 const breadCrumbsItems=[
@@ -19,7 +13,7 @@ const breadCrumbsItems=[
   },
 ];
 
-export default function Service({projects}) {
+export default function Service() {
   const i18n=useTranslation();
   const locale=i18n.lang;
 
@@ -28,9 +22,8 @@ export default function Service({projects}) {
       <TitleSection text='Заполнить бриф' />
       <Line variantColor='grey' />
       <BreadCrumbs links={breadCrumbsItems} />
-
+      <FormBrief />
+      <Line variantColor='grey' />
     </Layout>
   );
 }
-
-

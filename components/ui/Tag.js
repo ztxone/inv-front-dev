@@ -1,14 +1,13 @@
-export default function Tag({ variant = "white", text1, text2 = "" }) {
-  return text2 ? (
-    <div className="z-2 relative flex gap-1">
+export default function Tag({variant='white', text1, text2=''}) {
+  return text2? (
+    <div className='z-2 relative flex gap-1'>
       <div
         className={`bg-${variant}  w-fit rounded-full px-[16px] py-[7px] inline-flex items-center relative z-3`}
       >
         <span className={`dot-${variant}`}></span>
         <p
-          className={`text-xxs tag-text text-${
-            variant === "white" ? "black" : "white"
-          }`}
+          className={`text-xxs tag-text text-${variant==='white'? 'black':'white'
+            }`}
         >
           {text1}
         </p>
@@ -18,23 +17,21 @@ export default function Tag({ variant = "white", text1, text2 = "" }) {
       >
         <span className={`dot-${variant}`}></span>
         <p
-          className={`text-xxs tag-text text-${
-            variant === "white" ? "black" : "white"
-          }`}
+          className={`text-xxs tag-text text-${variant==='white'? 'black':'white'
+            }`}
         >
           {text2}
         </p>
       </div>
     </div>
-  ) : (
+  ):(
     <div
       className={`bg-${variant}  w-fit rounded-full px-[16px] py-[7px] inline-flex items-center relative z-3`}
     >
       <span className={`dot-${variant}`}></span>
       <p
-        className={`text-xxs tag-text text-${
-          variant === "white" ? "black" : "white"
-        }`}
+        className={`text-xxs tag-text text-${variant==='white'? 'black':'white'
+          }`}
       >
         {text1}
       </p>

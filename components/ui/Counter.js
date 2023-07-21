@@ -1,0 +1,26 @@
+export default function Counter() {
+  return (
+    <div className='custom-number-input h-10.5 w-36 mt-3.8'>
+      <div className='flex flex-row h-10.5 w-full rounded-5xl relative bg-transparent'>
+        <button
+          data-action='decrement'
+          className=' bg-black-russian text-white hover:text-gray-700 hover:bg-gray-400 h-full w-2/6 rounded-l-5xl cursor-pointer outline-none'
+        >
+          <span className='m-auto text-2xl font-thin'>−</span>
+        </button>
+        <input
+          type='number'
+          className='outline-none focus:outline-none text-center bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700 w-2/6'
+          name='custom-input-number'
+          value='1'
+        ></input>
+        <button
+          data-action='increment'
+          className='bg-black-russian text-white hover:text-gray-700 hover:bg-gray-400 h-full w-2/6 rounded-r-5xl cursor-pointer'
+        >
+          <span className='m-auto text-2xl font-thin'>+</span>
+        </button>
+      </div>
+    </div>
+  );
+}
