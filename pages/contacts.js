@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Layout from "@/components/layout";
 import useTranslation from "next-translate/useTranslation";
 import TitleSection from "@/components/ui/TitleSection";
