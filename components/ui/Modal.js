@@ -19,9 +19,7 @@ function Modal({ isOpen, onClose, children }) {
         overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-70 z-40
         flex flex-col items-center justify-center"
       >
-        <div className="modal-content max-h-[90vh] overflow-y-scroll">
-          {children}
-        </div>
+        <div className="modal-content max-h-[90vh]">{children}</div>
         <ButtonClose onClick={handleClose} />
       </ReactModal>
     </>

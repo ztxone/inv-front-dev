@@ -1,6 +1,4 @@
-import Seo from "@/components/seo";
 import Layout from "@/components/layout";
-import Projects from "@/components/pages/index/Projects";
 
 import { fetchAPI } from "lib/api";
 
@@ -28,7 +26,7 @@ export async function getStaticPaths() {
         slug: blog.attributes.slug,
       },
     })),
-    fallback: true,
+    fallback: false,
   };
 }
 
