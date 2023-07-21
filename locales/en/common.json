@@ -10,5 +10,25 @@
   "contacts": {
     "address": "office address",
     "numbers": "how to connect"
+  },
+  "services": {
+    "mainServices": "Main services",
+    "allServices": "All services",
+    "linkServices": "Services",
+    "title": "Services"
+  },
+  "All_news": "All news",
+  "All_projects": "All projects",
+  "Blog invert": "Blog invert",
+  "About service": "about service",
+  "project": {
+    "task": "Task",
+    "done": "What is done",
+    "customer": "Customer"
+  },
+  "brief": {
+    "how_much": "How much cost project?",
+    "order": "Fill the form and get your individual offer!",
+    "fill": "Fill the brief"
   }
 }

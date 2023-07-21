@@ -1,4 +1,5 @@
 import Socials from "./Socials";
+import Logo from "./Logo";
 import Link from "next/link";
 import Loading from "./Loading";
 
@@ -8,15 +9,23 @@ export default function Contact({ contact }) {
   }
 
   return (
-    <div className="pb-15 px-3.8">
+    <div
+      className="pb-3.8
+    md:pb-7
+    lg:w-[445px] lg:pt-5 lg:pl-7"
+    >
       <ul
-        className="flex flex-wrap pb-10 text-inherit text-lg items-center md:justify-between md:w-9/12
-      md:ml-2.5 lg:items-start lg:flex-col lg:w-full"
+        className="flex flex-wrap pb-10 text-inherit text-lg items-center
+        lg:items-start lg:flex-col"
       >
-        <li className="w-full mt-7 mb-10 lg:mt-0">
+        <li
+          className="w-full pb-7
+        md:pb-3.8
+        lg:pb-7"
+        >
           <Link
             href="#"
-            className="tracking-[-0.036em] text-lg opacity-50 flex items-start w-full"
+            className="tracking-[-0.036em] text-lg opacity-50 flex items-start w-full p-2.5 pl-0 hover:opacity-100"
           >
             <svg
               className="mr-2.5"
@@ -39,22 +48,41 @@ export default function Contact({ contact }) {
                 fill="currentColor"
               />
             </svg>
-            <span className="w-9/12 leading-normal">
+            <span
+              className="w-9/12 leading-normal
+            lg:w-full"
+            >
               {contact.attributes.Address}
             </span>
           </Link>
         </li>
-        <li className="mr-10 text-lg tracking-[-0.036em] lg:text-1xl">
+        <li
+          className="mr-10 text-lg tracking-[-0.036em]
+        md:mr-29 
+        lg:text-1xl lg:pb-1.5"
+        >
           <Link href="tel:+78122010007"> {contact.attributes.Phone}</Link>
         </li>
-        <li className="text-lg tracking-[-0.036em] lg:text-1xl lg:mb-10">
+        <li
+          className="text-lg tracking-[-0.036em]
+        md:mr-29
+        lg:text-1xl lg:mb-10"
+        >
           <Link href={`mailto:${contact.attributes.Email}`}>
             {contact.attributes.Email}
           </Link>
         </li>
-        <li className="w-full mt-7 md:w-auto md:mt-0 lg:flex justify-between lg:w-full">
+        <li
+          className="w-full mt-7 md:w-auto md:mt-0 lg:flex justify-between items-center
+        lg:w-full"
+        >
           <Socials links={contact.attributes.ContactSocials} />
-          <div className="hidden lg:block">{/* <Logo /> */}</div>
+          <div
+            className="hidden
+        lg:block"
+          >
+            <Logo color="inherit" />
+          </div>
         </li>
       </ul>
     </div>

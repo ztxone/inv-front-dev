@@ -38,10 +38,6 @@
   @apply text-xl tracking-tight pb-2.5 border-b inline-block mt-7;
 }
 
-.button-pagination {
-  @apply w-15 h-15 flex flex-col justify-center items-center rounded-lr border opacity-30;
-}
-
 .trans-default {
   @apply duration-100 transition-all ease-in;
 }
@@ -59,9 +55,18 @@
 }
 
 .container {
-  @apply max-w-[1920px] w-full m-auto;
+  @apply max-w-[1770px] w-full mx-auto px-3.8
+  lg:px-21;
 }
 
 .transition {
   @apply transition-all duration-300 ease-in-out;
+}
+
+.swiper-slide {
+  @apply !w-auto;
+}
+
+.swiper-button-lock {
+  @apply !block;
 }

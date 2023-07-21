@@ -107,9 +107,3 @@ export default function MobileMenu({ menu, onClose }) {
     </div>
   );
 }
-{
-  /* <NavItem text="О студии" link="/about" />
-          <NavItemAccordion text="Услуги" />
-          <NavItem text="Портфолио" link="/works" />
-          <NavItem text="Контакты" link="/contacts" /> */
-}

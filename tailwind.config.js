@@ -31,6 +31,7 @@ module.exports = {
       "lucky-point": "#141F52",
       nero: "#232323",
       nero2: "#151515",
+      nobel: "#989898",
       orange: "#ff7849",
       pink: "#ff49db",
       purple: "#7e5bef",
@@ -39,6 +40,9 @@ module.exports = {
       white: "#FFFFFF",
       whisper: "#E9E9E9",
       yellow: "#ffc82c",
+      "link-water": "#C9D6DF",
+      fiord: "#52616B",
+      mandy: "#F05359",
     },
     borderWidth: {
       DEFAULT: "1px",
@@ -57,8 +61,9 @@ module.exports = {
       xxs: ["0.625rem", { lineHeight: "0.625rem" }], //10px
       xs: ["0.75rem", { lineHeight: "1rem" }], //12px
       sm: ["0.875rem", { lineHeight: "1.25rem" }], //14px
-      sl: ["0.9375rem", { lineHeight: "1.25rem" }], //14px
+      sl: ["0.9375rem", { lineHeight: "1.25rem" }], //15px
       base: ["1rem", { lineHeight: "1.5625rem" }], //16px
+      baseHeight: ["1rem", { lineHeight: "1.125rem" }], //16px - 18px
       // lg: ['1.125rem', {lineHeight: '1.75rem'}],
       lg: ["1.125rem", { lineHeight: "1.375rem" }], //18px
       xl: ["1.25rem", { lineHeight: "1.5rem" }], //20px
@@ -67,9 +72,9 @@ module.exports = {
       "3xl": ["1.75rem", { lineHeight: "2.125rem" }], //28px
       "3.5xl": ["1.875rem", { lineHeight: "1.875rem" }], //30px
       "3.8xl": ["2rem", { lineHeight: "2rem" }], //32px
-      "4xl": ["2.5rem", { lineHeight: "2.5rem" }], //40px
+      "4xl": ["2.5rem", { lineHeight: "2.875rem" }], //40px
       // '5xl': ['3rem', {lineHeight: '1'}],
-      "6xl": ["3.75rem", { lineHeight: "1" }], //60px
+      "6xl": ["3.75rem", { lineHeight: "4.5rem" }], //60px
       "6.5xl": ["4.5rem", { lineHeight: "1" }], //76px
       "7xl": ["5rem", { lineHeight: "1" }], // 80px
       "7.5xl": ["5.625rem", { lineHeight: "1" }], //90px
@@ -266,7 +271,7 @@ module.exports = {
       45: "11.25rem", //180px
       47: "11.875rem", //190px
       48: "12rem",
-      50: "12.5rem",
+      50: "12.5rem", //200px
       52: "13rem",
       56: "14rem",
       60: "15rem", //240px

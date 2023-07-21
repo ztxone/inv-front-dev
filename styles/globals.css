@@ -16,7 +16,7 @@ a {
 }
 
 input:focus {
-  outline:none;
+  outline: none;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,3 +29,10 @@ input:focus {
   }
 }
 
+.divLayout.bg-black .logoSvg {
+  fill: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}

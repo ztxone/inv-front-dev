@@ -5,7 +5,9 @@ export default function Layout({ bg, headerBg, footerBg, children }) {
   return (
     <div
       className={
-        bg === "black" ? "bg-black text-white" : "bg-whisper text-black-russian"
+        bg === "black"
+          ? "bg-black text-white divLayout"
+          : "bg-whisper text-black-russian divLayout min-h-screen flex flex-col justify-between"
       }
     >
       <Header variant={headerBg} />

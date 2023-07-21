@@ -10,5 +10,26 @@
   "contacts": {
     "address": "адрес офиса",
     "numbers": "как с нами связаться"
+  },
+  "services": {
+    "mainServices": "Основные услуги",
+    "allServices": "Все услуги",
+    "linkServices": "Услуги",
+    "title": "Услуги"
+  },
+  "All_projects": "Все проекты",
+  "All_news": "Все новости",
+  "Blog invert": "Блог invert",
+  "About service": "об услуге",
+  "project": {
+    "about": "О проекте",
+    "task": "Задача",
+    "done": "Что сделали",
+    "customer": "Заказчик"
+  },
+  "brief": {
+    "how_much": "Сколько стоит ваш проект?",
+    "order": "Заполните форму, и мы подготовим для вас индивидуальное предложение",
+    "fill": "Заполнить бриф"
   }
 }
