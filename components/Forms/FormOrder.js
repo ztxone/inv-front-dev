@@ -27,7 +27,7 @@ const FormOrder=() => {
   };
 
   return (
-    <>
+    <div className="pb-25">
       <Image
         className='w-full bg-black min-h-[202px] object-cover rounded-t-5xl'
         src='/image/content/modal.png'
@@ -35,9 +35,9 @@ const FormOrder=() => {
         height='202'
         alt=''
       />
-      <div className='px-10 pb-15 pt-9 text-center '>
-        <h2 className='text-xl pb-1.5'>Отправить заявку</h2>
-        <p className='pb-15'>
+      <div className="px-10 pb-15 pt-9 text-center ">
+        <h2 className="text-xl pb-1.5">Отправить заявку</h2>
+        <p className="pb-15">
           Оставьте свои контактные данные и мы вышлем вам Коммерческое
           предложение
         </p>
@@ -92,7 +92,7 @@ const FormOrder=() => {
           <ButtonSubmit />
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

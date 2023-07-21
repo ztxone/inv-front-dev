@@ -1,34 +1,29 @@
-import React, {useState} from 'react';
-import Layout from '@/components/layout';
-import {fetchAPI} from 'lib/api';
+import Layout from "@/components/layout";
+import { fetchAPI } from "lib/api";
 //import Projects from "@/components/pages/index/Projects";
-import Blog from '@/components/pages/index/Blog';
-import IntroCost from '@/components/ui/IntroCost';
-import useTranslation from 'next-translate/useTranslation';
-import TitleSection from '@/components/ui/TitleSection';
-import BreadCrumbs from '@/components/ui/Breadcrumbs';
-import IntroSlides from '@/components/ui/IntroSlides';
-import ProjectsList from '@/components/Projects/ProjectsList';
-import BlogsBlockList from '@/components/Blogs/BlogsBlockList';
-import Wrapper from '@/components/ui/Wrapper';
-import Line from '@/components/ui/Line';
-import AboutIntro from '@/components/About/AboutIntro';
+import IntroCost from "@/components/ui/IntroCost";
+import useTranslation from "next-translate/useTranslation";
+import TitleSection from "@/components/ui/TitleSection";
+import BreadCrumbs from "@/components/ui/Breadcrumbs";
+import ProjectsList from "@/components/Projects/ProjectsList";
+import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
+import Wrapper from "@/components/ui/Wrapper";
+import Line from "@/components/ui/Line";
+import AboutIntro from "@/components/About/AboutIntro";
 
-export default function About({about, projects}) {
-  const i18n=useTranslation();
-  const {t}=useTranslation('common');
-  const locale=i18n.lang;
+export default function About({ about }) {
+  const { t } = useTranslation("common");
 
   return (
-    <Layout bg='black' headerBg='white' footerBg='black'>
-      <Wrapper color='grey'>
+    <Layout bg="black" headerBg="white" footerBg="black">
+      <Wrapper color="grey">
         <TitleSection text={about.attributes.Title} />
-        <Line variantColor='grey' />
+        <Line variantColor="grey" />
         <BreadCrumbs
           links={[
             {
               title: about.attributes.Title,
-              path: '',
+              path: "",
               active: false,
             },
           ]}
@@ -43,27 +38,27 @@ export default function About({about, projects}) {
         <ProjectsList moreProjects={true} />
       </Wrapper>
       <BlogsBlockList
-        articleColor='nero'
-        titleColor='white'
-        buttonColor='white'
+        articleColor="nero"
+        titleColor="white"
+        buttonColor="white"
       />
     </Layout>
   );
 }
 
-export async function getStaticProps({locale}) {
-  const [aboutRes, projectsRes]=await Promise.all([
-    fetchAPI('/about', {
-      populate: '*',
+export async function getStaticProps({ locale }) {
+  const [aboutRes, projectsRes] = await Promise.all([
+    fetchAPI("/about", {
+      populate: "*",
       locale: locale,
     }),
-    fetchAPI('/projects', {
-      sort: ['ListPosition:asc'],
+    fetchAPI("/projects", {
+      sort: ["ListPosition:asc"],
       populate: {
-        Poster: '*',
-        tags: '*',
+        Poster: "*",
+        tags: "*",
       },
-      fields: ['title', 'slug'],
+      fields: ["title", "slug"],
       pagination: {
         start: 0,
         limit: 6,
