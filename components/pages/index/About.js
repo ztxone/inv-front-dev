@@ -8,7 +8,7 @@ export default function About({ about, servicesAbout }) {
     //bg-[url("../public/image/content/about.jpg")]
     <div className="relative overflow-hidden ">
       <section
-        className=" relative z-50
+        className=" relative z-10
     bg-cover bg-no-repeat bg-center -mt-25     lg:px-[86px] lg:-mt-36"
       >
         <div

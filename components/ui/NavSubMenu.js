@@ -8,7 +8,7 @@ export default function NavSubMenu({ menu, opened }) {
   }
   return (
     <ul
-      className={`absolute left-8 min-w-[300px] min-h-[150px] bg-white rounded-[2px] p-6 ${
+      className={`absolute left-8 min-w-[300px] min-h-[150px] bg-white rounded-[2px] p-6 z-50 ${
         !opened && "hidden"
       }`}
     >
