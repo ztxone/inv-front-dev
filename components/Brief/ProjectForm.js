@@ -7,11 +7,23 @@ import Counter from '../ui/Counter';
 
 export default function ProjectForm({title}) {
   return (
-    <div className='pt-10.5'>
-      <h2 className='mb-7 text-xl'>{title}</h2>
+    <div
+      className='pt-10.5
+    md:pt-20 md:flex flex-wrap md:justify-between'
+    >
+      <h2
+        className='mb-7 text-xl
+      md:w-full
+      lg:text-3.8xl'
+      >
+        {title}
+      </h2>
       <ModalFieldset>
-        <ModalLabel htmlFor='name' text='Название проекта' />
-        <Tooltip />
+        <ModalLabel
+          htmlFor='name'
+          text='Название проекта'
+          tooltipComponent=<Tooltip />
+        />
         <ModalInput
           type='text'
           id='name'
@@ -21,8 +33,11 @@ export default function ProjectForm({title}) {
         />
       </ModalFieldset>
       <ModalFieldset>
-        <ModalLabel htmlFor='object' text='Объект визуализации' />
-        <Tooltip />
+        <ModalLabel
+          htmlFor='object'
+          text='Объект визуализации'
+          tooltipComponent=<Tooltip />
+        />
         <ModalSelect
           option1='Коммерческая недвижимость'
           option2=''
@@ -30,17 +45,20 @@ export default function ProjectForm({title}) {
           option4=''
         />
       </ModalFieldset>
-      <ModalFieldset>
+      <ModalFieldset order='order-6'>
         <ModalLabel
           htmlFor='object'
           text='Общее количество необходимых ракурсов'
+          tooltipComponent=<Tooltip />
         />
-        <Tooltip />
         <Counter />
       </ModalFieldset>
       <ModalFieldset>
-        <ModalLabel htmlFor='project' text='Сроки проекта' />
-        <Tooltip />
+        <ModalLabel
+          htmlFor='project'
+          text='Сроки проекта'
+          tooltipComponent=<Tooltip />
+        />
         <ModalInput
           type='number'
           id='project'
@@ -50,8 +68,11 @@ export default function ProjectForm({title}) {
         />
       </ModalFieldset>
       <ModalFieldset>
-        <ModalLabel htmlFor='square' text='Площадь помещений визуализации' />
-        <Tooltip />
+        <ModalLabel
+          htmlFor='square'
+          text='Площадь помещений визуализации'
+          tooltipComponent=<Tooltip />
+        />
         <ModalInput
           type='number'
           id='square'

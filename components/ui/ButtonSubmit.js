@@ -8,8 +8,8 @@ export default function ButtonSubmit({
   return (
     <button
       type='submit'
-      className={`${variant==='blue'? blue:black
-        } w-full py-4.5 rounded-5xl`}
+      className={`${variant==='blue'? blue:black} w-full py-4.5 rounded-5xl
+        md:max-w-fit px-6`}
     >
       {text}
     </button>

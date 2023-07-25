@@ -5,11 +5,13 @@ import ModalInput from '../ui/ModalInput';
 
 export default function ContactBrief() {
   return (
-    <div className='mt-7'>
-      <h2 className='mb-7 text-xl'>Контактные данные</h2>
+    <div className='mt-7
+    md:flex flex-wrap md:justify-between'>
+      <h2 className='mb-7 text-xl
+      md:w-full
+      lg:text-3.8xl'>Контактные данные</h2>
       <ModalFieldset>
-        <ModalLabel htmlFor='name' text='Имя' />
-        <Tooltip />
+        <ModalLabel htmlFor='name' text='Имя' tooltipComponent=<Tooltip /> />
         <ModalInput
           type='text'
           id='name'
@@ -20,8 +22,7 @@ export default function ContactBrief() {
       </ModalFieldset>
 
       <ModalFieldset>
-        <ModalLabel htmlFor='phone' text='Телефон' />
-        <Tooltip />
+        <ModalLabel htmlFor='phone' text='Телефон' tooltipComponent=<Tooltip /> />
         <ModalInput
           type='tel'
           id='phone'

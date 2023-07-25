@@ -6,19 +6,18 @@ import BreadCrumbs from '@/components/ui/Breadcrumbs';
 import Line from '@/components/ui/Line';
 import FormBrief from '@/components/Brief/FormBrief';
 
-
 // todo Тестовые данные удалить
 const breadCrumbsItems=[
   {
-    title: "Заполнить бриф",
+    title: 'Заполнить бриф',
   },
 ];
 
 export default function Brief() {
   return (
-    <Layout bg="white" headerBg="white" footerBg="white">
-      <TitleSection text="Заполнить бриф" />
-      <Line variantColor="grey" />
+    <Layout bg='white' headerBg='white' footerBg='white'>
+      <TitleSection text='Заполнить бриф' />
+      <Line variantColor='grey' />
       <BreadCrumbs links={breadCrumbsItems} />
       <FormBrief />
       <Line variantColor='grey' />
