@@ -1,7 +1,7 @@
 export default function Counter() {
   return (
-    <div className='custom-number-input h-10.5 w-36 mt-3.8'>
-      <div className='flex flex-row h-10.5 w-full rounded-5xl relative bg-transparent'>
+    <div className='custom-number-input h-10.5 mt-3.8 w-full'>
+      <div className='flex flex-row h-10.5 rounded-5xl relative bg-transparent w-36'>
         <button
           data-action='decrement'
           className=' bg-black-russian text-white hover:text-gray-700 hover:bg-gray-400 h-full w-2/6 rounded-l-5xl cursor-pointer outline-none'

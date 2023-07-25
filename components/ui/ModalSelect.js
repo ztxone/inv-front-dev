@@ -1,9 +1,12 @@
 export default function ModalSelect({option1, option2, option3, option4}) {
   return (
-    <div className='relative w-full text-fiord group'>
+    <div
+      className='relative w-full text-fiord group
+    lg:max-w-[422px]'
+    >
       <input name='theme' id='theme' type='hidden'></input>
       <div className='py-3 px-5 w-full border border-link-water rounded-5xl text-left cursor-pointer flex items-center justify-between'>
-        <span className='opacity-50'>{option1}</span>
+        <span className='opacity-50 whitespace-nowrap'>{option1}</span>
         <svg
           className='group-hover:rotate-180'
           width='24'
