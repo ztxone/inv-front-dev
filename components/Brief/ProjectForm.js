@@ -1,7 +1,6 @@
 import ModalInput from '../ui/ModalInput';
 import ModalLabel from '../ui/ModalLabel';
 import ModalFieldset from '../ui/ModalFieldset';
-import Tooltip from '../ui/Tooltip';
 import ModalSelect from '../ui/ModalSelect';
 import Counter from '../ui/Counter';
 
@@ -22,7 +21,7 @@ export default function ProjectForm({title}) {
         <ModalLabel
           htmlFor='name'
           text='Название проекта'
-          tooltipComponent=<Tooltip />
+          required={true}
         />
         <ModalInput
           type='text'
@@ -36,7 +35,7 @@ export default function ProjectForm({title}) {
         <ModalLabel
           htmlFor='object'
           text='Объект визуализации'
-          tooltipComponent=<Tooltip />
+          required={true}
         />
         <ModalSelect
           option1='Коммерческая недвижимость'
@@ -49,7 +48,7 @@ export default function ProjectForm({title}) {
         <ModalLabel
           htmlFor='object'
           text='Общее количество необходимых ракурсов'
-          tooltipComponent=<Tooltip />
+          required={true}
         />
         <Counter />
       </ModalFieldset>
@@ -57,7 +56,7 @@ export default function ProjectForm({title}) {
         <ModalLabel
           htmlFor='project'
           text='Сроки проекта'
-          tooltipComponent=<Tooltip />
+          required={true}
         />
         <ModalInput
           type='number'
@@ -71,7 +70,7 @@ export default function ProjectForm({title}) {
         <ModalLabel
           htmlFor='square'
           text='Площадь помещений визуализации'
-          tooltipComponent=<Tooltip />
+          required={true}
         />
         <ModalInput
           type='number'

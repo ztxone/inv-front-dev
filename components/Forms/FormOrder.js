@@ -4,7 +4,6 @@ import Image from 'next/image';
 import ModalLabel from '../ui/ModalLabel';
 import ModalFieldset from '../ui/ModalFieldset';
 import ModalInput from '../ui/ModalInput';
-import Tooltip from '../ui/Tooltip';
 import ModalApprove from '../ui/ModalApprove';
 import ButtonSubmit from '../ui/ButtonSubmit';
 import ModalSelect from '../ui/ModalSelect';
@@ -43,8 +42,7 @@ const FormOrder=() => {
         </p>
         <form onSubmit={handleSubmit(onSubmit)}>
           <ModalFieldset>
-            <ModalLabel htmlFor='name' text='Имя' />
-            <Tooltip />
+            <ModalLabel htmlFor='name' text='Имя' required={true} />
             <ModalInput
               type='text'
               id='name'
@@ -55,8 +53,7 @@ const FormOrder=() => {
           </ModalFieldset>
 
           <ModalFieldset>
-            <ModalLabel htmlFor='phone' text='Телефон' />
-            <Tooltip />
+            <ModalLabel htmlFor='phone' text='Телефон' required={true} />
             <ModalInput
               type='tel'
               id='phone'
@@ -67,7 +64,7 @@ const FormOrder=() => {
           </ModalFieldset>
 
           <ModalFieldset>
-            <ModalLabel htmlFor='email' text='E-mail' />
+            <ModalLabel htmlFor='email' text='E-mail' required={false} />
             <ModalInput
               type='email'
               id='email'
@@ -84,8 +81,7 @@ const FormOrder=() => {
           </ModalFieldset>
 
           <ModalFieldset>
-            <ModalLabel htmlFor='theme' text='Выберите направление' />
-            <Tooltip />
+            <ModalLabel htmlFor='theme' text='Выберите направление' required={true} />
             <ModalSelect option1='' option2='' option3='' option4='' />
           </ModalFieldset>
           <ModalApprove />
