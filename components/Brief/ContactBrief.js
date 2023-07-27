@@ -1,6 +1,5 @@
 import ModalFieldset from '../ui/ModalFieldset';
 import ModalLabel from '../ui/ModalLabel';
-import Tooltip from '../ui/Tooltip';
 import ModalInput from '../ui/ModalInput';
 
 export default function ContactBrief() {
@@ -11,7 +10,7 @@ export default function ContactBrief() {
       md:w-full
       lg:text-3.8xl'>Контактные данные</h2>
       <ModalFieldset>
-        <ModalLabel htmlFor='name' text='Имя' tooltipComponent=<Tooltip /> />
+        <ModalLabel htmlFor='name' text='Имя' required={true} />
         <ModalInput
           type='text'
           id='name'
@@ -22,7 +21,7 @@ export default function ContactBrief() {
       </ModalFieldset>
 
       <ModalFieldset>
-        <ModalLabel htmlFor='phone' text='Телефон' tooltipComponent=<Tooltip /> />
+        <ModalLabel htmlFor='phone' text='Телефон' required={true} />
         <ModalInput
           type='tel'
           id='phone'
@@ -33,7 +32,7 @@ export default function ContactBrief() {
       </ModalFieldset>
 
       <ModalFieldset>
-        <ModalLabel htmlFor='email' text='E-mail' />
+        <ModalLabel htmlFor='email' text='E-mail' required={false} />
         <ModalInput
           type='email'
           id='email'
@@ -50,7 +49,7 @@ export default function ContactBrief() {
       </ModalFieldset>
 
       <ModalFieldset>
-        <ModalLabel htmlFor='company' text='Компания' />
+        <ModalLabel htmlFor='company' text='Компания' required={false} />
         <ModalInput
           type='text'
           id='company'

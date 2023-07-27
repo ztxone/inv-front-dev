@@ -1,8 +1,8 @@
-export default function ModalLabel({htmlFor, text, tooltipComponent=null}) {
+export default function ModalLabel({htmlFor, text, required}) {
   return (
     <label className='pb-2 text-fiord text-sl' htmlFor={htmlFor}>
       {text}
-      {tooltipComponent}
+      {required&&<span className="red">*</span>}
     </label>
   );
 }
