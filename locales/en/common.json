@@ -29,6 +29,12 @@
   "brief": {
     "how_much": "How much cost project?",
     "order": "Fill the form and get your individual offer!",
-    "fill": "Fill the brief"
+    "fill": "Fill the brief",
+    "title_fill": "Fill up brief"
+  },
+  "footer": {
+    "have_project": "Have project?",
+    "let_discuss": "Let`s discuss",
+    "order_call": "Order call"
   }
 }

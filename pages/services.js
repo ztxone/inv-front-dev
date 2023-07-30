@@ -9,7 +9,7 @@ import ServicesListPage from "@/components/Services/ServicesListPage";
 import ServicesSlides from "@/components/Services/ServicesSlides";
 import PortfolioCarousel from "@/components/Portfolio/PortfolioCarousel";
 
-export default function Services({ services }) {
+export default function Services({ services, projects }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
@@ -34,7 +34,7 @@ export default function Services({ services }) {
         {/* <IntroSlides /> */}
         <ServicesSlides />
 
-        <PortfolioCarousel />
+        <PortfolioCarousel projects={projects} />
         <Line variantColor="grey" />
       </div>
     </Layout>
@@ -43,7 +43,7 @@ export default function Services({ services }) {
 
 export async function getStaticProps({ locale }) {
   // Run API calls in parallel
-  const [servicesRes] = await Promise.all([
+  const [servicesRes, projectsRes] = await Promise.all([
     fetchAPI("/categories", {
       populate: "*",
       fields: ["name", "slug", "text"],
@@ -52,11 +52,28 @@ export async function getStaticProps({ locale }) {
         ShowOnMainPage: true,
       },
     }),
+    fetchAPI("/projects", {
+      sort: ["ListPosition:asc"],
+      populate: {
+        Poster: "*",
+        tags: "*",
+      },
+      fields: ["Title", "slug"],
+      locale: locale,
+      filters: {
+        ShowOnMainPage: true,
+      },
+      pagination: {
+        start: 0,
+        limit: 3,
+      },
+    }),
   ]);
 
   return {
     props: {
       services: servicesRes.data,
+      projects: projectsRes.data,
     },
     revalidate: 1,
   };

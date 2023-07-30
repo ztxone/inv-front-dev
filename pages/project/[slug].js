@@ -79,7 +79,7 @@ function Project({ project, categories }) {
 
       <Line variantColor="grey" />
       <IntroCost />
-      <PortfolioCarousel title="Другие проекты" />
+      {/* <PortfolioCarousel title="Другие проекты" /> */}
       <Line variantColor="grey" />
     </Layout>
   );

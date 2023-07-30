@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const darkClasses = "bg-nero text-white hover:text-black hover:bg-white";
 const whiteClasses =
   "text-black bg-white hover:text-white hover:bg-nero border-white";
@@ -5,9 +7,9 @@ const darkClassesSvg = " bg-royal-blue text-white";
 const whiteClassesSvg =
   "bg-white text-black group-hover:bg-royal-blue group-hover:text-white";
 
-export default function PillowLink({ variant, text, link, variantSvg }) {
+export default function PillowLink({ variant, text, link = "#", variantSvg }) {
   return (
-    <a
+    <Link
       href={link}
       className={`${
         variant == "dark" ? darkClasses : whiteClasses
@@ -17,7 +19,7 @@ export default function PillowLink({ variant, text, link, variantSvg }) {
       <span
         className={`${
           variantSvg === "whiteSvg" ? whiteClassesSvg : darkClassesSvg
-        } w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-12`}
+        } w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-12 mr-1`}
       >
         <svg className='w-[9px] h-[15px] viewBox="0 0 9 15" rotate-180'>
           <path
@@ -28,6 +30,6 @@ export default function PillowLink({ variant, text, link, variantSvg }) {
           />
         </svg>
       </span>
-    </a>
+    </Link>
   );
 }
