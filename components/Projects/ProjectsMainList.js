@@ -119,7 +119,9 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                             />
                           )}
                           <ProjectItemImage
-                            link={getStrapiMedia(project.attributes.Poster)}
+                            link={getStrapiMedia(
+                              project.attributes.Logo_for_mainPage
+                            )}
                             width="154"
                             height="120"
                             variant="centerImage"
@@ -189,7 +191,9 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                             />
                           )}
                           <ProjectItemImage
-                            link={getStrapiMedia(project.attributes.Poster)}
+                            link={getStrapiMedia(
+                              project.attributes.Logo_for_mainPage
+                            )}
                             width="635"
                             height="527"
                             variant="centerImage"
@@ -224,7 +228,9 @@ export default function ProjectsMainList({ projects, moreProjects = false }) {
                             />
                           )}
                           <ProjectItemImage
-                            link={getStrapiMedia(project.attributes.Poster)}
+                            link={getStrapiMedia(
+                              project.attributes.Logo_for_mainPage
+                            )}
                             width="308"
                             height="308"
                             variant="centerImage"

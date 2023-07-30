@@ -36,6 +36,7 @@ export async function getStaticProps({ locale }) {
         sort: ["ListPosition:asc"],
         populate: {
           Poster: "*",
+          Logo_for_mainPage: "*",
           tags: "*",
         },
         fields: ["title", "slug"],
