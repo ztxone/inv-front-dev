@@ -1,14 +1,14 @@
-import TitleH3 from './TitleH3';
-import {getStrapiMedia} from 'lib/media';
-import Image from 'next/image';
-import Link from 'next/link';
+import TitleH3 from "./TitleH3";
+import { getStrapiMedia } from "lib/media";
+import Image from "next/image";
+import Link from "next/link";
 
 export default function ServiceItem({
   title,
   subtitle,
   descriptionItem1,
   link,
-  image='',
+  image = "",
 }) {
   return (
     <div
@@ -19,23 +19,24 @@ export default function ServiceItem({
       <Link href={link}>
         <TitleH3 text={title} subtext={subtitle} />
         <p
-          className='relative z-10 text-lg w-9/12 pt-7
-      md:mt-9'
+          className="relative z-10 text-lg w-9/12 pt-7
+      md:mt-9"
         >
           {descriptionItem1}
         </p>
-        {image&&(
+        {image && (
           <div
-            className='absolute top-0 bottom-0 left-0 right-0 
-      lg:max-w-full lg:min-w-fit'
+            className="absolute top-0 bottom-0 left-0 right-0 
+      lg:max-w-full lg:min-w-fit"
           >
             <Image
               src={getStrapiMedia(image)}
               alt={title}
-              width='398'
-              height='600'
-              className='object-cover w-full
-        h-full rounded-5xl'
+              width="398"
+              height="600"
+              quality={100}
+              className="object-cover w-full
+        h-full rounded-5xl"
             />
           </div>
         )}

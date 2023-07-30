@@ -1,15 +1,23 @@
 import PillowLink from "../ui/PillowLink";
 import ProjectItemImage from "../ui/ProjectItemImage";
 import Title from "../ui/Title";
-import {Virtual, Navigation, Pagination} from "swiper";
-import {Swiper, SwiperSlide} from "swiper/react";
+import { Virtual, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import ProjectItemCarousel from "./ProjectItemCarousel";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import { getStrapiMedia } from "lib/media";
+import useTranslation from "next-translate/useTranslation";
+import Tag from "../ui/Tag";
 
-export default function PortfolioCarousel({title='Смотреть портфолио'}) {
+export default function PortfolioCarousel({
+  title = "Смотреть портфолио",
+  projects,
+}) {
+  const { t } = useTranslation("common");
+
   return (
     <div
       className="container pt-21 pb-18 flex flex-col gap-10 w-full
@@ -18,50 +26,44 @@ export default function PortfolioCarousel({title='Смотреть портфо�
       <Title text={title} variant="white" />
       <PillowLink
         variant="white"
-        text="Все проекты"
+        text={t("All_projects")}
         variantSvg="blueSvg"
-        link="#"
+        link="/portfolio"
       />
       <Swiper
         modules={[Navigation, Virtual, Pagination]}
         spaceBetween={10}
         slidesPerView={3}
-        scrollbar={{draggable: true}}
-        onSlideChange={() => console.log("slide change")}
+        scrollbar={{ draggable: true }}
         virtual
         className="flex pb-7 gap-2.5
         md:w-full !-mr-3.8"
       >
-        <SwiperSlide>
-          <ProjectItemCarousel name="Жилой комплекс «ТАЙМ»">
-            <ProjectItemImage
-              link="/image/content/time.png"
-              width="288"
-              height="147"
-              variant="imageBlock"
-            />
-          </ProjectItemCarousel>
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProjectItemCarousel name="Жилой комплекс «ТАЙМ»">
-            <ProjectItemImage
-              link="/image/content/time.png"
-              width="288"
-              height="147"
-              variant="imageBlock"
-            />
-          </ProjectItemCarousel>
-        </SwiperSlide>
-        <SwiperSlide>
-          <ProjectItemCarousel name="Жилой комплекс «ТАЙМ»">
-            <ProjectItemImage
-              link="/image/content/time.png"
-              width="288"
-              height="147"
-              variant="imageBlock"
-            />
-          </ProjectItemCarousel>
-        </SwiperSlide>
+        {projects.map((project) => (
+          <SwiperSlide key={project.id}>
+            <ProjectItemCarousel
+              name={project.attributes.Title}
+              link={project.attributes.slug}
+            >
+              <ProjectItemImage
+                link={getStrapiMedia(project.attributes.Poster)}
+                width="288"
+                height="147"
+                variant="imageBlock"
+              />
+              {project.attributes.tags.data.length > 0 && (
+                <Tag
+                  text1={project.attributes.tags.data[0].attributes.Name}
+                  text2={
+                    project.attributes.tags.data[1]
+                      ? project.attributes.tags.data[1].attributes.Name
+                      : ""
+                  }
+                />
+              )}
+            </ProjectItemCarousel>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

@@ -4,10 +4,10 @@ import PillowLink from "@/components/ui/PillowLink";
 import FormService from "@/components/ui/FormService";
 import useTranslation from "next-translate/useTranslation";
 
-export default function ServicesListHome({services}) {
-  const {t}=useTranslation("common");
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+export default function ServicesListHome({ services }) {
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
   return (
     <section
@@ -45,7 +45,7 @@ export default function ServicesListHome({services}) {
         <div className="hidden lg:block ml-auto">
           <PillowLink
             text={t("services.allServices")}
-            link={`${i18n.lang}/services`}
+            link={"/services"}
             variant="dark"
             variantSvg="whiteSvg"
           />
