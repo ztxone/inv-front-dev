@@ -2,12 +2,12 @@ import NavItem from "./NavItem";
 import Logo from "./Logo";
 import PillowLink from "./PillowLink";
 import Loading from "./Loading";
-import { useState } from "react";
+import {useState} from "react";
 import Link from "next/link";
 import MobileSubMenu from "./MobileSubMenu";
 
-export default function MobileMenu({ menu, onClose }) {
-  const [menuOpened, setMenuOpened] = useState(false);
+export default function MobileMenu({menu, onClose}) {
+  const [menuOpened, setMenuOpened]=useState(false);
   if (!menu) {
     return <Loading />;
   }
@@ -54,7 +54,7 @@ export default function MobileMenu({ menu, onClose }) {
           {menu
             .filter((item) => !item.parent)
             .map((item) =>
-              item.collapsed ? (
+              item.collapsed? (
                 <span key={item.id}>
                   <li className="flex justify-between items-center border-t border-eclipse border-opacity-20">
                     <Link
@@ -69,9 +69,8 @@ export default function MobileMenu({ menu, onClose }) {
                         strokeWidth="0"
                         viewBox="0 0 20 20"
                         aria-hidden="true"
-                        className={`h-6 w-6 shrink-0 ${
-                          !menuOpened && "rotate-180"
-                        }`}
+                        className={`h-6 w-6 shrink-0 ${!menuOpened&&"rotate-180"
+                          }`}
                         data-testid="flowbite-accordion-arrow"
                         height="1em"
                         width="1em"
@@ -85,11 +84,11 @@ export default function MobileMenu({ menu, onClose }) {
                       </svg>
                     </button>
                   </li>
-                  {menuOpened && (
+                  {menuOpened&&(
                     <MobileSubMenu menu={menu} opened={menuOpened} />
                   )}
                 </span>
-              ) : (
+              ):(
                 <NavItem key={item.id} text={item.title} link={item.path} />
               )
             )}
