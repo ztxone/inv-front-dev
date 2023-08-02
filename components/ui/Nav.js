@@ -1,21 +1,21 @@
 import Link from "next/link";
 import Loading from "./Loading";
 import NavSubMenu from "./NavSubMenu";
-import { useState } from "react";
+import {useState} from "react";
 
-export default function Nav({ menu }) {
-  const [menuOpened, setMenuOpened] = useState(false);
+export default function Nav({menu}) {
+  const [menuOpened, setMenuOpened]=useState(false);
   if (!menu) {
     return <Loading />;
   }
 
   return (
-    <nav className="hidden lg:block lg:mr-auto text-inherit">
-      <ul className="flex items-center justify-between">
+    <nav className="hidden xl:block lg:mr-auto text-inherit">
+      <ul className="flex items-center justify-between flex-wrap">
         {menu
           .filter((item) => !item.parent)
           .map((item) =>
-            item.collapsed ? (
+            item.collapsed? (
               <li
                 key={item.id}
                 className="group relative"
@@ -34,7 +34,7 @@ export default function Nav({ menu }) {
                 </p>
                 <NavSubMenu menu={menu} opened={menuOpened} />
               </li>
-            ) : (
+            ):(
               <li key={item.id}>
                 <Link href={item.path} className="p-5">
                   {item.title}
