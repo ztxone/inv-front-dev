@@ -1,9 +1,9 @@
-const grey='border-light-grey';
-const eclipse='border-eclipse';
+const grey='text-light-grey';
+const eclipse='text-eclipse';
 
 export default function Line({variantColor='eclipse'}) {
   return (
     <hr className={`${variantColor==='eclipse'? eclipse:grey
-      } border-1 w-full`}></hr>
+      }  w-full`}></hr>
   )
 }
