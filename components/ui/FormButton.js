@@ -2,7 +2,8 @@ export default function FormButton({text}) {
   return (
     <div
       className="pt-7 md:flex items-center 
-    md:py-3.8 lg:py-0"
+    md:py-3.8
+    xl:p-0 xl:basis-1/3 shrink-0"
     >
       <button
         type="submit"
