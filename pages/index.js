@@ -1,6 +1,6 @@
 import React from "react";
 import Layout from "@/components/layout";
-import { fetchAPI } from "lib/api";
+import {fetchAPI} from "lib/api";
 import About from "@/components/pages/index/About";
 import Blog from "@/components/pages/index/Blog";
 import ProjectsMainList from "@/components/Projects/ProjectsMainList";
@@ -9,9 +9,9 @@ import ServicesListHome from "@/components/Services/ServicesListHome";
 import Line from "@/components/ui/Line";
 import Wrapper from "@/components/ui/Wrapper";
 
-const Home = ({ projects, services, servicesAbout, about }) => {
+const Home=({projects, services, servicesAbout, about}) => {
   return (
-    <Layout bg="black" headerBg="black" footerBg="black">
+    <Layout bg="black" headerBg="black" colorLineHeader="eclipse" footerBg="black">
       <About about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />
       <Wrapper color="grey" position="top">
@@ -28,9 +28,9 @@ const Home = ({ projects, services, servicesAbout, about }) => {
   );
 };
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({locale}) {
   // Run API calls in parallel
-  const [projectsRes, servicesRes, servicesAboutRes, aboutRes] =
+  const [projectsRes, servicesRes, servicesAboutRes, aboutRes]=
     await Promise.all([
       fetchAPI("/projects", {
         sort: ["ListPosition:asc"],

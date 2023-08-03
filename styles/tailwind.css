@@ -26,10 +26,6 @@
   @apply w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5;
 }
 
-.footnote {
-  @apply font-interTight opacity-30 text-sm;
-}
-
 .button-all {
   @apply uppercase text-xl font-interTight text-black-russian flex items-center justify-center border-1 w-full rounded-lr font-medium py-[7px];
 }
