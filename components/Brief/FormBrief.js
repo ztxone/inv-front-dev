@@ -1,33 +1,53 @@
-import TagsBrief from './TagsBrief';
-import ProjectForm from './ProjectForm';
-import ContactBrief from './ContactBrief';
-import ModalApprove from '../ui/ModalApprove';
-import ButtonSubmit from '../ui/ButtonSubmit';
+import TagsBrief from "./TagsBrief";
+import ProjectForm from "./ProjectForm";
+import ContactBrief from "./ContactBrief";
+import ModalApprove from "../ui/ModalApprove";
+import ButtonSubmit from "../ui/ButtonSubmit";
+import { useForm, FormProvider } from "react-hook-form";
+import sendBrief from "lib/sendBrief";
 
-export default function FormBrief() {
+export default function FormBrief({ visobjs, categories }) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const methods = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      await sendBrief(data);
+      console.log("Brief sent successfully!");
+    } catch (error) {
+      console.error("Brief sending error:", error);
+    }
+  };
   return (
-    <div className='container'>
+    <div className="container">
       <p
-        className='pt-7
+        className="pt-7
       md:text-1xl md:w-2/3 md:leading-7
-      xl:w-1/2'
+      xl:w-1/2"
       >
         Оставьте заявку, либо звоните, мы пообщаемся и сами все за вас заполним:
-        <a href='tel:+78122010007'> +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07</a>
+        <a href="tel:+78122010007"> +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07</a>
       </p>
-      <form
-        className='pb-15 pr-18
-      lg:w-4/6'
-      >
-        <TagsBrief title='Выберите услугу' />
-        <TagsBrief title='Направление' />
-        <ProjectForm title='Подробнее о вашем проекте' />
-        <ContactBrief />
-        <div className='lg:flex flex-row-reverse justify-between items-center'>
-          <ModalApprove />
-          <ButtonSubmit text='Отправить бриф' variant='blue' />
-        </div>
-      </form>
+      <FormProvider {...methods}>
+        <form
+          className="pb-15 pr-18
+      lg:w-4/6"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <TagsBrief title="Выберите услугу" />
+          <TagsBrief title="Направление" />
+          <ProjectForm title="Подробнее о вашем проекте" visobjs={visobjs} />
+          <ContactBrief />
+          <div className="lg:flex flex-row-reverse justify-between items-center">
+            <ModalApprove />
+            <ButtonSubmit text="Отправить бриф" variant="blue" />
+          </div>
+        </form>
+      </FormProvider>
     </div>
   );
 }
