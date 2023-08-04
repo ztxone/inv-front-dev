@@ -29,13 +29,13 @@ export default function Header({variant, colorLine="grey"}) {
   return (
     <header
       className={`${variant==="black"
-        ? "bg-black text-white"
-        :"bg-whisper text-black-russian"
+          ? "bg-black text-white"
+          :"bg-whisper text-black-russian"
         } relative text-inherit`}
     >
       <div
         className="container flex justify-between items-center  
-      pt-[24px] pb-5 md:py-[17px] lg:py-10 "
+      pt-[24px] flex-wrap pb-5 md:py-[17px] lg:py-10 "
       >
         <Logo color="inherit" />
         <Language />

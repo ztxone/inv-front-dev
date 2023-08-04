@@ -12,12 +12,12 @@ export default function Nav({ menu }) {
   }
 
   return (
-    <nav className="hidden lg:block lg:mr-auto text-inherit">
-      <ul className="flex items-center justify-between">
+    <nav className="hidden xl:block lg:mr-auto text-inherit">
+      <ul className="flex items-center justify-between flex-wrap">
         {menu
           .filter((item) => !item.parent)
           .map((item) =>
-            item.collapsed ? (
+            item.collapsed? (
               <li
                 key={item.id}
                 className="group relative"
@@ -41,7 +41,7 @@ export default function Nav({ menu }) {
                 </p>
                 <NavSubMenu menu={menu} opened={menuOpened} />
               </li>
-            ) : (
+            ):(
               <li key={item.id}>
                 <Link
                   href={item.path}
