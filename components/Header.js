@@ -9,7 +9,7 @@ import useTranslation from "next-translate/useTranslation";
 import {fetchAPI} from "lib/api";
 import Line from "./ui/Line";
 
-export default function Header({variant}) {
+export default function Header({variant, colorLine="grey"}) {
   const [isNavOpen, setIsNavOpen]=useState(false);
   const [menu, setMenu]=useState([]);
   const i18n=useTranslation();
@@ -46,7 +46,7 @@ export default function Header({variant}) {
         <Nav menu={menu} />
         <Order />
       </div>
-      <Line variantColor="grey" />
+      <Line variantColor={colorLine} />
     </header>
   );
 }
