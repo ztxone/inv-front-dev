@@ -6,9 +6,11 @@ import Line from './Line';
 export default function Language() {
   const i18n=useTranslation();
   return (
-    <div className='group relative ml-auto
+    <div
+      className='group relative ml-auto
     md:order-2
-    lg:flex lg:order-none lg:mr-auto'>
+    lg:flex lg:order-none lg:mr-auto lg:ml-0'
+    >
       <button type='button' className='flex items-center p-2'>
         <span className='group-hover:opacity-50'>RU</span>
         <svg
@@ -24,7 +26,7 @@ export default function Language() {
       <button type='button' className='hidden lg:block'>
         <span className=''>EN</span>
       </button>
-      <div className='absolute right-0 bg-white z-30 text-black py-2 invisible group-hover:visible lg:hidden'>
+      <div className='absolute right-0 top-10 bg-white z-30 text-black py-2 invisible group-hover:visible lg:hidden'>
         <RadioButton text='RU' id='ru' />
         <Line variantColor='grey' />
         <RadioButton text='EN' id='en' />

@@ -44,8 +44,6 @@ export default function BlogsBlockList({
     return <Loading />;
   }
 
-  //console.log(data);
-
   return (
     <section
       className='text-white pt-20 pb-[38px]

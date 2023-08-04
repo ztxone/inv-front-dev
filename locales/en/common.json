@@ -36,5 +36,8 @@
     "have_project": "Have project?",
     "let_discuss": "Let`s discuss",
     "order_call": "Order call"
+  },
+  "seo": {
+    "project": "Project: "
   }
 }
