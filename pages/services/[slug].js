@@ -4,7 +4,7 @@ import Layout from "@/components/layout";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import ServiceIntro from "@/components/Services/ServiceIntro";
-import { fetchAPI } from "lib/api";
+import {fetchAPI} from "lib/api";
 import useTranslation from "next-translate/useTranslation";
 import IntroCost from "@/components/ui/IntroCost";
 import ServicesSlides from "@/components/Services/ServicesSlides";
@@ -15,18 +15,18 @@ import ServicesChildren from "@/components/Services/ServicesChildren";
 import Wrapper from "@/components/ui/Wrapper";
 import ServicesForCategory from "@/components/Services/ServicesForCategory";
 
-export default function Service({ category }) {
-  const i18n = useTranslation();
-  const { t } = useTranslation("common");
-  const locale = i18n.lang;
+export default function Service({category}) {
+  const i18n=useTranslation();
+  const {t}=useTranslation("common");
+  const locale=i18n.lang;
 
-  const seo = {
+  const seo={
     metaTitle: category.attributes.name,
     metaDescription: `All ${category.attributes.name} articles`,
   };
 
   return (
-    <Layout bg="black" headerBg="white" footerBg="black">
+    <Layout bg="black" headerBg="white" footerBg="black" colorLineHeader='eclipse'>
       {/* <Seo seo={seo} /> */}
       <Wrapper color="grey" position="bottom">
         <TitleSection text={category.attributes.name} />
@@ -63,7 +63,7 @@ export default function Service({ category }) {
 }
 
 export async function getStaticPaths() {
-  const categoriesRes = await fetchAPI("/categories", {
+  const categoriesRes=await fetchAPI("/categories", {
     fields: ["slug"],
   });
 
@@ -72,17 +72,17 @@ export async function getStaticPaths() {
       params: {
         //slug: category.attributes.slug,
         slug:
-          category.attributes.slug !== null
+          category.attributes.slug!==null
             ? category.attributes.slug.toString()
-            : "",
+            :"",
       },
     })),
     fallback: false,
   };
 }
 
-export async function getStaticProps({ params, locale }) {
-  const matchingCategories = await fetchAPI("/categories", {
+export async function getStaticProps({params, locale}) {
+  const matchingCategories=await fetchAPI("/categories", {
     fields: ["name", "text", "Description"],
     locale: locale,
     populate: "*",
