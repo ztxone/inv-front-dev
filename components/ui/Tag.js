@@ -1,7 +1,7 @@
-export default function Tag({ variant = "white", text1, text2 = "" }) {
+export default function Tag({variant='white', text1, text2=''}) {
   return (
-    <div className={text2 && "z-2 relative flex gap-1"}>
-      {text2 && (
+    <div className={text2&&'z-2 relative flex gap-1 uppercase'}>
+      {text2&&(
         <div
           className={`bg-${variant}  w-fit rounded-full px-[16px] py-[7px] inline-flex items-center relative z-3`}
         >
@@ -14,11 +14,10 @@ export default function Tag({ variant = "white", text1, text2 = "" }) {
             {"# "}
           </span>
           <p
-            className={`text-xxs tag-text text-${
-              variant === "white" ? "black" : "white"
-            }`}
+            className={`text-xxs tag-text text-${variant==='white'? 'black':'white'
+              }`}
           >
-            {" "}
+            {' '}
             {text2}
           </p>
         </div>
@@ -35,11 +34,10 @@ export default function Tag({ variant = "white", text1, text2 = "" }) {
           {"# "}
         </span>
         <p
-          className={`text-xxs tag-text text-${
-            variant === "white" ? "black" : "white"
-          }`}
+          className={`text-xxs tag-text text-${variant==='white'? 'black':'white'
+            }`}
         >
-          {" "}
+          {' '}
           {text1}
         </p>
       </div>

@@ -27,10 +27,10 @@ export default function FormBrief({ visobjs, categories }) {
       <p
         className="pt-7
       md:text-1xl md:w-2/3 md:leading-7
-      xl:w-1/2"
+      xl:w-full'
       >
         Оставьте заявку, либо звоните, мы пообщаемся и сами все за вас заполним:
-        <a href="tel:+78122010007"> +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07</a>
+        <Link href='tel:+78122010007'> +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07</Link>
       </p>
       <FormProvider {...methods}>
         <form

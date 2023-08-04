@@ -1,6 +1,6 @@
 import Layout from "@/components/layout";
 import useTranslation from "next-translate/useTranslation";
-import { fetchAPI } from "lib/api";
+import {fetchAPI} from "lib/api";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import Line from "@/components/ui/Line";
@@ -13,7 +13,7 @@ export default function Brief({ categories, visobjs }) {
   console.log(visobjs);
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white">
+    <Layout bg="white" headerBg="white" footerBg="white" colorLineHeader='grey'>
       <TitleSection text={t("brief.title_fill")} />
       <Line variantColor="grey" />
       <BreadCrumbs
