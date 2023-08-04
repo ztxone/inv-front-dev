@@ -6,7 +6,13 @@ export default function Tag({variant='white', text1, text2=''}) {
           className={`bg-${variant}  w-fit rounded-full px-[16px] py-[7px] inline-flex items-center relative z-3`}
         >
           {/* <span className={`dot-${variant}`}></span> */}
-          {'# '}
+          <span
+            className={`text-l bold pr-1 text-${
+              variant === "white" ? "blue" : "white"
+            }`}
+          >
+            {"# "}
+          </span>
           <p
             className={`text-xxs tag-text text-${variant==='white'? 'black':'white'
               }`}
@@ -20,7 +26,13 @@ export default function Tag({variant='white', text1, text2=''}) {
         className={`bg-${variant}  w-fit rounded-full px-[16px] py-[7px] inline-flex items-center relative z-3`}
       >
         {/* <span className={`dot-${variant}`}></span> */}
-        {'# '}
+        <span
+          className={`text-l bold pr-1 text-${
+            variant === "white" ? "blue" : "white"
+          }`}
+        >
+          {"# "}
+        </span>
         <p
           className={`text-xxs tag-text text-${variant==='white'? 'black':'white'
             }`}

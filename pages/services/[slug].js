@@ -20,14 +20,16 @@ export default function Service({category}) {
   const {t}=useTranslation("common");
   const locale=i18n.lang;
 
-  const seo={
-    metaTitle: category.attributes.name,
-    metaDescription: `All ${category.attributes.name} articles`,
+
+  const seo = {
+    metaTitle: category.attributes.SEO[0].metaTitle,
+    metaDescription: category.attributes.SEO[0].metaTitle,
+    shareImage: category.attributes.image,
   };
 
   return (
-    <Layout bg="black" headerBg="white" footerBg="black" colorLineHeader='eclipse'>
-      {/* <Seo seo={seo} /> */}
+    <Layout bg="black" headerBg="white" footerBg="black">
+      <Seo seo={seo} />
       <Wrapper color="grey" position="bottom">
         <TitleSection text={category.attributes.name} />
         <BreadCrumbs
@@ -81,9 +83,9 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({params, locale}) {
-  const matchingCategories=await fetchAPI("/categories", {
-    fields: ["name", "text", "Description"],
+export async function getStaticProps({ params, locale }) {
+  const matchingCategories = await fetchAPI("/categories", {
+    //fields: ["name", "text", "Description"],
     locale: locale,
     populate: "*",
     filters: {

@@ -8,6 +8,7 @@ import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 import ServicesListHome from "@/components/Services/ServicesListHome";
 import Line from "@/components/ui/Line";
 import Wrapper from "@/components/ui/Wrapper";
+import ProjectsListForMain from "@/components/Projects/ProjectsListForMain";
 
 const Home=({projects, services, servicesAbout, about}) => {
   return (
@@ -15,7 +16,8 @@ const Home=({projects, services, servicesAbout, about}) => {
       <About about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />
       <Wrapper color="grey" position="top">
-        <ProjectsMainList projects={projects} moreProjects={true} />
+        {/* <ProjectsMainList projects={projects} moreProjects={true} /> */}
+        <ProjectsListForMain projects={projects} moreProjects={true} />
         {/* <Projects projects={projects} moreProjects={true}/> */}
       </Wrapper>
       <BlogsBlockList
@@ -36,13 +38,17 @@ export async function getStaticProps({locale}) {
         sort: ["ListPosition:asc"],
         populate: {
           Poster: "*",
-          Logo_for_mainPage: "*",
+          Poster_for_mainPage: "*",
           tags: "*",
         },
         fields: ["title", "slug"],
         locale: locale,
         filters: {
           ShowOnMainPage: true,
+        },
+        pagination: {
+          start: 0,
+          limit: 6,
         },
       }),
       fetchAPI("/categories", {

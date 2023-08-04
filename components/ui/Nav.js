@@ -2,9 +2,11 @@ import Link from "next/link";
 import Loading from "./Loading";
 import NavSubMenu from "./NavSubMenu";
 import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Nav({ menu }) {
   const [menuOpened, setMenuOpened] = useState(false);
+  const router = useRouter();
   if (!menu) {
     return <Loading />;
   }
@@ -23,7 +25,12 @@ export default function Nav({ menu }) {
                 onMouseLeave={() => setMenuOpened(false)}
               >
                 <p className="p-5 flex items-center cursor-pointer">
-                  <Link href={item.path}>{item.title}</Link>
+                  <Link
+                    href={item.path}
+                    className={item.path === router.asPath && "active"}
+                  >
+                    {item.title}
+                  </Link>
                   <svg
                     className="w-[10px] ml-[8px] group-hover:rotate-180"
                     xmlns="http://www.w3.org/2000/svg"
@@ -36,7 +43,12 @@ export default function Nav({ menu }) {
               </li>
             ) : (
               <li key={item.id}>
-                <Link href={item.path} className="p-5">
+                <Link
+                  href={item.path}
+                  className={`p-5 ${
+                    item.path === router.asPath ? "underline color-blue" : ""
+                  }`}
+                >
                   {item.title}
                 </Link>
               </li>

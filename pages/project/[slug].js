@@ -16,19 +16,18 @@ import IntroCost from "@/components/ui/IntroCost";
 import PortfolioCarousel from "@/components/Portfolio/PortfolioCarousel";
 
 function Project({ project, categories }) {
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
   const imageUrl = getStrapiMedia(project.attributes.Poster);
   console.log(project);
 
   const seo = {
-    metaTitle: project.attributes.Title,
-    metaDescription: project.attributes.Description,
+    metaTitle: t("seo.project") + project.attributes.Seo[0].metaTitle,
+    metaDescription: project.attributes.Seo[0].metaDescription,
     shareImage: project.attributes.Poster,
     project: true,
   };
-
-  const { t } = useTranslation("common");
-  const i18n = useTranslation();
-  const locale = i18n.lang;
 
   const breadCrumbsItems = [
     {
@@ -43,16 +42,6 @@ function Project({ project, categories }) {
   return (
     <Layout bg="white" headerBg="white" footerBg="white">
       <Seo seo={seo} />
-      {/* <h1>{project.attributes.Title}</h1>
-      {project.attributes.Description && (
-        <div>{project.attributes.Description}</div>
-      )} */}
-      {/* <Image
-        width="230"
-        height="322"
-        src={imageUrl}
-        alt={project.attributes.Title}
-      /> */}
 
       <TitleSection text={project.attributes.Title} />
       {project.attributes.tags.data[0] && (
