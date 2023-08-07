@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const darkClasses="bg-nero text-white hover:text-black hover:bg-white";
+const darkClasses="bg-nero text-white hover:text-black hover:bg-white border-none";
 const whiteClasses=
   "text-black bg-white hover:text-white hover:bg-nero border-white";
 const darkClassesSvg=" bg-royal-blue text-white";
