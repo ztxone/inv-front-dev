@@ -19,7 +19,7 @@ export default function IntroNews() {
       </div>
       <Image className='w-full aspect-[428/244]
       md:aspect-[834/322]
-      lg:aspect-[1920/742]' src='/image/content/new.png' width='428' height='244' alt='' />
+      lg:aspect-[1920/742] lg:max-h-[742px]' src='/image/content/new.png' width='428' height='244' alt='' />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import useTranslation from "next-translate/useTranslation";
 import Line from '@/components/ui/Line';
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import IntroNews from '@/components/News/IntroNews';
+import CarouselNews from '@/components/News/CarouselNews';
 
 
 export default function New({projects}) {
@@ -23,11 +24,12 @@ export default function New({projects}) {
 
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white">
+    <Layout bg="white" headerBg="white" footerBg="white" colorLineHeader='grey'>
       <TitleSection text='VR-футболка Owo: мнения тестеров' />
       <Line variantColor='grey' />
       <BreadCrumbs links={breadCrumbsItems} />
       <IntroNews />
+      <CarouselNews />
 
     </Layout>
   );
