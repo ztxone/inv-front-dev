@@ -1,6 +1,7 @@
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import TagItemSection from "@/components/ui/TagItemSection";
+import TagItemContainer from '@/components/ui/TagItemContainer';
 
 export default function IntroProjects() {
   return (
@@ -15,12 +16,12 @@ export default function IntroProjects() {
         // itemLast={projects.attributes.Title}
         itemLast="Портфолио"
       />
-      <div className="flex flex-wrap md:w-4/5">
-        <TagItemSection text="Архитектурная 3D визуализация" color="blue" />
-        <TagItemSection text="Продуктовая 3D визуализация" color="white" />
-        <TagItemSection text="Моушн & Видеопродакшн" color="white" />
-        <TagItemSection text="3D моделирование" color="white" />
-      </div>
+      <TagItemContainer>
+        <TagItemSection text="Архитектурная 3D визуализация" color="blue" onClick />
+        <TagItemSection text="Продуктовая 3D визуализация" color="white" onClick />
+        <TagItemSection text="Моушн & Видеопродакшн" color="white" onClick />
+        <TagItemSection text="3D моделирование" color="white" onClick />
+      </TagItemContainer>
     </div>
   );
 }
