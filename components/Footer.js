@@ -8,7 +8,7 @@ import {useEffect, useState} from 'react';
 import Logo from './ui/Logo';
 import Line from './ui/Line';
 
-export default function Footer({variant}) {
+export default function Footer({variant, colorLine="grey"}) {
   const [data, setData]=useState();
   const [menu, setMenu]=useState([]);
   const i18n=useTranslation();
@@ -34,8 +34,8 @@ export default function Footer({variant}) {
   return (
     <footer
       className={`${variant==='black'
-          ? 'bg-black text-white'
-          :'bg-whisper text-black-russian'
+        ? 'bg-black text-white'
+        :'bg-whisper text-black-russian'
         } mx-auto pb-[38px] text-inherit shrink-0 w-full`}
     >
       <div
@@ -47,7 +47,7 @@ export default function Footer({variant}) {
         <NavFooter menu={menu} />
         <Contact contact={data} />
       </div>
-      <Line variantColor='grey' />
+      <Line variantColor={colorLine} />
       <Copyright />
     </footer>
   );

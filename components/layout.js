@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-export default function Layout({bg, headerBg, colorLineHeader, footerBg, children}) {
+export default function Layout({bg, headerBg, colorLineHeader, footerBg, children, colorLineFooter}) {
   return (
     <div
       className={
@@ -12,7 +12,7 @@ export default function Layout({bg, headerBg, colorLineHeader, footerBg, childre
     >
       <Header variant={headerBg} colorLine={colorLineHeader} />
       <main>{children}</main>
-      <Footer variant={footerBg} />
+      <Footer variant={footerBg} colorLine={colorLineFooter} />
     </div>
   );
 }

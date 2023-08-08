@@ -12,7 +12,7 @@ import ProjectsListForMain from "@/components/Projects/ProjectsListForMain";
 
 const Home=({projects, services, servicesAbout, about}) => {
   return (
-    <Layout bg="black" headerBg="black" colorLineHeader="eclipse" footerBg="black">
+    <Layout bg="black" headerBg="black" colorLineHeader="eclipse" footerBg="black" colorLineFooter='eclipse'>
       <About about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />
       <Wrapper color="grey" position="top">
