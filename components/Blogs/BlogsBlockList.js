@@ -46,13 +46,13 @@ export default function BlogsBlockList({
 
   return (
     <section
-      className='text-white pt-20 pb-[38px]
+      className='text-white pt-20 pb-[38px] overflow-hidden max-w-full
     md:pb-20 md:pt-20
-    lg:pb-20 lg:pt-33 container'
+    lg:pb-20 lg:pt-33'
     >
       <div
         className='flex justify-between pb-10 items-center
-        md:pb-15 lg:pb-18'
+        md:pb-15 lg:pb-18 container'
       >
         <TitleColor textPart1='Блог' textPart2=' invert' />
 
@@ -106,9 +106,9 @@ export default function BlogsBlockList({
           swiper.params.navigation.nextEl=navigationNextRef.current;
         }}
         virtual
-        className='!-mr-3.8 flex pb-7
+        className='!pl-3.8 !-mr-3.8 flex  pb-7
       md:pb-10 md:gap-7
-      lg:pl-0 lg:pb-9'
+      lg:pb-9 lg:!pl-20'
       >
         {data[0]&&
           data.map((blog, key) => (
@@ -125,7 +125,7 @@ export default function BlogsBlockList({
           ))}
       </Swiper>
 
-      <div className='mt-7'>
+      <div className='mt-7 container'>
         <PillowLink
           text={t('All_news')}
           link='/blogs'

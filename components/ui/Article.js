@@ -21,7 +21,7 @@ export default function Article({
     >
       <div className="rounded-l15 w-full relative">
         <Image
-          className="rounded-l15 md:w-full"
+          className="rounded-l15 w-full"
           width="288"
           height="147"
           src={getStrapiMedia(image)}
