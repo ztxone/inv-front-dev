@@ -6,7 +6,7 @@ export default function ProjectButton({text='Все проекты'}) {
   return (
     <div
       className='text-center pt-2 pb-9 md:flex md:flex-col md:items-center
-    max-w-[351px] mx-auto'
+    max-w-[351px] mx-auto lg:py-9'
     >
       <p
         className='font-interTight font-semibold text-6xl text-black opacity-5

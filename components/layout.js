@@ -1,18 +1,32 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from './Header';
+import Footer from './Footer';
 
-export default function Layout({bg, headerBg, colorLineHeader, footerBg, children, colorLineFooter}) {
+export default function Layout({
+  bg,
+  headerBg,
+  colorLineHeader,
+  footerBg,
+  children,
+  colorLineFooter,
+  pillowColor,
+  colorSocials,
+}) {
   return (
     <div
       className={
-        bg==="black"
-          ? "bg-black text-white divLayout"
-          :"bg-whisper text-black-russian divLayout min-h-screen flex flex-col justify-between"
+        bg==='black'
+          ? 'bg-black text-white divLayout'
+          :'bg-whisper text-black-russian divLayout min-h-screen flex flex-col justify-between'
       }
     >
       <Header variant={headerBg} colorLine={colorLineHeader} />
       <main>{children}</main>
-      <Footer variant={footerBg} colorLine={colorLineFooter} />
+      <Footer
+        variant={footerBg}
+        colorLine={colorLineFooter}
+        pillowColor={pillowColor}
+        colorSocials={colorSocials}
+      />
     </div>
   );
 }

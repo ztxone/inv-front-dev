@@ -34,8 +34,6 @@ export default function ServicesSlides() {
     fetchData();
   }, [locale]);
 
-  //console.log(data);
-
   if (!data) {
     return <Loading />;
   }
@@ -68,11 +66,6 @@ export default function ServicesSlides() {
               height='37'
               alt=''
             />
-            {/* <span
-              dangerouslySetInnerHTML={{
-                __html: item.attributes.Slides.DocumentLinkIcon,
-              }}
-            /> */}
           </ServicesSlidesButton>
         </ServicesSlidesItem>
       ))}

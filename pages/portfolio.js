@@ -15,7 +15,13 @@ export default function Portfolio({projects, categories}) {
   const locale=i18n.lang;
 
   return (
-    <Layout bg='black' headerBg='white' footerBg='black'>
+    <Layout
+      bg='black'
+      headerBg='white'
+      footerBg='black'
+      colorLineHeader='grey'
+      colorLineFooter='eclipse'
+    >
       <Wrapper color='grey'>
         <TitleSection text={t`works.title`} />
         <Line variantColor='grey' />

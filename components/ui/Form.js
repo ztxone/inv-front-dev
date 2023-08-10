@@ -2,8 +2,8 @@ import useTranslation from "next-translate/useTranslation";
 import PillowLink from "./PillowLink";
 import Title from "./Title";
 
-export default function Form() {
-  const { t } = useTranslation("common");
+export default function Form({pillowColor}) {
+  const {t}=useTranslation("common");
   return (
     <div
       className="pb-9 pt-10.5  
@@ -22,14 +22,14 @@ export default function Form() {
         <PillowLink
           text={t("footer.order_call")}
           link="tel:#"
-          variant="dark"
+          variant={pillowColor}
           variantSvg="blueSvg"
         />
         <PillowLink
           text={t("brief.title_fill")}
           link="/brief"
-          variant="dark"
-          variantSvg="whiteSvg"
+          variant={pillowColor}
+          variantSvg="blueSvg"
         />
       </div>
     </div>
