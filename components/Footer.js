@@ -8,7 +8,7 @@ import {useEffect, useState} from 'react';
 import Logo from './ui/Logo';
 import Line from './ui/Line';
 
-export default function Footer({variant, colorLine="grey"}) {
+export default function Footer({variant, colorLine="grey", pillowColor='dark', colorSocials='dark'}) {
   const [data, setData]=useState();
   const [menu, setMenu]=useState([]);
   const i18n=useTranslation();
@@ -43,9 +43,9 @@ export default function Footer({variant, colorLine="grey"}) {
       flex-wrap xl:justify-end xl:items-start lg:pt-20
       lg:mx-auto'
       >
-        <Form />
+        <Form pillowColor={pillowColor} />
         <NavFooter menu={menu} />
-        <Contact contact={data} />
+        <Contact contact={data} colorSocials={colorSocials} />
       </div>
       <Line variantColor={colorLine} />
       <Copyright />

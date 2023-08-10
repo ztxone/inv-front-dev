@@ -1,12 +1,9 @@
-import Title from '@/components/ui/Title';
 import ServiceItem from '@/components/ui/ServiceItem';
-import PillowLink from '@/components/ui/PillowLink';
-import FormService from '@/components/ui/FormService';
 import useTranslation from 'next-translate/useTranslation';
-import IntroCost from "@/components/ui/IntroCost";
 import Loading from '../ui/Loading';
 import {useEffect, useState} from 'react';
 import {fetchAPI} from 'lib/api';
+import BriefCost from '../ui/BriefCost';
 
 export default function ServicesListPage({services}) {
   const {t}=useTranslation('common');
@@ -32,8 +29,6 @@ export default function ServicesListPage({services}) {
     fetchData();
   }, [locale]);
 
-  //console.log(data);
-
   if (!data) {
     return <Loading />;
   }
@@ -56,7 +51,7 @@ export default function ServicesListPage({services}) {
           />
         ))}
       </div>
-      <div className='lg:flex'>
+      <div className='lg:grid grid-cols-3'>
         <ServiceItem
           title={data.attributes.name}
           subtitle=''
@@ -64,7 +59,7 @@ export default function ServicesListPage({services}) {
           descriptionItem1={data.attributes.text}
           image={data.attributes.image}
         />
-        <IntroCost />
+        <BriefCost title='Заполните бриф' />
       </div>
     </section>
   );

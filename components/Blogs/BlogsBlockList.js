@@ -54,8 +54,7 @@ export default function BlogsBlockList({
         className='flex justify-between pb-10 items-center
         md:pb-15 lg:pb-18 container'
       >
-        <TitleColor textPart1='Блог' textPart2=' invert' />
-
+        <TitleColor textPart1='Блог' textPart2=' invert' color={titleColor} />
 
         <div className='flex'>
           <div ref={navigationPrevRef}>
