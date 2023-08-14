@@ -27,7 +27,7 @@ export default function Portfolio({projects}) {
 
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white">
+    <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
       <TitleSection text='Home of Cool™️' />
       <TagBlock text='3D анимация' />
       <Line variantColor='grey' />

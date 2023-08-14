@@ -29,8 +29,7 @@ export default function Service({category}) {
       bg='black'
       headerBg='white'
       footerBg='black'
-      colorLineHeader='grey'
-      colorLineFooter='eclipse'
+      pillowColor=''
     >
       <Seo seo={seo} />
       <Wrapper color='grey' position='bottom'>

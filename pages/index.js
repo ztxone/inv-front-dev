@@ -13,9 +13,8 @@ const Home=({projects, services, servicesAbout, about}) => {
     <Layout
       bg='black'
       headerBg='black'
-      colorLineHeader='eclipse'
       footerBg='black'
-      colorLineFooter='eclipse'
+      pillowColor=''
     >
       <About about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />

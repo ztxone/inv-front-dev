@@ -19,7 +19,7 @@ export default function Services({services, projects}) {
       bg='white'
       headerBg='black'
       footerBg='white'
-      colorLineHeader='eclipse'
+      pillowColor=''
     >
       <div>
         <Wrapper>
