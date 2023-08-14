@@ -4,12 +4,9 @@ import Footer from './Footer';
 export default function Layout({
   bg,
   headerBg,
-  colorLineHeader,
   footerBg,
   children,
-  colorLineFooter,
   pillowColor,
-  colorSocials,
 }) {
   return (
     <div
@@ -19,13 +16,11 @@ export default function Layout({
           :'bg-whisper text-black-russian divLayout min-h-screen flex flex-col justify-between'
       }
     >
-      <Header variant={headerBg} colorLine={colorLineHeader} />
+      <Header variant={headerBg} />
       <main>{children}</main>
       <Footer
         variant={footerBg}
-        colorLine={colorLineFooter}
         pillowColor={pillowColor}
-        colorSocials={colorSocials}
       />
     </div>
   );

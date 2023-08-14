@@ -5,10 +5,9 @@ import Copyright from './ui/Copyright';
 import {fetchAPI} from 'lib/api';
 import useTranslation from 'next-translate/useTranslation';
 import {useEffect, useState} from 'react';
-import Logo from './ui/Logo';
 import Line from './ui/Line';
 
-export default function Footer({variant, colorLine="grey", pillowColor='dark', colorSocials='dark'}) {
+export default function Footer({variant, pillowColor='dark'}) {
   const [data, setData]=useState();
   const [menu, setMenu]=useState([]);
   const i18n=useTranslation();
@@ -31,12 +30,16 @@ export default function Footer({variant, colorLine="grey", pillowColor='dark', c
     fetchData();
   }, [locale]);
 
+  const colorLine=variant==='black'? 'eclipse':'grey';
+  const colorSocials=variant==='black'? 'white':'black';
+  const footerClass=
+    variant==='black'
+      ? 'bg-black text-white'
+      :'bg-whisper text-black-russian';
+
   return (
     <footer
-      className={`${variant==='black'
-        ? 'bg-black text-white'
-        :'bg-whisper text-black-russian'
-        } mx-auto pb-[38px] text-inherit shrink-0 w-full`}
+      className={`${footerClass} mx-auto pb-[38px] text-inherit shrink-0 w-full`}
     >
       <div
         className='container xl:flex 

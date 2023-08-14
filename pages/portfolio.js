@@ -19,8 +19,7 @@ export default function Portfolio({projects, categories}) {
       bg='black'
       headerBg='white'
       footerBg='black'
-      colorLineHeader='grey'
-      colorLineFooter='eclipse'
+      pillowColor=''
     >
       <Wrapper color='grey'>
         <TitleSection text={t`works.title`} />

@@ -16,7 +16,7 @@ export default function Contacts({contact}) {
   const locale=i18n.lang;
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" colorLineFooter='grey' colorLineHeader="grey" pillowColor='white' colorSocials='white'>
+    <Layout bg="white" headerBg="white" footerBg="white" pillowColor='white'>
       <TitleSection text={contact.attributes.Title} />
       <Line variantColor="grey" />
       <BreadCrumbs

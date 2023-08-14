@@ -14,7 +14,7 @@ export default function About({about}) {
   const {t}=useTranslation("common");
 
   return (
-    <Layout bg="black" headerBg="white" footerBg="black" colorLineFooter='eclipse' colorLineHeader="grey">
+    <Layout bg="black" headerBg="white" footerBg="black" pillowColor=''>
       <Wrapper color="grey">
         <TitleSection text={about.attributes.Title} />
         <Line variantColor="grey" />
