@@ -1,7 +1,7 @@
 import PillowLink from '@/components/ui/PillowLink';
-import TitleH2 from '@/components/ui/TitleH2';
 import Article from '@/components/ui/Article';
 import ButtonPagination from '@/components/ui/ButtonPagination';
+import TitleColor from '../ui/TitleColor';
 import {useEffect, useRef, useState} from 'react';
 import {Virtual, Navigation, Pagination} from 'swiper';
 import {Swiper, SwiperSlide} from 'swiper/react';
@@ -46,15 +46,15 @@ export default function BlogsBlockList({
 
   return (
     <section
-      className='text-white pt-20 pb-[38px]
+      className='text-white pt-20 pb-[38px] overflow-hidden max-w-full
     md:pb-20 md:pt-20
-    lg:pb-20 lg:pt-33 container'
+    lg:pb-20 lg:pt-33'
     >
       <div
         className='flex justify-between pb-10 items-center
-        md:pb-15 lg:pb-18'
+        md:pb-15 lg:pb-18 container'
       >
-        <TitleH2 text={t('Blog invert')} variant={titleColor} />
+        <TitleColor textPart1='Блог' textPart2=' invert' color={titleColor} />
 
         <div className='flex'>
           <div ref={navigationPrevRef}>
@@ -92,7 +92,7 @@ export default function BlogsBlockList({
 
       <Swiper
         modules={[Navigation, Virtual, Pagination]}
-        spaceBetween={50}
+        spaceBetween={30}
         slidesPerView={3}
         scrollbar={{draggable: true}}
         onSlideChange={() => console.log('slide change')}
@@ -105,9 +105,9 @@ export default function BlogsBlockList({
           swiper.params.navigation.nextEl=navigationNextRef.current;
         }}
         virtual
-        className='!-mr-3.8 flex pb-7 gap-2.5
+        className='!pl-3.8 !-mr-3.8 flex  pb-7
       md:pb-10 md:gap-7
-      lg:pl-0 lg:pb-9'
+      lg:pb-9 lg:!pl-20'
       >
         {data[0]&&
           data.map((blog, key) => (
@@ -124,7 +124,7 @@ export default function BlogsBlockList({
           ))}
       </Swiper>
 
-      <div className='mt-7'>
+      <div className='mt-7 container'>
         <PillowLink
           text={t('All_news')}
           link='/blogs'

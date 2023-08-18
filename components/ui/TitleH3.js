@@ -4,7 +4,7 @@ const inherit='text-inherit';
 export default function TitleH3({text, subtext, variantColor='inherit'}) {
   if (!subtext) {
     return (
-      <h2 className='text-3xl tracking-tight relative z-10 md:w-2/4'> {text}</h2>
+      <h2 className='text-3xl tracking-tight relative z-10 md:w-2/4 bg-inherit'> {text}</h2>
     )
   }
   return (

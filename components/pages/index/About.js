@@ -2,19 +2,20 @@ import Tag from '@/components/ui/Tag';
 import {getStrapiMedia} from 'lib/media';
 import Image from 'next/image';
 import Link from 'next/link';
+import Line from '@/components/ui/Line';
 
 export default function About({about, servicesAbout}) {
   return (
     <div className='relative'>
-      <section className=' relative z-10 bg-cover bg-no-repeat bg-center lg:px-[86px]'>
-        <div
-          className='pt-50  lg:grid lg:grid-cols-[2fr, 1fr] lg:grid-rows-2 gap-5 container
-       md:pb-50 pb-60'
-        >
+      <section
+        className=' relative z-10 bg-cover pb-10 no-repeat
+      md:pb-0 bg-center lg:px-[86px]'
+      >
+        <div className='pt-50  xl:grid xl:grid-cols-[2fr, 1fr] xl:grid-rows-2 gap-5 container'>
           <h2
             className='text-4xl tracking-tight mb-25 flex flex-wrap items-baseline md:text-6xl xl:text-7.5xl md:mb-15
-        lg:justify-between lg:max-w-[887px]
-        lg:gap-4'
+        xl:justify-between xl:max-w-[887px]
+        xl:gap-4'
           >
             <span
               className='w-full mb-3.8
@@ -22,22 +23,25 @@ export default function About({about, servicesAbout}) {
             >
               {about.attributes.SloganPart1}
             </span>
-            <svg
-              className='text-royal-blue mr-2.5
+            <span className='flex items-center'>
+              {' '}
+              <svg
+                className='text-royal-blue mr-2.5
           md:w-[48px] md:h-auto
-          lg:w-[63px] lg:[42px]'
-              viewBox='0 0 32 22'
-              width='32'
-              height='22'
-            >
-              <path
-                fillRule='evenodd'
-                clipRule='evenodd'
-                d='M20.67.22 31.55 11 20.67 21.78l-3.52-3.56 4.77-4.72H0v-5h21.92l-4.77-4.72L20.67.22Z'
-                fill='currentColor'
-              />
-            </svg>
-            <span>{about.attributes.SloganPart2}</span>
+          lg:w-[63px] lg:mr-9'
+                viewBox='0 0 32 22'
+                width='32'
+                height='22'
+              >
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M20.67.22 31.55 11 20.67 21.78l-3.52-3.56 4.77-4.72H0v-5h21.92l-4.77-4.72L20.67.22Z'
+                  fill='currentColor'
+                />
+              </svg>{' '}
+              {about.attributes.SloganPart2}
+            </span>
           </h2>
 
           <div className='w-[398px] max-w-full ml-auto xl:mt-[156px] md:pb-2.5 row-start-1 row-end-3 col-start-2 col-end-3'>
@@ -141,17 +145,23 @@ export default function About({about, servicesAbout}) {
           </div>
 
           <div
-            className='hidden md:block w-[15px] h-[71px] mx-auto mt-25 mb-15 
-        col-start-1 col-end-3 row-start-2 lg:self-end lg:mt-0 lg:mb-2.5'
+            className='hidden md:block  mx-auto pt-25 pb-15 
+        col-start-1 col-end-3 row-start-2 xl:self-end xl:mt-0 xl:mb-2.5'
           >
             <svg
-              className='h-full'
+              className='w-[15px] h-[71px] mx-auto'
               fill='none'
               xmlns='http://www.w3.org/2000/svg'
               viewBox='0 0 17 71'
             >
               <path d='M8.5 0v70m0 0 7.5-7.3M8.5 70 1 62.7' stroke='#fff' />
             </svg>
+          </div>
+          <div
+            className='hidden md:block -mx-3.8
+          lg:col-span-2 lg:-mx-40'
+          >
+            <Line variantColor='eclipse' />
           </div>
         </div>
       </section>
@@ -160,7 +170,7 @@ export default function About({about, servicesAbout}) {
         loop
         muted
         poster='/image/content/about.jpg'
-        className='absolute -z-100 top-0 bottom-0 w-full h-full object-cover'
+        className='absolute -z-100 top-0 bottom-0 w-full h-full object-cover bg-black'
       >
         <source src={getStrapiMedia(about.attributes.Video)} type='video/mp4' />
         <source src={getStrapiMedia(about.attributes.Video)} type='video/ogg' />

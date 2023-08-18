@@ -1,13 +1,13 @@
 import Layout from "@/components/layout";
 import TitleSection from "@/components/ui/TitleSection";
-import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import useTranslation from "next-translate/useTranslation";
 import Line from '@/components/ui/Line';
-import NewsList from '@/components/News/NewsList';
-import IntroCost from '@/components/ui/IntroCost';
+import BreadCrumbs from "@/components/ui/Breadcrumbs";
+import IntroNews from '@/components/News/IntroNews';
+import CarouselNews from '@/components/News/CarouselNews';
 
 
-export default function News() {
+export default function New({projects}) {
   const {t}=useTranslation("common");
   const i18n=useTranslation();
   const locale=i18n.lang;
@@ -15,19 +15,21 @@ export default function News() {
   const breadCrumbsItems=[
     {
       title: 'Новости компании',
+      path: '/news',
+    },
+    {
+      title: ' VR-футболка Owo: мнения тестеров',
     },
   ];
 
 
   return (
     <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
-      <TitleSection text='Новости компании' />
+      <TitleSection text='VR-футболка Owo: мнения тестеров' />
       <Line variantColor='grey' />
       <BreadCrumbs links={breadCrumbsItems} />
-      <NewsList />
-      <IntroCost />
-      <Line variantColor='grey' />
-
+      <IntroNews />
+      <CarouselNews />
 
     </Layout>
   );

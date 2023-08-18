@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const darkClasses="bg-nero text-white hover:text-black hover:bg-white";
+const darkClasses="bg-nero text-white hover:text-black hover:bg-white border-none";
 const whiteClasses=
-  "text-black bg-white hover:text-white hover:bg-nero border-white";
+  "text-black bg-white hover:text-white hover:bg-nero border-eclipse";
 const darkClassesSvg=" bg-royal-blue text-white";
 const whiteClassesSvg=
   "bg-white text-black group-hover:bg-royal-blue group-hover:text-white";

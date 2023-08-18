@@ -1,9 +1,9 @@
-import { getStrapiMedia } from "lib/media";
+import {getStrapiMedia} from "lib/media";
 import Image from "next/image";
 import Link from "next/link";
 
-const colorInherit = "bg-inherit border-1 border-nobel text-nero2";
-const colorNero = "bg-nero";
+const colorInherit="bg-inherit border-1 border-nobel text-nero2";
+const colorNero="bg-nero";
 
 export default function Article({
   link,
@@ -11,17 +11,17 @@ export default function Article({
   tag,
   title,
   text,
-  variant = "colorNero",
+  variant="colorNero",
 }) {
   return (
     <article
-      className={`${variant == "nero" ? colorNero : colorInherit}
+      className={`${variant=="nero"? colorNero:colorInherit}
          rounded-l15 flex flex-col  h-[422px] pb-6 w-[288px]
         md:w-[562px] md:h-[471px]`}
     >
       <div className="rounded-l15 w-full relative">
         <Image
-          className="rounded-l15 md:w-full"
+          className="rounded-l15 w-full"
           width="288"
           height="147"
           src={getStrapiMedia(image)}
@@ -32,13 +32,14 @@ export default function Article({
           className="bg-white rounded-full px-[15px] py-[8px] inline-flex items-center w-auto self-start mb-5 mt-10 ml-5
         md:absolute bottom-[32px] left-[32px] md:m-0"
         >
-          <span className="dot"></span>
-          <p className="text-black-russian font-interTight uppercase font-medium text-xxs">
+          <span className="bg-blue rounded-full w-[4px] h-[4px]"></span>
+          <p className="text-black-russian font-interTight uppercase font-medium text-xxs ml-2">
             {tag}
           </p>
         </div>
       </div>
-      <div className="px-5 overflow-hidden">
+      <div className="px-5 overflow-hidden
+      md:pt-6">
         <h3
           className="text-xl tracking-tight mb-3.8 w-9/12
         md:text-2xl"
