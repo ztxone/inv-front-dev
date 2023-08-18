@@ -5,6 +5,7 @@ import ModalApprove from "../ui/ModalApprove";
 import ButtonSubmit from "../ui/ButtonSubmit";
 import { useForm, FormProvider } from "react-hook-form";
 import sendBrief from "lib/sendBrief";
+import Link from "next/link";
 
 export default function FormBrief({ visobjs, categories }) {
   const {
@@ -27,10 +28,13 @@ export default function FormBrief({ visobjs, categories }) {
       <p
         className="pt-7
       md:text-1xl md:w-2/3 md:leading-7
-      xl:w-full'
+      xl:w-full"
       >
         Оставьте заявку, либо звоните, мы пообщаемся и сами все за вас заполним:
-        <Link href='tel:+78122010007'> +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07</Link>
+        <Link href="tel:+78122010007">
+          {" "}
+          +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07
+        </Link>
       </p>
       <FormProvider {...methods}>
         <form
