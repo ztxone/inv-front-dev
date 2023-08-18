@@ -1,29 +1,29 @@
 import PillowLink from "./PillowLink";
 import useTranslation from "next-translate/useTranslation";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 import Loading from "../ui/Loading";
-import {fetchAPI} from "lib/api";
+import { fetchAPI } from "lib/api";
 import Modal from "./Modal";
 import FormOrder from "../Forms/FormOrder";
 
 export default function Order() {
-  const [data, setData]=useState();
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+  const [data, setData] = useState();
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
-  const [modalIsOpen, setModalIsOpen]=useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const handleOpenModal=() => {
+  const handleOpenModal = () => {
     setModalIsOpen(true);
   };
 
-  const handleCloseModal=() => {
+  const handleCloseModal = () => {
     setModalIsOpen(false);
   };
 
   useEffect(() => {
     async function fetchData() {
-      const contactRes=await fetchAPI("/contact", {
+      const contactRes = await fetchAPI("/contact", {
         fields: ["Phone", "PhoneLink"],
         locale: locale,
       });
@@ -46,7 +46,7 @@ export default function Order() {
         {data.Phone}
       </a>
       <div onClick={handleOpenModal}>
-        <PillowLink text="Отправить заявку" variant="white" variantSvg='blue' />
+        <PillowLink text="Отправить заявку" variant="white" variantSvg="blue" />
       </div>
       <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>
         <FormOrder />

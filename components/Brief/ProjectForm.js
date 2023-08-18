@@ -4,9 +4,38 @@ import ModalFieldset from "../ui/ModalFieldset";
 import ModalSelect from "../ui/ModalSelect";
 import Counter from "../ui/Counter";
 import { useFormContext } from "react-hook-form";
+import { useEffect, useState } from "react";
+import useTranslation from "next-translate/useTranslation";
+import { fetchAPI } from "lib/api";
 
 export default function ProjectForm({ title }) {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
+
+  const [customValue, setCustomValue] = useState(1);
+  const [data, setData] = useState();
+
+  const handleCustomValueChange = (value) => {
+    setCustomValue(value);
+  };
+
+  const i18n = useTranslation();
+  const locale = i18n.lang;
+
+  useEffect(() => {
+    async function fetchData() {
+      const visobjRes = await fetchAPI("/visualization-objects", {
+        locale: locale,
+        fields: ["Title"],
+      });
+
+      setData(visobjRes.data);
+    }
+    fetchData();
+  }, [locale]);
+
   return (
     <div
       className="pt-10.5
@@ -25,13 +54,14 @@ export default function ProjectForm({ title }) {
           text="Название проекта"
           required={true}
         />
-        <ModalInput
+        <input
+          className="briefInput"
           type="text"
           id="ProjectName"
           placeholder="Введите название вашего проекта"
-          error="{errors.ProjectName&&<span>This field is required</span>}"
-          pattern='{...register("ProjectName", {required: true})}'
+          {...register("ProjectName", { required: true })}
         />
+        {errors.ProjectName && <span>This field is required</span>}
       </ModalFieldset>
       <ModalFieldset>
         <ModalLabel
@@ -52,16 +82,27 @@ export default function ProjectForm({ title }) {
           text="Общее количество необходимых ракурсов"
           required={true}
         />
-        <Counter />
+        <Counter
+          onValueChange={handleCustomValueChange}
+          initialValue={customValue}
+        >
+          <input
+            type="number"
+            className="outline-none focus:outline-none text-center bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700 w-2/6"
+            name="custom-input-number"
+            value={customValue}
+            readOnly
+            {...register("ProjectPlans")}
+          />
+        </Counter>
       </ModalFieldset>
       <ModalFieldset>
         <ModalLabel htmlFor="project" text="Сроки проекта" required={true} />
-        <ModalInput
+        <input
+          className="briefInput"
           type="number"
           id="project"
           placeholder="Введите сроки вашего проекта"
-          error=""
-          pattern=""
         />
       </ModalFieldset>
       <ModalFieldset>
@@ -70,12 +111,11 @@ export default function ProjectForm({ title }) {
           text="Площадь помещений визуализации"
           required={true}
         />
-        <ModalInput
+        <input
+          className="briefInput"
           type="number"
           id="square"
           placeholder="Введите площадь"
-          error=""
-          pattern=""
         />
       </ModalFieldset>
     </div>
