@@ -14,7 +14,7 @@ const Home=({projects, services, servicesAbout, about}) => {
       bg='black'
       headerBg='black'
       footerBg='black'
-      pillowColor=''
+      pillowColor='dark'
     >
       <About about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />

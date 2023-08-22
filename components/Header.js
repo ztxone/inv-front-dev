@@ -36,7 +36,7 @@ export default function Header({variant}) {
     <header className={`${headerClass} relative text-inherit`}>
       <div
         className='container flex justify-between items-center  
-      pt-[24px] flex-wrap pb-5 md:py-[17px] lg:py-10 '
+      py-5 flex-wrap md:py-[17px] lg:py-10 '
       >
         <Logo color='inherit' />
         <Language />

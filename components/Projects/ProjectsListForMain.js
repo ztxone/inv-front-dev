@@ -9,14 +9,14 @@ import {getStrapiMedia} from 'lib/media';
 import Loading from '../ui/Loading';
 import Image from 'next/image';
 
-export default function ProjectsListForMain({projects, moreProjects=false}) {
-  console.log(projects);
-  if (!projects) {
-    return <Loading />;
-  }
+export default function ProjectsListForMain({projects, moreProjects = false}) {
+  // console.log(projects);
+  // if (!projects) {
+  //   return <Loading />;
+  // }
 
   return (
-    <section className='pt-16 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9'>
+    <section className='pt-16 pb-5 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9'>
       <div className='container'>
         <div className='lg:pb-20'>
           <ProjectsTitle />
@@ -28,12 +28,12 @@ export default function ProjectsListForMain({projects, moreProjects=false}) {
           >
             <Masonry gutter='30px'>
               {projects.map((project, i) => {
-                const posterHeight=
+                const posterHeight =
                   project.attributes.Poster_for_mainPage.data.attributes.height;
-                const posterWidth=
+                const posterWidth =
                   project.attributes.Poster_for_mainPage.data.attributes.width;
 
-                const aspectRatio=(600/posterWidth)*posterHeight;
+                const aspectRatio = (600 / posterWidth) * posterHeight;
                 return (
                   <ProjectItem
                     key={project.id}
@@ -45,15 +45,15 @@ export default function ProjectsListForMain({projects, moreProjects=false}) {
                         src={getStrapiMedia(
                           project.attributes.Poster_for_mainPage
                             ? project.attributes.Poster_for_mainPage
-                            :project.attributes.Poster
+                            : project.attributes.Poster
                         )}
                         width='600'
                         height={aspectRatio}
                         alt={project.attributes.Title}
                         className='rounded-l15 relative w-full'
                       />
-                      {project.attributes.tags.data[0]&&(
-                        <div className='absolute top-5 left-5'>
+                      {project.attributes.tags.data[0] && (
+                        <div className='absolute top-5 left-5 right-5'>
                           <Tag
                             text1={
                               project.attributes.tags.data[0].attributes.Name
@@ -61,8 +61,8 @@ export default function ProjectsListForMain({projects, moreProjects=false}) {
                             text2={
                               project.attributes.tags.data[1]
                                 ? project.attributes.tags.data[1].attributes
-                                  .Name
-                                :''
+                                    .Name
+                                : ''
                             }
                           />
                         </div>
@@ -74,7 +74,7 @@ export default function ProjectsListForMain({projects, moreProjects=false}) {
             </Masonry>
           </ResponsiveMasonry>
 
-          {moreProjects&&<ProjectButton />}
+          {moreProjects && <ProjectButton />}
         </div>
       </div>
       <Marquee />

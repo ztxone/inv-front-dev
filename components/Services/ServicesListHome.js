@@ -11,7 +11,7 @@ export default function ServicesListHome({services}) {
 
   return (
     <section
-      className="container px-4 pt-10 pb-11 
+      className="container px-4 pt-10 pb-18 
     md:pb-[106px] md:pt-20 
     lg:px-10 lg:pb-34
     xl:px-20"

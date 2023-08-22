@@ -11,7 +11,7 @@ export default function About({about, servicesAbout}) {
         className=' relative z-10 bg-cover pb-10 no-repeat
       md:pb-0 bg-center lg:px-[86px]'
       >
-        <div className='pt-50  xl:grid xl:grid-cols-[2fr, 1fr] xl:grid-rows-2 gap-5 container'>
+        <div className='pt-25  xl:grid xl:grid-cols-[2fr, 1fr] xl:grid-rows-2 gap-5 container'>
           <h2
             className='text-4xl tracking-tight mb-25 flex flex-wrap items-baseline md:text-6xl xl:text-7.5xl md:mb-15
         xl:justify-between xl:max-w-[887px]
@@ -46,7 +46,7 @@ export default function About({about, servicesAbout}) {
 
           <div className='w-[398px] max-w-full ml-auto xl:mt-[156px] md:pb-2.5 row-start-1 row-end-3 col-start-2 col-end-3'>
             {servicesAbout
-              .filter((item) => item.id===7)
+              .filter((item) => item.id === 7)
               .map((item) => (
                 <Link
                   href={getStrapiMedia(item.attributes.Slides.Document)}
@@ -58,7 +58,7 @@ export default function About({about, servicesAbout}) {
                       src='/image/content/flyer-paper-mockup.png'
                       width='389'
                       height='275'
-                      className='w-full rounded-4xl'
+                      className='w-full rounded-4xl h-full cover'
                       alt=''
                     />
                   </div>
@@ -96,7 +96,7 @@ export default function About({about, servicesAbout}) {
               ))}
 
             {servicesAbout
-              .filter((item) => item.id===9)
+              .filter((item) => item.id === 9)
               .map((item) => (
                 <Link
                   href={getStrapiMedia(item.attributes.Slides.Document)}
@@ -123,18 +123,24 @@ export default function About({about, servicesAbout}) {
                     <h3 className='text-1xl max-w-min'>
                       {item.attributes.name}
                     </h3>
-                    <div className='button-round bg-black-russian opacity-30 mt-auto'>
+                    <div className='mt-auto'>
                       <svg
-                        width='9'
-                        height='11'
-                        viewBox='0 0 9 11'
                         xmlns='http://www.w3.org/2000/svg'
+                        width='37'
+                        height='37'
+                        viewBox='0 0 37 37'
+                        fill='none'
                       >
+                        <circle
+                          opacity='0.3'
+                          cx='18.5'
+                          cy='18.5'
+                          r='18.5'
+                          transform='rotate(90 18.5 18.5)'
+                          fill='#27282E'
+                        />
                         <path
-                          d='M8.5 4.63397C9.16667 5.01888 9.16667 5.98113 8.5 6.36603L1.75 
-              10.2631C1.08333 10.648 0.25 10.1669 0.25 9.39711L0.250001
-               1.60289C0.250001 0.833085 1.08333 0.35196 1.75
-                0.73686L8.5 4.63397Z'
+                          d='M23.5 17.634C24.1667 18.0189 24.1667 18.9811 23.5 19.366L16.75 23.2631C16.0833 23.648 15.25 23.1669 15.25 22.3971L15.25 14.6029C15.25 13.8331 16.0833 13.352 16.75 13.7369L23.5 17.634Z'
                           fill='white'
                         />
                       </svg>

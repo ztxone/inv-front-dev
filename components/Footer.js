@@ -7,20 +7,20 @@ import useTranslation from 'next-translate/useTranslation';
 import {useEffect, useState} from 'react';
 import Line from './ui/Line';
 
-export default function Footer({variant, pillowColor='dark'}) {
-  const [data, setData]=useState();
-  const [menu, setMenu]=useState([]);
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+export default function Footer({variant, pillowColor = 'dark'}) {
+  const [data, setData] = useState();
+  const [menu, setMenu] = useState([]);
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
   useEffect(() => {
     async function fetchData() {
-      const contactRes=await fetchAPI('/contact', {
+      const contactRes = await fetchAPI('/contact', {
         fields: ['Title', 'Address', 'Phone', 'Email'],
         locale: locale,
         populate: '*',
       });
-      const menuRes=await fetchAPI('/navigation/render/2', {
+      const menuRes = await fetchAPI('/navigation/render/2', {
         fields: ['title', 'path'],
         locale: locale,
       });
@@ -30,12 +30,12 @@ export default function Footer({variant, pillowColor='dark'}) {
     fetchData();
   }, [locale]);
 
-  const colorLine=variant==='black'? 'eclipse':'grey';
-  const colorSocials=variant==='black'? 'white':'black';
-  const footerClass=
-    variant==='black'
+  const colorLine = variant === 'black' ? 'eclipse' : 'grey';
+  const colorSocials = variant === 'black' ? 'black' : 'white';
+  const footerClass =
+    variant === 'black'
       ? 'bg-black text-white'
-      :'bg-whisper text-black-russian';
+      : 'bg-whisper text-black-russian';
 
   return (
     <footer
