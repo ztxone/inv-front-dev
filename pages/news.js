@@ -20,7 +20,7 @@ export default function News() {
 
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white">
+    <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
       <TitleSection text='Новости компании' />
       <Line variantColor='grey' />
       <BreadCrumbs links={breadCrumbsItems} />

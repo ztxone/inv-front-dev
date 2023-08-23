@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import Link from "next/link";
 import Loading from "./Loading";
 
-export default function Contact({ contact }) {
+export default function Contact({contact, colorSocials}) {
   if (!contact) {
     return <Loading />;
   }
@@ -76,7 +76,7 @@ export default function Contact({ contact }) {
           className="w-full mt-7 md:w-auto md:mt-0 lg:flex justify-between items-center
         lg:w-full"
         >
-          <Socials links={contact.attributes.ContactSocials} />
+          <Socials links={contact.attributes.ContactSocials} variant={colorSocials} />
           <div
             className="hidden
         lg:block"

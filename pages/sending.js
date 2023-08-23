@@ -1,16 +1,16 @@
-import { useForm } from "react-hook-form";
+import {useForm} from "react-hook-form";
 import Layout from "@/components/layout";
 import sendEmail from "lib/email";
 
-const ContactForm = () => {
+const ContactForm=() => {
   const {
     register,
     handleSubmit,
 
-    formState: { errors },
-  } = useForm();
+    formState: {errors},
+  }=useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit=async (data) => {
     try {
       await sendEmail(data);
       console.log("Email sent successfully!");
@@ -22,16 +22,16 @@ const ContactForm = () => {
   // Rest of your form code...
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="black">
+    <Layout bg="white" headerBg="white" footerBg="black" pillowColor=''>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
-            {...register("name", { required: true })}
+            {...register("name", {required: true})}
           />
-          {errors.name && <span>This field is required</span>}
+          {errors.name&&<span>This field is required</span>}
         </div>
 
         <div>
@@ -47,7 +47,7 @@ const ContactForm = () => {
               },
             })}
           />
-          {errors.email && <span>This field is required</span>}
+          {errors.email&&<span>This field is required</span>}
         </div>
 
         <div>
@@ -55,9 +55,9 @@ const ContactForm = () => {
           <input
             type="text"
             id="phone"
-            {...register("phone", { required: "Phone is required" })}
+            {...register("phone", {required: "Phone is required"})}
           />
-          {errors.phone && <span>This field is required</span>}
+          {errors.phone&&<span>This field is required</span>}
         </div>
 
         <button type="submit">Submit</button>

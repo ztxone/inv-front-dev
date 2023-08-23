@@ -38,10 +38,10 @@ export default function Order() {
   }
 
   return (
-    <div className="hidden md:flex items-center min-w-fit">
+    <div className='hidden md:flex items-center min-w-fit'>
       <a
         href={`tel:${data.PhoneLink}`}
-        className="p-2.5 mr-9 tracking-tight  hover:text-suva-grey"
+        className='p-2.5 mr-9 tracking-tight  hover:text-suva-grey'
       >
         {data.Phone}
       </a>

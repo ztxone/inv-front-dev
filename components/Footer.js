@@ -5,10 +5,9 @@ import Copyright from './ui/Copyright';
 import {fetchAPI} from 'lib/api';
 import useTranslation from 'next-translate/useTranslation';
 import {useEffect, useState} from 'react';
-import Logo from './ui/Logo';
 import Line from './ui/Line';
 
-export default function Footer({variant, colorLine="grey"}) {
+export default function Footer({variant, pillowColor='dark'}) {
   const [data, setData]=useState();
   const [menu, setMenu]=useState([]);
   const i18n=useTranslation();
@@ -31,21 +30,25 @@ export default function Footer({variant, colorLine="grey"}) {
     fetchData();
   }, [locale]);
 
+  const colorLine=variant==='black'? 'eclipse':'grey';
+  const colorSocials=variant==='black'? 'white':'black';
+  const footerClass=
+    variant==='black'
+      ? 'bg-black text-white'
+      :'bg-whisper text-black-russian';
+
   return (
     <footer
-      className={`${variant==='black'
-        ? 'bg-black text-white'
-        :'bg-whisper text-black-russian'
-        } mx-auto pb-[38px] text-inherit shrink-0 w-full`}
+      className={`${footerClass} mx-auto pb-[38px] text-inherit shrink-0 w-full`}
     >
       <div
         className='container xl:flex 
       flex-wrap xl:justify-end xl:items-start lg:pt-20
       lg:mx-auto'
       >
-        <Form />
+        <Form pillowColor={pillowColor} />
         <NavFooter menu={menu} />
-        <Contact contact={data} />
+        <Contact contact={data} colorSocials={colorSocials} />
       </div>
       <Line variantColor={colorLine} />
       <Copyright />

@@ -24,7 +24,7 @@ export default function New({projects}) {
 
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" colorLineHeader='grey'>
+    <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
       <TitleSection text='VR-футболка Owo: мнения тестеров' />
       <Line variantColor='grey' />
       <BreadCrumbs links={breadCrumbsItems} />
