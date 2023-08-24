@@ -1,12 +1,17 @@
-export default function ModalSelect({option1, option2, option3, option4}) {
+import { useState } from "react";
+import { useFormContext } from "react-hook-form";
+
+export default function ModalSelectForBrief({options}) {
+  const [option, setOption] = useState()
+  const { setValue, getValues } = useFormContext();
   return (
     <div
       className='relative w-full text-fiord group
     lg:max-w-[422px]'
     >
-      <input name='theme' id='theme' type='hidden'></input>
+      <input name='theme' id='theme' type='hidden' ></input>
       <div className='py-3 px-5 w-full border border-link-water rounded-5xl text-left cursor-pointer flex items-center justify-between'>
-        <span className='opacity-50 whitespace-nowrap'>{option1}</span>
+        <span className='opacity-50 whitespace-nowrap'>{option?option:getValues('VisObject')}</span>
         <svg
           className='group-hover:rotate-180'
           width='24'
@@ -24,18 +29,15 @@ export default function ModalSelect({option1, option2, option3, option4}) {
         </svg>
       </div>
       <ul className='select__list hidden group-hover:block absolute top-100 left-0 right-0 bg-white z-50 shadow-2xl'>
-        <li className='relative border-b border-b-link-water p-3.8 cursor-pointer text-left'>
-          {option1}
-        </li>
-        <li className='relative border-b border-b-link-water p-3.8 cursor-pointer text-left'>
-          {option2}
-        </li>
-        <li className='relative border-b border-b-link-water p-3.8 cursor-pointer text-left'>
-          {option3}
-        </li>
-        <li className='relative border-b border-b-link-water p-3.8 cursor-pointer text-left'>
-          {option4}
-        </li>
+        {options.map(option=>        
+          <li key={option.id} className='relative border-b border-b-link-water p-3.8 cursor-pointer text-left' onClick={()=>{
+            setOption(option.attributes.Title)
+            setValue('VisObject',option.attributes.Title)
+          }
+          }>
+            {option.attributes.Title}
+          </li>)}
+
       </ul>
     </div>
   );

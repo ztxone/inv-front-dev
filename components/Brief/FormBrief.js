@@ -7,6 +7,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import sendBrief from "lib/sendBrief";
 import Link from "next/link";
 
+
+
 export default function FormBrief({ visobjs, categories }) {
   const methods = useForm({defaultValues:{ProjectAngles:1, VisObject:'Продукт'}});
   const onSubmit = async (data) => {

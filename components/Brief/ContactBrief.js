@@ -1,7 +1,7 @@
 import ModalFieldset from "../ui/ModalFieldset";
 import ModalLabel from "../ui/ModalLabel";
-import ModalInput from "../ui/ModalInput";
 import { useFormContext } from "react-hook-form";
+import ModalInputForBrief from "../ui/ModalInputForBrief";
 
 export default function ContactBrief() {
   const { register,formState:{errors} } = useFormContext();
@@ -19,39 +19,39 @@ export default function ContactBrief() {
       </h2>
       <ModalFieldset>
         <ModalLabel htmlFor="Name" text="Имя" required={true} />
-        <ModalInput
+        <ModalInputForBrief
           type="text"
           id="Name"
           placeholder="Введите ваше имя"
-          error={errors.Name&&<span>This field is required</span>}
+          error={errors.Name?.message}
           name={"Name"}
           register={register}
-          required={true}
+          pattern={{required:'This field is required'}}
         />
       </ModalFieldset>
       <ModalFieldset>
         <ModalLabel htmlFor="Phone" text="Телефон" required={true} />
-        <ModalInput
+        <ModalInputForBrief
           type="tel"
           id="Phone"
           placeholder="+7 (000) 000 00-00"
-          error={errors.Phone && <span>This field is required</span>}
+          error={errors?.Phone?.message}
           name={"Phone"}
           register={register}
-          required={true}
+          pattern={{required: "Phone is required"}}
         />
       </ModalFieldset>
 
       <ModalFieldset>
         <ModalLabel htmlFor="Email" text="E-mail" required={false} />
-        <ModalInput
+        <ModalInputForBrief
           type="email"
           id="Email"
           placeholder="Введите ваш e-mail"
-          error={errors.Email&&<span>This field is required</span>}
+          error={errors.Email?.message}
           register={register}
-          required={{
-            required: "Email is required",
+        pattern={{
+          required: "Email is required",
             pattern: {
               value: /^\S+@\S+$/i,
               message: "Invalid email address",
@@ -63,13 +63,13 @@ export default function ContactBrief() {
 
       <ModalFieldset>
         <ModalLabel htmlFor="Company" text="Компания" required={false} />
-        <ModalInput
+        <ModalInputForBrief
           type="text"
           id="Company"
           placeholder="Название вашей компании"
-          error={errors.Company&&<span>This field is required</span>}
+          error={errors?.Company?.message}
           register={register}
-          required={false}
+          pattern={{required:true}}
           name={"Company"}
         />
       </ModalFieldset>
