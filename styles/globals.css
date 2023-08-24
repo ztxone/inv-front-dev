@@ -36,3 +36,7 @@ input:focus {
   min-height: 100vh;
   justify-content: space-between;
 }
+
+.ReactModal__Body--open {
+  overflow: hidden;
+}

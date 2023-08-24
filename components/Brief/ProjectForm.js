@@ -43,7 +43,7 @@ export default function ProjectForm({ title, visobjs}) {
 
         />
         {visobjs&&<ModalSelectForBrief
-
+          name={'VisObject'}
           options={visobjs}
         />}
       </ModalFieldset>

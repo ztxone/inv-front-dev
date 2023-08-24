@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
-export default function ModalSelectForBrief({options}) {
+export default function ModalSelectForBrief({options,name}) {
   const [option, setOption] = useState()
   const { setValue, getValues } = useFormContext();
   return (
@@ -11,7 +11,7 @@ export default function ModalSelectForBrief({options}) {
     >
       <input name='theme' id='theme' type='hidden' ></input>
       <div className='py-3 px-5 w-full border border-link-water rounded-5xl text-left cursor-pointer flex items-center justify-between'>
-        <span className='opacity-50 whitespace-nowrap'>{option?option:getValues('VisObject')}</span>
+        <span className='opacity-50 whitespace-nowrap'>{option?option:getValues(name)}</span>
         <svg
           className='group-hover:rotate-180'
           width='24'
@@ -32,7 +32,7 @@ export default function ModalSelectForBrief({options}) {
         {options.map(option=>        
           <li key={option.id} className='relative border-b border-b-link-water p-3.8 cursor-pointer text-left' onClick={()=>{
             setOption(option.attributes.Title)
-            setValue('VisObject',option.attributes.Title)
+            setValue(name, option.attributes.Title)
           }
           }>
             {option.attributes.Title}

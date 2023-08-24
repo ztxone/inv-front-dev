@@ -69,7 +69,7 @@ export default function ContactBrief() {
           placeholder="Название вашей компании"
           error={errors?.Company?.message}
           register={register}
-          pattern={{required:true}}
+          pattern={{required:'This field is required'}}
           name={"Company"}
         />
       </ModalFieldset>

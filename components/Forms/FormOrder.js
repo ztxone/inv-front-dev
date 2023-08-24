@@ -1,22 +1,37 @@
-import {useForm} from 'react-hook-form';
+import {FormProvider, useForm} from 'react-hook-form';
 import sendEmail from 'lib/email';
 import Image from 'next/image';
 import ModalLabel from '../ui/ModalLabel';
 import ModalFieldset from '../ui/ModalFieldset';
-import ModalInput from '../ui/ModalInput';
 import ModalApprove from '../ui/ModalApprove';
 import ButtonSubmit from '../ui/ButtonSubmit';
-import ModalSelect from '../ui/ModalSelect';
+import ModalInputForBrief from '../ui/ModalInputForBrief';
+import ModalSelectForBrief from '../Brief/ModalSelectForBrief';
+import ModalApproveForm from './ModalApproveForm';
+import { useState } from 'react';
+
+const options =[
+  {
+    attributes:{Title:'Архитектурная 3D визуализация'}
+  },
+  {
+    attributes:{Title:'Продуктовая 3D визуализация'}
+  },
+  {
+    attributes:{Title:'Моушн & Видеопродакшн'}
+  },
+  {
+    attributes:{Title:'3D моделирование'}
+  }
+]
 
 const FormOrder=() => {
-  const {
-    register,
-    handleSubmit,
-
-    formState: {errors},
-  }=useForm();
+  const [checked, setChecked] = useState(true)
+  const toggleChecked=()=>setChecked(prev=>!prev)
+  const methods=useForm();
 
   const onSubmit=async (data) => {
+    console.log(data);
     try {
       await sendEmail(data);
       console.log('Email sent successfully!');
@@ -26,7 +41,7 @@ const FormOrder=() => {
   };
 
   return (
-    <div className="pb-25">
+    <div>
       <Image
         className='w-full bg-black min-h-[202px] object-cover rounded-t-5xl'
         src='/image/content/modal.png'
@@ -34,59 +49,70 @@ const FormOrder=() => {
         height='202'
         alt=''
       />
-      <div className="px-10 pb-15 pt-9 text-center ">
+      <div className="px-10 pb-15 pt-9 text-center">
         <h2 className="text-xl pb-1.5">Отправить заявку</h2>
         <p className="pb-15">
           Оставьте свои контактные данные и мы вышлем вам Коммерческое
           предложение
         </p>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <ModalFieldset>
-            <ModalLabel htmlFor='name' text='Имя' required={true} />
-            <ModalInput
+        <FormProvider {...methods}>
+
+        <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <ModalFieldset width='w-full'>
+            <ModalLabel htmlFor='name' text='Имя' align='text-left' required={true} />
+            <ModalInputForBrief
               type='text'
               id='name'
+              
               placeholder='Введите ваше имя'
-              error='{errors.name&&<span>This field is required</span>}'
-              pattern='{...register("name", {required: true})}'
+              name={'name'}
+              error={methods.formState.errors.name?.message}
+              pattern={{required: 'This field is required'}}
+              register={methods.register}
             />
           </ModalFieldset>
 
-          <ModalFieldset>
-            <ModalLabel htmlFor='phone' text='Телефон' required={true} />
-            <ModalInput
+          <ModalFieldset width='w-full'>
+            <ModalLabel htmlFor='phone' text='Телефон' align='text-left' required={true} />
+            <ModalInputForBrief
               type='tel'
               id='phone'
               placeholder='+7 (000) 000 00-00'
-              error='{errors.phone&&<span>This field is required</span>}'
-              pattern='{...register("phone", {required: "Phone is required"})}'
+              error={methods.formState.errors.phone?.message}
+              name={'phone'}
+              pattern={{required: 'Phone is required'}}
+              register={methods.register}
             />
           </ModalFieldset>
 
-          <ModalFieldset>
-            <ModalLabel htmlFor='email' text='E-mail' required={false} />
-            <ModalInput
+          <ModalFieldset width='w-full'>
+            <ModalLabel htmlFor='email' text='E-mail' align='text-left' required={false} />
+            <ModalInputForBrief
               type='email'
               id='email'
               placeholder='Введите ваш e-mail'
-              error=' {errors.email&&<span>This field is required</span>}'
-              pattern='{...register("email", {
+              error={methods.formState.errors.email?.message}
+              pattern={{
                   required: "Email is required",
                   pattern: {
                     value: /^\S+@\S+$/i,
                     message: "Invalid email address",
                   },
-                })}'
+                }}
+                name={'email'}
+                register={methods.register}
             />
           </ModalFieldset>
 
-          <ModalFieldset>
-            <ModalLabel htmlFor='theme' text='Выберите направление' required={true} />
-            <ModalSelect option1='' option2='' option3='' option4='' />
+          <ModalFieldset width='w-full'>
+            <ModalLabel htmlFor='theme' text='Выберите направление' align='text-left' required={true} />
+            <ModalSelectForBrief options={options} name={'Direction'}/>
           </ModalFieldset>
-          <ModalApprove />
-          <ButtonSubmit />
+          <ModalApproveForm  checked={checked} setChecked={toggleChecked} fullWidth/>
+          <ButtonSubmit disabled={!checked&&methods.formState.isValid} fullWidth/>
         </form>
+        </FormProvider>
+
       </div>
     </div>
   );

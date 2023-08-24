@@ -6,10 +6,14 @@ import ButtonSubmit from "../ui/ButtonSubmit";
 import { useForm, FormProvider } from "react-hook-form";
 import sendBrief from "lib/sendBrief";
 import Link from "next/link";
+import ModalApproveForm from "../Forms/ModalApproveForm";
+import { useState } from "react";
 
 
 
 export default function FormBrief({ visobjs, categories }) {
+  const [checked, setChecked] = useState(true)
+  const toggleChecked=()=>setChecked(prev=>!prev)
   const methods = useForm({defaultValues:{ProjectAngles:1, VisObject:'Продукт'}});
   const onSubmit = async (data) => {
     try {
@@ -44,8 +48,8 @@ export default function FormBrief({ visobjs, categories }) {
           <ProjectForm title="Подробнее о вашем проекте" visobjs={visobjs}/>
           <ContactBrief />
           <div className="lg:flex flex-row-reverse justify-between items-center">
-            <ModalApprove />
-            <ButtonSubmit text="Отправить бриф" variant="blue" />
+            <ModalApproveForm  checked={checked} setChecked={toggleChecked} />
+            <ButtonSubmit text="Отправить бриф" variant="blue" disabled={!checked&&methods.formState.isValid} />
           </div>
         </form>
       </FormProvider>
