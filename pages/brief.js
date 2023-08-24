@@ -10,7 +10,6 @@ export default function Brief({ categories, visobjs }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
-  console.log(visobjs);
 
   return (
     <Layout bg="white" headerBg="white" footerBg="white" colorLineHeader='grey'>

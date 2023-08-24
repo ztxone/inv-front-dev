@@ -2,11 +2,11 @@ import ModalInput from "../ui/ModalInput";
 import ModalLabel from "../ui/ModalLabel";
 import ModalFieldset from "../ui/ModalFieldset";
 import ModalSelect from "../ui/ModalSelect";
-import Counter from "../ui/Counter";
 import { useFormContext } from "react-hook-form";
+import { ProjectAngles } from "./ProjectAngles";
 
-export default function ProjectForm({ title }) {
-  const { register } = useFormContext();
+export default function ProjectForm({ title, visobjs}) {
+  const { register, formState:{errors} } = useFormContext();
   return (
     <div
       className="pt-10.5
@@ -29,8 +29,10 @@ export default function ProjectForm({ title }) {
           type="text"
           id="ProjectName"
           placeholder="Введите название вашего проекта"
-          error="{errors.ProjectName&&<span>This field is required</span>}"
-          pattern='{...register("ProjectName", {required: true})}'
+          error={errors.ProjectName&&<span>This field is required</span>}
+          register={register}
+          name={"ProjectName"}
+          required={true}
         />
       </ModalFieldset>
       <ModalFieldset>
@@ -38,13 +40,12 @@ export default function ProjectForm({ title }) {
           htmlFor="object"
           text="Объект визуализации"
           required={true}
+
         />
-        <ModalSelect
-          option1="Коммерческая недвижимость"
-          option2=""
-          option3=""
-          option4=""
-        />
+        {visobjs&&<ModalSelect 
+
+          options={visobjs}
+        />}
       </ModalFieldset>
       <ModalFieldset order="order-6">
         <ModalLabel
@@ -52,7 +53,7 @@ export default function ProjectForm({ title }) {
           text="Общее количество необходимых ракурсов"
           required={true}
         />
-        <Counter />
+        <ProjectAngles />
       </ModalFieldset>
       <ModalFieldset>
         <ModalLabel htmlFor="project" text="Сроки проекта" required={true} />
@@ -60,8 +61,10 @@ export default function ProjectForm({ title }) {
           type="number"
           id="project"
           placeholder="Введите сроки вашего проекта"
-          error=""
-          pattern=""
+          error={errors.Duration&&<span>This field is required</span>}
+          name='Duration'
+          register={register}
+          required={true}
         />
       </ModalFieldset>
       <ModalFieldset>
@@ -74,8 +77,10 @@ export default function ProjectForm({ title }) {
           type="number"
           id="square"
           placeholder="Введите площадь"
-          error=""
-          pattern=""
+          error={errors.Square&&<span>This field is required</span>}
+          name='Square'
+          register={register}
+          required={true}
         />
       </ModalFieldset>
     </div>

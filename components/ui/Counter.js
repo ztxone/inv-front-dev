@@ -1,4 +1,7 @@
+
+
 export default function Counter() {
+
   return (
     <div className='custom-number-input h-10.5 mt-3.8 w-full'>
       <div className='flex flex-row h-10.5 rounded-5xl relative bg-transparent w-36'>
