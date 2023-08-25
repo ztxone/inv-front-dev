@@ -36,3 +36,7 @@ input:focus {
   min-height: 100vh;
   justify-content: space-between;
 }
+
+.richText p {
+  margin-bottom: 15px;
+}
