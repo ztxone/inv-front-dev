@@ -24,13 +24,8 @@ export default function Contact({ contact, colorSocials }) {
         lg:pb-7'
         >
           <Link
-<<<<<<< HEAD
-            href='#'
-            className='tracking-[-0.036em] text-lg opacity-50 flex items-start w-full p-2.5 pl-0 hover:opacity-100'
-=======
             href="/contacts"
             className="tracking-[-0.036em] text-lg opacity-50 flex items-start w-full p-2.5 pl-0 hover:opacity-100"
->>>>>>> 0f3df65b5e049f15f8b5dd0ec00de88bc9c428c8
           >
             <svg
               className='mr-2.5'
