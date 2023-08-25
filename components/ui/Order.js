@@ -49,7 +49,7 @@ export default function Order() {
         <PillowLink
           text='Отправить заявку'
           variant='white'
-          variantSvg='black'
+          variantSvg='blackSvg'
         />
       </div>
       <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>

@@ -29,7 +29,7 @@ export default function Form({pillowColor}) {
           text={t('brief.title_fill')}
           link='/brief'
           variant={pillowColor}
-          variantSvg='blueSvg'
+          variantSvg='whiteSvg'
         />
       </div>
     </div>

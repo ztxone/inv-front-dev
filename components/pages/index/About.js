@@ -26,18 +26,18 @@ export default function About({about, servicesAbout}) {
             <span className='flex items-center'>
               {' '}
               <svg
-                className='text-royal-blue mr-2.5
-          md:w-[48px] md:h-auto
-          lg:w-[63px] lg:mr-9'
-                viewBox='0 0 32 22'
-                width='32'
-                height='22'
+                className='text-royal-blue mr-2.5 w-[43px] h-[33px]
+                md:w-auto md:h-auto 
+          lg:w-[60px] lg:mr-9'
+                viewBox='0 0 52 52'
+                width='52'
+                height='52'
               >
                 <path
-                  fillRule='evenodd'
-                  clipRule='evenodd'
-                  d='M20.67.22 31.55 11 20.67 21.78l-3.52-3.56 4.77-4.72H0v-5h21.92l-4.77-4.72L20.67.22Z'
-                  fill='currentColor'
+                  fill-rule='evenodd'
+                  clip-rule='evenodd'
+                  d='M34.2 9 51 26 34.2 43l-3.54-3.46 10.96-11.08H1v-4.92h40.62L30.66 12.46 34.2 9Z'
+                  fill='#4574EF'
                 />
               </svg>{' '}
               {about.attributes.SloganPart2}
