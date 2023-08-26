@@ -2,8 +2,8 @@ import useTranslation from "next-translate/useTranslation";
 import PillowLink from "./PillowLink";
 import Title from "./Title";
 
-export default function Form({pillowColor}) {
-  const {t}=useTranslation("common");
+export default function Form({ pillowColor }) {
+  const { t } = useTranslation("common");
   return (
     <div
       className="pb-9 pt-10.5  
