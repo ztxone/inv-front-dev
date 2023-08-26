@@ -5,7 +5,7 @@ import { ProjectAngles } from "./ProjectAngles";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalSelectForBrief from "./ModalSelectForBrief";
 
-export default function ProjectForm({ title, visobjs}) {
+export default function ProjectForm({ title, visobjs, children}) {
   const { register, formState:{errors} } = useFormContext();
   return (
     <div
@@ -43,7 +43,7 @@ export default function ProjectForm({ title, visobjs}) {
 
         />
         {visobjs&&<ModalSelectForBrief
-          name={'VisObject'}
+          name={'VisualizationObject'}
           options={visobjs}
         />}
       </ModalFieldset>
@@ -53,7 +53,7 @@ export default function ProjectForm({ title, visobjs}) {
           text="Общее количество необходимых ракурсов"
           required={true}
         />
-        <ProjectAngles />
+        {children}
       </ModalFieldset>
       <ModalFieldset>
         <ModalLabel htmlFor="project" text="Сроки проекта" required={true} />
@@ -62,7 +62,7 @@ export default function ProjectForm({ title, visobjs}) {
           id="project"
           placeholder="Введите сроки вашего проекта"
           error={errors.Duration&&<span>This field is required</span>}
-          name='Duration'
+          name='ProjectDates'
           register={register}
           pattern={{required:true}}
         />
@@ -78,7 +78,7 @@ export default function ProjectForm({ title, visobjs}) {
           id="square"
           placeholder="Введите площадь"
           error={errors.Square&&<span>This field is required</span>}
-          name='Square'
+          name='ProjectSquare'
           register={register}
           pattern={{required:true}}
         />

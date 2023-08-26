@@ -1,13 +1,15 @@
 import Link from 'next/link';
 
 export default function ModalApproveForm({checked, setChecked, fullWidth=false}) {
-
+const setValue = ()=>{
+  setChecked(prev=>!prev)
+}
   return (
     <div className={`flex pb-9 items-center md:pt-6 ${fullWidth?'w-full':'md:w-3/5 lg:max-w-[422px]'}`}>
       <div className='flex items-center h-5'>
         <input 
         checked={checked}
-        onChange={setChecked}
+        onChange={setValue}
           id='helper-checkbox'
           aria-describedby='helper-checkbox-text'
           type='checkbox'

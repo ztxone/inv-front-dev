@@ -1,29 +1,31 @@
 import TagsBrief from "./TagsBrief";
 import ProjectForm from "./ProjectForm";
 import ContactBrief from "./ContactBrief";
-import ModalApprove from "../ui/ModalApprove";
 import ButtonSubmit from "../ui/ButtonSubmit";
 import { useForm, FormProvider } from "react-hook-form";
 import sendBrief from "lib/sendBrief";
 import Link from "next/link";
 import ModalApproveForm from "../Forms/ModalApproveForm";
 import { useState } from "react";
+import { ProjectAngles } from "./ProjectAngles";
 
 
 
 export default function FormBrief({ visobjs, categories }) {
   const [checked, setChecked] = useState(true)
+  const [angles, setAngles] = useState(1)
   const toggleChecked=()=>setChecked(prev=>!prev)
-  const methods = useForm({defaultValues:{ProjectAngles:1, VisObject:'Продукт'}});
+  const methods = useForm({mode:'onSubmit',defaultValues:{VisualizationObject:'Продукт'}});
   const onSubmit = async (data) => {
     try {
-      console.log(data);
-      await sendBrief(data);
+      console.log({...data,ProjectAngles:angles});
+      await sendBrief({...data,ProjectAngles:angles});
       console.log("Brief sent successfully!");
     } catch (error) {
       console.error("Brief sending error:", error);
     }
   };
+
   return (
     <div className="container">
       <p
@@ -40,12 +42,14 @@ export default function FormBrief({ visobjs, categories }) {
       <FormProvider {...methods}>
         <form
           className="pb-15 pr-18
-      lg:w-4/6"
+          lg:w-4/6"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
           <TagsBrief title="Выберите услугу" />
           <TagsBrief title="Направление" />
-          <ProjectForm title="Подробнее о вашем проекте" visobjs={visobjs}/>
+          <ProjectForm title="Подробнее о вашем проекте" visobjs={visobjs}>
+          <ProjectAngles angles={angles} setAngles={setAngles}/>
+          </ProjectForm>
           <ContactBrief />
           <div className="lg:flex flex-row-reverse justify-between items-center">
             <ModalApproveForm  checked={checked} setChecked={toggleChecked} />
