@@ -1,6 +1,27 @@
 import { useEffect, useRef, useState } from "react";
 import { useFormContext } from "react-hook-form";
 
+
+export function RadioButton({text, value}) {
+  return (
+    <div className='flex items-center cursor-pointer'>
+      <input
+        id={text}
+        type='radio'
+        name='default-radio'
+        checked={value===text}
+        className='w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500  focus:ring-2 dark:bg-gray-700  cursor-pointer'
+      ></input>
+      <label
+        htmlFor={text}
+        className='p-2 cursor-pointer'
+      >
+        {text}
+      </label>
+    </div>
+  );
+}
+
 export default function ModalSelectForBrief({options,name}) {
   const [option, setOption] = useState()
   const { setValue, getValues } = useFormContext();
@@ -12,7 +33,6 @@ export default function ModalSelectForBrief({options,name}) {
     const handleClick = (event) => {
       const { target } = event;
       if (target instanceof Node && !rootRef.current?.contains(target)) {
-        console.log('close', isOpen);
         isOpen && setIsOpen(false);
       }
     };
@@ -21,17 +41,16 @@ export default function ModalSelectForBrief({options,name}) {
     return ()=>window.removeEventListener('click',handleClick)
   }, [isOpen]);
   
-  console.log('render', isOpen);
   return (
     <div ref={rootRef}
       className='relative w-full text-fiord group
     lg:max-w-[422px]'
     >
       <input name='theme' id='theme' type='hidden' ></input>
-      <div onClick={toggleOption} className='py-3 px-5 w-full border border-link-water rounded-5xl text-left cursor-pointer flex items-center justify-between'>
+      <div onClick={toggleOption} className='py-3 px-5 w-full min-w-[292px] border border-link-water rounded-5xl text-left cursor-pointer flex items-center justify-between'>
         <span className='opacity-50 whitespace-nowrap'>{option?option:getValues(name)}</span>
         <svg
-          className='group-hover:rotate-180'
+          className={isOpen&&'group-hover:rotate-180'}
           width='24'
           height='24'
           viewBox='0 0 24 24'
@@ -47,16 +66,15 @@ export default function ModalSelectForBrief({options,name}) {
         </svg>
       </div>
       <ul className={`select__list ${isOpen?'block':'hidden' } absolute top-100 left-0 right-0 bg-white z-50 shadow-2xl`}>
-        {options.map(option=>        
-          <li key={option.id} className='relative border-b border-b-link-water p-3.8 cursor-pointer text-left' onClick={()=>{
-            setOption(option.attributes.Title)
-            setValue(name, option.attributes.Title)
+        {options.map(elem=>        
+          <li key={elem.id} className='relative border-b border-b-link-water p-3.8 cursor-pointer text-left' onClick={()=>{
+            setOption(elem.attributes.Title)
+            setValue(name, elem.attributes.Title)
             setIsOpen(false)
           }
           }>
-            {option.attributes.Title}
+          <RadioButton text={elem.attributes.Title} value={option}/>
           </li>)}
-
       </ul>
     </div>
   );
