@@ -1,18 +1,41 @@
 import Layout from "@/components/layout";
+import TitleSection from "@/components/ui/TitleSection";
+import useTranslation from "next-translate/useTranslation";
+import Line from "@/components/ui/Line";
+import BreadCrumbs from "@/components/ui/Breadcrumbs";
+import IntroNews from "@/components/News/IntroNews";
+import CarouselNews from "@/components/News/CarouselNews";
 
 import { fetchAPI } from "lib/api";
+import Seo from "@/components/seo";
 
 export default function Blog({ blog }) {
-  //   const seo = {
-  //     metaTitle: category.attributes.name,
-  //     metaDescription: `All ${category.attributes.name} articles`,
-  //   };
+  const { t } = useTranslation("common");
+  const seo = {
+    metaTitle: blog.attributes.Title,
+    metaDescription: blog.attributes.Text,
+    shareImage: blog.attributes.Image_preview,
+  };
   //console.log(blog);
+
+  const breadCrumbsItems = [
+    {
+      title: t("All_news"),
+      path: "/news",
+    },
+    {
+      title: blog.attributes.Title,
+    },
+  ];
 
   return (
     <>
-      {/* <Seo seo={seo} /> */}
-      <h1>{blog.attributes.Title}</h1>
+      <Seo seo={seo} />
+      <TitleSection text={blog.attributes.Title} />
+      <Line variantColor="grey" />
+      <BreadCrumbs links={breadCrumbsItems} />
+      <IntroNews />
+      <CarouselNews />
     </>
   );
 }
@@ -32,7 +55,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const matchingBlogs = await fetchAPI("/blogs", {
-    fields: ["Title"],
+    populate: "*",
     filters: { slug: params.slug },
   });
 

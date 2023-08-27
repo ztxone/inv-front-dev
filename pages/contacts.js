@@ -2,7 +2,7 @@ import Layout from "@/components/layout";
 import useTranslation from "next-translate/useTranslation";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
-import {fetchAPI} from "lib/api";
+import { fetchAPI } from "lib/api";
 import ServicesSlides from "@/components/Services/ServicesSlides";
 import Map from "@/components/ui/Map";
 import IntroCost from "@/components/ui/IntroCost";
@@ -33,8 +33,8 @@ function Contacts({contact}) {
           address={contact.attributes.Address}
           phone={contact.attributes.Phone}
           email={contact.attributes.Email}
+          socials={contact.attributes.ContactSocials}
         />
-        <Socials variant="white" links={contact.attributes.ContactSocials} />
       </div>
       <ServicesSlides />
       <Map />
@@ -49,8 +49,8 @@ function Contacts({contact}) {
   );
 }
 
-export async function getStaticProps({locale}) {
-  const [contactRes]=await Promise.all([
+export async function getStaticProps({ locale }) {
+  const [contactRes] = await Promise.all([
     fetchAPI("/contact", {
       fields: ["Title", "Address", "Phone", "Email"],
       locale: locale,
