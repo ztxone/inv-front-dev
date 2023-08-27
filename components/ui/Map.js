@@ -6,10 +6,10 @@
 // </div>
 //  https://scp111.hosting.reg.ru:2083/cpsess6997991663/frontend/jupiter/filemanager/index.html
 
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import GoogleMapReact from "google-map-react";
 
-const CustomMarker=() => (
+const CustomMarker = () => (
   <div>
     <svg
       width="57"
@@ -26,8 +26,8 @@ const CustomMarker=() => (
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M53.6934 40.3324L28.3446 93L2.99573 40.3324C-5.9936 21.6551 7.61661 0 28.3446 0C49.0725 0 62.6828 21.6551 53.6934 40.3324ZM28.3461 35C32.7085 35 36.245 31.6421 36.245 27.5C36.245 23.3578 32.7085 20 28.3461 20C23.9836 20 20.4471 23.3578 20.4471 27.5C20.4471 31.6421 23.9836 35 28.3461 35Z"
           fill="#4574EF"
         />
@@ -37,8 +37,8 @@ const CustomMarker=() => (
 );
 
 export default function Map() {
-  const defaultProps={
-    center: {lat: 59.880902, lng: 30.402819},
+  const defaultProps = {
+    center: { lat: 59.880902, lng: 30.402819 },
     zoom: 16,
     styles: [
       {
@@ -70,9 +70,9 @@ export default function Map() {
 
   return (
     // Important! Always set the container height explicitly
-    <div style={{height: "50vh", width: "100%"}} className="pb-12">
+    <div style={{ height: "50vh", width: "100%" }} className="pb-12">
       <GoogleMapReact
-        bootstrapURLKeys={{key: "AIzaSyDw4ypoJbMz_pDoyEVdxn0s_hxDZ3M0chE"}}
+        bootstrapURLKeys={{ key: "AIzaSyDw4ypoJbMz_pDoyEVdxn0s_hxDZ3M0chE" }}
         defaultCenter={defaultProps.center}
         yesIWantToUseGoogleMapApiInternals
         defaultZoom={defaultProps.zoom}

@@ -7,10 +7,9 @@ export default function TagsBrief({
   setCategory,
   category,
 }) {
-
-useEffect(()=>{
-  setCategory(categories[0])
-},[])
+  useEffect(() => {
+    setCategory(categories[0]);
+  }, []);
 
   return (
     <div
@@ -27,9 +26,14 @@ useEffect(()=>{
       <div className="flex flex-wrap">
         {categories.map((elem) => (
           <TagItemBrief
-            color={category?.attributes?.name === elem.attributes.name ? "blue" : "white"}
+            key={elem.attributes.name}
+            color={
+              category?.attributes?.name === elem.attributes.name
+                ? "blue"
+                : "white"
+            }
             text={elem.attributes.name}
-            onClick={()=>setCategory(elem)}
+            onClick={() => setCategory(elem)}
           />
         ))}
       </div>
