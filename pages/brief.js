@@ -12,7 +12,7 @@ export default function Brief({ categories, visobjs }) {
   const locale = i18n.lang;
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" colorLineHeader='grey'>
+    <>
       <TitleSection text={t("brief.title_fill")} />
       <Line variantColor="grey" />
       <BreadCrumbs
@@ -24,7 +24,7 @@ export default function Brief({ categories, visobjs }) {
       />
       <FormBrief categories={categories} visobjs={visobjs} />
       <Line variantColor="grey" />
-    </Layout>
+    </>
   );
 }
 
@@ -48,4 +48,15 @@ export async function getStaticProps({ locale }) {
     },
     revalidate: 1,
   };
+}
+
+Brief.getLayout = function getLayout(page) {
+  return (
+        <Layout
+        bg="white" headerBg="white" footerBg="white" pillowColor={'grey'}
+    >
+
+      {page}
+    </Layout>
+  )
 }

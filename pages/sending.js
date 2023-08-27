@@ -22,8 +22,7 @@ const ContactForm=() => {
   // Rest of your form code...
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="black" pillowColor=''>
-      <form onSubmit={handleSubmit(onSubmit)}>
+  <form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <label htmlFor="name">Name</label>
           <input
@@ -62,8 +61,17 @@ const ContactForm=() => {
 
         <button type="submit">Submit</button>
       </form>
-    </Layout>
   );
 };
 
+ContactForm.getLayout = function getLayout(page) {
+
+  return (
+        <Layout
+        bg="white" headerBg="white" footerBg="black" pillowColor=''
+    >
+      {page}
+    </Layout>
+  )
+}
 export default ContactForm;

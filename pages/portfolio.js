@@ -15,12 +15,7 @@ export default function Portfolio({projects, categories}) {
   const locale=i18n.lang;
 
   return (
-    <Layout
-      bg='black'
-      headerBg='white'
-      footerBg='black'
-      pillowColor=''
-    >
+    <>
       <Wrapper color='grey'>
         <TitleSection text={t`works.title`} />
         <Line variantColor='grey' />
@@ -42,6 +37,21 @@ export default function Portfolio({projects, categories}) {
         titleColor='white'
         buttonColor='white'
       />
-    </Layout>
+    </>
   );
+}
+
+
+Portfolio.getLayout = function getLayout(page) {
+  return (
+        <Layout
+      bg='black'
+      headerBg='white'
+      footerBg='black'
+      pillowColor=''
+    >
+
+      {page}
+    </Layout>
+  )
 }

@@ -10,10 +10,10 @@ export default function Blog({ blog }) {
   //console.log(blog);
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="black">
+    <>
       {/* <Seo seo={seo} /> */}
       <h1>{blog.attributes.Title}</h1>
-    </Layout>
+    </>
   );
 }
 
@@ -42,4 +42,17 @@ export async function getStaticProps({ params }) {
     },
     revalidate: 1,
   };
+}
+
+
+Blog.getLayout = function getLayout(page) {
+
+  return (
+        <Layout
+        bg="white" headerBg="white" footerBg="black"        pillowColor=''
+    >
+
+      {page}
+    </Layout>
+  )
 }
