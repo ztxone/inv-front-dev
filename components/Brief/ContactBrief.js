@@ -4,7 +4,10 @@ import { useFormContext } from "react-hook-form";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 
 export default function ContactBrief() {
-  const { register,formState:{errors} } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
   return (
     <div
       className="mt-7
@@ -26,7 +29,7 @@ export default function ContactBrief() {
           error={errors.Name?.message}
           name={"Name"}
           register={register}
-          pattern={{required:'This field is required'}}
+          pattern={{ required: "This field is required" }}
         />
       </ModalFieldset>
       <ModalFieldset>
@@ -38,7 +41,7 @@ export default function ContactBrief() {
           error={errors?.Phone?.message}
           name={"Phone"}
           register={register}
-          pattern={{required: "Phone is required"}}
+          pattern={{ required: "Phone is required" }}
         />
       </ModalFieldset>
 
@@ -50,8 +53,8 @@ export default function ContactBrief() {
           placeholder="Введите ваш e-mail"
           error={errors.Email?.message}
           register={register}
-        pattern={{
-          required: "Email is required",
+          pattern={{
+            required: "Email is required",
             pattern: {
               value: /^\S+@\S+$/i,
               message: "Invalid email address",
@@ -69,7 +72,7 @@ export default function ContactBrief() {
           placeholder="Название вашей компании"
           error={errors?.Company?.message}
           register={register}
-          pattern={{required:'This field is required'}}
+          pattern={{ required: "This field is required" }}
           name={"Company"}
         />
       </ModalFieldset>
