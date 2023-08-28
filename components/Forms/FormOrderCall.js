@@ -49,7 +49,7 @@ export const FormOrderCall = ({ title }) => {
         alt=""
       />
       <div className="px-10 pb-15 pt-9 text-center">
-        <h2 className="text-xl pb-1.5">Отправить заявку</h2>
+        <h2 className="text-xl pb-1.5">Заказать звонок</h2>
         <p className="pb-15">{title}</p>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
@@ -89,44 +89,7 @@ export const FormOrderCall = ({ title }) => {
               />
             </ModalFieldset>
 
-            <ModalFieldset width="w-full">
-              <ModalLabel
-                htmlFor="email"
-                text="E-mail"
-                align="text-left"
-                required={false}
-              />
-              <ModalInputForBrief
-                type="email"
-                id="email"
-                placeholder="Введите ваш e-mail"
-                error={methods.formState.errors.email?.message}
-                pattern={{
-                  required: "Email is required",
-                  pattern: {
-                    value: /^\S+@\S+$/i,
-                    message: "Invalid email address",
-                  },
-                }}
-                name={"email"}
-                register={methods.register}
-              />
-            </ModalFieldset>
-
-            <ModalFieldset width="w-full">
-              <ModalLabel
-                htmlFor="theme"
-                text="Выберите направление"
-                align="text-left"
-                required={true}
-              />
-              <ModalSelectForBrief options={options} name={"Direction"} />
-            </ModalFieldset>
-            <ModalApproveForm
-              checked={checked}
-              setChecked={toggleChecked}
-              fullWidth
-            />
+            <ModalApproveForm name={"approve"} fullWidth />
             <ButtonSubmit
               disabled={!checked && methods.formState.isValid}
               fullWidth

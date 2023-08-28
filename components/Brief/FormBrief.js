@@ -10,11 +10,9 @@ import { useState } from "react";
 import { ProjectAngles } from "./ProjectAngles";
 
 export default function FormBrief({ visobjs, categories }) {
-  const [checked, setChecked] = useState(true);
   const [angles, setAngles] = useState(1);
   const [category, setCategory] = useState();
   const [projectType, setProjectType] = useState();
-  const toggleChecked = () => setChecked((prev) => !prev);
   const methods = useForm({
     mode: "onSubmit",
     defaultValues: { VisualizationObject: "Продукт" },
@@ -25,7 +23,7 @@ export default function FormBrief({ visobjs, categories }) {
         ...data,
         ProjectAngles: angles,
         categories: category,
-        ProjectType:projectType?.attributes?.name||'',
+        ProjectType: projectType?.attributes?.name || "",
       };
       console.log(sendData);
       await sendBrief(sendData);
@@ -74,11 +72,11 @@ export default function FormBrief({ visobjs, categories }) {
           </ProjectForm>
           <ContactBrief />
           <div className="lg:flex flex-row-reverse justify-between items-center">
-            <ModalApproveForm checked={checked} setChecked={toggleChecked} />
+            <ModalApproveForm name="approve" />
             <ButtonSubmit
               text="Отправить бриф"
               variant="blue"
-              disabled={!checked && methods.formState.isValid}
+              disabled={!methods.formState.isValid}
             />
           </div>
         </form>

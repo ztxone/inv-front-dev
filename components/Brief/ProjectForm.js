@@ -5,8 +5,11 @@ import { ProjectAngles } from "./ProjectAngles";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalSelectForBrief from "./ModalSelectForBrief";
 
-export default function ProjectForm({ title, visobjs, children}) {
-  const { register, formState:{errors} } = useFormContext();
+export default function ProjectForm({ title, visobjs, children }) {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
   return (
     <div
       className="pt-10.5
@@ -29,10 +32,10 @@ export default function ProjectForm({ title, visobjs, children}) {
           type="text"
           id="ProjectName"
           placeholder="Введите название вашего проекта"
-          error={errors.ProjectName&&<span>This field is required</span>}
+          error={errors.ProjectName && "This field is required"}
           register={register}
           name={"ProjectName"}
-          pattern={{required:true}}
+          pattern={{ required: true }}
         />
       </ModalFieldset>
       <ModalFieldset>
@@ -40,12 +43,10 @@ export default function ProjectForm({ title, visobjs, children}) {
           htmlFor="object"
           text="Объект визуализации"
           required={true}
-
         />
-        {visobjs&&<ModalSelectForBrief
-          name={'VisualizationObject'}
-          options={visobjs}
-        />}
+        {visobjs && (
+          <ModalSelectForBrief name={"VisualizationObject"} options={visobjs} />
+        )}
       </ModalFieldset>
       <ModalFieldset order="order-6">
         <ModalLabel
@@ -61,10 +62,10 @@ export default function ProjectForm({ title, visobjs, children}) {
           type="number"
           id="project"
           placeholder="Введите сроки вашего проекта"
-          error={errors.Duration&&<span>This field is required</span>}
-          name='ProjectDates'
+          error={errors.Duration && "This field is required"}
+          name="ProjectDates"
           register={register}
-          pattern={{required:true}}
+          pattern={{ required: true }}
         />
       </ModalFieldset>
       <ModalFieldset>
@@ -77,10 +78,10 @@ export default function ProjectForm({ title, visobjs, children}) {
           type="number"
           id="square"
           placeholder="Введите площадь"
-          error={errors.Square&&<span>This field is required</span>}
-          name='ProjectSquare'
+          error={errors.Square && "This field is required"}
+          name="ProjectSquare"
           register={register}
-          pattern={{required:true}}
+          pattern={{ required: true }}
         />
       </ModalFieldset>
     </div>

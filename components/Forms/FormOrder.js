@@ -126,11 +126,7 @@ export const FormOrder = () => {
               />
               <ModalSelectForBrief options={options} name={"Direction"} />
             </ModalFieldset>
-            <ModalApproveForm
-              checked={checked}
-              setChecked={toggleChecked}
-              fullWidth
-            />
+            <ModalApproveForm name={"approve"} fullWidth />
             <ButtonSubmit
               disabled={!checked && methods.formState.isValid}
               fullWidth
