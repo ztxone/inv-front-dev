@@ -10,12 +10,7 @@ import ProjectsListForMain from '@/components/Projects/ProjectsListForMain';
 
 const Home=({projects, services, servicesAbout, about}) => {
   return (
-    <Layout
-      bg='black'
-      headerBg='black'
-      footerBg='black'
-      pillowColor='dark'
-    >
+    <>
       <About about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />
       <Wrapper color='grey' position='top'>
@@ -27,7 +22,7 @@ const Home=({projects, services, servicesAbout, about}) => {
         buttonColor='white'
       />
       <Line variantColor='eclipse' />
-    </Layout>
+    </>
   );
 };
 
@@ -93,6 +88,21 @@ export async function getStaticProps({locale}) {
     },
     revalidate: 1,
   };
+}
+
+Home.getLayout = function getLayout(page) {
+
+  return (
+        <Layout
+              bg='black'
+      headerBg='black'
+      footerBg='black'
+      pillowColor=''
+    >
+
+      {page}
+    </Layout>
+  )
 }
 
 export default Home;

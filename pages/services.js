@@ -15,12 +15,6 @@ export default function Services({services, projects}) {
   const locale=i18n.lang;
 
   return (
-    <Layout
-      bg='white'
-      headerBg='black'
-      footerBg='white'
-      pillowColor=''
-    >
       <div>
         <Wrapper>
           <TitleSection text={t`services.title`} variantColor='white' />
@@ -42,7 +36,6 @@ export default function Services({services, projects}) {
         <PortfolioCarousel projects={projects} />
         <Line variantColor='grey' />
       </div>
-    </Layout>
   );
 }
 
@@ -82,4 +75,19 @@ export async function getStaticProps({locale}) {
     },
     revalidate: 1,
   };
+}
+
+
+Services.getLayout = function getLayout(page) {
+
+  return (
+        <Layout
+        bg='white'
+        headerBg='black'
+        footerBg='white'
+        pillowColor=''
+    >
+      {page}
+    </Layout>
+  )
 }

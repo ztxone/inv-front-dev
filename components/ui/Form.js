@@ -1,9 +1,12 @@
-import useTranslation from 'next-translate/useTranslation';
-import PillowLink from './PillowLink';
-import Title from './Title';
 
-export default function Form({pillowColor}) {
-  const {t} = useTranslation('common');
+import useTranslation from "next-translate/useTranslation";
+import PillowLink from "./PillowLink";
+import Title from "./Title";
+import { OrderCall } from "./OrderCall";
+
+export default function Form({ pillowColor }) {
+  const { t } = useTranslation("common");
+
   return (
     <div
       className='pb-9 pt-10.5  
@@ -19,11 +22,12 @@ export default function Form({pillowColor}) {
       md:pt-12 md:gap-6
       lg:pt-15'
       >
-        <PillowLink
-          text={t('footer.order_call')}
-          link='tel:#'
+
+        <OrderCall
           variant={pillowColor}
-          variantSvg='blueSvg'
+          text={t("footer.order_call")}
+          formTitle={"Напишите телефон и мы Вам перезвоним"}
+
         />
         <PillowLink
           text={t('brief.title_fill')}

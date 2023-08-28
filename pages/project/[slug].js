@@ -40,7 +40,7 @@ function Project({ project, categories }) {
   ];
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white">
+    <>
       <Seo seo={seo} />
 
       <TitleSection text={project.attributes.Title} />
@@ -70,7 +70,7 @@ function Project({ project, categories }) {
       <IntroCost />
       {/* <PortfolioCarousel title="Другие проекты" /> */}
       <Line variantColor="grey" />
-    </Layout>
+    </>
   );
 }
 
@@ -101,5 +101,15 @@ export async function getStaticProps({ params }) {
     revalidate: 1,
   };
 }
+Project.getLayout = function getLayout(page) {
 
+  return (
+        <Layout
+        bg="white" headerBg="white" footerBg="white"         pillowColor=''
+    >
+
+      {page}
+    </Layout>
+  )
+}
 export default Project;
