@@ -11,6 +11,7 @@ export default function TagsBrief({
     setCategory(categories[0]);
   }, []);
 
+
   return (
     <div
       className="pt-10 pb-1.5
@@ -39,4 +40,7 @@ export default function TagsBrief({
       </div>
     </div>
   );
+}
+{
+  /* <TagItemBrief color='blue' text='Производство видео' onClick /> */
 }

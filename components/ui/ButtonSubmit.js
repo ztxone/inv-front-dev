@@ -1,5 +1,5 @@
-const blue='bg-royal-blue text-white';
-const black='bg-black-russian text-white uppercase';
+const blue = "bg-royal-blue text-white";
+const black = "bg-black-russian text-white uppercase";
 
 export default function ButtonSubmit({
   text='Оформить заявку',

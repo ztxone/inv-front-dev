@@ -10,6 +10,7 @@ export default function ProjectForm({ title, visobjs, children }) {
     register,
     formState: { errors },
   } = useFormContext();
+
   return (
     <div
       className="pt-10.5
@@ -37,6 +38,7 @@ export default function ProjectForm({ title, visobjs, children }) {
           name={"ProjectName"}
           pattern={{ required: true }}
         />
+        {errors.ProjectName && <span>This field is required</span>}
       </ModalFieldset>
       <ModalFieldset>
         <ModalLabel

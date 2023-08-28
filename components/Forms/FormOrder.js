@@ -32,6 +32,7 @@ export const FormOrder = () => {
 
   const onSubmit = async (data) => {
     console.log(data);
+
     try {
       await sendEmail(data);
       console.log("Email sent successfully!");
@@ -55,6 +56,7 @@ export const FormOrder = () => {
           Оставьте свои контактные данные и мы вышлем вам Коммерческое
           предложение
         </p>
+
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <ModalFieldset width="w-full">
@@ -106,6 +108,7 @@ export const FormOrder = () => {
                 placeholder="Введите ваш e-mail"
                 error={methods.formState.errors.email?.message}
                 pattern={{
+
                   required: "Email is required",
                   pattern: {
                     value: /^\S+@\S+$/i,
@@ -116,6 +119,7 @@ export const FormOrder = () => {
                 register={methods.register}
               />
             </ModalFieldset>
+
 
             <ModalFieldset width="w-full">
               <ModalLabel
@@ -133,6 +137,7 @@ export const FormOrder = () => {
             />
           </form>
         </FormProvider>
+
       </div>
     </div>
   );
