@@ -46,7 +46,7 @@ export default function BlogsBlockList({
 
   return (
     <section
-      className='text-white pt-20 pb-[38px] overflow-hidden max-w-full
+      className='text-white pt-18 pb-[38px] overflow-hidden max-w-full
     md:pb-20 md:pt-20
     lg:pb-20 lg:pt-33'
     >

@@ -1,6 +1,7 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const darkClasses =
+
   "bg-nero text-white hover:text-black hover:bg-white border-none";
 const whiteClasses =
   "text-black bg-white hover:text-white hover:bg-nero border-white";
@@ -14,6 +15,7 @@ export default function PillowLink({
   link = "#",
   variantSvg = "whiteSvg",
 }) {
+
   return (
     <Link
       href={link}
@@ -29,10 +31,10 @@ export default function PillowLink({
       >
         <svg className='w-[9px] h-[15px] viewBox="0 0 9 15" rotate-180'>
           <path
-            d="M8.15625 14.1055L1.84046 7.39494L8.15625 0.684416"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            fill="transparent"
+            d='M8.15625 14.1055L1.84046 7.39494L8.15625 0.684416'
+            stroke='currentColor'
+            strokeWidth='1.5'
+            fill='transparent'
           />
         </svg>
       </span>

@@ -64,6 +64,7 @@ export async function getStaticProps({ locale }) {
     },
     revalidate: 1,
   };
+
 }
 
 
