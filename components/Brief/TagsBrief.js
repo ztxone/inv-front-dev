@@ -1,21 +1,16 @@
-import { useFormContext } from "react-hook-form";
-import Loading from "../ui/Loading";
+import { useEffect } from "react";
 import TagItemBrief from "./TagItemBrief";
-import { useState } from "react";
 
-export default function TagsBrief({ title, name, tags = [] }) {
-  const formContext = useFormContext();
-  const { register } = formContext;
-  const [selectedTag, setSelectedTag] = useState([]);
+export default function TagsBrief({
+  title,
+  categories,
+  setCategory,
+  category,
+}) {
+  useEffect(() => {
+    setCategory(categories[0]);
+  }, []);
 
-  if (!tags) {
-    return <Loading />;
-  }
-
-  const selectTag = (tag) => {
-    setSelectedTag(tag);
-    register(name, { value: tag.attributes.name });
-  };
 
   return (
     <div
@@ -30,18 +25,16 @@ export default function TagsBrief({ title, name, tags = [] }) {
         {title}
       </h2>
       <div className="flex flex-wrap">
-        {tags.map((tag, key) => (
+        {categories.map((elem) => (
           <TagItemBrief
+            key={elem.attributes.name}
             color={
-              selectedTag === tag
-                ? title === "Направление"
-                  ? "black"
-                  : "blue"
+              category?.attributes?.name === elem.attributes.name
+                ? "blue"
                 : "white"
             }
-            key={key}
-            text={tag.attributes.name}
-            onClick={() => selectTag(tag)}
+            text={elem.attributes.name}
+            onClick={() => setCategory(elem)}
           />
         ))}
       </div>

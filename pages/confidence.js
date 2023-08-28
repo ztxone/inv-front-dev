@@ -2,6 +2,9 @@ import Layout from "@/components/layout";
 import useTranslation from "next-translate/useTranslation";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
+
+import Markdown from "react-markdown";
+
 import { fetchAPI } from "lib/api";
 
 export default function Confidence({ agreement }) {
@@ -20,7 +23,11 @@ export default function Confidence({ agreement }) {
           },
         ]}
       />
-      {agreement.attributes.Text}
+
+      <div className="container richText">
+        <Markdown>{agreement.attributes.Text}</Markdown>
+      </div>
+
     </Layout>
   );
 }

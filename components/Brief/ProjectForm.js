@@ -1,40 +1,15 @@
-import ModalInput from "../ui/ModalInput";
 import ModalLabel from "../ui/ModalLabel";
 import ModalFieldset from "../ui/ModalFieldset";
-import ModalSelect from "../ui/ModalSelect";
-import Counter from "../ui/Counter";
 import { useFormContext } from "react-hook-form";
-import { useEffect, useState } from "react";
-import useTranslation from "next-translate/useTranslation";
-import { fetchAPI } from "lib/api";
+import { ProjectAngles } from "./ProjectAngles";
+import ModalInputForBrief from "../ui/ModalInputForBrief";
+import ModalSelectForBrief from "./ModalSelectForBrief";
 
-export default function ProjectForm({ title }) {
+export default function ProjectForm({ title, visobjs, children }) {
   const {
     register,
     formState: { errors },
   } = useFormContext();
-
-  const [customValue, setCustomValue] = useState(1);
-  const [data, setData] = useState();
-
-  const handleCustomValueChange = (value) => {
-    setCustomValue(value);
-  };
-
-  const i18n = useTranslation();
-  const locale = i18n.lang;
-
-  useEffect(() => {
-    async function fetchData() {
-      const visobjRes = await fetchAPI("/visualization-objects", {
-        locale: locale,
-        fields: ["Title"],
-      });
-
-      setData(visobjRes.data);
-    }
-    fetchData();
-  }, [locale]);
 
   return (
     <div
@@ -54,12 +29,14 @@ export default function ProjectForm({ title }) {
           text="Название проекта"
           required={true}
         />
-        <input
-          className="briefInput"
+        <ModalInputForBrief
           type="text"
           id="ProjectName"
           placeholder="Введите название вашего проекта"
-          {...register("ProjectName", { required: true })}
+          error={errors.ProjectName && "This field is required"}
+          register={register}
+          name={"ProjectName"}
+          pattern={{ required: true }}
         />
         {errors.ProjectName && <span>This field is required</span>}
       </ModalFieldset>
@@ -69,12 +46,9 @@ export default function ProjectForm({ title }) {
           text="Объект визуализации"
           required={true}
         />
-        <ModalSelect
-          option1="Коммерческая недвижимость"
-          option2=""
-          option3=""
-          option4=""
-        />
+        {visobjs && (
+          <ModalSelectForBrief name={"VisualizationObject"} options={visobjs} />
+        )}
       </ModalFieldset>
       <ModalFieldset order="order-6">
         <ModalLabel
@@ -82,27 +56,18 @@ export default function ProjectForm({ title }) {
           text="Общее количество необходимых ракурсов"
           required={true}
         />
-        <Counter
-          onValueChange={handleCustomValueChange}
-          initialValue={customValue}
-        >
-          <input
-            type="number"
-            className="outline-none focus:outline-none text-center bg-gray-300 font-semibold text-md hover:text-black focus:text-black  md:text-basecursor-default flex items-center text-gray-700 w-2/6"
-            name="custom-input-number"
-            value={customValue}
-            readOnly
-            {...register("ProjectPlans")}
-          />
-        </Counter>
+        {children}
       </ModalFieldset>
       <ModalFieldset>
         <ModalLabel htmlFor="project" text="Сроки проекта" required={true} />
-        <input
-          className="briefInput"
+        <ModalInputForBrief
           type="number"
           id="project"
           placeholder="Введите сроки вашего проекта"
+          error={errors.Duration && "This field is required"}
+          name="ProjectDates"
+          register={register}
+          pattern={{ required: true }}
         />
       </ModalFieldset>
       <ModalFieldset>
@@ -111,11 +76,14 @@ export default function ProjectForm({ title }) {
           text="Площадь помещений визуализации"
           required={true}
         />
-        <input
-          className="briefInput"
+        <ModalInputForBrief
           type="number"
           id="square"
           placeholder="Введите площадь"
+          error={errors.Square && "This field is required"}
+          name="ProjectSquare"
+          register={register}
+          pattern={{ required: true }}
         />
       </ModalFieldset>
     </div>

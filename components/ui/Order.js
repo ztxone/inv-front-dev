@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Loading from "../ui/Loading";
 import { fetchAPI } from "lib/api";
 import Modal from "./Modal";
-import FormOrder from "../Forms/FormOrder";
+import { FormOrder } from "../Forms/FormOrder";
 
 export default function Order() {
   const [data, setData] = useState();
@@ -38,15 +38,19 @@ export default function Order() {
   }
 
   return (
-    <div className='hidden md:flex items-center min-w-fit'>
+    <div className="hidden md:flex items-center min-w-fit">
       <a
         href={`tel:${data.PhoneLink}`}
-        className='p-2.5 mr-9 tracking-tight  hover:text-suva-grey'
+        className="p-2.5 mr-9 tracking-tight  hover:text-suva-grey"
       >
         {data.Phone}
       </a>
       <div onClick={handleOpenModal}>
-        <PillowLink text="Отправить заявку" variant="white" variantSvg="blue" />
+        <PillowLink
+          text="Отправить заявку"
+          variant="white"
+          variantSvg="black"
+        />
       </div>
       <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>
         <FormOrder />

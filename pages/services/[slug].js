@@ -25,12 +25,7 @@ export default function Service({category}) {
   };
 
   return (
-    <Layout
-      bg='black'
-      headerBg='white'
-      footerBg='black'
-      pillowColor=''
-    >
+    <>
       <Seo seo={seo} />
       <Wrapper color='grey' position='bottom'>
         <TitleSection text={category.attributes.name} />
@@ -63,7 +58,7 @@ export default function Service({category}) {
           focusService={category.id}
         />
       </Wrapper>
-    </Layout>
+    </>
   );
 }
 
@@ -102,4 +97,21 @@ export async function getStaticProps({params, locale}) {
     },
     revalidate: 1,
   };
+}
+
+
+
+Service.getLayout = function getLayout(page) {
+
+  return (
+        <Layout
+        bg='black'
+        headerBg='white'
+        footerBg='black'
+        pillowColor=''
+    >
+
+      {page}
+    </Layout>
+  )
 }

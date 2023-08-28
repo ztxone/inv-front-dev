@@ -27,7 +27,7 @@ export default function Portfolio({projects}) {
 
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
+    <>
       <TitleSection text='Home of Cool™️' />
       <TagBlock text='3D анимация' />
       <Line variantColor='grey' />
@@ -39,6 +39,17 @@ export default function Portfolio({projects}) {
       <IntroCost />
       <PortfolioCarousel title='Другие проекты' />
       <Line variantColor='grey' />
-    </Layout>
+    </>
   );
+}
+
+
+Portfolio.getLayout = function getLayout(page) {
+  return (
+        <Layout
+        bg="white" headerBg="white" footerBg="white" pillowColor=''
+    >
+      {page}
+    </Layout>
+  )
 }

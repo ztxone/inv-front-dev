@@ -14,7 +14,8 @@ export default function About({about}) {
   const {t}=useTranslation("common");
 
   return (
-    <Layout bg="black" headerBg="white" footerBg="black" pillowColor=''>
+    // <Layout bg="black" headerBg="white" footerBg="black" pillowColor=''>
+    <>
       <Wrapper color="grey">
         <TitleSection text={about.attributes.Title} />
         <Line variantColor="grey" />
@@ -41,7 +42,8 @@ export default function About({about}) {
         titleColor="white"
         buttonColor="white"
       />
-    </Layout>
+    </>
+  //  </Layout>
   );
 }
 
@@ -72,4 +74,15 @@ export async function getStaticProps({locale}) {
     },
     revalidate: 1,
   };
+}
+
+About.getLayout = function getLayout(page) {
+  return (
+        <Layout
+        bg="black" headerBg="white" footerBg="black" pillowColor=''
+    >
+
+      {page}
+    </Layout>
+  )
 }

@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import Link from "next/link";
 import Loading from "./Loading";
 
-export default function Contact({contact, colorSocials}) {
+export default function Contact({ contact, colorSocials }) {
   if (!contact) {
     return <Loading />;
   }
@@ -24,7 +24,7 @@ export default function Contact({contact, colorSocials}) {
         lg:pb-7"
         >
           <Link
-            href="#"
+            href="/contacts"
             className="tracking-[-0.036em] text-lg opacity-50 flex items-start w-full p-2.5 pl-0 hover:opacity-100"
           >
             <svg
@@ -76,7 +76,10 @@ export default function Contact({contact, colorSocials}) {
           className="w-full mt-7 md:w-auto md:mt-0 lg:flex justify-between items-center
         lg:w-full"
         >
-          <Socials links={contact.attributes.ContactSocials} variant={colorSocials} />
+          <Socials
+            links={contact.attributes.ContactSocials}
+            variant={colorSocials}
+          />
           <div
             className="hidden
         lg:block"
