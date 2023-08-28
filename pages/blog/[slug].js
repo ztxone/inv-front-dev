@@ -29,14 +29,14 @@ export default function Blog({ blog }) {
   ];
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" pillowColor="">
+    <>
       <Seo seo={seo} />
       <TitleSection text={blog.attributes.Title} />
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
       <IntroNews />
       <CarouselNews />
-    </Layout>
+    </>
   );
 }
 
@@ -65,4 +65,17 @@ export async function getStaticProps({ params }) {
     },
     revalidate: 1,
   };
+}
+
+
+Blog.getLayout = function getLayout(page) {
+
+  return (
+        <Layout
+        bg="white" headerBg="white" footerBg="black"        pillowColor=''
+    >
+
+      {page}
+    </Layout>
+  )
 }

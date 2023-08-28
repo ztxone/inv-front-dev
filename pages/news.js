@@ -20,15 +20,29 @@ export default function News() {
 
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
+    // <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
+    <>
       <TitleSection text='Новости компании' />
       <Line variantColor='grey' />
       <BreadCrumbs links={breadCrumbsItems} />
       <NewsList />
       <IntroCost />
       <Line variantColor='grey' />
+    </>
 
 
-    </Layout>
+    // </Layout>
   );
+}
+
+News.getLayout = function getLayout(page) {
+
+  return (
+        <Layout
+        bg="white" headerBg="white" footerBg="white" pillowColor=''
+    >
+
+      {page}
+    </Layout>
+  )
 }

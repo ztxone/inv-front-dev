@@ -3,7 +3,6 @@ import sendEmail from "lib/email";
 import Image from "next/image";
 import ModalLabel from "../ui/ModalLabel";
 import ModalFieldset from "../ui/ModalFieldset";
-import ModalApprove from "../ui/ModalApprove";
 import ButtonSubmit from "../ui/ButtonSubmit";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalSelectForBrief from "../Brief/ModalSelectForBrief";
@@ -25,7 +24,7 @@ const options = [
   },
 ];
 
-export const FormOrder = () => {
+export const FormOrderCall = ({ title }) => {
   const [checked, setChecked] = useState(true);
   const toggleChecked = () => setChecked((prev) => !prev);
   const methods = useForm();
@@ -51,10 +50,7 @@ export const FormOrder = () => {
       />
       <div className="px-10 pb-15 pt-9 text-center">
         <h2 className="text-xl pb-1.5">Отправить заявку</h2>
-        <p className="pb-15">
-          Оставьте свои контактные данные и мы вышлем вам Коммерческое
-          предложение
-        </p>
+        <p className="pb-15">{title}</p>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
             <ModalFieldset width="w-full">

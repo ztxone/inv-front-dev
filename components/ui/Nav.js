@@ -17,7 +17,7 @@ export default function Nav({ menu }) {
         {menu
           .filter((item) => !item.parent)
           .map((item) =>
-            item.collapsed? (
+            item.collapsed ? (
               <li
                 key={item.id}
                 className="group relative"
@@ -27,7 +27,9 @@ export default function Nav({ menu }) {
                 <p className="p-5 flex items-center cursor-pointer">
                   <Link
                     href={item.path}
-                    className={item.path === router.asPath && "active"}
+                    className={
+                      item.path === router.asPath ? "active" : undefined
+                    }
                   >
                     {item.title}
                   </Link>
@@ -41,7 +43,7 @@ export default function Nav({ menu }) {
                 </p>
                 <NavSubMenu menu={menu} opened={menuOpened} />
               </li>
-            ):(
+            ) : (
               <li key={item.id}>
                 <Link
                   href={item.path}

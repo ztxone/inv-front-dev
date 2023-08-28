@@ -11,12 +11,12 @@ import Address from "@/components/ui/Address";
 import Socials from "@/components/ui/Socials";
 import Line from "@/components/ui/Line";
 
-export default function Contacts({ contact }) {
-  const i18n = useTranslation();
-  const locale = i18n.lang;
+function Contacts({contact}) {
+  const i18n=useTranslation();
+  const locale=i18n.lang;
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" pillowColor="white">
+    <>
       <TitleSection text={contact.attributes.Title} />
       <Line variantColor="grey" />
       <BreadCrumbs
@@ -45,7 +45,7 @@ export default function Contacts({ contact }) {
         buttonColor="black"
       />
       <Line variantColor="grey" />
-    </Layout>
+    </>
   );
 }
 
@@ -65,3 +65,18 @@ export async function getStaticProps({ locale }) {
     revalidate: 1,
   };
 }
+
+
+Contacts.getLayout = function getLayout(page) {
+
+  return (
+        <Layout
+        bg="white" headerBg="white" footerBg="white" pillowColor='white'
+    >
+
+      {page}
+    </Layout>
+  )
+}
+
+export default Contacts;

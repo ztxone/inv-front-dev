@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import Loading from "../ui/Loading";
 import { fetchAPI } from "lib/api";
 import Modal from "./Modal";
-import FormOrder from "../Forms/FormOrder";
+import { FormOrder } from "../Forms/FormOrder";
+
 
 export default function Order() {
   const [data, setData] = useState();
