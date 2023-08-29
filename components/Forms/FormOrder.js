@@ -25,7 +25,7 @@ const options = [
   },
 ];
 
-export const FormOrder = () => {
+export default function FormOrder() {
   const [checked, setChecked] = useState(true);
   const toggleChecked = () => setChecked((prev) => !prev);
   const methods = useForm();
@@ -70,7 +70,7 @@ export const FormOrder = () => {
                 type="text"
                 id="name"
                 placeholder="Введите ваше имя"
-                name={"name"}
+                name="name"
                 error={methods.formState.errors.name?.message}
                 pattern={{ required: "This field is required" }}
                 register={methods.register}
@@ -108,18 +108,16 @@ export const FormOrder = () => {
                 placeholder="Введите ваш e-mail"
                 error={methods.formState.errors.email?.message}
                 pattern={{
-
                   required: "Email is required",
                   pattern: {
                     value: /^\S+@\S+$/i,
                     message: "Invalid email address",
                   },
                 }}
-                name={"email"}
+                name="email"
                 register={methods.register}
               />
             </ModalFieldset>
-
 
             <ModalFieldset width="w-full">
               <ModalLabel
@@ -137,8 +135,7 @@ export const FormOrder = () => {
             />
           </form>
         </FormProvider>
-
       </div>
     </div>
   );
-};
+}
