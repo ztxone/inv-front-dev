@@ -15,6 +15,16 @@ export default function Header({ variant }) {
   const i18n = useTranslation();
   const locale = i18n.lang;
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
+
   useEffect(() => {
     async function fetchData() {
       const menuRes = await fetchAPI("/navigation/render/1", {
@@ -42,10 +52,18 @@ export default function Header({ variant }) {
         <Language />
         <Burger onClick={() => setIsNavOpen((prev) => !prev)} color={variant} />
         {isNavOpen && (
-          <MobileMenu menu={menu} onClose={() => setIsNavOpen(false)} />
+          <MobileMenu
+            menu={menu}
+            onClose={() => setIsNavOpen(false)}
+            handleOpenModal={handleOpenModal}
+          />
         )}
         <Nav menu={menu} />
-        <Order />
+        <Order
+          modalIsOpen={modalIsOpen}
+          handleCloseModal={handleCloseModal}
+          handleOpenModal={handleOpenModal}
+        />
       </div>
       <Line variantColor={colorLine} />
     </header>

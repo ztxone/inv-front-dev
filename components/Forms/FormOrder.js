@@ -25,9 +25,9 @@ const options = [
   },
 ];
 
-export const FormOrder = () => {
+export const FormOrder = ({ onSubmitForm }) => {
   const [checked, setChecked] = useState(true);
-  const toggleChecked = () => setChecked((prev) => !prev);
+
   const methods = useForm();
 
   const onSubmit = async (data) => {
@@ -39,6 +39,7 @@ export const FormOrder = () => {
     } catch (error) {
       console.error("Email sending error:", error);
     }
+    onSubmitForm();
   };
 
   return (
@@ -108,7 +109,6 @@ export const FormOrder = () => {
                 placeholder="Введите ваш e-mail"
                 error={methods.formState.errors.email?.message}
                 pattern={{
-
                   required: "Email is required",
                   pattern: {
                     value: /^\S+@\S+$/i,
@@ -119,7 +119,6 @@ export const FormOrder = () => {
                 register={methods.register}
               />
             </ModalFieldset>
-
 
             <ModalFieldset width="w-full">
               <ModalLabel
@@ -137,7 +136,6 @@ export const FormOrder = () => {
             />
           </form>
         </FormProvider>
-
       </div>
     </div>
   );

@@ -73,11 +73,7 @@ export default function FormBrief({ visobjs, categories }) {
           <ContactBrief />
           <div className="lg:flex flex-row-reverse justify-between items-center">
             <ModalApproveForm name="approve" />
-            <ButtonSubmit
-              text="Отправить бриф"
-              variant="blue"
-              disabled={!methods.formState.isValid}
-            />
+            <ButtonSubmit text="Отправить бриф" variant="blue" />
           </div>
         </form>
       </FormProvider>
