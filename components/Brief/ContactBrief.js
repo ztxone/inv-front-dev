@@ -28,7 +28,6 @@ export default function ContactBrief() {
           id="Name"
           placeholder="Введите ваше имя"
           error={errors.Name?.message}
-          name={"Name"}
           register={register}
           pattern={{ required: "This field is required" }}
         />
@@ -40,7 +39,6 @@ export default function ContactBrief() {
           id="Phone"
           placeholder="+7 (000) 000 00-00"
           error={errors?.Phone?.message}
-          name={"Phone"}
           register={register}
           pattern={{ required: "Phone is required" }}
         />
@@ -61,7 +59,6 @@ export default function ContactBrief() {
               message: "Invalid email address",
             },
           }}
-          name={"Email"}
         />
       </ModalFieldset>
 
@@ -74,7 +71,6 @@ export default function ContactBrief() {
           error={errors?.Company?.message}
           register={register}
           pattern={{ required: "This field is required" }}
-          name={"Company"}
         />
       </ModalFieldset>
     </div>

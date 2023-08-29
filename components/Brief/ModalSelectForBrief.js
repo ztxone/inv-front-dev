@@ -44,7 +44,7 @@ export default function ModalSelectForBrief({ options, name }) {
 
   useEffect(() => {
     setOption(options[0].attributes.Title);
-  }, []);
+  }, [options]);
 
   return (
     <div
