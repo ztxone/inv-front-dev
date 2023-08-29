@@ -16,8 +16,6 @@ export default function ModalApprove({ onApproveChange }) {
     onApproveChange && onApproveChange(checked);
   };
 
-export default function ModalApprove() {
-
   return (
     <div
       className="flex pb-9 items-center
