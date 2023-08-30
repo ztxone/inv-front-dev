@@ -12,8 +12,10 @@ export default function Nav({ menu }) {
   }
 
   return (
-    <nav className="hidden xl:block lg:mr-auto text-inherit">
-      <ul className="flex items-center justify-between flex-wrap">
+    <nav className="hidden xl:block text-inherit
+    lg:mr-auto xl:pl-40">
+      <ul className="flex items-center justify-between flex-wrap
+      lg:gap-2.5">
         {menu
           .filter((item) => !item.parent)
           .map((item) =>

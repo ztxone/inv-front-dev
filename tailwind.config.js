@@ -159,6 +159,7 @@ module.exports={
       fit: "fit-content",
     }),
     letterSpacing: {
+      1.05: "-1.05px",
       tighter: "-0.05em",
       tight: "-0.035em",
       normal: "0em",
@@ -251,6 +252,7 @@ module.exports={
       10.5: "2.8125rem", //45px
       11: "2.75rem",
       12: "3.125rem", //50px
+      13: "3.4375rem", //55px
       14: "3.5rem",
       15: "3.75rem", //60px
       16: "4rem",

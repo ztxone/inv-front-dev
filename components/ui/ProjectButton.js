@@ -5,7 +5,8 @@ export default function ProjectButton({text='Все проекты'}) {
   const {t}=useTranslation('common');
   return (
     <div
-      className='text-center pt-2 pb-9 md:flex md:flex-col md:items-center
+      className='text-center pt-2 pb-9
+      md:pt-7 md:pb-10 md:flex md:flex-col md:items-center
     max-w-[351px] mx-auto lg:py-9'
     >
       <p
