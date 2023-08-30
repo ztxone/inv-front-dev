@@ -47,7 +47,7 @@ export default function Header({ variant }) {
     variant === "black"
       ? "bg-black text-white"
       : "bg-whisper text-black-russian";
-  console.log(isNavOpen);
+
   return (
     <header className={`${headerClass} relative text-inherit`}>
       <div

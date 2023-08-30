@@ -13,7 +13,6 @@ export default function Portfolio({ projects, categories }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
-  console.log("portfolio");
   return (
     <>
       <Wrapper color="grey">
