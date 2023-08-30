@@ -25,6 +25,7 @@ export default function ContactBrief() {
 
         <ModalInputForBrief
           type="text"
+          id="Name"
           name="Name"
           placeholder="Введите ваше имя"
           error={errors.Name?.message}
@@ -36,6 +37,7 @@ export default function ContactBrief() {
         <ModalLabel htmlFor="Phone" text="Телефон" required={true} />
         <ModalInputForBrief
           type="tel"
+          id="Phone"
           name="Phone"
           placeholder="+7 (000) 000 00-00"
           error={errors?.Phone?.message}
@@ -48,6 +50,7 @@ export default function ContactBrief() {
         <ModalLabel htmlFor="Email" text="E-mail" required={false} />
         <ModalInputForBrief
           type="email"
+          id="Email"
           name="Email"
           placeholder="Введите ваш e-mail"
           error={errors.Email?.message}
@@ -66,6 +69,7 @@ export default function ContactBrief() {
         <ModalLabel htmlFor="Company" text="Компания" required={false} />
         <ModalInputForBrief
           type="text"
+          id="Company"
           name="Company"
           placeholder="Название вашей компании"
           error={errors?.Company?.message}

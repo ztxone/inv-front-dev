@@ -3,12 +3,10 @@ import sendEmail from "lib/email";
 import Image from "next/image";
 import ModalLabel from "../ui/ModalLabel";
 import ModalFieldset from "../ui/ModalFieldset";
-import ModalApprove from "../ui/ModalApprove";
 import ButtonSubmit from "../ui/ButtonSubmit";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalSelectForBrief from "../Brief/ModalSelectForBrief";
 import ModalApproveForm from "./ModalApproveForm";
-import { useState } from "react";
 
 const options = [
   {
@@ -25,20 +23,17 @@ const options = [
   },
 ];
 
-export default function FormOrder() {
-  const [checked, setChecked] = useState(true);
-  const toggleChecked = () => setChecked((prev) => !prev);
+export const FormOrder = ({ onSubmitForm }) => {
   const methods = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-
     try {
       await sendEmail(data);
       console.log("Email sent successfully!");
     } catch (error) {
       console.error("Email sending error:", error);
     }
+    onSubmitForm();
   };
 
   return (
@@ -129,13 +124,10 @@ export default function FormOrder() {
               <ModalSelectForBrief options={options} name={"Direction"} />
             </ModalFieldset>
             <ModalApproveForm name={"approve"} fullWidth />
-            <ButtonSubmit
-              disabled={!checked && methods.formState.isValid}
-              fullWidth
-            />
+            <ButtonSubmit fullWidth />
           </form>
         </FormProvider>
       </div>
     </div>
   );
-}
+};

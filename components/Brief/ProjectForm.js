@@ -1,7 +1,6 @@
 import ModalLabel from "../ui/ModalLabel";
 import ModalFieldset from "../ui/ModalFieldset";
 import { useFormContext } from "react-hook-form";
-import { ProjectAngles } from "./ProjectAngles";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalSelectForBrief from "./ModalSelectForBrief";
 
@@ -38,7 +37,6 @@ export default function ProjectForm({ title, visobjs, children }) {
           name={"ProjectName"}
           pattern={{ required: true }}
         />
-        {errors.ProjectName && <span>This field is required</span>}
       </ModalFieldset>
       <ModalFieldset>
         <ModalLabel
