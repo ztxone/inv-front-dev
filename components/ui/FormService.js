@@ -7,7 +7,7 @@ function FormInput({ type, id, placeholder, register, name, pattern }) {
   return (
     <input
       className="w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5 border-transparent
-      xl:mb-0 xl:mr-7
+      xl:mb-0 xl:mr-7 xl:pb-5
       hover:border-white hover:border-opacity-40 hover:placeholder:text-white
       focus:border-white
       active:border-white active:outline-none"
@@ -39,7 +39,7 @@ export default function FormService() {
         method="get"
         className="flex flex-col pt-6 max-w-[562px] m-auto items-center justify-center pb-2.5
       md:pt-[37px] 
-      lg:max-w-none lg:px-10 lg:rounded-5xl lg:pb-[52px] lg:mt-5
+      lg:max-w-none lg:px-10 lg:rounded-5xl lg:pb-[52px] lg:mt-9
       xl:border-2 border-eclipse "
       >
         <TitleH3

@@ -82,7 +82,7 @@ export default function Contact({ contact, colorSocials }) {
           />
           <div
             className='hidden
-        lg:block'
+        lg:block w-[116px]'
           >
             <Logo color='inherit' />
           </div>
