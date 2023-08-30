@@ -7,7 +7,7 @@ import useTranslation from "next-translate/useTranslation";
 import { useEffect, useState } from "react";
 import Line from "./ui/Line";
 
-export default function Footer({ variant, pillowColor = "dark" }) {
+export default function Footer({ variant, pillowColor = "dark"}) {
 
   const [data, setData] = useState();
   const [menu, setMenu] = useState([]);
@@ -35,7 +35,7 @@ export default function Footer({ variant, pillowColor = "dark" }) {
 
 
   const colorLine = variant === "black" ? "eclipse" : "grey";
-  const colorSocials = variant === "black" ? "white" : "black";
+  const colorSocials = variant === "black" ? "black" : "white";
   const footerClass =
     variant === "black"
       ? "bg-black text-white"

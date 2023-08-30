@@ -7,6 +7,7 @@ export default function Layout({
   footerBg,
   children,
   pillowColor,
+  variantSvg,
 }) {
   return (
     <div
@@ -16,7 +17,7 @@ export default function Layout({
           : "bg-whisper text-black-russian divLayout min-h-screen flex flex-col justify-between"
       }
     >
-      <Header variant={headerBg} />
+      <Header variant={headerBg} variantSvg={variantSvg} />
       <main>{children}</main>
       <Footer variant={footerBg} pillowColor={pillowColor} />
     </div>
