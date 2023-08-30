@@ -13,17 +13,16 @@ export default function MobileMenu({ menu, onClose, handleOpenModal, isOpen }) {
     onClose();
     handleOpenModal();
   };
-
-  if (!menu) {
-    return <Loading />;
-  }
-
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, []);
+
+  if (!menu) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -117,8 +116,8 @@ export default function MobileMenu({ menu, onClose, handleOpenModal, isOpen }) {
                     )}
                   </span>
                 ) : (
-                  <span onClick={onClose}>
-                    <NavItem key={item.id} text={item.title} link={item.path} />
+                  <span onClick={onClose} key={item.id}>
+                    <NavItem text={item.title} link={item.path} />
                   </span>
                 )
               )}
