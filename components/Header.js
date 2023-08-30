@@ -10,10 +10,16 @@ import { fetchAPI } from "lib/api";
 import Line from "./ui/Line";
 
 export default function Header({ variant }) {
-  const [isNavOpen, setIsNavOpen] = useState(false);
   const [menu, setMenu] = useState([]);
   const i18n = useTranslation();
   const locale = i18n.lang;
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const onCloseNav = () => {
+    setIsNavOpen(false);
+  };
+  const onOpenNav = () => {
+    setIsNavOpen(true);
+  };
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
@@ -41,7 +47,7 @@ export default function Header({ variant }) {
     variant === "black"
       ? "bg-black text-white"
       : "bg-whisper text-black-russian";
-
+  console.log(isNavOpen);
   return (
     <header className={`${headerClass} relative text-inherit`}>
       <div
@@ -50,11 +56,12 @@ export default function Header({ variant }) {
       >
         <Logo color="inherit" />
         <Language />
-        <Burger onClick={() => setIsNavOpen((prev) => !prev)} color={variant} />
+        <Burger onClick={onOpenNav} color={variant} />
         {isNavOpen && (
           <MobileMenu
+            isOpen={isNavOpen}
             menu={menu}
-            onClose={() => setIsNavOpen(false)}
+            onClose={onCloseNav}
             handleOpenModal={handleOpenModal}
           />
         )}
