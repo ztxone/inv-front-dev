@@ -17,7 +17,7 @@ export default function Language() {
     <div
       className="group relative ml-auto
     md:order-2
-    lg:flex lg:order-none lg:mr-auto lg:ml-0"
+    lg:flex lg:gap-1 lg:order-none lg:mr-auto lg:ml-0"
     >
       <button
         type="button"
