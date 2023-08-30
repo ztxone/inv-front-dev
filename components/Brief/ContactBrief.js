@@ -1,10 +1,13 @@
 import ModalFieldset from "../ui/ModalFieldset";
 import ModalLabel from "../ui/ModalLabel";
-import ModalInput from "../ui/ModalInput";
 import { useFormContext } from "react-hook-form";
+import ModalInputForBrief from "../ui/ModalInputForBrief";
 
 export default function ContactBrief() {
-  const { register } = useFormContext();
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext();
   return (
     <div
       className="mt-7
@@ -19,51 +22,59 @@ export default function ContactBrief() {
       </h2>
       <ModalFieldset>
         <ModalLabel htmlFor="Name" text="Имя" required={true} />
-        <ModalInput
+
+        <ModalInputForBrief
           type="text"
           id="Name"
+          name="Name"
           placeholder="Введите ваше имя"
-          error="{errors.Name&&<span>This field is required</span>}"
-          pattern='{...register("Name", {required: true})}'
+          error={errors.Name?.message}
+          register={register}
+          pattern={{ required: "This field is required" }}
         />
       </ModalFieldset>
-
       <ModalFieldset>
         <ModalLabel htmlFor="Phone" text="Телефон" required={true} />
-        <ModalInput
+        <ModalInputForBrief
           type="tel"
           id="Phone"
+          name="Phone"
           placeholder="+7 (000) 000 00-00"
-          error="{errors.Phone&&<span>This field is required</span>}"
-          pattern='{...register("Phone", {required: "Phone is required"})}'
+          error={errors?.Phone?.message}
+          register={register}
+          pattern={{ required: "Phone is required" }}
         />
       </ModalFieldset>
 
       <ModalFieldset>
         <ModalLabel htmlFor="Email" text="E-mail" required={false} />
-        <ModalInput
+        <ModalInputForBrief
           type="email"
           id="Email"
+          name="Email"
           placeholder="Введите ваш e-mail"
-          error=" {errors.Email&&<span>This field is required</span>}"
-          pattern='{...register("Email", {
-                  required: "Email is required",
-                  pattern: {
-                    value: /^\S+@\S+$/i,
-                    message: "Invalid email address",
-                  },
-                })}'
+          error={errors.Email?.message}
+          register={register}
+          pattern={{
+            required: "Email is required",
+            pattern: {
+              value: /^\S+@\S+$/i,
+              message: "Invalid email address",
+            },
+          }}
         />
       </ModalFieldset>
 
       <ModalFieldset>
         <ModalLabel htmlFor="Company" text="Компания" required={false} />
-        <ModalInput
+        <ModalInputForBrief
           type="text"
           id="Company"
+          name="Company"
           placeholder="Название вашей компании"
-          error="{errors.Company&&<span>This field is required</span>}"
-          pattern='{...register("Company", {required: true})}'
+          error={errors?.Company?.message}
+          register={register}
+          pattern={{ required: "This field is required" }}
         />
       </ModalFieldset>
     </div>

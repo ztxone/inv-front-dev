@@ -1,34 +1,29 @@
-import Layout from '@/components/layout';
-import TitleSection from '@/components/ui/TitleSection';
-import BreadCrumbs from '@/components/ui/Breadcrumbs';
-import useTranslation from 'next-translate/useTranslation';
-import IntroSlides from '@/components/ui/IntroSlides';
-import IntroCost from '@/components/ui/IntroCost';
-import BlogsBlockList from '@/components/Blogs/BlogsBlockList';
-import ProjectsListPortfolio from '@/components/Projects/ProjectsListPortfolio';
-import Line from '@/components/ui/Line';
-import Wrapper from '@/components/ui/Wrapper';
+import Layout from "@/components/layout";
+import TitleSection from "@/components/ui/TitleSection";
+import BreadCrumbs from "@/components/ui/Breadcrumbs";
+import useTranslation from "next-translate/useTranslation";
+import IntroSlides from "@/components/ui/IntroSlides";
+import IntroCost from "@/components/ui/IntroCost";
+import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
+import ProjectsListPortfolio from "@/components/Projects/ProjectsListPortfolio";
+import Line from "@/components/ui/Line";
+import Wrapper from "@/components/ui/Wrapper";
 
-export default function Portfolio({projects, categories}) {
-  const {t}=useTranslation('common');
-  const i18n=useTranslation();
-  const locale=i18n.lang;
-
+export default function Portfolio({ projects, categories }) {
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
+  console.log("portfolio");
   return (
-    <Layout
-      bg='black'
-      headerBg='white'
-      footerBg='black'
-      pillowColor=''
-    >
-      <Wrapper color='grey'>
+    <>
+      <Wrapper color="grey">
         <TitleSection text={t`works.title`} />
-        <Line variantColor='grey' />
+        <Line variantColor="grey" />
         <BreadCrumbs
           links={[
             {
               title: t`works.title`,
-              path: '',
+              path: "",
               active: false,
             },
           ]}
@@ -38,10 +33,18 @@ export default function Portfolio({projects, categories}) {
       <IntroSlides />
       <IntroCost />
       <BlogsBlockList
-        articleColor='nero'
-        titleColor='white'
-        buttonColor='white'
+        articleColor="nero"
+        titleColor="white"
+        buttonColor="white"
       />
-    </Layout>
+    </>
   );
 }
+
+Portfolio.getLayout = function getLayout(page) {
+  return (
+    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="">
+      {page}
+    </Layout>
+  );
+};

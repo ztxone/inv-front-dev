@@ -1,11 +1,13 @@
+import useTranslation from "next-translate/useTranslation";
 import Logo from "./Logo";
 
 export default function Copyright() {
+  const { t } = useTranslation("common");
   return (
     <div
       className="container pt-10.5 text-sm flex items-end 
     justify-between flex-wrap text-inherit
-    md:pt-[64px] md:items-baseline md:w-[87%]
+    md:pt-[64px] md:items-baseline
     lg:w-full lg:pt-1.5"
     >
       <div className="w-full lg:hidden">
@@ -17,8 +19,8 @@ export default function Copyright() {
       >
         2023 &copy; invert.studio
       </p>
-      <a href="#" className="underline decoration-1 opacity-50">
-        Политика конфиденциальности
+      <a href="/confidence" className="underline decoration-1 opacity-50">
+        {t("confidence_policy")}
       </a>
       <a href="https://web-dev-studio.ru">
         <p className="hidden lg:block">

@@ -46,8 +46,8 @@ export default function BlogsBlockList({
 
   return (
     <section
-      className='text-white pt-20 pb-[38px] overflow-hidden max-w-full
-    md:pb-20 md:pt-20
+      className='text-white pt-18 pb-[38px] overflow-hidden max-w-full
+    md:pb-20 md:pt-18
     lg:pb-20 lg:pt-33'
     >
       <div
@@ -124,7 +124,8 @@ export default function BlogsBlockList({
           ))}
       </Swiper>
 
-      <div className='mt-7 container'>
+      <div className='pt-7 container
+      md:pt-10'>
         <PillowLink
           text={t('All_news')}
           link='/blogs'

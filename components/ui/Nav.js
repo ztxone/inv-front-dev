@@ -12,12 +12,14 @@ export default function Nav({ menu }) {
   }
 
   return (
-    <nav className="hidden xl:block lg:mr-auto text-inherit">
-      <ul className="flex items-center justify-between flex-wrap">
+    <nav className="hidden xl:block text-inherit
+    lg:mr-auto xl:pl-40">
+      <ul className="flex items-center justify-between flex-wrap
+      lg:gap-2.5">
         {menu
           .filter((item) => !item.parent)
           .map((item) =>
-            item.collapsed? (
+            item.collapsed ? (
               <li
                 key={item.id}
                 className="group relative"
@@ -27,7 +29,9 @@ export default function Nav({ menu }) {
                 <p className="p-5 flex items-center cursor-pointer">
                   <Link
                     href={item.path}
-                    className={item.path === router.asPath && "active"}
+                    className={
+                      item.path === router.asPath ? "active" : undefined
+                    }
                   >
                     {item.title}
                   </Link>
@@ -41,7 +45,7 @@ export default function Nav({ menu }) {
                 </p>
                 <NavSubMenu menu={menu} opened={menuOpened} />
               </li>
-            ):(
+            ) : (
               <li key={item.id}>
                 <Link
                   href={item.path}

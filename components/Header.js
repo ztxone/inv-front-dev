@@ -9,15 +9,25 @@ import useTranslation from 'next-translate/useTranslation';
 import {fetchAPI} from 'lib/api';
 import Line from './ui/Line';
 
-export default function Header({variant}) {
-  const [isNavOpen, setIsNavOpen]=useState(false);
-  const [menu, setMenu]=useState([]);
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+export default function Header({variant, variantSvg}) {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [menu, setMenu] = useState([]);
+  const i18n = useTranslation();
+  const locale = i18n.lang;
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setModalIsOpen(false);
+  };
 
   useEffect(() => {
     async function fetchData() {
-      const menuRes=await fetchAPI('/navigation/render/1', {
+      const menuRes = await fetchAPI('/navigation/render/1', {
         fields: ['title', 'path'],
         locale: locale,
       });
@@ -26,26 +36,36 @@ export default function Header({variant}) {
     fetchData();
   }, [locale]);
 
-  const colorLine=variant==='black'? 'eclipse':'grey';
-  const headerClass=
-    variant==='black'
+  const colorLine = variant === 'black' ? 'eclipse' : 'grey';
+  const headerClass =
+    variant === 'black'
       ? 'bg-black text-white'
-      :'bg-whisper text-black-russian';
+      : 'bg-whisper text-black-russian';
 
   return (
     <header className={`${headerClass} relative text-inherit`}>
       <div
         className='container flex justify-between items-center  
-      pt-[24px] flex-wrap pb-5 md:py-[17px] lg:py-10 '
+      pt-5 flex-wrap pb-5 md:py-[17px]
+      lg:pb-10 lg:pt-[38px] lg:flex-nowrap'
       >
+        {' '}
         <Logo color='inherit' />
         <Language />
         <Burger onClick={() => setIsNavOpen((prev) => !prev)} color={variant} />
-        {isNavOpen&&(
-          <MobileMenu menu={menu} onClose={() => setIsNavOpen(false)} />
+        {isNavOpen && (
+          <MobileMenu
+            menu={menu}
+            onClose={() => setIsNavOpen(false)}
+            handleOpenModal={handleOpenModal}
+          />
         )}
         <Nav menu={menu} />
-        <Order />
+        <Order variantSvg={variantSvg}
+          modalIsOpen={modalIsOpen}
+          handleCloseModal={handleCloseModal}
+          handleOpenModal={handleOpenModal}
+        />
       </div>
       <Line variantColor={colorLine} />
     </header>
