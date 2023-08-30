@@ -17,14 +17,14 @@ export default function Language() {
     <div
       className="group relative ml-auto
     md:order-2
-    lg:flex lg:order-none lg:mr-auto lg:ml-0"
+    lg:flex lg:gap-1 lg:order-none lg:mr-auto lg:ml-0"
     >
       <button
         type="button"
-        className="flex lg:hidden items-center p-2 "
+        className="flex lg:hidden items-center p-2"
         onClick={setLanguageRu}
       >
-        <span className="group-hover:opacity-50">RU</span>
+        <span className="group-hover:opacity-50 uppercase">{lang}</span>
         <svg
           className="fill-gray ml-2.5 lg:hidden"
           xmlns="http://www.w3.org/2000/svg"

@@ -37,8 +37,8 @@ export default function FormService() {
         onSubmit={methods.handleSubmit(onSubmit)}
         action=""
         method="get"
-        className="flex flex-col pt-7 max-w-[562px] m-auto items-center justify-center pb-2.5
-      md:pt-10 
+        className="flex flex-col pt-6 max-w-[562px] m-auto items-center justify-center pb-2.5
+      md:pt-[37px] 
       lg:max-w-none lg:px-10 lg:rounded-5xl lg:pb-[52px] lg:mt-5
       xl:border-2 border-eclipse "
       >

@@ -5,7 +5,9 @@ export default function ProjectsTitle() {
 
     <div className="flex flex-wrap justify-between lg:items-center xl:gap-5   lg:pb-[26px]">
       <Title text="/ Проекты" variant="black" />
-      <p className="order-last tracking-tight pb-[27px] pt-10  text-black w-full md:pr-[50%] md:pb-[16px] lg:order-none lg:m-0 lg:p-0 lg:text-xl lg:w-[30%] lg:ml-auto">
+      <p className="order-last tracking-tight leading-[120%]  py-10  text-black w-full 
+      md:pr-[50%] md:pb-[28px] md:pt-9
+       lg:order-none lg:m-0 lg:p-0 lg:text-xl lg:w-[30%] lg:ml-auto">
         Мы&nbsp;работаем с&nbsp;ведущими компаниями и&nbsp;брендами
         из&nbsp;различных отраслей. При создании могут решаться уникальные
         задачи, но&nbsp;это всегда проекты с&nbsp;характером
