@@ -5,7 +5,7 @@ import ProjectItemImage from "../ui/ProjectItemImage";
 import Loading from "../ui/Loading";
 import { getStrapiMedia } from "lib/media";
 import useTranslation from "next-translate/useTranslation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { fetchAPI } from "lib/api";
 import TagItemSection from "../ui/TagItemSection";
 
@@ -150,7 +150,6 @@ export default function ProjectsListPortfolio({ tag }) {
           ))}
       </div>
       {projects && (
-
         <div className="px-3.8 lg:px-24.5 lg:pb-20">
           <ResponsiveMasonry
             columnsCountBreakPoints={{ 350: 1, 750: 1, 1024: 2 }}
