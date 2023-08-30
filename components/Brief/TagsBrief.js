@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import TagItemBrief from "./TagItemBrief";
 
 export default function TagsBrief({
@@ -7,10 +6,6 @@ export default function TagsBrief({
   setCategory,
   category,
 }) {
-  useEffect(() => {
-    setCategory(categories[0]);
-  }, []);
-
   return (
     <div
       className="pt-10 pb-1.5
@@ -39,7 +34,4 @@ export default function TagsBrief({
       </div>
     </div>
   );
-}
-{
-  /* <TagItemBrief color='blue' text='Производство видео' onClick /> */
 }

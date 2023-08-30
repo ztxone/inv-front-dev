@@ -11,8 +11,10 @@ import { ProjectAngles } from "./ProjectAngles";
 
 export default function FormBrief({ visobjs, categories }) {
   const [angles, setAngles] = useState(1);
-  const [category, setCategory] = useState();
-  const [projectType, setProjectType] = useState();
+  const [category, setCategory] = useState(categories[0]);
+  const [projectType, setProjectType] = useState({
+    attributes: { name: "Интерьерная" },
+  });
   const methods = useForm({
     mode: "onSubmit",
     defaultValues: { VisualizationObject: "Продукт" },

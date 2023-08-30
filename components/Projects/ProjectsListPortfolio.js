@@ -103,7 +103,7 @@ export default function ProjectsListPortfolio() {
       setTags(tags);
       setSelectedTag(null);
     }
-  }, [projects, selectedCategory]);
+  }, [projects, selectedCategory, filterProjects]);
 
   if (!projects) {
     return <Loading />;
