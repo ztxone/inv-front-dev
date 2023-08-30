@@ -48,7 +48,7 @@ export default function BlogsBlockList({
     <section
       className='text-white pt-18 pb-[38px] overflow-hidden max-w-full
     md:pb-20 md:pt-18
-    lg:pb-20 lg:pt-33'
+    lg:pb-25 lg:pt-29'
     >
       <div
         className='flex justify-between pb-10 items-center
@@ -125,7 +125,8 @@ export default function BlogsBlockList({
       </Swiper>
 
       <div className='pt-7 container
-      md:pt-10'>
+      md:pt-10
+      lg:pt-9'>
         <PillowLink
           text={t('All_news')}
           link='/blogs'

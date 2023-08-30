@@ -14,7 +14,7 @@ export default function ServicesListHome({services}) {
       className='container px-4 pt-10 pb-18 
     md:pb-25 md:pt-[77px] 
     lg:px-10 lg:pb-34
-    xl:px-20'
+    xl:px-20 xl:pt-[72px]'
     >
       <div className='flex items-center pb-15 md:pb-9 lg:mb-24.5'>
         <svg className='mr-5' width='30' height='30' viewBox='0 0 30 30'>
