@@ -11,8 +11,10 @@ import { ProjectAngles } from "./ProjectAngles";
 
 export default function FormBrief({ visobjs, categories }) {
   const [angles, setAngles] = useState(1);
-  const [category, setCategory] = useState();
-  const [projectType, setProjectType] = useState();
+  const [category, setCategory] = useState(categories[0]);
+  const [projectType, setProjectType] = useState({
+    attributes: { name: "Интерьерная" },
+  });
   const methods = useForm({
     mode: "onSubmit",
     defaultValues: { VisualizationObject: "Продукт" },
@@ -73,11 +75,7 @@ export default function FormBrief({ visobjs, categories }) {
           <ContactBrief />
           <div className="lg:flex flex-row-reverse justify-between items-center">
             <ModalApproveForm name="approve" />
-            <ButtonSubmit
-              text="Отправить бриф"
-              variant="blue"
-              disabled={!methods.formState.isValid}
-            />
+            <ButtonSubmit text="Отправить бриф" variant="blue" />
           </div>
         </form>
       </FormProvider>

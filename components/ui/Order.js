@@ -6,20 +6,14 @@ import { fetchAPI } from "lib/api";
 import Modal from "./Modal";
 import { FormOrder } from "../Forms/FormOrder";
 
-export default function Order() {
+export default function Order({
+  modalIsOpen,
+  handleCloseModal,
+  handleOpenModal,
+}) {
   const [data, setData] = useState();
   const i18n = useTranslation();
   const locale = i18n.lang;
-
-  const [modalIsOpen, setModalIsOpen] = useState(false);
-
-  const handleOpenModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalIsOpen(false);
-  };
 
   useEffect(() => {
     async function fetchData() {
@@ -53,7 +47,7 @@ export default function Order() {
         />
       </div>
       <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>
-        <FormOrder />
+        <FormOrder onSubmitForm={handleCloseModal} />
       </Modal>
     </div>
   );

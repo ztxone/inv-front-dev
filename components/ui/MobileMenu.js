@@ -5,19 +5,13 @@ import Loading from "./Loading";
 import { useState } from "react";
 import Link from "next/link";
 import MobileSubMenu from "./MobileSubMenu";
-import Modal from "./Modal";
-import FormOrder from "../Forms/FormOrder";
 
-export default function MobileMenu({ menu, onClose }) {
+export default function MobileMenu({ menu, onClose, handleOpenModal }) {
   const [menuOpened, setMenuOpened] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const handleOpenModal = () => {
-    setModalIsOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setModalIsOpen(false);
+  const openModal = () => {
+    onClose();
+    handleOpenModal();
   };
 
   if (!menu) {
@@ -108,7 +102,7 @@ export default function MobileMenu({ menu, onClose }) {
         </ul>
       </nav>
       <div className="flex justify-between pt-25">
-        <div onClick={handleOpenModal}>
+        <div onClick={openModal}>
           <PillowLink
             text="Оставить заявку"
             link="#"
@@ -123,10 +117,6 @@ export default function MobileMenu({ menu, onClose }) {
           8&nbsp;812&nbsp;909&nbsp;25&nbsp;33
         </Link>
       </div>
-
-      <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>
-        <FormOrder />
-      </Modal>
     </div>
   );
 }
