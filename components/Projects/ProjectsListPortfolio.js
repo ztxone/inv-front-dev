@@ -5,16 +5,17 @@ import ProjectItemImage from "../ui/ProjectItemImage";
 import Loading from "../ui/Loading";
 import { getStrapiMedia } from "lib/media";
 import useTranslation from "next-translate/useTranslation";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { fetchAPI } from "lib/api";
 import TagItemSection from "../ui/TagItemSection";
 
-export default function ProjectsListPortfolio() {
+export default function ProjectsListPortfolio({ tag }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
   const [projects, setProjects] = useState();
   const [categories, setCategories] = useState([]);
+
   const [tags, setTags] = useState([]);
   const [selectedTag, setSelectedTag] = useState();
 
@@ -73,6 +74,17 @@ export default function ProjectsListPortfolio() {
           //     },
           //   },
         }),
+        fetchAPI("/tags", {
+          // Fetch categories from the API
+          fields: ["name", "slug", "text"],
+
+          locale: locale,
+          //   filters: {
+          //     id: {
+          //       $in: [13, 9, 8, 25],
+          //     },
+          //   },
+        }),
       ]);
 
       const categoriesData =
@@ -109,6 +121,8 @@ export default function ProjectsListPortfolio() {
     return <Loading />;
   }
 
+  console.log(tag);
+
   return (
     <section className="bg-whisper relative z-10 rounded-5xl pb-25 pt-6 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-12 lg:pb-9 lg:rounded-7xl">
       <div className="container flex flex-wrap md:md:m-0 lg:m-auto">
@@ -121,6 +135,7 @@ export default function ProjectsListPortfolio() {
           />
         ))}
       </div>
+
       <div className="container flex flex-wrap md:md:m-0 lg:m-auto">
         {tags.length > 0 &&
           tags.map((tag) => (
