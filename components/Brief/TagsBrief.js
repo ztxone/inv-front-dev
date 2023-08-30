@@ -9,7 +9,7 @@ export default function TagsBrief({
 }) {
   useEffect(() => {
     setCategory(categories[0]);
-  }, [setCategory, categories]);
+  }, []);
 
   return (
     <div

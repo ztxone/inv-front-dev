@@ -19,12 +19,10 @@ export default function ProjectsListPortfolio() {
   const [selectedTag, setSelectedTag] = useState();
 
   const [selectedCategory, setSelectedCategory] = useState(null);
-  // Filter projects based on the selected category
   const filterProjects = useCallback(
     (project) => {
       if (!selectedCategory) return project;
       const projectCategories = project.attributes.categories.data;
-      // Filter out projects that don't have any categories
       if (!projectCategories || projectCategories.length === 0) {
         return false;
       }
