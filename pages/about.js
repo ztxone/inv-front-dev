@@ -1,5 +1,5 @@
 import Layout from "@/components/layout";
-import {fetchAPI} from "lib/api";
+import { fetchAPI } from "lib/api";
 import IntroCost from "@/components/ui/IntroCost";
 import useTranslation from "next-translate/useTranslation";
 import TitleSection from "@/components/ui/TitleSection";
@@ -10,11 +10,10 @@ import Wrapper from "@/components/ui/Wrapper";
 import Line from "@/components/ui/Line";
 import AboutIntro from "@/components/About/AboutIntro";
 
-export default function About({about}) {
-  const {t}=useTranslation("common");
+export default function About({ about, projects }) {
+  const { t } = useTranslation("common");
 
   return (
-    // <Layout bg="black" headerBg="white" footerBg="black" pillowColor=''>
     <>
       <Wrapper color="grey">
         <TitleSection text={about.attributes.Title} />
@@ -28,6 +27,7 @@ export default function About({about}) {
             },
           ]}
         />
+
         <AboutIntro
           title1={about.attributes.Title}
           text1={about.attributes.AboutPurpose}
@@ -35,7 +35,7 @@ export default function About({about}) {
           text2={about.attributes.AboutOpportunities}
         />
         <IntroCost />
-        <ProjectsList moreProjects={true} />
+        <ProjectsList moreProjects={true} projects={projects} />
       </Wrapper>
       <BlogsBlockList
         articleColor="nero"
@@ -43,12 +43,11 @@ export default function About({about}) {
         buttonColor="white"
       />
     </>
-  //  </Layout>
   );
 }
 
-export async function getStaticProps({locale}) {
-  const [aboutRes, projectsRes]=await Promise.all([
+export async function getStaticProps({ locale }) {
+  const [aboutRes, projectsRes] = await Promise.all([
     fetchAPI("/about", {
       populate: "*",
       locale: locale,
@@ -78,11 +77,8 @@ export async function getStaticProps({locale}) {
 
 About.getLayout = function getLayout(page) {
   return (
-        <Layout
-        bg="black" headerBg="white" footerBg="black" pillowColor=''
-    >
-
+    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="">
       {page}
     </Layout>
-  )
-}
+  );
+};

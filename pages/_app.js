@@ -4,18 +4,16 @@ import Head from "next/head";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
-import Layout from "@/components/layout";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
 
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
-  const getLayout = Component.getLayout ||((page)=>page)
+  const getLayout = Component.getLayout || ((page) => page);
 
   return getLayout(
     <>
-
       <Head>
         <link
           rel="shortcut icon"

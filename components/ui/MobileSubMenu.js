@@ -1,7 +1,7 @@
 import NavSubMenuItem from "./NavSubMenuItem";
 import Loading from "./Loading";
 
-export default function MobileSubMenu({menu, opened}) {
+export default function MobileSubMenu({ menu, opened, onClose }) {
   if (!menu) {
     return <Loading />;
   }
@@ -10,13 +10,10 @@ export default function MobileSubMenu({menu, opened}) {
       {menu
         .filter((item) => item.parent)
         .map((subItem) => (
-          <NavSubMenuItem
-            key={subItem.id}
-            link={subItem.path}
-            text={subItem.title}
-          />
+          <span onClick={onClose} key={subItem.id}>
+            <NavSubMenuItem link={subItem.path} text={subItem.title} />
+          </span>
         ))}
     </ul>
   );
 }
-

@@ -1,11 +1,8 @@
 import setLanguage from "next-translate/setLanguage";
-import useTranslation from "next-translate/useTranslation";
 import RadioButton from "./Radio";
 import Line from "./Line";
 
-export default function Language() {
-  const { lang } = useTranslation();
-
+export default function Language({ lang }) {
   const setLanguageRu = () => {
     if (lang === "en") setLanguage("ru");
   };

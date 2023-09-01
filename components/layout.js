@@ -1,5 +1,5 @@
-import Header from './Header';
-import Footer from './Footer';
+import Header from "./Header";
+import Footer from "./Footer";
 
 export default function Layout({
   bg,
@@ -7,22 +7,19 @@ export default function Layout({
   footerBg,
   children,
   pillowColor,
-  variantSvg,
+  variantSvg = "whiteSvg",
 }) {
   return (
     <div
       className={
-        bg==='black'
-          ? 'bg-black text-white divLayout'
-          :'bg-whisper text-black-russian divLayout min-h-screen flex flex-col justify-between'
+        bg === "black"
+          ? "bg-black text-white divLayout"
+          : "bg-whisper text-black-russian divLayout min-h-screen flex flex-col justify-between"
       }
     >
       <Header variant={headerBg} variantSvg={variantSvg} />
-      <main>{children}</main>
-      <Footer
-        variant={footerBg}
-        pillowColor={pillowColor}
-      />
+      <main className="flex-1">{children}</main>
+      <Footer variant={footerBg} pillowColor={pillowColor} />
     </div>
   );
 }
