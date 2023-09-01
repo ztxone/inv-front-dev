@@ -9,7 +9,7 @@ export default function Form({ pillowColor }) {
 
   return (
     <div
-      className='pb-9 pt-10.5  
+      className='pb-10 pt-10.5  
     md:pt-16 md:pb-14
     lg:p-0 lg:mr-auto'
     >
@@ -19,8 +19,8 @@ export default function Form({ pillowColor }) {
       />
       <div
         className='flex flex-wrap gap-5 pt-9 
-      md:pt-12 md:gap-6
-      lg:pt-15'
+      md:pt-10.5 md:gap-6
+      lg:pt-13'
       >
 
         <OrderCall

@@ -9,25 +9,30 @@ export default function About({ about, servicesAbout }) {
     <div className="relative">
       <section
         className=" relative z-10 bg-cover pb-10 no-repeat
-      md:pb-0 bg-center lg:px-[86px]"
+      md:pb-0 bg-center"
       >
-        <div className="pt-25  xl:grid xl:grid-cols-[2fr, 1fr] xl:grid-rows-2 gap-5 container">
+        <div
+          className="container pt-[95px]
+        md:pt-[132px]
+        lg:px-[86px]
+        xl:grid xl:grid-cols-[2fr, 1fr] xl:grid-rows-2 xl:pt-24.5 gap-5  xl:pb-[136px]"
+        >
           <h2
             className="text-4xl tracking-tight mb-25 flex flex-wrap items-baseline md:text-6xl xl:text-7.5xl md:mb-15
-        xl:justify-between xl:max-w-[887px]
-        xl:gap-4"
+        xl:justify-between xl:max-w-[887px] xl:self-start xl:mb-0"
           >
             <span
               className="w-full mb-3.8
+              md:mb-2.5
           lg:mb-0"
             >
               {about.attributes.SloganPart1}
             </span>
-            <span className="flex items-center">
+            <span className="flex items-center lg:pt-3.8">
               {" "}
               <svg
-                className="text-royal-blue mr-2.5 w-[43px] h-[33px]
-                md:w-auto md:h-auto 
+                className="text-royal-blue w-[43px] h-[33px]
+                md:w-auto md:h-auto md:mr-2.5
           lg:w-[60px] lg:mr-9"
                 viewBox="0 0 52 52"
                 width="52"
@@ -102,7 +107,8 @@ export default function About({ about, servicesAbout }) {
                   href={getStrapiMedia(item.attributes.Slides.Document)}
                   key={item.id}
                   className="bg-blackRussian relative 
-          block rounded-4xl w-[286px] h-[347px] p-[25px] -mt-25 ml-auto"
+          block rounded-4xl w-[286px] h-[347px] p-[25px] -mt-24.5 ml-auto
+          md:-mt-[108px]"
                 >
                   <div className="absolute top-0 bottom-0 left-0 right-0">
                     <Image
@@ -152,7 +158,8 @@ export default function About({ about, servicesAbout }) {
 
           <div
             className="hidden md:block  mx-auto pt-25 pb-15 
-        col-start-1 col-end-3 row-start-2 xl:self-end xl:mt-0 xl:mb-2.5"
+        col-start-1 col-end-3 row-start-2
+        xl:self-end xl:m-0 xl:p-0"
           >
             <svg
               className="w-[15px] h-[71px] mx-auto"
@@ -163,14 +170,10 @@ export default function About({ about, servicesAbout }) {
               <path d="M8.5 0v70m0 0 7.5-7.3M8.5 70 1 62.7" stroke="#fff" />
             </svg>
           </div>
-          <div
-            className="hidden md:block -mx-3.8
-          lg:col-span-2 lg:-mx-40"
-          >
-            <Line variantColor="eclipse" />
-          </div>
         </div>
+        <Line variantColor="eclipse" />
       </section>
+
       <video
         autoPlay
         loop

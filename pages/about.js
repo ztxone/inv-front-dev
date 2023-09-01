@@ -10,7 +10,7 @@ import Wrapper from "@/components/ui/Wrapper";
 import Line from "@/components/ui/Line";
 import AboutIntro from "@/components/About/AboutIntro";
 
-export default function About({ about }) {
+export default function About({ about, projects }) {
   const { t } = useTranslation("common");
 
   return (
@@ -35,7 +35,7 @@ export default function About({ about }) {
           text2={about.attributes.AboutOpportunities}
         />
         <IntroCost />
-        <ProjectsList moreProjects={true} />
+        <ProjectsList moreProjects={true} projects={projects} />
       </Wrapper>
       <BlogsBlockList
         articleColor="nero"

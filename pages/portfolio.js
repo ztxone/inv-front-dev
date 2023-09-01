@@ -8,6 +8,7 @@ import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 import ProjectsListPortfolio from "@/components/Projects/ProjectsListPortfolio";
 import Line from "@/components/ui/Line";
 import Wrapper from "@/components/ui/Wrapper";
+import { fetchAPI } from "lib/api";
 
 export default function Portfolio({ projects, categories }) {
   const { t } = useTranslation("common");
@@ -16,18 +17,18 @@ export default function Portfolio({ projects, categories }) {
   return (
     <>
       <Wrapper color="grey">
-        <TitleSection text={t`works.title`} />
+        <TitleSection text={t(`works.title`)} />
         <Line variantColor="grey" />
         <BreadCrumbs
           links={[
             {
-              title: t`works.title`,
+              title: t(`works.title`),
               path: "",
               active: false,
             },
           ]}
         />
-        <ProjectsListPortfolio />
+        <ProjectsListPortfolio projects={projects} categories={categories} />
       </Wrapper>
       <IntroSlides />
       <IntroCost />
@@ -38,6 +39,36 @@ export default function Portfolio({ projects, categories }) {
       />
     </>
   );
+}
+
+export async function getStaticProps({ locale }) {
+  const [projectsRes, categoriesRes] = await Promise.all([
+    fetchAPI("/projects", {
+      sort: ["ListPosition:asc"],
+      populate: ["Poster", "tags", "categories"],
+      fields: ["Title", "slug"],
+      locale: locale,
+    }),
+    fetchAPI("/categories", {
+      // Fetch categories from the API
+      fields: ["name", "slug", "text"],
+      populate: ["projects"],
+      locale: locale,
+      //   filters: {
+      //     id: {
+      //       $in: [13, 9, 8, 25],
+      //     },
+      //   },
+    }),
+  ]);
+
+  return {
+    props: {
+      categories: categoriesRes.data,
+      projects: projectsRes.data,
+    },
+    revalidate: 1,
+  };
 }
 
 Portfolio.getLayout = function getLayout(page) {

@@ -8,7 +8,7 @@ import Line from '@/components/ui/Line';
 import Wrapper from '@/components/ui/Wrapper';
 import ProjectsListForMain from '@/components/Projects/ProjectsListForMain';
 
-const Home=({projects, services, servicesAbout, about}) => {
+const Home = ({projects, services, servicesAbout, about}) => {
   return (
     <>
       <About about={about} servicesAbout={servicesAbout} />
@@ -33,7 +33,7 @@ export async function getStaticProps({locale}) {
     servicesRes,
     servicesAboutRes,
     aboutRes,
-  ]=await Promise.all([
+  ] = await Promise.all([
     fetchAPI('/projects', {
       sort: ['ListPosition:asc'],
       populate: {
@@ -91,18 +91,11 @@ export async function getStaticProps({locale}) {
 }
 
 Home.getLayout = function getLayout(page) {
-
   return (
-        <Layout
-              bg='black'
-      headerBg='black'
-      footerBg='black'
-      pillowColor=''
-    >
-
+    <Layout bg='black' headerBg='black' footerBg='black' pillowColor='dark' variantSvg='darkSvg' >
       {page}
     </Layout>
-  )
-}
+  );
+};
 
 export default Home;

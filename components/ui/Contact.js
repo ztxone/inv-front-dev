@@ -11,7 +11,7 @@ export default function Contact({ contact, colorSocials }) {
   return (
     <div
       className='pb-3.8
-    md:pb-7
+    md:pb-9 
     lg:w-[445px] lg:pt-5 lg:pl-7'
     >
       <ul
@@ -49,7 +49,7 @@ export default function Contact({ contact, colorSocials }) {
               />
             </svg>
             <span
-              className='w-9/12 leading-normal
+              className='w-9/12 leading-[135%]
             lg:w-full'
             >
               {contact.attributes.Address}
@@ -82,7 +82,7 @@ export default function Contact({ contact, colorSocials }) {
           />
           <div
             className='hidden
-        lg:block'
+        lg:block w-[116px]'
           >
             <Logo color='inherit' />
           </div>

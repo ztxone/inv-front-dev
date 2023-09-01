@@ -5,8 +5,9 @@ export default function ProjectButton({text='Все проекты'}) {
   const {t}=useTranslation('common');
   return (
     <div
-      className='text-center pt-2 pb-9 md:flex md:flex-col md:items-center
-    max-w-[351px] mx-auto lg:py-9'
+      className='text-center pt-2 pb-9
+      md:pt-7 md:pb-10 md:flex md:flex-col md:items-center
+    max-w-[351px] mx-auto lg:pb-9 lg:pt-12'
     >
       <p
         className='font-interTight font-semibold text-6xl text-black opacity-5
@@ -18,7 +19,7 @@ export default function ProjectButton({text='Все проекты'}) {
         href={`/portfolio`}
         className='button-all uppercase text-xl font-interTight  py-2 flex items-center justify-center border-1 w-full rounded-lr -mt-6 bg-whisper relative z-10 font-medium border-nero border-opacity-30
         md:max-w-[351px]
-        lg:pt-4.5 lg:pb-4.5 lg:rounded-5xl'
+        lg:py-10.5 lg:rounded-5xl'
       >
         {/* {t("All_projects")} */}
         {text}

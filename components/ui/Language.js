@@ -1,11 +1,8 @@
 import setLanguage from "next-translate/setLanguage";
-import useTranslation from "next-translate/useTranslation";
 import RadioButton from "./Radio";
 import Line from "./Line";
 
-export default function Language() {
-  const { lang } = useTranslation();
-
+export default function Language({ lang }) {
   const setLanguageRu = () => {
     if (lang === "en") setLanguage("ru");
   };
@@ -17,7 +14,7 @@ export default function Language() {
     <div
       className="group relative ml-auto
     md:order-2
-    lg:flex lg:order-none lg:mr-auto lg:ml-0"
+    lg:flex lg:gap-1 lg:order-none lg:mr-auto lg:ml-0"
     >
       <button
         type="button"

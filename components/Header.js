@@ -9,7 +9,7 @@ import useTranslation from "next-translate/useTranslation";
 import { fetchAPI } from "lib/api";
 import Line from "./ui/Line";
 
-export default function Header({ variant }) {
+export default function Header({ variant, variantSvg }) {
   const [menu, setMenu] = useState([]);
   const i18n = useTranslation();
   const locale = i18n.lang;
@@ -52,10 +52,12 @@ export default function Header({ variant }) {
     <header className={`${headerClass} relative text-inherit`}>
       <div
         className="container flex justify-between items-center  
-      pt-[24px] flex-wrap pb-5 md:py-[17px] lg:py-10 "
+      pt-5 flex-wrap pb-5 md:py-[17px]
+      lg:pb-10 lg:pt-[38px] lg:flex-nowrap"
       >
+        {" "}
         <Logo color="inherit" />
-        <Language />
+        <Language lang={locale} />
         <Burger onClick={onOpenNav} color={variant} />
         {isNavOpen && (
           <MobileMenu
@@ -67,6 +69,7 @@ export default function Header({ variant }) {
         )}
         <Nav menu={menu} />
         <Order
+          variantSvg={variantSvg}
           modalIsOpen={modalIsOpen}
           handleCloseModal={handleCloseModal}
           handleOpenModal={handleOpenModal}
