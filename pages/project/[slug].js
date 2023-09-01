@@ -78,11 +78,19 @@ export async function getStaticPaths() {
   const projectsRes = await fetchAPI("/projects", { fields: ["slug"] });
 
   return {
-    paths: projectsRes.data.map((project) => ({
-      params: {
-        slug: project.attributes.slug,
-      },
-    })),
+    paths: [
+      ...projectsRes.data.map((project) => ({
+        params: {
+          slug: project.attributes.slug,
+        },
+      })),
+      ...projectsRes.data.map((project) => ({
+        params: {
+          slug: project.attributes.slug,
+        },
+        locale: "en",
+      })),
+    ],
     fallback: false,
   };
 }
@@ -102,14 +110,10 @@ export async function getStaticProps({ params }) {
   };
 }
 Project.getLayout = function getLayout(page) {
-
   return (
-        <Layout
-        bg="white" headerBg="white" footerBg="white"         pillowColor=''
-    >
-
+    <Layout bg="white" headerBg="white" footerBg="white" pillowColor="">
       {page}
     </Layout>
-  )
-}
+  );
+};
 export default Project;

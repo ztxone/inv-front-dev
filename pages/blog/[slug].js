@@ -16,7 +16,6 @@ export default function Blog({ blog }) {
     metaDescription: blog.attributes.Text,
     shareImage: blog.attributes.Image_preview,
   };
-  //console.log(blog);
 
   const breadCrumbsItems = [
     {
@@ -42,13 +41,21 @@ export default function Blog({ blog }) {
 
 export async function getStaticPaths() {
   const blogsRes = await fetchAPI("/blogs", { fields: ["slug"] });
+  const blogPaths = blogsRes.data.map((blog) => ({
+    params: {
+      slug: blog.attributes.slug,
+    },
+  }));
+
+  const blogPathsEng = blogsRes.data.map((blog) => ({
+    params: {
+      slug: blog.attributes.slug,
+    },
+    locale: "en",
+  }));
 
   return {
-    paths: blogsRes.data.map((blog) => ({
-      params: {
-        slug: blog.attributes.slug,
-      },
-    })),
+    paths: [...blogPaths, ...blogPathsEng],
     fallback: false,
   };
 }
@@ -67,15 +74,10 @@ export async function getStaticProps({ params }) {
   };
 }
 
-
 Blog.getLayout = function getLayout(page) {
-
   return (
-        <Layout
-        bg="white" headerBg="white" footerBg="black"        pillowColor=''
-    >
-
+    <Layout bg="white" headerBg="white" footerBg="black" pillowColor="">
       {page}
     </Layout>
-  )
-}
+  );
+};
