@@ -1,37 +1,37 @@
-import PillowLink from '@/components/ui/PillowLink';
-import Article from '@/components/ui/Article';
-import ButtonPagination from '@/components/ui/ButtonPagination';
-import TitleColor from '../ui/TitleColor';
-import {useEffect, useRef, useState} from 'react';
-import {Virtual, Navigation, Pagination} from 'swiper';
-import {Swiper, SwiperSlide} from 'swiper/react';
-import Loading from '@/components/ui/Loading';
+import PillowLink from "@/components/ui/PillowLink";
+import Article from "@/components/ui/Article";
+import ButtonPagination from "@/components/ui/ButtonPagination";
+import TitleColor from "../ui/TitleColor";
+import { useEffect, useRef, useState } from "react";
+import { Virtual, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Loading from "@/components/ui/Loading";
 
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import useTranslation from 'next-translate/useTranslation';
-import {fetchAPI} from 'lib/api';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import useTranslation from "next-translate/useTranslation";
+import { fetchAPI } from "lib/api";
 
 export default function BlogsBlockList({
   titleColor,
   articleColor,
   buttonColor,
 }) {
-  const navigationPrevRef=useRef(null);
-  const navigationNextRef=useRef(null);
-  const {t}=useTranslation('common');
-  const i18n=useTranslation();
+  const navigationPrevRef = useRef(null);
+  const navigationNextRef = useRef(null);
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
 
-  const [data, setData]=useState();
+  const [data, setData] = useState();
 
-  const locale=i18n.lang;
+  const locale = i18n.lang;
 
   useEffect(() => {
     async function fetchData() {
-      const blogsRes=await fetchAPI('/blogs', {
-        fields: ['Title', 'slug', 'Preview'],
-        populate: ['tags', 'Image_preview'],
+      const blogsRes = await fetchAPI("/blogs", {
+        fields: ["Title", "slug", "Preview"],
+        populate: ["tags", "Image_preview"],
         locale: locale,
       });
 
@@ -46,28 +46,28 @@ export default function BlogsBlockList({
 
   return (
     <section
-      className='text-white pt-18 pb-[38px] overflow-hidden max-w-full
+      className="text-white pt-18 pb-[38px] overflow-hidden max-w-full
     md:pb-20 md:pt-18
-    lg:pb-25 lg:pt-29'
+    lg:pb-25 lg:pt-29"
     >
       <div
-        className='flex justify-between pb-10 items-center
-        md:pb-15 lg:pb-18 container'
+        className="flex justify-between pb-10 items-center
+        md:pb-15 lg:pb-18 container"
       >
-        <TitleColor textPart1='Блог' textPart2=' invert' color={titleColor} />
+        <TitleColor textPart1="Блог" textPart2=" invert" color={titleColor} />
 
-        <div className='flex'>
+        <div className="flex">
           <div ref={navigationPrevRef}>
             <ButtonPagination variant={buttonColor}>
               <svg
                 className='w-[9px] h-[15px] viewBox="0 0 9 15'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d='M8.15625 14.1055L1.84046 7.39494L8.15625 0.684416'
-                  stroke='currentColor'
-                  strokeWidth='1.5'
+                  d="M8.15625 14.1055L1.84046 7.39494L8.15625 0.684416"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
                 />
               </svg>
             </ButtonPagination>
@@ -76,13 +76,13 @@ export default function BlogsBlockList({
             <ButtonPagination variant={buttonColor}>
               <svg
                 className='w-[9px] h-[15px] viewBox="0 0 9 15 rotate-180'
-                fill='none'
-                xmlns='http://www.w3.org/2000/svg'
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d='M8.15625 14.1055L1.84046 7.39494L8.15625 0.684416'
-                  stroke='currentColor'
-                  strokeWidth='1.5'
+                  d="M8.15625 14.1055L1.84046 7.39494L8.15625 0.684416"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
                 />
               </svg>
             </ButtonPagination>
@@ -94,28 +94,28 @@ export default function BlogsBlockList({
         modules={[Navigation, Virtual, Pagination]}
         spaceBetween={30}
         slidesPerView={3}
-        scrollbar={{draggable: true}}
-        onSlideChange={() => console.log('slide change')}
+        scrollbar={{ draggable: true }}
+        onSlideChange={() => console.log("slide change")}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
         onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl=navigationPrevRef.current;
-          swiper.params.navigation.nextEl=navigationNextRef.current;
+          swiper.params.navigation.prevEl = navigationPrevRef.current;
+          swiper.params.navigation.nextEl = navigationNextRef.current;
         }}
         virtual
-        className='!pl-3.8 !-mr-3.8 flex  pb-7
+        className="!pl-3.8 !-mr-3.8 flex  pb-7
       md:pb-10 md:gap-7
-      lg:pb-9 lg:!pl-20'
+      lg:pb-9 lg:!pl-20"
       >
-        {data[0]&&
+        {data[0] &&
           data.map((blog, key) => (
-            <SwiperSlide key={key} className='shrink-0'>
+            <SwiperSlide key={key} className="shrink-0">
               <Article
                 image={blog.attributes.Image_preview}
                 link={blog.attributes.slug}
-                tag='VR'
+                tag="VR"
                 title={blog.attributes.Title}
                 text={blog.attributes.Preview}
                 variant={articleColor}
@@ -124,14 +124,16 @@ export default function BlogsBlockList({
           ))}
       </Swiper>
 
-      <div className='pt-7 container
+      <div
+        className="pt-7 container
       md:pt-10
-      lg:pt-9'>
+      lg:pt-9"
+      >
         <PillowLink
-          text={t('All_news')}
-          link='/blogs'
-          variant='dark'
-          variantSvg='whiteSvg'
+          text={t("All_news")}
+          link="/blogs"
+          variant="dark"
+          variantSvg="whiteSvg"
         />
       </div>
     </section>

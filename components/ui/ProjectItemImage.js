@@ -9,6 +9,7 @@ export default function ProjectItemImage({ link, width, height, variant }) {
           width={width}
           height={height}
           src={link}
+          quality={100}
           alt="Project name"
         />
       </div>
@@ -24,6 +25,7 @@ export default function ProjectItemImage({ link, width, height, variant }) {
         height={height}
         src={link}
         alt="Project name"
+        quality={100}
         className="md:w-full md:h-auto rounded-l15 object-cover"
       />
     </div>
