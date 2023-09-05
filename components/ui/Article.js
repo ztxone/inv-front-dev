@@ -24,6 +24,7 @@ export default function Article({
           className="rounded-l15 w-full"
           width="288"
           height="147"
+          quality={100}
           src={getStrapiMedia(image)}
           alt={title}
         />
