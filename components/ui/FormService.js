@@ -40,7 +40,7 @@ export default function FormService() {
         className="flex flex-col pt-6 max-w-[562px] m-auto items-center justify-center pb-2.5
       md:pt-[37px] 
       lg:max-w-none lg:px-10 lg:rounded-5xl lg:pb-[52px] lg:mt-9
-      xl:border-2 border-eclipse "
+      xl:border-[1px] xl:bg-nero2 border-eclipse "
       >
         <TitleH3
           text="Оставить заявку"

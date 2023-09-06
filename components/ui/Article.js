@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const colorInherit = "bg-inherit border-1 border-nobel text-nero2";
-const colorNero = "bg-nero";
+const colorNero = "bg-nero4";
 
 export default function Article({
   link,
@@ -24,6 +24,7 @@ export default function Article({
           className="rounded-l15 w-full"
           width="288"
           height="147"
+          quality={100}
           src={getStrapiMedia(image)}
           alt={title}
         />

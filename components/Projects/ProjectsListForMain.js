@@ -52,6 +52,7 @@ export default function ProjectsListForMain({
                         )}
                         width="600"
                         height={aspectRatio}
+                        quality={100}
                         alt={project.attributes.Title}
                         className="rounded-l15 relative w-full"
                       />
