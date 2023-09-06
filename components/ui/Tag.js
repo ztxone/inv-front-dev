@@ -20,7 +20,7 @@ export default function Tag({ variant = "white", text, href = "" }) {
             {"# "}
           </span>
           <p
-            className={`text-xxs tag-text text-${
+            className={`text-xxs text-${
               variant === "white" ? "black" : "white"
             }`}
           >
