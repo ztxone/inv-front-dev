@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const colorInherit = "bg-inherit border-1 border-nobel text-nero2";
-const colorNero = "bg-nero";
+const colorNero = "bg-nero4";
 
 export default function Article({
   link,

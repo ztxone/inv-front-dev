@@ -8,7 +8,7 @@ export default function NavFooter({menu}) {
   return (
     <div
       className='pb-5
-    lg:w-[445px] lg:pt-10.5 lg:pl-7'
+    lg:w-[445px] lg:pt-10.5 lg:pl-7 lg:border-l-1 lg:pb-[59px] lg:self-stretch  lg:border-white/10'
     >
       <ul
         className='grid 

@@ -48,7 +48,7 @@ export default function Footer({ variant, pillowColor = "dark"}) {
       <div
         className="container xl:flex 
       flex-wrap xl:justify-end xl:items-start lg:pt-10
-      lg:mx-auto lg:pb-2.5"
+      lg:mx-auto lg:pb-18"
       >
         <Form pillowColor={pillowColor} />
         <NavFooter menu={menu} />
