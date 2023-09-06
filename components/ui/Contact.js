@@ -10,13 +10,12 @@ export default function Contact({ contact, colorSocials }) {
 
   return (
     <div
-      className='pb-3.8
-    md:pb-9 
-    lg:w-[445px] lg:pt-5 lg:pl-7'
+      className='pb-3.8 md:pb-9 
+    lg:w-[445px] lg:pt-5 lg:pl-7 lg:pb-0 lg:border-l-1  lg:self-stretch lg:border-white/10'
     >
       <ul
         className='flex flex-wrap pb-10 text-inherit text-lg items-center
-        lg:items-start lg:flex-col'
+        lg:items-start lg:flex-col lg:pb-0 lg:h-full lg:justify-between'
       >
         <li
           className='w-full pb-7

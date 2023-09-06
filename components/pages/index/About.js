@@ -28,7 +28,7 @@ export default function About({ about, servicesAbout }) {
             >
               {about.attributes.SloganPart1}
             </span>
-            <span className="flex items-center lg:pt-3.8">
+            <span className="flex items-center lg:pt-3.8 flex-wrap">
               {" "}
               <svg
                 className="text-royal-blue w-[43px] h-[33px]
