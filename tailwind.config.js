@@ -18,6 +18,7 @@ module.exports={
       black: "#0C0C0C",
       "black-russian": "#1C1D21",
       "black-russian2": "#27282E",
+      "black-russian3": "#1F1F20",
       blue: "#4574EF",
       "chetwode-blue": "#5D6FC0",
       "cornflower-blue": "#6094E2",
@@ -235,6 +236,7 @@ module.exports={
       0.5: "0.125rem",
       0.7: "0.1875rem",
       1: "0.25rem",
+      1.2: "0.3125", //5px
       1.5: "0.375rem", //6px
       2: "0.5rem",
       2.5: "0.625rem", //10px
