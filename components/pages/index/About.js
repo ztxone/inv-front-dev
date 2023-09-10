@@ -29,10 +29,10 @@ export default function About({about, servicesAbout}) {
             >
               {about.attributes.SloganPart1}
             </span>
-            <span className='flex items-center lg:pt-3.8 flex-wrap'>
+            <span className='flex items-center lg:pt-3.8'>
               {' '}
               <svg
-                className='text-royal-blue w-[43px] h-[33px]
+                className='text-royal-blue shrink-0 w-[43px] h-[33px]
                 md:w-auto md:h-auto md:mr-2.5
           lg:w-[60px] lg:mr-9'
                 viewBox='0 0 52 52'
@@ -50,14 +50,19 @@ export default function About({about, servicesAbout}) {
             </span>
           </h2>
 
-          <div className='w-[398px] max-w-full ml-auto xl:mt-[156px] md:pb-2.5 row-start-1 row-end-3 col-start-2 col-end-3'>
+          <div
+            className='w-full max-w-full ml-auto row-start-1 row-end-3 col-start-2 col-end-3
+          xl:mt-[156px]
+          md:pb-2.5 md:w-1/2
+          xl:w-[400px]'
+          >
             {servicesAbout
               .filter((item) => item.id === 7)
               .map((item) => (
                 <Link
                   href={getStrapiMedia(item.attributes.Slides.Document)}
                   key={item.id}
-                  className='bg-blackRussian relative block rounded-4xl w-[286px] h-[286px] p-[25px]'
+                  className='bg-blackRussian relative block rounded-4xl p-[25px] min-h-[286px] w-[72%] aspect-square'
                 >
                   <div className='absolute top-0 bottom-0 left-0 right-0'>
                     <Image
@@ -103,12 +108,12 @@ export default function About({about, servicesAbout}) {
                   href={getStrapiMedia(item.attributes.Slides.Document)}
                   key={item.id}
                   className='bg-blackRussian relative 
-          block rounded-4xl w-[286px] h-[347px] p-[25px] -mt-24.5 ml-auto
-          md:-mt-[108px]'
+          block rounded-4xl p-[25px] -mt-24.5 ml-auto min-h-[347px]
+          md:-mt-[108px] w-[72%] aspect-[286/347] '
                 >
                   <div className='absolute top-0 bottom-0 left-0 right-0'>
                     <Image
-                      className='rounded-4xl'
+                      className='rounded-4xl w-full h-full'
                       src='/image/content/video.png'
                       width='286'
                       height='347'
@@ -117,7 +122,7 @@ export default function About({about, servicesAbout}) {
                   </div>
                   <div className='relative z-1 flex flex-col items-start h-full'>
                     <ServicesDoc text='Showreel' />
-                    <h3 className='text-1xl max-w-min'>
+                    <h3 className='text-1xl max-w-min mb-[70%]'>
                       {item.attributes.name}
                     </h3>
                     <div className='mt-auto'>

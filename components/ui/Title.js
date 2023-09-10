@@ -7,8 +7,7 @@ export default function Title({text, variant = 'white', subtext = ''}) {
       className={`${
         variant === 'white' ? textWhite : textBlack
       } text-4xl tracking-tight
-    flex flex-col shrink-0
-    lg:text-6xl`}
+    flex flex-col lg:text-6xl shrink-1`}
     >
       {' '}
       {text}
