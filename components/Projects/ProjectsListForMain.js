@@ -69,6 +69,7 @@ export default function ProjectsListForMain({
                                   key={x.attributes.Name}
                                   text={x.attributes.Name}
                                   href={x.attributes.slug}
+                                  usedFor="projects"
                                 />
                               );
                             })}
