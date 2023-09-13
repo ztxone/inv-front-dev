@@ -8,13 +8,12 @@ import Link from "next/link";
 import ModalApproveForm from "../Forms/ModalApproveForm";
 import { useState } from "react";
 import { ProjectAngles } from "./ProjectAngles";
+import TagsBriefDirection from "./TagsBriefDirection";
 
 export default function FormBrief({ visobjs, categories }) {
   const [angles, setAngles] = useState(1);
   const [category, setCategory] = useState(categories[0]);
-  const [projectType, setProjectType] = useState({
-    attributes: { name: "Интерьерная" },
-  });
+  const [projectType, setProjectType] = useState();
   const methods = useForm({
     mode: "onSubmit",
     defaultValues: { VisualizationObject: "Продукт" },
@@ -34,6 +33,10 @@ export default function FormBrief({ visobjs, categories }) {
       console.error("Brief sending error:", error);
     }
   };
+  const onCategoryChange = (category) => {
+    setCategory(category);
+    setProjectType(undefined);
+  };
 
   return (
     <div className="container">
@@ -48,27 +51,24 @@ export default function FormBrief({ visobjs, categories }) {
           +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07
         </Link>
       </p>
+      <TagsBrief
+        title="Выберите услугу"
+        categories={categories}
+        setCategory={onCategoryChange}
+        category={category}
+      />
+      <TagsBriefDirection
+        title="Направление"
+        direction={projectType}
+        setDirection={setProjectType}
+        category={category}
+      />
       <FormProvider {...methods}>
         <form
           className="pb-15 pr-18
           lg:w-4/6"
           onSubmit={methods.handleSubmit(onSubmit)}
         >
-          <TagsBrief
-            title="Выберите услугу"
-            categories={categories}
-            setCategory={setCategory}
-            category={category}
-          />
-          <TagsBrief
-            title="Направление"
-            categories={[
-              { attributes: { name: "Интерьерная" } },
-              { attributes: { name: "Экстерьерная" } },
-            ]}
-            setCategory={setProjectType}
-            category={projectType}
-          />
           <ProjectForm title="Подробнее о вашем проекте" visobjs={visobjs}>
             <ProjectAngles angles={angles} setAngles={setAngles} />
           </ProjectForm>
