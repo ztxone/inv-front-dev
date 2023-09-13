@@ -9,13 +9,13 @@ import {getStrapiMedia} from 'lib/media';
 import Image from 'next/image';
 
 export default function ServicesSlides() {
-  const [data, setData]=useState();
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+  const [data, setData] = useState();
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
   useEffect(() => {
     async function fetchData() {
-      const slideRes=await fetchAPI('/categories', {
+      const slideRes = await fetchAPI('/categories', {
         filters: {
           ShowAsSlide: true,
         },
@@ -46,19 +46,20 @@ export default function ServicesSlides() {
           background={getStrapiMedia(item.attributes.Slides.BackgroundImage)}
         >
           <Tag
-            text1={item.attributes.Slides.TypeofDocument}
-            variant={item.attributes.Slides.BlackTagBg? 'black':'white'}
+            text={item.attributes.Slides.TypeofDocument}
+            variant={item.attributes.Slides.BlackTagBg ? 'black' : 'white'}
           />
           <h3
-            className={`text-xl tracking-tight text-${item.attributes.Slides.BlackTagBg? 'black':'white'
-              } mt-5`}
+            className={`text-xl tracking-tight text-${
+              item.attributes.Slides.BlackTagBg ? 'black' : 'white'
+            } mt-5`}
           >
             {item.attributes.name}
           </h3>
           <ServicesSlidesButton
             text={item.attributes.Slides.DocumentTextForLink}
             link={getStrapiMedia(item.attributes.Slides.Document)}
-            variant={item.attributes.Slides.BlackTagBg? 'black':'white'}
+            variant={item.attributes.Slides.BlackTagBg ? 'black' : 'white'}
           >
             <Image
               src={getStrapiMedia(item.attributes.Slides.SlidesIconLink)}
