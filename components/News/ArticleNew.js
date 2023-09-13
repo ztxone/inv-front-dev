@@ -1,6 +1,7 @@
 import { getStrapiMedia } from "lib/media";
 import Image from "next/image";
 import Link from "next/link";
+import Tag from "../ui/Tag";
 
 const colorInherit = "bg-white text-nero2";
 const colorNero = "bg-nero";
@@ -29,13 +30,18 @@ export default function ArticleNew({
           alt={title}
         />
         {tag.data && (
-          <div className="bg-white rounded-full px-3.8 py-2 inline-flex items-center w-auto self-start absolute left-3 bottom-3">
-            #{" "}
-            {/* <span className=" bg-royal-blue rounded-full w-[4px] h-[4px] mr-[5px]"></span> */}
-            <p className="text-black-russian font-interTight uppercase font-medium text-xxs">
-              {tag.data.attributes.Name}
-            </p>
-          </div>
+          //   <div className="bg-white rounded-full px-3.8 py-2 inline-flex items-center w-auto self-start absolute left-3 bottom-3">
+          //     <span className=" bg-royal-blue rounded-full w-[4px] h-[4px] mr-[5px]"></span>
+          //     <p className="text-black-russian font-interTight uppercase font-medium text-xxs">
+          //       {tag.data.attributes.Name}
+          //     </p>
+          //   </div>
+          <Tag
+            key={tag.data.attributes.Name}
+            text={tag.data.attributes.Name}
+            href={tag.data.attributes.slug}
+            usedFor="blog"
+          />
         )}
       </div>
       <div className="pl-5 pt-7 pr-12">
