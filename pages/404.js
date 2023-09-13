@@ -9,8 +9,9 @@ import BlogsBlockList from '@/components/Blogs/BlogsBlockList';
 import Wrapper from '@/components/ui/Wrapper';
 import Line from '@/components/ui/Line';
 import IntroError from '@/components/ui/IntroError';
+import ServicesSlides from '@/components/Services/ServicesSlides';
 
-export default function Error({}) {
+export default function ErrorPage({}) {
   const {t} = useTranslation('common');
 
   return (
@@ -18,40 +19,15 @@ export default function Error({}) {
       <Wrapper color='black' position='bottom'>
         <IntroError />
       </Wrapper>
+      <div className='py-3.8'>
+        <ServicesSlides />
+      </div>
+      <Line variantColor='grey' />
     </>
   );
 }
 
-// export async function getStaticProps({locale}) {
-//   const [ErrorRes, projectsRes] = await Promise.all([
-//     fetchAPI('/error', {
-//       populate: '*',
-//       locale: locale,
-//     }),
-//     fetchAPI('/projects', {
-//       sort: ['ListPosition:asc'],
-//       populate: {
-//         Poster: '*',
-//         tags: '*',
-//       },
-//       fields: ['title', 'slug'],
-//       pagination: {
-//         start: 0,
-//         limit: 6,
-//       },
-//     }),
-//   ]);
-
-//   return {
-//     props: {
-//       about: ErrorRes.data,
-//       projects: projectsRes.data,
-//     },
-//     revalidate: 1,
-//   };
-// }
-
-Error.getLayout = function getLayout(page) {
+ErrorPage.getLayout = function getLayout(page) {
   return (
     <Layout bg='grey' headerBg='black' footerBg='white' pillowColor={'grey'}>
       {page}

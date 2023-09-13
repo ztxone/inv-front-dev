@@ -5,40 +5,54 @@ export default function IntroError() {
   const {t} = useTranslation('common');
   return (
     <div
-      className='container py-6
-      md:py-5'
+      className='container py-15
+      md:pt-25 md:pb-20
+      lg:pt-20 lg:pb-34'
     >
       <div
-        className="w-full bg-[url('/image/content/bg-intro-mob.png')] bg-no-repeat bg-cover pt-15 pb-10 px-10 rounded-5xl flex flex-col justify-between md:bg-[url('/image/content/bg-intro.png')] md:bg-right-top-30 min-h-[463px] text-white mx-auto
-    md:pb-33
-lg:px-21 lg:pt-25 lg:pb-20"
+        className="w-full bg-[url('/image/content/bg-intro-mob.png')] bg-no-repeat bg-cover pt-[76px] pb-10 px-10 rounded-5xl 
+        md:bg-[url('/image/content/bg-intro.png')] md:bg-right-top-30 min-h-[463px] text-white mx-auto
+    md:pb-33  md:min-h-[600px] md:pt-[88px]  md:border-eclipse md:border-2
+    lg:px-21 lg:pt-29 lg:pb-20"
       >
-        <h3
-          className='text-4xl tracking-tight md:w-9/12 mb-10
-      lg:text-6xl
-      lg:mb-7'
+        <div
+          className='flex flex-col
+        md:flex-row flex-wrap
+        lg:max-w-[630px]'
         >
-          {t('brief.how_much')}
-        </h3>
-        <p
-          className='pr-6 w-full mb-auto pb-5
-      md:text-xl md:max-w-[378px] md:pr-0 md:w-2/4
-      lg:text-1xl '
-        >
-          {t('brief.order')}
-        </p>
-        <PillowLink
-          text='Вернуться на главную'
-          link='/index'
-          variantSvg='blue'
-          variant='white'
-        ></PillowLink>
-        <PillowLink
-          text='Заполнить бриф'
-          link='/brief'
-          variantSvg='dark'
-          variant='white'
-        ></PillowLink>
+          <h3
+            className='text-7xl font-black -tracking-[2.8px] mb-3.8
+           md:text-9xl md:pl-3.8 md:mb-0
+           lg:pl-0
+           '
+          >
+            404
+          </h3>
+          <p
+            className='text-xl pr-6 w-3/4 mb-7
+      md:text-3xl md:mb-0 md:w-[47%] md:ml-auto md:mr-4.5 md:mt-[66px]'
+          >
+            Страницы с таким URL не существует
+          </p>
+          <div
+            className='flex flex-col gap-2
+        md:flex-row md:pt-24.5
+        lg:pt-25'
+          >
+            <PillowLink
+              text='Вернуться на главную'
+              link='/index'
+              variantSvg='blue'
+              variant='white'
+            ></PillowLink>
+            <PillowLink
+              text='Заполнить бриф'
+              link='/brief'
+              variantSvg='darkSvg'
+              variant='white'
+            ></PillowLink>
+          </div>
+        </div>
       </div>
     </div>
   );
