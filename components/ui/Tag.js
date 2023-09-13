@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 
-export default function Tag({ variant = "white", text, href = "" }) {
+export default function Tag({ variant = "white", text, href = "", usedFor }) {
   const router = useRouter();
   const cancelPropagation = (e) => {
     e.preventDefault();
@@ -10,7 +10,11 @@ export default function Tag({ variant = "white", text, href = "" }) {
     <div onClick={cancelPropagation}>
       {text && (
         <span
-          className={`bg-${variant}  w-fit rounded-full px-1.5 py-[7px] inline-flex items-center relative z-3 uppercase`}
+          className={`bg-${variant} cursor-pointer rounded-full inline-flex items-center ${
+            usedFor === "blog"
+              ? "w-auto self-start absolute left-3 bottom-3 px-3.8 py-2"
+              : " relative z-3 px-1.5 py-[7px] uppercase w-fit"
+          }`}
         >
           <span
             className={`text-l bold pr-1 text-${
