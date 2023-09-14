@@ -5,7 +5,8 @@
     "aboutOpportunities": "our main opportunities"
   },
   "works": {
-    "title": "Portfolio"
+    "title": "Portfolio",
+    "meta_description": "All portfolio works"
   },
   "contacts": {
     "address": "office address",
@@ -15,7 +16,8 @@
     "mainServices": "Main services",
     "allServices": "All services",
     "linkServices": "Services",
-    "title": "Services"
+    "title": "Services",
+    "meta_description": "All services of company"
   },
   "All_news": "All news",
   "All_projects": "All projects",
@@ -40,5 +42,8 @@
   "seo": {
     "project": "Project: "
   },
-  "confidence_policy": "Confidence policy"
+  "confidence_policy": "Confidence policy",
+  "news": {
+    "company_news": "Company news"
+  }
 }

@@ -1,22 +1,23 @@
-import Layout from '@/components/layout';
-import useTranslation from 'next-translate/useTranslation';
-import TitleSection from '@/components/ui/TitleSection';
-import BreadCrumbs from '@/components/ui/Breadcrumbs';
-import {fetchAPI} from 'lib/api';
-import ServicesSlides from '@/components/Services/ServicesSlides';
-import Map from '@/components/ui/Map';
-import IntroCost from '@/components/ui/IntroCost';
-import BlogsBlockList from '@/components/Blogs/BlogsBlockList';
-import Address from '@/components/ui/Address';
-import Socials from '@/components/ui/Socials';
-import Line from '@/components/ui/Line';
+import Layout from "@/components/layout";
+import useTranslation from "next-translate/useTranslation";
+import TitleSection from "@/components/ui/TitleSection";
+import BreadCrumbs from "@/components/ui/Breadcrumbs";
+import { fetchAPI } from "lib/api";
+import ServicesSlides from "@/components/Services/ServicesSlides";
+import Map from "@/components/ui/Map";
+import IntroCost from "@/components/ui/IntroCost";
+import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
+import Address from "@/components/ui/Address";
+import Socials from "@/components/ui/Socials";
+import Line from "@/components/ui/Line";
 
 function Contacts({contact}) {
-  const i18n = useTranslation();
-  const locale = i18n.lang;
+  const i18n=useTranslation();
+  const locale=i18n.lang;
 
   return (
     <>
+      <Seo seo={seo} />
       <TitleSection text={contact.attributes.Title} />
       <Line variantColor='grey' />
       <BreadCrumbs
@@ -68,7 +69,10 @@ export async function getStaticProps({locale}) {
 
 Contacts.getLayout = function getLayout(page) {
   return (
-    <Layout bg='white' headerBg='white' footerBg='white' pillowColor='white' variantSvg='darkSvg'>
+        <Layout
+        bg="white" headerBg="white" footerBg="white" pillowColor='white'
+    >
+
       {page}
     </Layout>
   );

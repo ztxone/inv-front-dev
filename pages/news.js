@@ -6,6 +6,7 @@ import Line from "@/components/ui/Line";
 import NewsList from "@/components/News/NewsList";
 import IntroCost from "@/components/ui/IntroCost";
 import { fetchAPI } from "lib/api";
+import Seo from "@/components/seo";
 
 export default function News({ news }) {
   const { t } = useTranslation("common");
@@ -14,14 +15,21 @@ export default function News({ news }) {
 
   const breadCrumbsItems = [
     {
-      title: "Новости компании",
+      title: t("news.company_news"),
     },
   ];
+
+  const seo = {
+    metaTitle: t("news.company_news"),
+    metaDescription: t("news.meta_description"),
+    shareImage: "",
+  };
 
   return (
     // <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
     <>
-      <TitleSection text="Новости компании" />
+      <Seo seo={seo} />
+      <TitleSection text={t("news.company_news")} />
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
       <NewsList news={news} />

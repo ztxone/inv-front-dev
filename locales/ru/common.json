@@ -5,7 +5,8 @@
     "aboutOpportunities": "наши возможности"
   },
   "works": {
-    "title": "Портфолио"
+    "title": "Портфолио",
+    "meta_description": "Портфолио все работы"
   },
   "contacts": {
     "address": "адрес офиса",
@@ -15,7 +16,8 @@
     "mainServices": "Основные услуги",
     "allServices": "Все услуги",
     "linkServices": "Услуги",
-    "title": "Услуги"
+    "title": "Услуги",
+    "meta_description": "Все услуги компании"
   },
   "All_projects": "Все проекты",
   "All_news": "Все новости",
@@ -41,5 +43,8 @@
   "seo": {
     "project": "Проект: "
   },
-  "confidence_policy": "Политика конфиденциальности"
+  "confidence_policy": "Политика конфиденциальности",
+  "news": {
+    "company_news": "Новости компании"
+  }
 }
