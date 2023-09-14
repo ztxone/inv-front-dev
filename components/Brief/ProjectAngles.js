@@ -1,12 +1,18 @@
 // import { useFormContext } from "react-hook-form";
 
-export const ProjectAngles = ({ setAngles, angles }) => {
+export const ProjectAngles = ({ setAngles, angles, category, projectType }) => {
   const addOne = () => {
-    setAngles((prev) => prev + 1);
+    if (
+      category?.attributes?.name === "Архитектурная визуализация" &&
+      projectType?.attributes?.name === "Интерьерная"
+    ) {
+      if (angles < 50) setAngles((prev) => prev + 1);
+    }
+    if (angles < 10) setAngles((prev) => prev + 1);
   };
 
   const subtractOne = () => {
-    setAngles((prev) => prev - 1);
+    if (angles > 1) setAngles((prev) => prev - 1);
   };
 
   return (

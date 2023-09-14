@@ -29,7 +29,7 @@ export default function TagsBriefDirection({
             className={index < 2 ? "" : "opacity-25"}
           />
         ));
-      case "Продуктовая 3D визуализация":
+      case "Моушн & Видеопродакшн":
         return categories.map((elem, index) => (
           <TagItemBrief
             key={elem.attributes.name}

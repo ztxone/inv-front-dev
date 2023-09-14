@@ -1,33 +1,100 @@
 import TagsBrief from "./TagsBrief";
-import ProjectForm from "./ProjectForm";
-import ContactBrief from "./ContactBrief";
-import ButtonSubmit from "../ui/ButtonSubmit";
-import { useForm, FormProvider } from "react-hook-form";
-import sendBrief from "lib/sendBrief";
+// import ProjectForm from "./ProjectForm";
+// import ContactBrief from "./ContactBrief";
+// import ButtonSubmit from "../ui/ButtonSubmit";
+// import { useForm, FormProvider } from "react-hook-form";
+// import sendBrief from "lib/sendBrief";
 import Link from "next/link";
-import ModalApproveForm from "../Forms/ModalApproveForm";
+// import ModalApproveForm from "../Forms/ModalApproveForm";
 import { useState } from "react";
-import { ProjectAngles } from "./ProjectAngles";
+// import { ProjectAngles } from "./ProjectAngles";
 import TagsBriefDirection from "./TagsBriefDirection";
+import { AggregateForm } from "./Forms/AggregateForm";
+// import { InteriorForm } from "./Forms/AggregateForm";
 
-export default function FormBrief({ visobjs, categories }) {
-  const [angles, setAngles] = useState(1);
+const visobjs = [
+  {
+    id: 2,
+    attributes: {
+      Title: "Продукт",
+      createdAt: "2023-07-31T13:36:30.559Z",
+      updatedAt: "2023-07-31T13:36:33.171Z",
+      locale: "ru",
+      localizations: {
+        data: [],
+      },
+    },
+  },
+  {
+    id: 3,
+    attributes: {
+      Title: "Коммерческая недвижимость",
+      createdAt: "2023-07-31T13:38:15.409Z",
+      updatedAt: "2023-07-31T13:38:16.312Z",
+      locale: "ru",
+      localizations: {
+        data: [],
+      },
+    },
+  },
+  {
+    id: 4,
+    attributes: {
+      Title: "Ландшафт",
+      createdAt: "2023-07-31T13:38:44.312Z",
+      updatedAt: "2023-07-31T13:38:45.241Z",
+      locale: "ru",
+      localizations: {
+        data: [],
+      },
+    },
+  },
+];
+
+const categories = [
+  {
+    id: 7,
+    attributes: {
+      name: "Архитектурная визуализация",
+      slug: "visual_ru",
+    },
+  },
+  {
+    id: 8,
+    attributes: {
+      name: "Продуктовая 3D визуализация",
+      slug: "product-3d-vizual_ru",
+    },
+  },
+  {
+    id: 9,
+    attributes: {
+      name: "Моушн & Видеопродакшн",
+      slug: "motion_video_ru",
+    },
+  },
+  {
+    id: 25,
+    attributes: {
+      name: "3D моделирование",
+      slug: "modeling_ru",
+    },
+  },
+];
+// export default function FormBrief({ visobjs, categories }) {
+export default function FormBrief() {
   const [category, setCategory] = useState(categories[0]);
   const [projectType, setProjectType] = useState();
-  const methods = useForm({
-    mode: "onSubmit",
-    defaultValues: { VisualizationObject: "Продукт" },
-  });
-  const onSubmit = async (data) => {
+  const send = async (data) => {
     try {
       const sendData = {
         ...data,
-        ProjectAngles: angles,
+        // ProjectAngles: angles,
         categories: category,
         ProjectType: projectType?.attributes?.name || "",
       };
       console.log(sendData);
-      await sendBrief(sendData);
+      // await sendBrief(sendData);
       console.log("Brief sent successfully!");
     } catch (error) {
       console.error("Brief sending error:", error);
@@ -63,22 +130,11 @@ export default function FormBrief({ visobjs, categories }) {
         setDirection={setProjectType}
         category={category}
       />
-      <FormProvider {...methods}>
-        <form
-          className="pb-15 pr-18
-          lg:w-4/6"
-          onSubmit={methods.handleSubmit(onSubmit)}
-        >
-          <ProjectForm title="Подробнее о вашем проекте" visobjs={visobjs}>
-            <ProjectAngles angles={angles} setAngles={setAngles} />
-          </ProjectForm>
-          <ContactBrief />
-          <div className="lg:flex flex-row-reverse justify-between items-center">
-            <ModalApproveForm name="approve" />
-            <ButtonSubmit text="Отправить бриф" variant="blue" />
-          </div>
-        </form>
-      </FormProvider>
+      <AggregateForm
+        send={send}
+        projectType={projectType}
+        category={category}
+      />
     </div>
   );
 }
