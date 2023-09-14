@@ -131,7 +131,7 @@ export default function BlogsBlockList({
       >
         <PillowLink
           text={t("All_news")}
-          link="/blogs"
+          link="/news"
           variant="dark"
           variantSvg="whiteSvg"
         />
