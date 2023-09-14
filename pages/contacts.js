@@ -1,34 +1,34 @@
-import Layout from "@/components/layout";
-import useTranslation from "next-translate/useTranslation";
-import TitleSection from "@/components/ui/TitleSection";
-import BreadCrumbs from "@/components/ui/Breadcrumbs";
-import { fetchAPI } from "lib/api";
-import ServicesSlides from "@/components/Services/ServicesSlides";
-import Map from "@/components/ui/Map";
-import IntroCost from "@/components/ui/IntroCost";
-import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
-import Address from "@/components/ui/Address";
-import Socials from "@/components/ui/Socials";
-import Line from "@/components/ui/Line";
+import Layout from '@/components/layout';
+import useTranslation from 'next-translate/useTranslation';
+import TitleSection from '@/components/ui/TitleSection';
+import BreadCrumbs from '@/components/ui/Breadcrumbs';
+import {fetchAPI} from 'lib/api';
+import ServicesSlides from '@/components/Services/ServicesSlides';
+import Map from '@/components/ui/Map';
+import IntroCost from '@/components/ui/IntroCost';
+import BlogsBlockList from '@/components/Blogs/BlogsBlockList';
+import Address from '@/components/ui/Address';
+import Socials from '@/components/ui/Socials';
+import Line from '@/components/ui/Line';
 
 function Contacts({contact}) {
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
   return (
     <>
       <TitleSection text={contact.attributes.Title} />
-      <Line variantColor="grey" />
+      <Line variantColor='grey' />
       <BreadCrumbs
         links={[
           {
             title: contact.attributes.Title,
-            path: "",
+            path: '',
             active: false,
           },
         ]}
       />
-      <div className="container">
+      <div className='container'>
         <Address
           address={contact.attributes.Address}
           phone={contact.attributes.Phone}
@@ -40,21 +40,21 @@ function Contacts({contact}) {
       <Map />
       <IntroCost />
       <BlogsBlockList
-        articleColor="inherit"
-        titleColor="black"
-        buttonColor="black"
+        articleColor='inherit'
+        titleColor='black'
+        buttonColor='black'
       />
-      <Line variantColor="grey" />
+      <Line variantColor='grey' />
     </>
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({locale}) {
   const [contactRes] = await Promise.all([
-    fetchAPI("/contact", {
-      fields: ["Title", "Address", "Phone", "Email"],
+    fetchAPI('/contact', {
+      fields: ['Title', 'Address', 'Phone', 'Email'],
       locale: locale,
-      populate: "*",
+      populate: '*',
     }),
   ]);
 
@@ -64,20 +64,14 @@ export async function getStaticProps({ locale }) {
     },
     revalidate: 1,
   };
-
 }
-
 
 Contacts.getLayout = function getLayout(page) {
-
   return (
-        <Layout
-        bg="white" headerBg="white" footerBg="white" pillowColor='white'
-    >
-
+    <Layout bg='white' headerBg='white' footerBg='white' pillowColor='white' variantSvg='darkSvg'>
       {page}
     </Layout>
-  )
-}
+  );
+};
 
 export default Contacts;
