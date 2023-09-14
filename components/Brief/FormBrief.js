@@ -1,88 +1,11 @@
 import TagsBrief from "./TagsBrief";
-// import ProjectForm from "./ProjectForm";
-// import ContactBrief from "./ContactBrief";
-// import ButtonSubmit from "../ui/ButtonSubmit";
-// import { useForm, FormProvider } from "react-hook-form";
 // import sendBrief from "lib/sendBrief";
 import Link from "next/link";
-// import ModalApproveForm from "../Forms/ModalApproveForm";
 import { useState } from "react";
-// import { ProjectAngles } from "./ProjectAngles";
 import TagsBriefDirection from "./TagsBriefDirection";
 import { AggregateForm } from "./Forms/AggregateForm";
-// import { InteriorForm } from "./Forms/AggregateForm";
 
-const visobjs = [
-  {
-    id: 2,
-    attributes: {
-      Title: "Продукт",
-      createdAt: "2023-07-31T13:36:30.559Z",
-      updatedAt: "2023-07-31T13:36:33.171Z",
-      locale: "ru",
-      localizations: {
-        data: [],
-      },
-    },
-  },
-  {
-    id: 3,
-    attributes: {
-      Title: "Коммерческая недвижимость",
-      createdAt: "2023-07-31T13:38:15.409Z",
-      updatedAt: "2023-07-31T13:38:16.312Z",
-      locale: "ru",
-      localizations: {
-        data: [],
-      },
-    },
-  },
-  {
-    id: 4,
-    attributes: {
-      Title: "Ландшафт",
-      createdAt: "2023-07-31T13:38:44.312Z",
-      updatedAt: "2023-07-31T13:38:45.241Z",
-      locale: "ru",
-      localizations: {
-        data: [],
-      },
-    },
-  },
-];
-
-const categories = [
-  {
-    id: 7,
-    attributes: {
-      name: "Архитектурная визуализация",
-      slug: "visual_ru",
-    },
-  },
-  {
-    id: 8,
-    attributes: {
-      name: "Продуктовая 3D визуализация",
-      slug: "product-3d-vizual_ru",
-    },
-  },
-  {
-    id: 9,
-    attributes: {
-      name: "Моушн & Видеопродакшн",
-      slug: "motion_video_ru",
-    },
-  },
-  {
-    id: 25,
-    attributes: {
-      name: "3D моделирование",
-      slug: "modeling_ru",
-    },
-  },
-];
-// export default function FormBrief({ visobjs, categories }) {
-export default function FormBrief() {
+export default function FormBrief({ visobjs, categories }) {
   const [category, setCategory] = useState(categories[0]);
   const [projectType, setProjectType] = useState();
   const send = async (data) => {

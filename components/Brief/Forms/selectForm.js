@@ -9,7 +9,7 @@ import {
 
 export const selectFieldsForForm = (category, projectType) => {
   if (!category) return null;
-  console.log(category, projectType);
+
   switch (category.attributes.name) {
     case "Архитектурная визуализация":
       if (projectType?.attributes?.name === "Интерьерная")

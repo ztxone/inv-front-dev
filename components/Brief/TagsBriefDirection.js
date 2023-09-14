@@ -14,7 +14,7 @@ export default function TagsBriefDirection({
   category,
 }) {
   const drawDirectionOptions = () => {
-    switch (category.attributes.name) {
+    switch (category?.attributes?.name) {
       case "Архитектурная визуализация":
         return categories.map((elem, index) => (
           <TagItemBrief

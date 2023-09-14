@@ -655,21 +655,6 @@ export const videoAnimation = [
       error: "This field is required",
     },
   },
-  {
-    type: "input",
-    label: {
-      htmlFor: "Chronometry",
-      text: "Хронометраж видеоролика",
-      required: false,
-    },
-    input: {
-      type: "text",
-      placeholder: "Введите пердполагаемый хронометраж",
-      pattern: false,
-      name: "Chronometry",
-      error: "",
-    },
-  },
 
   {
     type: "input",

@@ -11,6 +11,7 @@ export default function Brief({ categories, visobjs }) {
   const i18n = useTranslation();
   const locale = i18n.lang;
 
+  console.log(categories, visobjs);
   return (
     <>
       <TitleSection text={t("brief.title_fill")} />
@@ -22,33 +23,34 @@ export default function Brief({ categories, visobjs }) {
           },
         ]}
       />
-      {/* <FormBrief categories={categories} visobjs={visobjs} /> */}
-      <FormBrief />
+
+      <FormBrief categories={categories} visobjs={visobjs} />
+
       <Line variantColor="grey" />
     </>
   );
 }
 
-// export async function getStaticProps({ locale }) {
-//   const [categoriesRes, visobjRes] = await Promise.all([
-//     fetchAPI("/categories", {
-//       fields: ["name", "slug"],
-//       locale: locale,
-//     }),
-//     fetchAPI("/visualization-objects", {
-//       populate: "*",
-//       locale: locale,
-//     }),
-//   ]);
+export async function getStaticProps({ locale }) {
+  const [categoriesRes, visobjRes] = await Promise.all([
+    fetchAPI("/categories", {
+      fields: ["name", "slug"],
+      locale: locale,
+    }),
+    fetchAPI("/visualization-objects", {
+      populate: "*",
+      locale: locale,
+    }),
+  ]);
 
-//   return {
-//     props: {
-//       categories: categoriesRes.data,
-//       visobjs: visobjRes.data,
-//     },
-//     revalidate: 1,
-//   };
-// }
+  return {
+    props: {
+      categories: categoriesRes.data,
+      visobjs: visobjRes.data,
+    },
+    revalidate: 1,
+  };
+}
 
 Brief.getLayout = function getLayout(page) {
   return (
