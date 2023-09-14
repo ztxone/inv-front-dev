@@ -10,32 +10,26 @@ import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 import Address from "@/components/ui/Address";
 import Socials from "@/components/ui/Socials";
 import Line from "@/components/ui/Line";
-import Seo from "@/components/seo";
 
-function Contacts({ contact }) {
-  const i18n = useTranslation();
-  const locale = i18n.lang;
-  const seo = {
-    metaTitle: contact.attributes.Seo.metaTitle,
-    metaDescription: contact.attributes.Seo.metaDescription,
-    shareImage: "",
-  };
+function Contacts({contact}) {
+  const i18n=useTranslation();
+  const locale=i18n.lang;
 
   return (
     <>
       <Seo seo={seo} />
       <TitleSection text={contact.attributes.Title} />
-      <Line variantColor="grey" />
+      <Line variantColor='grey' />
       <BreadCrumbs
         links={[
           {
             title: contact.attributes.Title,
-            path: "",
+            path: '',
             active: false,
           },
         ]}
       />
-      <div className="container">
+      <div className='container'>
         <Address
           address={contact.attributes.Address}
           phone={contact.attributes.Phone}
@@ -47,21 +41,21 @@ function Contacts({ contact }) {
       <Map />
       <IntroCost />
       <BlogsBlockList
-        articleColor="inherit"
-        titleColor="black"
-        buttonColor="black"
+        articleColor='inherit'
+        titleColor='black'
+        buttonColor='black'
       />
-      <Line variantColor="grey" />
+      <Line variantColor='grey' />
     </>
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({locale}) {
   const [contactRes] = await Promise.all([
-    fetchAPI("/contact", {
-      fields: ["Title", "Address", "Phone", "Email"],
+    fetchAPI('/contact', {
+      fields: ['Title', 'Address', 'Phone', 'Email'],
       locale: locale,
-      populate: "*",
+      populate: '*',
     }),
   ]);
 
@@ -75,7 +69,10 @@ export async function getStaticProps({ locale }) {
 
 Contacts.getLayout = function getLayout(page) {
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" pillowColor="white">
+        <Layout
+        bg="white" headerBg="white" footerBg="white" pillowColor='white'
+    >
+
       {page}
     </Layout>
   );

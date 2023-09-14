@@ -84,7 +84,7 @@ export async function getStaticProps({ locale }) {
 
 About.getLayout = function getLayout(page) {
   return (
-    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="">
+    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="" variantSvg='darkSvg'>
       {page}
     </Layout>
   );
