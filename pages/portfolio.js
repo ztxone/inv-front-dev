@@ -9,13 +9,22 @@ import ProjectsListPortfolio from "@/components/Projects/ProjectsListPortfolio";
 import Line from "@/components/ui/Line";
 import Wrapper from "@/components/ui/Wrapper";
 import { fetchAPI } from "lib/api";
+import Seo from "@/components/seo";
 
 export default function Portfolio({ projects, categories }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
+
+  const seo = {
+    metaTitle: t("works.title"),
+    metaDescription: t("works.meta_description"),
+    shareImage: "",
+  };
+
   return (
     <>
+      <Seo seo={seo} />
       <Wrapper color="grey">
         <TitleSection text={t(`works.title`)} />
         <Line variantColor="grey" />

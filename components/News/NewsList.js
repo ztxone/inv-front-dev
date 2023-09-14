@@ -2,7 +2,6 @@ import ArticleNew from "./ArticleNew";
 import ProjectButton from "../ui/ProjectButton";
 
 export default function NewsList({ news }) {
-  console.log(news);
   return (
     <div className="container">
       <div
