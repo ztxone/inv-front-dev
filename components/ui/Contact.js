@@ -11,7 +11,7 @@ export default function Contact({ contact, colorSocials }) {
   return (
     <div
       className='pb-3.8 md:pb-9 
-    lg:w-[445px] lg:pt-5 lg:pl-7 lg:pb-0 lg:border-l-1  lg:self-stretch lg:border-white/10'
+    lg:w-[445px] lg:pt-5 lg:pl-7 lg:pb-0 xl:border-l-1  lg:self-stretch xl:border-white/10'
     >
       <ul
         className='flex flex-wrap pb-10 text-inherit text-lg items-center

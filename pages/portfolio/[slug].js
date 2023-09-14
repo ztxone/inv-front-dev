@@ -20,8 +20,8 @@ export default function Tag({ tag, projects, categories }) {
 
   const breadCrumbsItems = [
     {
-      title: t("All_news"),
-      path: "/news",
+      title: t("All_projects"),
+      path: "/portfolio",
     },
     {
       title: tag.attributes.Name,
