@@ -31,8 +31,11 @@ export default function Confidence({ agreement }) {
         ]}
       />
 
-      <div className="container richText">
-        <Markdown>{agreement.attributes.Text}</Markdown>
+      <div className="container">
+        <div
+          className="richText"
+          dangerouslySetInnerHTML={{ __html: agreement.attributes.TextEditor }}
+        />
       </div>
     </Layout>
   );
@@ -41,7 +44,7 @@ export default function Confidence({ agreement }) {
 export async function getStaticProps({ locale }) {
   const [agreementRes] = await Promise.all([
     fetchAPI("/agreement", {
-      fields: ["Title", "Text"],
+      fields: ["Title", "TextEditor"],
       locale: locale,
       populate: "*",
     }),
