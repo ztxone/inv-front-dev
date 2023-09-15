@@ -8,15 +8,21 @@ import Map from "@/components/ui/Map";
 import IntroCost from "@/components/ui/IntroCost";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 import Address from "@/components/ui/Address";
-import Socials from "@/components/ui/Socials";
 import Line from "@/components/ui/Line";
+import Seo from "@/components/seo";
 
-function Contacts({contact}) {
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+function Contacts({ contact }) {
+  const i18n = useTranslation();
+  const locale = i18n.lang;
+  const seo = {
+    metaTitle: contact.attributes.Seo.metaTitle,
+    metaDescription: contact.attributes.Seo.metaDescription,
+    shareImage: "",
+  };
 
   return (
     <>
+      <Seo seo={seo} />
       <TitleSection text={contact.attributes.Title} />
       <Line variantColor="grey" />
       <BreadCrumbs
@@ -64,20 +70,14 @@ export async function getStaticProps({ locale }) {
     },
     revalidate: 1,
   };
-
 }
-
 
 Contacts.getLayout = function getLayout(page) {
-
   return (
-        <Layout
-        bg="white" headerBg="white" footerBg="white" pillowColor='white'
-    >
-
+    <Layout bg="white" headerBg="white" footerBg="white" pillowColor="white">
       {page}
     </Layout>
-  )
-}
+  );
+};
 
 export default Contacts;
