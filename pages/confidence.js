@@ -8,7 +8,7 @@ import Markdown from "react-markdown";
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
 
-export default function Confidence({ agreement }) {
+export default function Confidence({ agreement, text }) {
   const i18n = useTranslation();
   const locale = i18n.lang;
   const seo = {
@@ -18,7 +18,7 @@ export default function Confidence({ agreement }) {
   };
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white">
+    <Layout bg="white" headerBg="white" footerBg="white" pillowColor={""}>
       <Seo seo={seo} />
       <TitleSection text={agreement.attributes.Title} />
       <BreadCrumbs
@@ -30,10 +30,9 @@ export default function Confidence({ agreement }) {
           },
         ]}
       />
-
-      <div className="container richText">
-        <Markdown>{agreement.attributes.Text}</Markdown>
-      </div>
+      <Markdown className="richText container">
+        {agreement.attributes.Text}
+      </Markdown>
     </Layout>
   );
 }

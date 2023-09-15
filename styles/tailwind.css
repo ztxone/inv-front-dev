@@ -92,3 +92,16 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.richText p {
+  margin-bottom: 15px;
+}
+.richText ul li {
+  list-style-type: circle;
+
+  margin-left: 35px;
+}
+
+.richText ul {
+  margin-bottom: 15px;
+}

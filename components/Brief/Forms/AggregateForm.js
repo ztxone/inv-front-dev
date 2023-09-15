@@ -10,7 +10,6 @@ import { selectFieldsForForm } from "./selectForm";
 export const AggregateForm = ({ send, category, projectType }) => {
   const [angles, setAngles] = useState(1);
   const methods = useForm({
-    mode: "onSubmit",
     defaultValues: { VisualizationObject: "Продукт" },
   });
 
@@ -21,10 +20,7 @@ export const AggregateForm = ({ send, category, projectType }) => {
         ProjectAngles: angles,
       };
       await send(sendData);
-      console.log("Brief sent successfully!");
-    } catch (error) {
-      console.error("Brief sending error:", error);
-    }
+    } catch (error) {}
   };
 
   const fieldsInputs = selectFieldsForForm(category, projectType);

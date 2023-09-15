@@ -1,5 +1,5 @@
 import TagsBrief from "./TagsBrief";
-// import sendBrief from "lib/sendBrief";
+import sendBrief from "lib/sendBrief";
 import Link from "next/link";
 import { useState } from "react";
 import TagsBriefDirection from "./TagsBriefDirection";
@@ -17,7 +17,7 @@ export default function FormBrief({ visobjs, categories }) {
         ProjectType: projectType?.attributes?.name || "",
       };
       console.log(sendData);
-      // await sendBrief(sendData);
+      await sendBrief(sendData);
       console.log("Brief sent successfully!");
     } catch (error) {
       console.error("Brief sending error:", error);

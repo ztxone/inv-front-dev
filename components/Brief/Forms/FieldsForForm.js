@@ -12,15 +12,15 @@ export default function FieldsForForm({ title, children, inputs }) {
 
   const renderFieldInputs = (fieldInput) => {
     return (
-      <ModalFieldset key={fieldInput.label.htmlFor}>
+      <ModalFieldset key={fieldInput.name}>
         <ModalLabel
-          htmlFor={fieldInput.label.htmlFor}
+          htmlFor={fieldInput.name}
           text={fieldInput.label.text}
           required={fieldInput.label.required}
         />
         {fieldInput.type === "select" ? (
           <ModalSelectForBrief
-            name={fieldInput.input.name}
+            name={fieldInput.name}
             options={fieldInput.input.options}
           />
         ) : fieldInput.type === "counter" ? (
@@ -29,11 +29,11 @@ export default function FieldsForForm({ title, children, inputs }) {
           <ModalInputForBrief
             max={fieldInput?.input?.max}
             type={fieldInput.input.type}
-            id={fieldInput.input.name}
+            id={fieldInput.name}
             placeholder={fieldInput.input.placeholder}
             pattern={{ required: fieldInput.input.pattern }}
-            name={fieldInput.input.name}
-            error={errors[fieldInput.input.name] && fieldInput.input.error}
+            name={fieldInput.name}
+            error={errors[fieldInput.name] && fieldInput.input.error}
             register={register}
           />
         )}
