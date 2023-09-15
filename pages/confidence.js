@@ -6,13 +6,20 @@ import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import Markdown from "react-markdown";
 
 import { fetchAPI } from "lib/api";
+import Seo from "@/components/seo";
 
 export default function Confidence({ agreement }) {
   const i18n = useTranslation();
   const locale = i18n.lang;
+  const seo = {
+    metaTitle: agreement.attributes.Seo.metaTitle,
+    metaDescription: agreement.attributes.Seo.metaDescription,
+    shareImage: "",
+  };
 
   return (
     <Layout bg="white" headerBg="white" footerBg="white">
+      <Seo seo={seo} />
       <TitleSection text={agreement.attributes.Title} />
       <BreadCrumbs
         links={[
@@ -24,10 +31,12 @@ export default function Confidence({ agreement }) {
         ]}
       />
 
-      <div className="container richText">
-        <Markdown>{agreement.attributes.Text}</Markdown>
+      <div className="container">
+        <div
+          className="richText"
+          dangerouslySetInnerHTML={{ __html: agreement.attributes.TextEditor }}
+        />
       </div>
-
     </Layout>
   );
 }
@@ -35,8 +44,9 @@ export default function Confidence({ agreement }) {
 export async function getStaticProps({ locale }) {
   const [agreementRes] = await Promise.all([
     fetchAPI("/agreement", {
-      fields: ["Title", "Text"],
+      fields: ["Title", "TextEditor"],
       locale: locale,
+      populate: "*",
     }),
   ]);
 

@@ -83,7 +83,7 @@ module.exports={
       "7xl": ["5rem", {lineHeight: "1"}], // 80px
       "7.5xl": ["5.625rem", {lineHeight: "1"}], //90px
       // '8xl': ['6rem', {lineHeight: '1'}],
-      // '9xl': ['8rem', {lineHeight: '1'}],
+      '9xl': ['9rem', {lineHeight: '1'}],//144px
       "10xl": ["9.6875rem", {lineHeight: "1"}], //155px
     },
     fontWeight: {
@@ -115,6 +115,7 @@ module.exports={
         xl: "0.75rem",
         "2xl": "1rem",
         "3xl": "1.5rem",
+        "3.5xl": "1.75rem",
         "4xl": "1.874rem",
         "5xl": "1.875rem", //30px
         "6xl": "2.5625rem", //41px
@@ -247,7 +248,7 @@ module.exports={
       4.5: "1.125rem", //18px
       5: "1.25rem", //20px
       6: "1.5rem", //24px
-      // 7: '1.75rem',
+      // 6.5: '1.75rem',//28px
       7: "1.875rem", //30px
       8: "2rem",
       // 9: '2.25rem',

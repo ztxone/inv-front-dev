@@ -9,12 +9,19 @@ import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 import Wrapper from "@/components/ui/Wrapper";
 import Line from "@/components/ui/Line";
 import AboutIntro from "@/components/About/AboutIntro";
+import Seo from "@/components/seo";
 
 export default function About({ about, projects }) {
   const { t } = useTranslation("common");
+  const seo = {
+    metaTitle: about.attributes.Seo.metaTitle,
+    metaDescription: about.attributes.Seo.metaDescription,
+    shareImage: "",
+  };
 
   return (
     <>
+      <Seo seo={seo} />
       <Wrapper color="grey">
         <TitleSection text={about.attributes.Title} />
         <Line variantColor="grey" />
@@ -77,7 +84,7 @@ export async function getStaticProps({ locale }) {
 
 About.getLayout = function getLayout(page) {
   return (
-    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="">
+    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="" variantSvg='darkSvg'>
       {page}
     </Layout>
   );

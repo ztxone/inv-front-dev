@@ -24,17 +24,17 @@ function Contacts({ contact }) {
     <>
       <Seo seo={seo} />
       <TitleSection text={contact.attributes.Title} />
-      <Line variantColor="grey" />
+      <Line variantColor='grey' />
       <BreadCrumbs
         links={[
           {
             title: contact.attributes.Title,
-            path: "",
+            path: '',
             active: false,
           },
         ]}
       />
-      <div className="container">
+      <div className='container'>
         <Address
           address={contact.attributes.Address}
           phone={contact.attributes.Phone}
@@ -46,21 +46,21 @@ function Contacts({ contact }) {
       <Map />
       <IntroCost />
       <BlogsBlockList
-        articleColor="inherit"
-        titleColor="black"
-        buttonColor="black"
+        articleColor='inherit'
+        titleColor='black'
+        buttonColor='black'
       />
-      <Line variantColor="grey" />
+      <Line variantColor='grey' />
     </>
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getStaticProps({locale}) {
   const [contactRes] = await Promise.all([
-    fetchAPI("/contact", {
-      fields: ["Title", "Address", "Phone", "Email"],
+    fetchAPI('/contact', {
+      fields: ['Title', 'Address', 'Phone', 'Email'],
       locale: locale,
-      populate: "*",
+      populate: '*',
     }),
   ]);
 
