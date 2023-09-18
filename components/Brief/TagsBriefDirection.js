@@ -1,10 +1,18 @@
+import {
+  ANIMATION,
+  ARCHITECH_VIS,
+  EXTERIOR,
+  INTERIOR,
+  MOTION,
+  VIDEO_KEY,
+} from "./Forms/formFieldsCostants";
 import TagItemBrief from "./TagItemBrief";
 
 const categories = [
-  { attributes: { name: "Интерьерная" } },
-  { attributes: { name: "Экстерьерная" } },
-  { attributes: { name: "3D/Моушн анимация" } },
-  { attributes: { name: "Видеопродакшн под ключ" } },
+  { attributes: { name: INTERIOR } },
+  { attributes: { name: EXTERIOR } },
+  { attributes: { name: ANIMATION } },
+  { attributes: { name: VIDEO_KEY } },
 ];
 
 export default function TagsBriefDirection({
@@ -15,7 +23,7 @@ export default function TagsBriefDirection({
 }) {
   const drawDirectionOptions = () => {
     switch (category?.attributes?.name) {
-      case "Архитектурная визуализация":
+      case ARCHITECH_VIS:
         return categories.map((elem, index) => (
           <TagItemBrief
             key={elem.attributes.name}
@@ -29,7 +37,7 @@ export default function TagsBriefDirection({
             className={index < 2 ? "" : "opacity-25"}
           />
         ));
-      case "Моушн & Видеопродакшн":
+      case MOTION:
         return categories.map((elem, index) => (
           <TagItemBrief
             key={elem.attributes.name}

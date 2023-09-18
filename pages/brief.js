@@ -11,7 +11,6 @@ export default function Brief({ categories, visobjs }) {
   const i18n = useTranslation();
   const locale = i18n.lang;
 
-  console.log(categories, visobjs);
   return (
     <>
       <TitleSection text={t("brief.title_fill")} />

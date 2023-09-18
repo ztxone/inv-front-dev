@@ -1,10 +1,10 @@
-// import { useFormContext } from "react-hook-form";
+import { ARCHITECH_VIS, INTERIOR } from "./Forms/formFieldsCostants";
 
 export const ProjectAngles = ({ setAngles, angles, category, projectType }) => {
   const addOne = () => {
     if (
-      category?.attributes?.name === "Архитектурная визуализация" &&
-      projectType?.attributes?.name === "Интерьерная"
+      category?.attributes?.name === ARCHITECH_VIS &&
+      projectType?.attributes?.name === INTERIOR
     ) {
       if (angles < 50) setAngles((prev) => prev + 1);
     }

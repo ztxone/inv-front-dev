@@ -14,7 +14,7 @@ export default function FormBrief({ visobjs, categories }) {
         ...data,
         // ProjectAngles: angles,
         categories: category,
-        ProjectType: projectType?.attributes?.name || "",
+        ProjectType: projectType?.attributes?.name,
       };
       console.log(sendData);
       await sendBrief(sendData);

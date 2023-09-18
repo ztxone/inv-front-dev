@@ -1,3 +1,45 @@
+import {
+  ADVERTISED_PRODUCT,
+  ANIMATION_TASK,
+  BUDGET,
+  CHRONOMETRY_VIDEO,
+  DESCRIPTION_PRODUCT,
+  EXAMPLE_LINK,
+  EXTRA_DESCRIPTION,
+  FILM_TYPE,
+  HEIGHT_POINT_VIEW,
+  MAP_LINK,
+  MATERIALS,
+  MODEL_3D,
+  MODEL_QUANTITY,
+  MORNING_POINT_VIEW,
+  NIGHT_POINT_VIEW,
+  PROJECT_DATES,
+  PROJECT_NAME,
+  PROJECT_QUANTITY,
+  PROJECT_RESOLUTION,
+  PROJECT_SQUARE,
+  PROJECT_TASK,
+  PROPERTY_CLASS,
+  RENDERING_MOVIE,
+  RENDER_NO_OPACITY,
+  RENDER_OPACITY,
+  SCENARIO,
+  SEASON,
+  TECHNICAL_REQUIREMENTS,
+  VIDEO_TYPE,
+  VISUALIZATION_OBJECT,
+} from "./fieldNames";
+
+export const ARCHITECH_VIS = "Архитектурная визуализация";
+export const INTERIOR = "Интерьерная";
+export const EXTERIOR = "Экстерьерная";
+export const PRODUCT_VIS = "Продуктовая 3D визуализация";
+export const MOTION = "Моушн & Видеопродакшн";
+export const ANIMATION = "Моушн 3D анимация";
+export const VIDEO_KEY = "Видеопродакшн под ключ";
+export const MODELING = "3D моделирование";
+
 const interiorSelectOptions = [
   { attributes: { Title: "Квартира" } },
   { attributes: { Title: "Частный дом" } },
@@ -7,9 +49,15 @@ const interiorSelectOptions = [
   { attributes: { Title: "Другое" } },
 ];
 
+const visualizationObjectOptions = [
+  { attributes: { Title: "Коммерческая недвижимость" } },
+  { attributes: { Title: "Продукт" } },
+  { attributes: { Title: "Ландшафт" } },
+];
+
 export const interiorFieldsInputs = [
   {
-    name: "ProjectName",
+    name: PROJECT_NAME,
     type: "input",
     label: { text: "Название проекта", required: true },
     input: {
@@ -21,7 +69,7 @@ export const interiorFieldsInputs = [
   },
   {
     type: "select",
-    name: "object",
+    name: VISUALIZATION_OBJECT,
     label: { text: "Объект визуализации", required: true },
     input: {
       options: interiorSelectOptions,
@@ -29,7 +77,7 @@ export const interiorFieldsInputs = [
   },
   {
     type: "input",
-    name: "ProjectDates",
+    name: PROJECT_DATES,
     label: { text: "Срок сдачи", required: true },
     input: {
       type: "text",
@@ -48,7 +96,7 @@ export const interiorFieldsInputs = [
     },
   },
   {
-    name: "ProjectSquare",
+    name: PROJECT_SQUARE,
     type: "input",
     label: {
       text: "Площадь помещений визуализации",
@@ -62,7 +110,7 @@ export const interiorFieldsInputs = [
     },
   },
   {
-    name: "ProjectResolution",
+    name: PROJECT_RESOLUTION,
     type: "input",
     label: {
       text: "Необходимое разрешение финальных обьектов",
@@ -78,7 +126,7 @@ export const interiorFieldsInputs = [
   },
   {
     type: "input",
-    name: "Extra",
+    name: EXTRA_DESCRIPTION,
     label: {
       text: "Дополнительное описание:",
       required: false,
@@ -93,15 +141,12 @@ export const interiorFieldsInputs = [
 ];
 
 const exteriorSelectOptions = [
-  // { attributes: { Title: "Частный дом" } },
-  // { attributes: { Title: "Многоквартирный жилой дом" } },
-  // { attributes: { Title: "Коттеджный поселок" } },
-  // { attributes: { Title: "Жилой комплекс" } },
-  // { attributes: { Title: "Офисное здание" } },
-  // { attributes: { Title: "Здание общепита" } },
-  { attributes: { Title: "Коммерческая недвижимость" } },
-  { attributes: { Title: "Продукт" } },
-  { attributes: { Title: "Ландшафт" } },
+  { attributes: { Title: "Частный дом" } },
+  { attributes: { Title: "Многоквартирный жилой дом" } },
+  { attributes: { Title: "Коттеджный поселок" } },
+  { attributes: { Title: "Жилой комплекс" } },
+  { attributes: { Title: "Офисное здание" } },
+  { attributes: { Title: "Здание общепита" } },
 ];
 
 const exteriorClassOptions = [
@@ -130,7 +175,7 @@ const yesNoOptions = [
 
 export const exteriorFieldsInputs = [
   {
-    name: "ProjectName",
+    name: PROJECT_NAME,
     type: "input",
     label: { text: "Название проекта", required: true },
     input: {
@@ -141,7 +186,7 @@ export const exteriorFieldsInputs = [
     },
   },
   {
-    name: "VisualizationObject",
+    name: VISUALIZATION_OBJECT,
     type: "select",
     label: { text: "Объект визуализации", required: true },
     input: {
@@ -149,7 +194,7 @@ export const exteriorFieldsInputs = [
     },
   },
   {
-    name: "3dModel",
+    name: MODEL_3D,
     type: "select",
     label: { text: "3D модель здания", required: true },
     input: {
@@ -157,7 +202,7 @@ export const exteriorFieldsInputs = [
     },
   },
   {
-    name: "ProjectDates",
+    name: PROJECT_DATES,
     type: "input",
     label: { text: "Срок сдачи", required: true },
     input: {
@@ -169,7 +214,7 @@ export const exteriorFieldsInputs = [
   },
   {
     type: "select",
-    name: "ClassProperty",
+    name: PROPERTY_CLASS,
     label: {
       text: "Класс недвижимости",
       required: true,
@@ -180,7 +225,7 @@ export const exteriorFieldsInputs = [
   },
   {
     type: "input",
-    name: "mapLink",
+    name: MAP_LINK,
     label: {
       text: "Местоположение обьекта",
       required: false,
@@ -200,9 +245,10 @@ export const exteriorFieldsInputs = [
       required: false,
     },
   },
+
   {
     type: "select",
-    name: "Season",
+    name: SEASON,
     label: {
       text: "Время года",
       required: true,
@@ -213,7 +259,7 @@ export const exteriorFieldsInputs = [
   },
   {
     type: "input",
-    name: "HeightPointView",
+    name: HEIGHT_POINT_VIEW,
     label: {
       text: "Количество ракурсов с высоты птичьего полета",
       required: false,
@@ -227,7 +273,7 @@ export const exteriorFieldsInputs = [
   },
   {
     type: "input",
-    name: "NightPointView",
+    name: NIGHT_POINT_VIEW,
     label: {
       text: "Количество ночных/вечерних изображений",
       required: false,
@@ -242,7 +288,7 @@ export const exteriorFieldsInputs = [
 
   {
     type: "input",
-    name: "MorningPointView",
+    name: MORNING_POINT_VIEW,
     label: {
       text: "Количество утренних/дневных изображений",
       required: false,
@@ -256,7 +302,7 @@ export const exteriorFieldsInputs = [
   },
   {
     type: "select",
-    name: "Movie",
+    name: RENDERING_MOVIE,
     label: {
       text: "Фотосъемка для рендеринга",
       required: false,
@@ -267,7 +313,7 @@ export const exteriorFieldsInputs = [
   },
   {
     type: "input",
-    name: "ProjectResolution",
+    name: PROJECT_RESOLUTION,
     label: {
       text: "Необходимое разрешение финальных обьектов",
       required: false,
@@ -281,7 +327,7 @@ export const exteriorFieldsInputs = [
   },
   {
     type: "input",
-    name: "Extra",
+    name: EXTRA_DESCRIPTION,
     label: {
       text: "Дополнительное описание:",
       required: false,
@@ -298,7 +344,7 @@ export const exteriorFieldsInputs = [
 export const productVisualization = [
   {
     type: "input",
-    name: "ProjectName",
+    name: PROJECT_NAME,
     label: { text: "Название проекта", required: true },
     input: {
       type: "text",
@@ -309,15 +355,15 @@ export const productVisualization = [
   },
   {
     type: "select",
-    name: "VisualizationObject",
+    name: VISUALIZATION_OBJECT,
     label: { text: "Объект визуализации", required: true },
     input: {
-      options: exteriorSelectOptions,
+      options: visualizationObjectOptions,
     },
   },
   {
     type: "select",
-    name: "3dModel",
+    name: MODEL_3D,
     label: { text: "3D модель здания", required: true },
     input: {
       options: exteriorModelOptions,
@@ -325,7 +371,7 @@ export const productVisualization = [
   },
   {
     type: "input",
-    name: "ProjectQuantity",
+    name: PROJECT_QUANTITY,
     label: {
       text: "Клоличество продуктов",
       required: true,
@@ -340,7 +386,7 @@ export const productVisualization = [
 
   {
     type: "input",
-    name: "ProjectDates",
+    name: PROJECT_DATES,
     label: { text: "Срок сдачи", required: true },
     input: {
       type: "text",
@@ -352,7 +398,7 @@ export const productVisualization = [
 
   {
     type: "select",
-    name: "RenderOpacity",
+    name: RENDER_OPACITY,
     label: {
       text: "Рендер на прозрачном фоне",
       required: false,
@@ -363,7 +409,7 @@ export const productVisualization = [
   },
   {
     type: "select",
-    name: "RenderNoOpacity",
+    name: RENDER_NO_OPACITY,
     label: {
       text: "Рендер продукта в интерьере",
       required: false,
@@ -383,7 +429,7 @@ export const productVisualization = [
 
   {
     type: "input",
-    name: "ProjectResolution",
+    name: PROJECT_RESOLUTION,
     label: {
       text: "Необходимое разрешение финальных обьектов",
       required: false,
@@ -397,7 +443,7 @@ export const productVisualization = [
   },
   {
     type: "input",
-    name: "Extra",
+    name: EXTRA_DESCRIPTION,
     label: {
       text: "Дополнительное описание:",
       required: false,
@@ -428,7 +474,7 @@ const filmTypesProdyction = [
 export const videoBykey = [
   {
     type: "input",
-    name: "ProjectName",
+    name: PROJECT_NAME,
     label: { text: "Название проекта", required: true },
     input: {
       type: "text",
@@ -440,7 +486,7 @@ export const videoBykey = [
 
   {
     type: "select",
-    name: "VideoType",
+    name: VIDEO_TYPE,
     label: {
       text: "Тип видеоролика",
       required: true,
@@ -452,9 +498,8 @@ export const videoBykey = [
 
   {
     type: "select",
-    name: "FilmType",
+    name: FILM_TYPE,
     label: {
-      htmlFor: "FilmType",
       text: "Вид видеоролика",
       required: true,
     },
@@ -464,7 +509,7 @@ export const videoBykey = [
   },
   {
     type: "input",
-    name: "AdvertisedProuct",
+    name: ADVERTISED_PRODUCT,
     label: {
       text: "Рекламируемый товар/услуга/продукт",
       required: true,
@@ -478,7 +523,7 @@ export const videoBykey = [
   },
   {
     type: "input",
-    name: "ProjectDates",
+    name: PROJECT_DATES,
     label: { text: "Срок сдачи", required: true },
     input: {
       type: "text",
@@ -489,7 +534,7 @@ export const videoBykey = [
   },
   {
     type: "input",
-    name: "DescriptionProuct",
+    name: DESCRIPTION_PRODUCT,
     label: {
       text: "Описание товар/услуга/продукт",
       required: false,
@@ -504,7 +549,7 @@ export const videoBykey = [
 
   {
     type: "input",
-    name: "Chronometry",
+    name: CHRONOMETRY_VIDEO,
     label: {
       text: "Хронометраж видеоролика",
       required: false,
@@ -518,7 +563,7 @@ export const videoBykey = [
   },
   {
     type: "input",
-    name: "Budget",
+    name: BUDGET,
     label: {
       text: "Бюджет на создание видеоролика",
       required: false,
@@ -532,7 +577,7 @@ export const videoBykey = [
   },
   {
     type: "input",
-    name: "Materials",
+    name: MATERIALS,
     label: {
       text: "Материалы которые можете предоставить",
       required: false,
@@ -546,7 +591,7 @@ export const videoBykey = [
   },
   {
     type: "input",
-    name: "ExampleLink",
+    name: EXAMPLE_LINK,
     label: {
       text: "Ссылка на пример видеоролика:",
       required: false,
@@ -560,7 +605,7 @@ export const videoBykey = [
   },
   {
     type: "input",
-    name: "ProjectResolution",
+    name: PROJECT_RESOLUTION,
     label: {
       text: "Необходимое разрешение финальных обьектов",
       required: false,
@@ -574,7 +619,7 @@ export const videoBykey = [
   },
   {
     type: "input",
-    name: "Extra",
+    name: EXTRA_DESCRIPTION,
     label: {
       text: "Дополнительное описание:",
       required: false,
@@ -597,7 +642,7 @@ const scenarioOptions = [
 export const videoAnimation = [
   {
     type: "input",
-    name: "ProjectName",
+    name: PROJECT_NAME,
     label: { text: "Название проекта", required: true },
     input: {
       type: "text",
@@ -609,7 +654,7 @@ export const videoAnimation = [
 
   {
     type: "input",
-    name: "AnimationTask",
+    name: ANIMATION_TASK,
     label: {
       text: "Задача анимации",
       required: true,
@@ -623,7 +668,7 @@ export const videoAnimation = [
   },
   {
     type: "input",
-    name: "ProjectDates",
+    name: PROJECT_DATES,
     label: { text: "Срок сдачи", required: true },
     input: {
       type: "text",
@@ -635,7 +680,7 @@ export const videoAnimation = [
 
   {
     type: "input",
-    name: "Chronometry",
+    name: CHRONOMETRY_VIDEO,
     label: {
       text: "Хронометраж видеоролика",
       required: false,
@@ -649,7 +694,7 @@ export const videoAnimation = [
   },
   {
     type: "select",
-    name: "Scenario",
+    name: SCENARIO,
     label: {
       text: "Наличие сценария",
       required: true,
@@ -660,7 +705,7 @@ export const videoAnimation = [
   },
   {
     type: "input",
-    name: "Budget",
+    name: BUDGET,
     label: {
       text: "Бюджет на создание видеоролика",
       required: false,
@@ -674,7 +719,7 @@ export const videoAnimation = [
   },
   {
     type: "input",
-    name: "Materials",
+    name: MATERIALS,
     label: {
       text: "Материалы которые можете предоставить",
       required: false,
@@ -688,7 +733,7 @@ export const videoAnimation = [
   },
   {
     type: "input",
-    name: "ExampleLink",
+    name: EXAMPLE_LINK,
     label: {
       text: "Ссылка на пример видеоролика:",
       required: false,
@@ -702,7 +747,7 @@ export const videoAnimation = [
   },
   {
     type: "input",
-    name: "ProjectResolution",
+    name: PROJECT_RESOLUTION,
     label: {
       text: "Необходимое разрешение финальных обьектов",
       required: false,
@@ -716,7 +761,7 @@ export const videoAnimation = [
   },
   {
     type: "input",
-    name: "Extra",
+    name: EXTRA_DESCRIPTION,
     label: {
       text: "Дополнительное описание:",
       required: false,
@@ -739,7 +784,7 @@ const requirementsOptions = [
 export const modeling = [
   {
     type: "input",
-    name: "ProjectName",
+    name: PROJECT_NAME,
     label: { text: "Название проекта", required: true },
     input: {
       type: "text",
@@ -749,18 +794,24 @@ export const modeling = [
     },
   },
   {
-    type: "counter",
-    name: "counter",
+    type: "input",
+    name: MODEL_QUANTITY,
     label: {
-      htmlFor: "",
-      text: "Количество необходимых моделей",
+      text: "Количество моделей",
       required: true,
+    },
+    input: {
+      type: "number",
+      max: 50,
+      placeholder: "Введите количество моделей",
+      pattern: true,
+      error: "This field is required",
     },
   },
 
   {
     type: "input",
-    name: "Task",
+    name: PROJECT_TASK,
     label: {
       text: "Модель чего нужно создать",
       required: true,
@@ -769,13 +820,13 @@ export const modeling = [
       type: "text",
       placeholder: "Опишите модель",
       pattern: true,
-      error: "",
+      error: "This field is required",
     },
   },
 
   {
     type: "input",
-    name: "ProjectDates",
+    name: PROJECT_DATES,
     label: { text: "Срок сдачи", required: true },
     input: {
       type: "text",
@@ -787,7 +838,7 @@ export const modeling = [
 
   {
     type: "input",
-    name: "Materials",
+    name: MATERIALS,
     label: {
       text: "Материалы которые можете предоставить",
       required: false,
@@ -802,7 +853,7 @@ export const modeling = [
 
   {
     type: "select",
-    name: "TechnicalRequirements",
+    name: TECHNICAL_REQUIREMENTS,
     label: {
       text: "Технические требования",
       required: true,

@@ -1,4 +1,12 @@
 import {
+  ANIMATION,
+  ARCHITECH_VIS,
+  EXTERIOR,
+  INTERIOR,
+  MODELING,
+  MOTION,
+  PRODUCT_VIS,
+  VIDEO_KEY,
   exteriorFieldsInputs,
   interiorFieldsInputs,
   modeling,
@@ -11,21 +19,19 @@ export const selectFieldsForForm = (category, projectType) => {
   if (!category) return null;
 
   switch (category.attributes.name) {
-    case "Архитектурная визуализация":
-      if (projectType?.attributes?.name === "Интерьерная")
+    case ARCHITECH_VIS:
+      if (projectType?.attributes?.name === INTERIOR)
         return interiorFieldsInputs;
-      if (projectType?.attributes?.name === "Экстерьерная")
+      if (projectType?.attributes?.name === EXTERIOR)
         return exteriorFieldsInputs;
       return null;
-    case "Продуктовая 3D визуализация":
+    case PRODUCT_VIS:
       return productVisualization;
-    case "Моушн & Видеопродакшн":
-      if (projectType?.attributes?.name === "3D/Моушн анимация")
-        return videoAnimation;
-      if (projectType?.attributes?.name === "Видеопродакшн под ключ")
-        return videoBykey;
+    case MOTION:
+      if (projectType?.attributes?.name === ANIMATION) return videoAnimation;
+      if (projectType?.attributes?.name === VIDEO_KEY) return videoBykey;
       return null;
-    case "3D моделирование":
+    case MODELING:
       return modeling;
     default:
       return null;

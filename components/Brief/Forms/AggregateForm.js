@@ -17,7 +17,7 @@ export const AggregateForm = ({ send, category, projectType }) => {
     try {
       const sendData = {
         ...data,
-        ProjectAngles: angles,
+        ProjectPlans: angles,
       };
       await send(sendData);
     } catch (error) {}
@@ -52,7 +52,7 @@ export const AggregateForm = ({ send, category, projectType }) => {
         ) : null}
         <ContactBrief />
         <div className="lg:flex flex-row-reverse justify-between items-center">
-          <ModalApproveForm name="approve" />
+          <ModalApproveForm name="Agreement" />
           <ButtonSubmit text="Отправить бриф" variant="blue" />
         </div>
       </form>
