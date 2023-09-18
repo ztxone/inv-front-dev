@@ -14,7 +14,7 @@ export const transporter = nodemailer.createTransport({
 
 export const sendMail = async (data) => {
   const result = await transporter.sendMail({
-    subject: "Моя почта",
+    subject: "Заявка",
     to: "madjok87@icloud.com",
     html: createEmail(data),
   });
@@ -22,4 +22,5 @@ export const sendMail = async (data) => {
   if (failed.length) {
     throw new Error(`Email(s) (${failed.join(", ")}) could not be sent`);
   }
+  return result;
 };

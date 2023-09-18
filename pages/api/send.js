@@ -10,5 +10,6 @@ export default async (req, res) => {
       console.log(error);
     }
   }
+
   res.status(200).json(createEmail(req.body));
 };

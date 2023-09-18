@@ -16,8 +16,8 @@ export default function FormBrief({ visobjs, categories }) {
         categories: category,
         ProjectType: projectType?.attributes?.name,
       };
-      console.log(sendData);
       await sendBrief(sendData);
+
       await fetch("/api/send", {
         method: "POST",
         body: JSON.stringify(sendData),
