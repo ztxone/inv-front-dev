@@ -8,16 +8,20 @@ import { AggregateForm } from "./Forms/AggregateForm";
 export default function FormBrief({ visobjs, categories }) {
   const [category, setCategory] = useState(categories[0]);
   const [projectType, setProjectType] = useState();
+
   const send = async (data) => {
     try {
       const sendData = {
         ...data,
-        // ProjectAngles: angles,
         categories: category,
         ProjectType: projectType?.attributes?.name,
       };
       console.log(sendData);
       await sendBrief(sendData);
+      await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify(sendData),
+      });
       console.log("Brief sent successfully!");
     } catch (error) {
       console.error("Brief sending error:", error);
