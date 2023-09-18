@@ -28,7 +28,7 @@ export const AggregateForm = ({ send, category, projectType }) => {
   useEffect(() => {
     methods.reset();
     setAngles(1);
-  }, [category, projectType]);
+  }, [category, projectType, methods]);
 
   return (
     <FormProvider {...methods}>
