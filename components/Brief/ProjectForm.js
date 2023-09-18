@@ -4,7 +4,7 @@ import { useFormContext } from "react-hook-form";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalSelectForBrief from "./ModalSelectForBrief";
 
-export default function ProjectForm({ title, visobjs, children }) {
+export default function ProjectForm({ title, children, visobjs }) {
   const {
     register,
     formState: { errors },
@@ -59,7 +59,7 @@ export default function ProjectForm({ title, visobjs, children }) {
       <ModalFieldset>
         <ModalLabel htmlFor="project" text="Сроки проекта" required={true} />
         <ModalInputForBrief
-          type="number"
+          type="text"
           id="project"
           placeholder="Введите сроки вашего проекта"
           error={errors.Duration && "This field is required"}
@@ -80,6 +80,22 @@ export default function ProjectForm({ title, visobjs, children }) {
           placeholder="Введите площадь"
           error={errors.Square && "This field is required"}
           name="ProjectSquare"
+          register={register}
+          pattern={{ required: true }}
+        />
+      </ModalFieldset>
+      <ModalFieldset>
+        <ModalLabel
+          htmlFor="ProjectResolution"
+          text="Необходимое разрешение финальных обьектов"
+          required={true}
+        />
+        <ModalInputForBrief
+          type="text"
+          id="ProjectResolution"
+          placeholder="Введите необходимое разрешение"
+          error={errors.Square && "This field is required"}
+          name="ProjectResolution"
           register={register}
           pattern={{ required: true }}
         />

@@ -8,6 +8,7 @@ export default function ModalInputForBrief({
   register,
   name,
   pattern,
+  max = 50,
 }) {
   return (
     <>
@@ -19,6 +20,7 @@ export default function ModalInputForBrief({
         placeholder={placeholder}
         {...register(name, pattern)}
         min={type === "number" ? 0 : undefined}
+        max={type === "number" ? max : undefined}
       />
       {error && <InputErrorMessage message={error} />}
     </>
