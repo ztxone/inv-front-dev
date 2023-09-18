@@ -23,7 +23,7 @@ export default function ErrorPage({}) {
 
 ErrorPage.getLayout = function getLayout(page) {
   return (
-    <Layout bg='grey' headerBg='black' footerBg='white' pillowColor={'grey'}>
+    <Layout bg='grey' headerBg='black' footerBg='white' pillowColor={'grey'} variantSvg='darkSvg'>
       {page}
     </Layout>
   );

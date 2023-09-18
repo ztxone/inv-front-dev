@@ -40,7 +40,7 @@ export default function Confidence({ agreement, text }) {
 export async function getStaticProps({ locale }) {
   const [agreementRes] = await Promise.all([
     fetchAPI("/agreement", {
-      fields: ["Title", "Text"],
+      fields: ["Title", "TextEditor"],
       locale: locale,
       populate: "*",
     }),

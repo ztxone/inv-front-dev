@@ -8,16 +8,19 @@ export default function Address({ address, phone, email, socials }) {
   const { t } = useTranslation("common");
   return (
     <div
-      className="pb-6 pt-5 md:flex md:pb-0
-    lg:w-2/3 justify-between"
+      className="py-5 
+      md:pt-[48px] md:flex md:pb-15
+     justify-center xl:pt-9 xl:justify-between"
     >
-      <div className="md:max-w-[282px] md:pr-5 md:mr-10.5">
+      <div className="md:max-w-[282px] md:mr-auto
+      xl:w-[32%] xl:max-w-none xl:m-0">
         <AddressTitle title={t`contacts.address`} />
         <AddressText text={address} />
       </div>
       <div
-        className="md:pl-7
-      lg:pr-24.5"
+        className="pb-[19px]
+        md:mr-6 md:pb-0
+        xl:w-[32%] xl:m-0 xl:pl-[17%]"
       >
         <AddressTitle title={t`contacts.numbers`} />
         <div
@@ -32,8 +35,8 @@ export default function Address({ address, phone, email, socials }) {
         </div>
       </div>
       <div
-        className="md:pl-7
-      lg:pr-24.5"
+        className="md:ml-auto md:self-end
+      xl:w-[32%] xl:m-0"
       >
         <Socials variant="white" links={socials} />
       </div>

@@ -70,7 +70,7 @@ export default function Map() {
 
   return (
     // Important! Always set the container height explicitly
-    <div style={{ height: "50vh", width: "100%" }} className="pb-12">
+    <div style={{ height: "64vh", width: "100%" }} className="pb-12 md:pt-[58px]">
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyDw4ypoJbMz_pDoyEVdxn0s_hxDZ3M0chE" }}
         defaultCenter={defaultProps.center}
