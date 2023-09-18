@@ -1,38 +1,35 @@
 import TagsBrief from "./TagsBrief";
-import ProjectForm from "./ProjectForm";
-import ContactBrief from "./ContactBrief";
-import ButtonSubmit from "../ui/ButtonSubmit";
-import { useForm, FormProvider } from "react-hook-form";
 import sendBrief from "lib/sendBrief";
 import Link from "next/link";
-import ModalApproveForm from "../Forms/ModalApproveForm";
 import { useState } from "react";
-import { ProjectAngles } from "./ProjectAngles";
+import TagsBriefDirection from "./TagsBriefDirection";
+import { AggregateForm } from "./Forms/AggregateForm";
 
 export default function FormBrief({ visobjs, categories }) {
-  const [angles, setAngles] = useState(1);
   const [category, setCategory] = useState(categories[0]);
-  const [projectType, setProjectType] = useState({
-    attributes: { name: "Интерьерная" },
-  });
-  const methods = useForm({
-    mode: "onSubmit",
-    defaultValues: { VisualizationObject: "Продукт" },
-  });
-  const onSubmit = async (data) => {
+  const [projectType, setProjectType] = useState();
+
+  const send = async (data) => {
     try {
       const sendData = {
         ...data,
-        ProjectAngles: angles,
         categories: category,
-        ProjectType: projectType?.attributes?.name || "",
+        ProjectType: projectType?.attributes?.name,
       };
-      console.log(sendData);
       await sendBrief(sendData);
+
+      await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify(sendData),
+      });
       console.log("Brief sent successfully!");
     } catch (error) {
       console.error("Brief sending error:", error);
     }
+  };
+  const onCategoryChange = (category) => {
+    setCategory(category);
+    setProjectType(undefined);
   };
 
   return (
@@ -48,37 +45,23 @@ export default function FormBrief({ visobjs, categories }) {
           +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07
         </Link>
       </p>
-      <FormProvider {...methods}>
-        <form
-          className="pb-15 pr-18
-          lg:w-4/6"
-          onSubmit={methods.handleSubmit(onSubmit)}
-        >
-          <TagsBrief
-            title="Выберите услугу"
-            categories={categories}
-            setCategory={setCategory}
-            category={category}
-          />
-          <TagsBrief
-            title="Направление"
-            categories={[
-              { attributes: { name: "Интерьерная" } },
-              { attributes: { name: "Экстерьерная" } },
-            ]}
-            setCategory={setProjectType}
-            category={projectType}
-          />
-          <ProjectForm title="Подробнее о вашем проекте" visobjs={visobjs}>
-            <ProjectAngles angles={angles} setAngles={setAngles} />
-          </ProjectForm>
-          <ContactBrief />
-          <div className="lg:flex flex-row-reverse justify-between items-center">
-            <ModalApproveForm name="approve" />
-            <ButtonSubmit text="Отправить бриф" variant="blue" />
-          </div>
-        </form>
-      </FormProvider>
+      <TagsBrief
+        title="Выберите услугу"
+        categories={categories}
+        setCategory={onCategoryChange}
+        category={category}
+      />
+      <TagsBriefDirection
+        title="Направление"
+        direction={projectType}
+        setDirection={setProjectType}
+        category={category}
+      />
+      <AggregateForm
+        send={send}
+        projectType={projectType}
+        category={category}
+      />
     </div>
   );
 }

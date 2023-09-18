@@ -20,7 +20,7 @@ export function RadioButton({ text, checked }) {
   );
 }
 
-export default function ModalSelectForBrief({ options, name }) {
+export default function ModalSelectForBrief({ options, name, id = "" }) {
   const [option, setOption] = useState();
   const { setValue } = useFormContext();
   const [isOpen, setIsOpen] = useState(false);
@@ -53,6 +53,7 @@ export default function ModalSelectForBrief({ options, name }) {
     >
       <input name="theme" id="theme" type="hidden"></input>
       <div
+        id={id}
         onClick={toggleOption}
         className="py-3 px-5 w-full min-w-[292px] border border-link-water rounded-5xl text-left cursor-pointer flex items-center justify-between"
       >

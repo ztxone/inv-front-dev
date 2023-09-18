@@ -40,7 +40,3 @@ input:focus {
 .ReactModal__Body--open {
   overflow: hidden;
 }
-
-.richText p {
-  margin-bottom: 15px;
-}
