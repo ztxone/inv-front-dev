@@ -18,7 +18,8 @@ export default function ServiceItem({
     lg:mb-0 lg:mr-7 lg:last-of-type:mr-0`}
     >
       <Link href={link} className="flex h-full rounded-5xl">
-        <div className="bg-nero3 w-full h-full z-10 p-9 rounded-5xl">
+        {/* <div className="bg-nero3 w-full h-full z-10 p-9 rounded-5xl"> */}
+        <div className="w-full h-full z-10 p-9 rounded-5xl">
           <TitleH3 text={title} subtext={subtitle} />
           <DescriptionServiceItem
             textPart1="Для экстерьеров"
