@@ -18,10 +18,11 @@ export default function FormBrief({ visobjs, categories }) {
       };
       await sendBrief(sendData);
 
-      await fetch("/api/send", {
+      const res = await fetch("/api/send", {
         method: "POST",
         body: JSON.stringify(sendData),
       });
+      console.log(await res.json());
       console.log("Brief sent successfully!");
     } catch (error) {
       console.error("Brief sending error:", error);

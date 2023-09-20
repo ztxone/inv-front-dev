@@ -3,8 +3,8 @@ import Article from "@/components/ui/Article";
 import ButtonPagination from "@/components/ui/ButtonPagination";
 import TitleColor from "../ui/TitleColor";
 import { useEffect, useRef, useState } from "react";
-import { Virtual, Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Virtual, Navigation, Pagination } from "swiper/modules";
 import Loading from "@/components/ui/Loading";
 
 import "swiper/css";
@@ -17,32 +17,34 @@ export default function BlogsBlockList({
   titleColor,
   articleColor,
   buttonColor,
+  blogRes,
 }) {
   const navigationPrevRef = useRef(null);
   const navigationNextRef = useRef(null);
   const { t } = useTranslation("common");
   const i18n = useTranslation();
 
-  const [data, setData] = useState();
+  console.log(blogRes);
+  // const [data, setData] = useState();
 
   const locale = i18n.lang;
 
-  useEffect(() => {
-    async function fetchData() {
-      const blogsRes = await fetchAPI("/blogs", {
-        fields: ["Title", "slug", "Preview"],
-        populate: ["tags", "Image_preview"],
-        locale: locale,
-      });
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     const blogsRes = await fetchAPI("/blogs", {
+  //       fields: ["Title", "slug", "Preview"],
+  //       populate: ["tags", "Image_preview"],
+  //       locale: locale,
+  //     });
 
-      setData(blogsRes.data);
-    }
-    fetchData();
-  }, [locale]);
+  //     setData(blogsRes.data);
+  //   }
+  //   fetchData();
+  // }, [locale]);
 
-  if (!data) {
-    return <Loading />;
-  }
+  // if (!data) {
+  //   return <Loading />;
+  // }
 
   return (
     <section
@@ -91,7 +93,7 @@ export default function BlogsBlockList({
       </div>
 
       <Swiper
-        modules={[Navigation, Virtual, Pagination]}
+        modules={[Navigation, Pagination]}
         spaceBetween={30}
         slidesPerView={3}
         scrollbar={{ draggable: true }}
@@ -100,18 +102,22 @@ export default function BlogsBlockList({
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
-        onBeforeInit={(swiper) => {
-          swiper.params.navigation.prevEl = navigationPrevRef.current;
-          swiper.params.navigation.nextEl = navigationNextRef.current;
-        }}
+        // onBeforeInit={(swiper) => {
+        //   swiper.params.navigation.prevEl = navigationPrevRef.current;
+        //   swiper.params.navigation.nextEl = navigationNextRef.current;
+        // }}
         virtual
         className="!pl-3.8 !-mr-3.8 flex  pb-7
-      md:pb-10 md:gap-7
-      lg:pb-9 lg:!pl-20"
+        md:pb-10 md:gap-7
+        lg:pb-9 lg:!pl-20"
       >
-        {data[0] &&
-          data.map((blog, key) => (
-            <SwiperSlide key={key} className="shrink-0">
+        {blogRes &&
+          blogRes.map((blog, key) => (
+            <SwiperSlide
+              key={blog.attributes.Title}
+              // className=" bg-blue"
+              virtualIndex={blog.attributes.Title}
+            >
               <Article
                 image={blog.attributes.Image_preview}
                 link={blog.attributes.slug}
