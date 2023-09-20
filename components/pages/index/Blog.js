@@ -3,7 +3,7 @@ import TitleH2 from "@/components/ui/TitleH2";
 import Article from "@/components/ui/Article";
 import ButtonPagination from "@/components/ui/ButtonPagination";
 import { useRef } from "react";
-import { Virtual, Navigation, Pagination } from "swiper";
+import { Virtual, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Loading from "@/components/ui/Loading";
 

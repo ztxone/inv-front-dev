@@ -1,22 +1,22 @@
 import PillowLink from "../ui/PillowLink";
 import ProjectItemImage from "../ui/ProjectItemImage";
 import Title from "../ui/Title";
-import {Virtual, Navigation, Pagination} from "swiper";
-import {Swiper, SwiperSlide} from "swiper/react";
+import { Virtual, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 import ProjectItemCarousel from "./ProjectItemCarousel";
 
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import {getStrapiMedia} from "lib/media";
+import { getStrapiMedia } from "lib/media";
 import useTranslation from "next-translate/useTranslation";
 import Tag from "../ui/Tag";
 
 export default function PortfolioCarousel({
-  title="Смотреть портфолио",
+  title = "Смотреть портфолио",
   projects,
 }) {
-  const {t}=useTranslation("common");
+  const { t } = useTranslation("common");
 
   return (
     <div
@@ -31,16 +31,14 @@ export default function PortfolioCarousel({
         link="/portfolio"
       />
       <Swiper
-        modules={[Navigation, Virtual, Pagination]}
+        slidesPerView={"auto"}
         spaceBetween={10}
-        slidesPerView={3}
-        scrollbar={{draggable: true}}
-        virtual
-        className="flex pb-7 gap-2.5
-        md:w-full !-mr-3.8"
+        className="pb-7
+        w-full
+        "
       >
         {projects.map((project) => (
-          <SwiperSlide key={project.id}>
+          <SwiperSlide key={project.id} style={{ flexShrink: 1 }}>
             <ProjectItemCarousel
               name={project.attributes.Title}
               link={project.attributes.slug}
@@ -51,16 +49,12 @@ export default function PortfolioCarousel({
                 height="147"
                 variant="imageBlock"
               />
-              {project.attributes.tags.data.length>0&&(
-                <Tag
-                  text1={project.attributes.tags.data[0].attributes.Name}
-                  text2={
-                    project.attributes.tags.data[1]
-                      ? project.attributes.tags.data[1].attributes.Name
-                      :""
-                  }
-                />
-              )}
+              <div className="flex gap-2">
+                {project.attributes.tags.data.length > 0 &&
+                  project.attributes.tags.data.map((tag) => {
+                    return <Tag key={tag.id} text={tag.attributes.Name} />;
+                  })}
+              </div>
             </ProjectItemCarousel>
           </SwiperSlide>
         ))}
