@@ -59,13 +59,13 @@
   @apply transition-all duration-300 ease-in-out;
 }
 
-.swiper-slide {
+/* .swiper-slide {
   @apply !w-auto;
-}
+} */
 
-.swiper-button-lock {
+/* .swiper-button-lock {
   @apply !block;
-}
+} */
 
 .briefInput {
   @apply py-3 px-5 w-full border border-link-water rounded-5xl

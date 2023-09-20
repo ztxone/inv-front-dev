@@ -20,7 +20,6 @@ function Project({ project, categories }) {
   const i18n = useTranslation();
   const locale = i18n.lang;
   const imageUrl = getStrapiMedia(project.attributes.Poster);
-  console.log(project);
 
   const seo = {
     metaTitle: t("seo.project") + project.attributes.Seo[0].metaTitle,
@@ -50,14 +49,18 @@ function Project({ project, categories }) {
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
 
-      <Video
+      {/* <Video
         poster={project.attributes.Poster}
         videofile={project.attributes.VideoFile}
-      />
+      /> */}
 
-      {project.attributes.ProjectSliderFotos.data && (
-        <ProjectCarousel fotos={project.attributes.ProjectSliderFotos.data} />
-      )}
+      {
+        <ProjectCarousel
+          photos={project.attributes.ProjectSliderFotos.data}
+          poster={project.attributes.Poster}
+          videofile={project.attributes.VideoFile}
+        />
+      }
 
       <ProjectAbout
         task={project.attributes.ProjectTask}

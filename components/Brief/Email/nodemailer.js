@@ -1,8 +1,11 @@
 import { createEmail } from "./createEmail";
 var nodemailer = require("nodemailer");
 
-const user = process.env.NEXT_EMAIL;
-const pass = process.env.NEXT_EMAIL_PASS;
+const user = "invfront164@gmail.com";
+// process.env.NEXT_EMAIL;
+
+const pass = "eozhrawqisgqkrez";
+//  process.env.NEXT_EMAIL_PASS;
 
 export const transporter = nodemailer.createTransport({
   service: "gmail",
