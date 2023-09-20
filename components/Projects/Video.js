@@ -12,8 +12,8 @@ export default function Video({ poster, videofile, small = false }) {
         <Image
           className="w-full rounded-lr h-full"
           src={getStrapiMedia(poster)}
-          width="266"
-          height="151"
+          width="1064"
+          height="604"
           alt=""
         />
       )}
