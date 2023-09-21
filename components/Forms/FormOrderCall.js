@@ -5,9 +5,9 @@ import ModalLabel from "../ui/ModalLabel";
 import ModalFieldset from "../ui/ModalFieldset";
 import ButtonSubmit from "../ui/ButtonSubmit";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
-import ModalSelectForBrief from "../Brief/ModalSelectForBrief";
 import ModalApproveForm from "./ModalApproveForm";
 import { useState } from "react";
+import { sendCallOrder } from "lib/sendCallOrder";
 
 const options = [
   {
@@ -24,15 +24,18 @@ const options = [
   },
 ];
 
-export const FormOrderCall = ({ title }) => {
+export const FormOrderCall = ({ title, onClose }) => {
   const [checked, setChecked] = useState(true);
-  const toggleChecked = () => setChecked((prev) => !prev);
   const methods = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
-      await sendEmail(data);
+      await sendCallOrder(data);
+      const res = await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+      onClose();
       console.log("Email sent successfully!");
     } catch (error) {
       console.error("Email sending error:", error);
@@ -64,7 +67,7 @@ export const FormOrderCall = ({ title }) => {
                 type="text"
                 id="name"
                 placeholder="Введите ваше имя"
-                name={"name"}
+                name={"Name"}
                 error={methods.formState.errors.name?.message}
                 pattern={{ required: "This field is required" }}
                 register={methods.register}

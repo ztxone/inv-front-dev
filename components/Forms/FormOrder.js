@@ -29,6 +29,10 @@ export const FormOrder = ({ onSubmitForm }) => {
   const onSubmit = async (data) => {
     try {
       await sendEmail(data);
+      const res = await fetch("/api/send", {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
       console.log("Email sent successfully!");
     } catch (error) {
       console.error("Email sending error:", error);
