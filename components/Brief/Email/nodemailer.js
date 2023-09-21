@@ -1,3 +1,4 @@
+import { fetchAPI } from "lib/api";
 import { createEmail } from "./createEmail";
 var nodemailer = require("nodemailer");
 
@@ -16,9 +17,13 @@ export const transporter = nodemailer.createTransport({
 });
 
 export const sendMail = async (data) => {
+  const response = await fetchAPI("/global", {
+    fields: ["Email_forms"],
+  });
   const result = await transporter.sendMail({
     subject: "Заявка",
-    to: "info@invert.studio",
+    to: response.data.attributes.Email_forms,
+
     html: createEmail(data),
   });
   const failed = result.rejected.concat(result.pending).filter(Boolean);

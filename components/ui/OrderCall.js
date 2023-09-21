@@ -49,7 +49,7 @@ export function OrderCall({
         </span>
       </div>
       <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>
-        <FormOrderCall title={formTitle} />
+        <FormOrderCall title={formTitle} onClose={handleCloseModal} />
       </Modal>
     </>
   );
