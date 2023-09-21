@@ -14,10 +14,10 @@ export default function ProjectSlide({ photo, videofile = null }) {
       ) : (
         <Image
           className="w-full h-full"
-          src={getStrapiMediaCarousel(photo)}
           width="266"
-          height="151"
           alt={photo.attributes.name}
+          height="151"
+          src={getStrapiMediaCarousel(photo)}
         />
       )}
     </div>
