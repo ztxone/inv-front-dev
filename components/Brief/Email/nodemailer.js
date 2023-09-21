@@ -18,7 +18,7 @@ export const transporter = nodemailer.createTransport({
 export const sendMail = async (data) => {
   const result = await transporter.sendMail({
     subject: "Заявка",
-    to: "madjok87@icloud.com",
+    to: "info@invert.studio",
     html: createEmail(data),
   });
   const failed = result.rejected.concat(result.pending).filter(Boolean);
