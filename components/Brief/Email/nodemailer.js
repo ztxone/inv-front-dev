@@ -23,6 +23,7 @@ export const sendMail = async (data) => {
   const result = await transporter.sendMail({
     subject: "Заявка",
     to: response.data.attributes.Email_forms,
+
     html: createEmail(data),
   });
   const failed = result.rejected.concat(result.pending).filter(Boolean);

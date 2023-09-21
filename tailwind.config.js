@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-module.exports={
+module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -15,7 +15,8 @@ module.exports={
     colors: {
       "body-bg": "#e9e9e9",
       "baker-chocolate": "#593B0F",
-      black: "#0C0C0C",
+      //black: "#0C0C0C",
+      black: "#000000",
       "black-russian": "#1C1D21",
       "black-russian2": "#27282E",
       "black-russian3": "#1F1F20",
@@ -31,9 +32,9 @@ module.exports={
       "light-grey": "#D5D5D5",
       "lucky-point": "#141F52",
       nero: "#232323",
-      nero3: 'rgb(35, 35, 35, 0.4)',
+      nero3: "rgb(35, 35, 35, 0.4)",
       nero2: "#151515",
-      nero4: '#181818',
+      nero4: "#181818",
       nobel: "#989898",
       orange: "#ff7849",
       pink: "#ff49db",
@@ -41,7 +42,7 @@ module.exports={
       "royal-blue": "#4574EF",
       "suva-grey": "#909090",
       white: "#FFFFFF",
-      whiteOp1: 'rgba(255, 255, 255, 1)',
+      whiteOp1: "rgba(255, 255, 255, 1)",
       whisper: "#E9E9E9",
       yellow: "#ffc82c",
       "link-water": "#C9D6DF",
@@ -62,29 +63,29 @@ module.exports={
       serif: ["Merriweather", "serif"],
     },
     fontSize: {
-      xxs: ["0.625rem", {lineHeight: "0.625rem"}], //10px
-      xs: ["0.75rem", {lineHeight: "1rem"}], //12px
-      sm: ["0.875rem", {lineHeight: "1.25rem"}], //14px
-      sl: ["0.9375rem", {lineHeight: "1.25rem"}], //15px
-      base: ["1rem", {lineHeight: "1.5625rem"}], //16px
-      baseHeight: ["1rem", {lineHeight: "1.125rem"}], //16px - 18px
+      xxs: ["0.625rem", { lineHeight: "0.625rem" }], //10px
+      xs: ["0.75rem", { lineHeight: "1rem" }], //12px
+      sm: ["0.875rem", { lineHeight: "1.25rem" }], //14px
+      sl: ["0.9375rem", { lineHeight: "1.25rem" }], //15px
+      base: ["1rem", { lineHeight: "1.5625rem" }], //16px
+      baseHeight: ["1rem", { lineHeight: "1.125rem" }], //16px - 18px
       // lg: ['1.125rem', {lineHeight: '1.75rem'}],
-      lg: ["1.125rem", {lineHeight: "1.375rem"}], //18px
-      xl: ["1.25rem", {lineHeight: "1.5rem"}], //20px
-      "1xl": ["1.375rem", {lineHeight: "1.5rem"}], //22 px
-      "2xl": ["1.5rem", {lineHeight: "2rem"}], //24px
-      "3xl": ["1.75rem", {lineHeight: "2.125rem"}], //28px
-      "3.5xl": ["1.875rem", {lineHeight: "1.875rem"}], //30px
-      "3.8xl": ["2rem", {lineHeight: "2rem"}], //32px
-      "4xl": ["2.5rem", {lineHeight: "2.875rem"}], //40px
+      lg: ["1.125rem", { lineHeight: "1.375rem" }], //18px
+      xl: ["1.25rem", { lineHeight: "1.5rem" }], //20px
+      "1xl": ["1.375rem", { lineHeight: "1.5rem" }], //22 px
+      "2xl": ["1.5rem", { lineHeight: "2rem" }], //24px
+      "3xl": ["1.75rem", { lineHeight: "2.125rem" }], //28px
+      "3.5xl": ["1.875rem", { lineHeight: "1.875rem" }], //30px
+      "3.8xl": ["2rem", { lineHeight: "2rem" }], //32px
+      "4xl": ["2.5rem", { lineHeight: "2.875rem" }], //40px
       // '5xl': ['3rem', {lineHeight: '1'}],
-      "6xl": ["3.75rem", {lineHeight: "4.5rem"}], //60px
-      "6.5xl": ["4.5rem", {lineHeight: "1"}], //76px
-      "7xl": ["5rem", {lineHeight: "1"}], // 80px
-      "7.5xl": ["5.625rem", {lineHeight: "1"}], //90px
+      "6xl": ["3.75rem", { lineHeight: "4.5rem" }], //60px
+      "6.5xl": ["4.5rem", { lineHeight: "1" }], //76px
+      "7xl": ["5rem", { lineHeight: "1" }], // 80px
+      "7.5xl": ["5.625rem", { lineHeight: "1" }], //90px
       // '8xl': ['6rem', {lineHeight: '1'}],
-      '9xl': ['9rem', {lineHeight: '1'}],//144px
-      "10xl": ["9.6875rem", {lineHeight: "1"}], //155px
+      "9xl": ["9rem", { lineHeight: "1" }], //144px
+      "10xl": ["9.6875rem", { lineHeight: "1" }], //155px
     },
     fontWeight: {
       thin: "100",
@@ -129,16 +130,16 @@ module.exports={
       },
       keyframes: {
         marquee: {
-          "0%": {transform: "translateX(0%)"},
-          "100%": {transform: "translateX(-100%)"},
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-100%)" },
         },
         marquee2: {
-          "0%": {transform: "translateX(100%)"},
-          "100%": {transform: "translateX(0%)"},
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(0%)" },
         },
       },
     },
-    height: ({theme}) => ({
+    height: ({ theme }) => ({
       auto: "auto",
       ...theme("spacing"),
       "1/2": "50%",
@@ -188,11 +189,11 @@ module.exports={
       10: "2.5rem",
       13: "3.4375rem", //55px
     },
-    margin: ({theme}) => ({
+    margin: ({ theme }) => ({
       auto: "auto",
       ...theme("spacing"),
     }),
-    maxWidth: ({theme, breakpoints}) => ({
+    maxWidth: ({ theme, breakpoints }) => ({
       none: "none",
       0: "0rem",
       xs: "20rem",
@@ -230,7 +231,7 @@ module.exports={
       95: "0.95",
       100: "1",
     },
-    padding: ({theme}) => theme("spacing"),
+    padding: ({ theme }) => theme("spacing"),
     spacing: {
       px: "1px",
       0: "0px",
@@ -288,7 +289,7 @@ module.exports={
       80: "20rem",
       96: "24rem",
     },
-    width: ({theme}) => ({
+    width: ({ theme }) => ({
       auto: "auto",
       ...theme("spacing"),
       "1/2": "50%",
