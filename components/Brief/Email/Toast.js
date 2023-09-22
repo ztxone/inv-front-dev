@@ -4,7 +4,7 @@ export const Toast = ({ success, close }) => {
   const toastTimer = 3000;
   useEffect(() => {
     setTimeout(() => close(), toastTimer);
-  }, []);
+  }, [close]);
   return success ? (
     <div
       id="toast-success"
