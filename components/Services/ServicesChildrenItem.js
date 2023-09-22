@@ -4,6 +4,7 @@ import { getStrapiMedia } from "lib/media";
 import Link from "next/link";
 
 export default function ServicesChildrenItem({ title, image, path }) {
+  console.log(path, title, image);
   return (
     <div
       className="bg-white pt-9 rounded-5xl mb-10 last:mb-0 relative
@@ -30,7 +31,7 @@ export default function ServicesChildrenItem({ title, image, path }) {
       <div className="absolute bottom-9 left-9">
         <PillowLink
           text="Заказать"
-          link="/brief"
+          link={`/brief/${path}`}
           variant="white"
           variantSvg="blueSvg"
         />

@@ -1,16 +1,17 @@
 import TagsBrief from "./TagsBrief";
 import sendBrief from "lib/sendBrief";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TagsBriefDirection from "./TagsBriefDirection";
 import { AggregateForm } from "./Forms/AggregateForm";
 import { Toast } from "./Email/Toast";
+import { getCategoryProject } from "lib/getCategoryProject";
 
-export default function FormBrief({ visobjs, categories }) {
-  const [category, setCategory] = useState(categories[0]);
+export default function FormBrief({ visobjs, categories, service = "" }) {
+  const [category, setCategory] = useState();
   const [projectType, setProjectType] = useState();
   const [success, setSuccess] = useState(true);
-  const [openToast, setOpenToast] = useState(true);
+  const [openToast, setOpenToast] = useState(false);
   const [loading, setLoading] = useState(false);
   const openSuccessToast = () => {
     setSuccess(true);
@@ -47,7 +48,18 @@ export default function FormBrief({ visobjs, categories }) {
     setCategory(category);
     setProjectType(undefined);
   };
-
+  useEffect(() => {
+    if (service) {
+      const { selectCategory, selectProject } = getCategoryProject(
+        service,
+        categories
+      );
+      setCategory(selectCategory);
+      setProjectType(selectProject);
+    } else {
+      setCategory(categories[0]);
+    }
+  }, [service, categories]);
   return (
     <>
       <div className="container">
