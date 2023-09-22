@@ -4,12 +4,25 @@ import Link from "next/link";
 import { useState } from "react";
 import TagsBriefDirection from "./TagsBriefDirection";
 import { AggregateForm } from "./Forms/AggregateForm";
+import { Toast } from "./Email/Toast";
 
 export default function FormBrief({ visobjs, categories }) {
   const [category, setCategory] = useState(categories[0]);
   const [projectType, setProjectType] = useState();
+  const [success, setSuccess] = useState(true);
+  const [openToast, setOpenToast] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const openSuccessToast = () => {
+    setSuccess(true);
+    setOpenToast(true);
+  };
+  const openErrorToast = () => {
+    setSuccess(false);
+    setOpenToast(true);
+  };
 
   const send = async (data) => {
+    setLoading(true);
     try {
       const sendData = {
         ...data,
@@ -22,9 +35,12 @@ export default function FormBrief({ visobjs, categories }) {
         method: "POST",
         body: JSON.stringify(sendData),
       });
-      console.log("Brief sent successfully!");
+      openSuccessToast();
     } catch (error) {
-      console.error("Brief sending error:", error);
+      openErrorToast();
+      throw Error();
+    } finally {
+      setLoading(false);
     }
   };
   const onCategoryChange = (category) => {
@@ -33,35 +49,42 @@ export default function FormBrief({ visobjs, categories }) {
   };
 
   return (
-    <div className="container">
-      <p
-        className="pt-7
+    <>
+      <div className="container">
+        {openToast && (
+          <Toast success={success} close={() => setOpenToast(false)} />
+        )}
+        <p
+          className="pt-7
       md:text-1xl md:w-2/3 md:leading-7
       xl:w-full"
-      >
-        Оставьте заявку, либо звоните, мы пообщаемся и сами все за вас заполним:
-        <Link href="tel:+78122010007">
-          {" "}
-          +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07
-        </Link>
-      </p>
-      <TagsBrief
-        title="Выберите услугу"
-        categories={categories}
-        setCategory={onCategoryChange}
-        category={category}
-      />
-      <TagsBriefDirection
-        title="Направление"
-        direction={projectType}
-        setDirection={setProjectType}
-        category={category}
-      />
-      <AggregateForm
-        send={send}
-        projectType={projectType}
-        category={category}
-      />
-    </div>
+        >
+          Оставьте заявку, либо звоните, мы пообщаемся и сами все за вас
+          заполним:
+          <Link href="tel:+78122010007">
+            {" "}
+            +7&nbsp;812&nbsp;201&nbsp;00&nbsp;07
+          </Link>
+        </p>
+        <TagsBrief
+          title="Выберите услугу"
+          categories={categories}
+          setCategory={onCategoryChange}
+          category={category}
+        />
+        <TagsBriefDirection
+          title="Направление"
+          direction={projectType}
+          setDirection={setProjectType}
+          category={category}
+        />
+        <AggregateForm
+          loading={loading}
+          send={send}
+          projectType={projectType}
+          category={category}
+        />
+      </div>
+    </>
   );
 }
