@@ -5,9 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import NewsSlide from "./NewsSlide";
+import { BlogSlide } from "pages/blog/BlogSlide";
 
-export default function CarouselNews() {
+export default function CarouselNews({ slides }) {
+  console.log(slides);
   return (
     <div className="pt-12 overflow-hidden">
       <div className="container pb-">
@@ -27,27 +28,30 @@ export default function CarouselNews() {
           Ссылка на источник{" "}
         </Link>
       </div>
-      <Swiper
-        modules={[Navigation, Virtual, Pagination]}
-        spaceBetween={10}
-        slidesPerView={3}
-        scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log("slide change")}
-        virtual
-        className="!-mr-3.8 flex
-        md:gap-7
-        lg:pl-0 lg:pb-9"
-      >
-        <SwiperSlide className="shrink-0">
-          <NewsSlide />
-        </SwiperSlide>
-        <SwiperSlide className="shrink-0">
-          <NewsSlide />
-        </SwiperSlide>
-        <SwiperSlide className="shrink-0">
-          <NewsSlide />
-        </SwiperSlide>
-      </Swiper>
+      {slides.data && (
+        <Swiper
+          slidesPerView={"auto"}
+          spaceBetween={30}
+
+          // loop={true}
+          // className="!-mr-3.8 flex
+          // md:gap-7
+          // lg:pl-0 lg:pb-9"
+        >
+          {slides.data.map((slide) => (
+            <SwiperSlide style={{ flexShrink: 1 }} key={slide.id}>
+              <BlogSlide photo={slide} />
+            </SwiperSlide>
+          ))}
+
+          {/* <SwiperSlide>
+            <NewsSlide />
+          </SwiperSlide>
+          <SwiperSlide>
+            <NewsSlide />
+          </SwiperSlide> */}
+        </Swiper>
+      )}
     </div>
   );
 }

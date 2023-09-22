@@ -18,14 +18,11 @@ export default function ProjectCarousel({ photos, poster, videofile }) {
     : [{ poster: poster.data, videofile: videofile.data }];
   return (
     <>
-      {/* {openZoom && (
-        // <div className=" fixed w-full h-[500px] bg-blue z-10"></div> */}
       <ImageZoomModal
         isOpen={openZoom}
         onClose={() => setOpenZoom((x) => !x)}
         current={current}
       />
-      {/* )} */}
       <div className="pt-2.5 pb-7 lg:container w-full mx-auto">
         <Swiper
           loop={true}

@@ -8,8 +8,10 @@ import CarouselNews from "@/components/News/CarouselNews";
 
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
+import { LoadFileBlock } from "./LoadFileBlock";
 
 export default function Blog({ blog }) {
+  console.log(blog);
   const { t } = useTranslation("common");
   const seo = {
     metaTitle: blog.attributes.Title,
@@ -26,6 +28,7 @@ export default function Blog({ blog }) {
       title: blog.attributes.Title,
     },
   ];
+  console.log(blog);
 
   return (
     <>
@@ -33,8 +36,11 @@ export default function Blog({ blog }) {
       <TitleSection text={blog.attributes.Title} />
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
-      <IntroNews />
-      <CarouselNews />
+      <IntroNews blog={blog} />
+      <CarouselNews slides={blog.attributes.PhotoSlides} />
+      {blog.attributes.File?.data && (
+        <LoadFileBlock file={blog.attributes.File.data?.file} />
+      )}
     </>
   );
 }
