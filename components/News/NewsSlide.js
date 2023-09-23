@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function NewsSlide() {
   return (
-    <div>
+    <div className='min-h-full'>
       <Image className='w-full h-full rounded-xl aspect-[275/187]'
         src='/image/content/new.png'
         width='275'
