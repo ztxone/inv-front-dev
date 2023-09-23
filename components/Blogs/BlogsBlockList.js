@@ -79,7 +79,6 @@ export default function BlogsBlockList({
           swiperRef.current = swiper;
         }}
         spaceBetween={30}
-        loop
         breakpoints={{
           320: { slidesPerView: 1 },
           560: { slidesPerView: 2 },
@@ -88,7 +87,7 @@ export default function BlogsBlockList({
       >
         {blogRes &&
           blogRes.map((blog, key) => (
-            <SwiperSlide key={blog.attributes.Title}>
+            <SwiperSlide key={key}>
               <Article
                 image={blog.attributes.Image_preview}
                 link={blog.attributes.slug}

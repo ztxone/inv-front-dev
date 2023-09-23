@@ -18,17 +18,15 @@ export default function CarouselNews({ slides, blog }) {
       </div>
       {slides.data && (
         <Swiper
-          // slidesPerView={"auto"}
           spaceBetween={30}
-          loop
           breakpoints={{
             320: { slidesPerView: 1 },
             560: { slidesPerView: 2 },
             900: { slidesPerView: 3 },
           }}
         >
-          {slides.data.map((slide) => (
-            <SwiperSlide key={slide.id}>
+          {slides.data.map((slide, index) => (
+            <SwiperSlide key={index}>
               <BlogSlide photo={slide} />
             </SwiperSlide>
           ))}
