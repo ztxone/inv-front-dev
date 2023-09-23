@@ -9,9 +9,11 @@ import CarouselNews from "@/components/News/CarouselNews";
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
 import { LoadFileBlock } from "./LoadFileBlock";
+import VideoBlock from "./VideoBlock";
+import { QuoteBlock } from "./QuoteBlock";
+import ReactMarkdown from "react-markdown";
 
 export default function Blog({ blog }) {
-  console.log(blog);
   const { t } = useTranslation("common");
   const seo = {
     metaTitle: blog.attributes.Title,
@@ -28,7 +30,6 @@ export default function Blog({ blog }) {
       title: blog.attributes.Title,
     },
   ];
-  console.log(blog);
 
   return (
     <>
@@ -37,9 +38,23 @@ export default function Blog({ blog }) {
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
       <IntroNews blog={blog} />
-      <CarouselNews slides={blog.attributes.PhotoSlides} />
+      <CarouselNews slides={blog.attributes.PhotoSlides} blog={blog} />
+      {blog.attributes.Text2 && (
+        <div className="container pt-3">
+          <ReactMarkdown>{blog.attributes.Text2}</ReactMarkdown>
+        </div>
+      )}
       {blog.attributes.File?.data && (
-        <LoadFileBlock file={blog.attributes.File.data?.file} />
+        <LoadFileBlock file={blog.attributes.File.data} />
+      )}
+      {blog.attributes.Quote && <QuoteBlock quote={blog.attributes.Quote} />}
+
+      {blog.attributes.Video?.data && (
+        <VideoBlock
+          blog={blog}
+          video={blog.attributes.Video}
+          poster={blog.attributes.Image_preview}
+        />
       )}
     </>
   );

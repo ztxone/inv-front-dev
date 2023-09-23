@@ -1,6 +1,7 @@
 import { getStrapiMedia } from "lib/media";
 import Image from "next/image";
 import { VideoPlayer } from "./VideoPlayer";
+import { getStrapiURL } from "lib/api";
 
 export default function Video({ poster, videofile, small = false }) {
   return (

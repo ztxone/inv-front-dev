@@ -4,7 +4,7 @@ import { getStrapiMediaCarousel } from "lib/mediaCarousel";
 
 export const BlogSlide = ({ photo }) => {
   return (
-    <div className="w-[266px] h-[151px] rounded-lr overflow-hidden">
+    <div className="w-full h-full rounded-lr overflow-hidden">
       <Image
         className="w-full h-full"
         width="366"
