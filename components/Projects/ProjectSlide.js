@@ -6,7 +6,11 @@ export default function ProjectSlide({ photo, videofile = null }) {
   return (
     <div className="w-[266px] h-[151px] rounded-lr overflow-hidden">
       {videofile ? (
-        <Video poster={photo} videofile={videofile} small={true} />
+        <Video
+          poster={{ data: photo }}
+          videofile={{ data: videofile }}
+          small={true}
+        />
       ) : (
         <Image
           className="w-full h-full"
