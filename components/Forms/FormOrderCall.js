@@ -6,8 +6,9 @@ import ModalFieldset from "../ui/ModalFieldset";
 import ButtonSubmit from "../ui/ButtonSubmit";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalApproveForm from "./ModalApproveForm";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { sendCallOrder } from "lib/sendCallOrder";
+import { ToastrContext } from "../Toastr/ToastrProvider";
 
 const options = [
   {
@@ -25,10 +26,23 @@ const options = [
 ];
 
 export const FormOrderCall = ({ title, onClose }) => {
-  const [checked, setChecked] = useState(true);
+  // const [checked, setChecked] = useState(true);
+  const [loading, setLoading] = useState(false);
   const methods = useForm();
+  const { setOpen, setSuccess, setMessage, Confirmation_Form_Phone } =
+    useContext(ToastrContext);
+  const openSuccessToast = () => {
+    setMessage(Confirmation_Form_Phone);
+    setSuccess(true);
+    setOpen(true);
+  };
+  const openErrorToast = () => {
+    setSuccess(false);
+    setOpen(true);
+  };
 
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       await sendCallOrder(data);
       const res = await fetch("/api/send", {
@@ -36,9 +50,13 @@ export const FormOrderCall = ({ title, onClose }) => {
         body: JSON.stringify(data),
       });
       onClose();
-      console.log("Email sent successfully!");
+      openSuccessToast();
+      // console.log("Email sent successfully!");
     } catch (error) {
-      console.error("Email sending error:", error);
+      openErrorToast();
+      // console.error("Email sending error:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -94,8 +112,9 @@ export const FormOrderCall = ({ title, onClose }) => {
 
             <ModalApproveForm name={"approve"} fullWidth />
             <ButtonSubmit
-              disabled={!checked && methods.formState.isValid}
+              disabled={!methods.formState.isValid}
               fullWidth
+              loading={loading}
             />
           </form>
         </FormProvider>
