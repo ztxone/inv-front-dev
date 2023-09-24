@@ -22,7 +22,12 @@ export const ToastrProvider = ({ children }) => {
       Confirmation_Form_Phone,
       Confirmation_Form_Zayavka,
     }),
-    []
+    [
+      open,
+      Confirmation_Form_Brief,
+      Confirmation_Form_Phone,
+      Confirmation_Form_Zayavka,
+    ]
   );
 
   return (

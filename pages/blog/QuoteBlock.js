@@ -8,3 +8,5 @@ export const QuoteBlock = (quote) => {
     <ReactMarkdown>{quote}</ReactMarkdown>
   );
 };
+
+export default QuoteBlock;

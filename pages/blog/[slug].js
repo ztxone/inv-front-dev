@@ -8,9 +8,9 @@ import CarouselNews from "@/components/News/CarouselNews";
 
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
-import { LoadFileBlock } from "./LoadFileBlock";
+import LoadFileBlock from "./LoadFileBlock";
 import VideoBlock from "./VideoBlock";
-import { QuoteBlock } from "./QuoteBlock";
+import QuoteBlock from "./QuoteBlock";
 import ReactMarkdown from "react-markdown";
 
 export default function Blog({ blog }) {

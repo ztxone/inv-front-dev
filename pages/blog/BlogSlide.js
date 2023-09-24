@@ -15,3 +15,5 @@ export const BlogSlide = ({ photo }) => {
     </div>
   );
 };
+
+export default BlogSlide;

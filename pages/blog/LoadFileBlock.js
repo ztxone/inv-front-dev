@@ -13,3 +13,5 @@ export const LoadFileBlock = (file) => {
     </Link>
   );
 };
+
+export default LoadFileBlock;

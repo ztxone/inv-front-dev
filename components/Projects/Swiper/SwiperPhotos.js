@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Thumbs } from "swiper/modules";
-import ProjectSlide from "../ProjectSlide";
+import { Thumbs, Zoom } from "swiper/modules";
+
+import { ImageZoomModal } from "../ImageZoomModal";
 import Image from "next/image";
 import "swiper/css";
-import { getStrapiMediaCarousel } from "lib/mediaCarousel";
+
 import { getStrapiURL } from "lib/api";
 export function getLink(media) {
   try {
@@ -20,24 +21,42 @@ export const SwiperPhotos = ({ poster, photos }) => {
   const photoSlides = photos || [];
   const slides = poster ? [poster, ...photoSlides] : photoSlides;
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [openZoom, setOpenZoom] = useState(false);
+  const [current, setCurrent] = useState();
 
   return (
     <>
+      {/* <ImageZoomModal
+        isOpen={openZoom}
+        onClose={() => setOpenZoom((x) => !x)}
+        current={current}
+      /> */}
       <Swiper
-        className="relative"
-        loop={true}
+        spaceBetween={10}
+        className="mySwiper"
+        loop
+        zoom
         slidesPerView={1}
-        modules={[Thumbs]}
+        modules={[Thumbs, Zoom]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
       >
         {slides.map((photo, index) => (
-          <SwiperSlide key={index}>
-            <div className="rounded-lr overflow-hidden max-h-[566px] w-[100wh] h-[566px] relative">
+          <SwiperSlide
+            key={index}
+            onClick={() => {
+              setCurrent(photo);
+              setOpenZoom(true);
+            }}
+          >
+            <div className="  w-[100wh] h-[566px] relative swiper-zoom-container">
               <Image
                 fill={true}
-                className="object-cover min-w-20 min-h-fit"
+                // width="266"
+                // height="151"
+                // className="w-full h-full object-cover"
+                className="object-cover min-w-20 min-h-fit rounded-lr "
                 alt={photo.attributes.name}
                 src={getLink(photo)}
               />
@@ -65,8 +84,8 @@ export const SwiperPhotos = ({ poster, photos }) => {
                   <Image
                     className="w-full h-full object-cover"
                     width="266"
-                    alt={photo.attributes.name}
                     height="151"
+                    alt={photo.attributes.name}
                     src={getLink(photo)}
                   />
                 </div>
