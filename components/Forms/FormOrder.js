@@ -7,6 +7,8 @@ import ButtonSubmit from "../ui/ButtonSubmit";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalSelectForBrief from "../Brief/ModalSelectForBrief";
 import ModalApproveForm from "./ModalApproveForm";
+import { useContext, useState } from "react";
+import { ToastrContext } from "../Toastr/ToastrProvider";
 
 const options = [
   {
@@ -25,17 +27,34 @@ const options = [
 
 export const FormOrder = ({ onSubmitForm }) => {
   const methods = useForm();
+  const [loading, setLoading] = useState(false);
+  const { setOpen, setSuccess, setMessage, Confirmation_Form_Zayavka } =
+    useContext(ToastrContext);
+  const openSuccessToast = () => {
+    setMessage(Confirmation_Form_Zayavka);
+    setSuccess(true);
+    setOpen(true);
+  };
+  const openErrorToast = () => {
+    setSuccess(false);
+    setOpen(true);
+  };
 
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       await sendEmail(data);
       const res = await fetch("/api/send", {
         method: "POST",
         body: JSON.stringify(data),
       });
-      console.log("Email sent successfully!");
+      openSuccessToast();
+      // console.log("Email sent successfully!");
     } catch (error) {
-      console.error("Email sending error:", error);
+      openErrorToast();
+      // console.error("Email sending error:", error);
+    } finally {
+      setLoading(false);
     }
     onSubmitForm();
   };
@@ -128,7 +147,7 @@ export const FormOrder = ({ onSubmitForm }) => {
               <ModalSelectForBrief options={options} name={"Direction"} />
             </ModalFieldset>
             <ModalApproveForm name={"approve"} fullWidth />
-            <ButtonSubmit fullWidth />
+            <ButtonSubmit fullWidth loading={loading} />
           </form>
         </FormProvider>
       </div>
