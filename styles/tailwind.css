@@ -94,12 +94,6 @@
 }
 
 .richText p {
-  background: red;
-  margin-bottom: 15px;
-}
-
-.richText h1 {
-  background: green;
   margin-bottom: 15px;
 }
 .richText ul li {

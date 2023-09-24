@@ -4,7 +4,6 @@ import Head from "next/head";
 import { createContext } from "react";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
-import { ToastrProvider } from "@/components/Toastr/ToastrProvider";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
@@ -13,7 +12,7 @@ const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
   const getLayout = Component.getLayout || ((page) => page);
 
-  return (
+  return getLayout(
     <>
       <Head>
         <link
@@ -23,9 +22,7 @@ const MyApp = ({ Component, pageProps }) => {
       </Head>
 
       <GlobalContext.Provider value={global?.attributes}>
-        <ToastrProvider>
-          {getLayout(<Component {...pageProps} />)}
-        </ToastrProvider>
+        <Component {...pageProps} />
       </GlobalContext.Provider>
     </>
   );

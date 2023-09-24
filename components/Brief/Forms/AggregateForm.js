@@ -7,7 +7,7 @@ import ButtonSubmit from "@/components/ui/ButtonSubmit";
 import FieldsForForm from "./FieldsForForm";
 import { selectFieldsForForm } from "./selectForm";
 
-export const AggregateForm = ({ send, category, projectType, loading }) => {
+export const AggregateForm = ({ send, category, projectType }) => {
   const [angles, setAngles] = useState(1);
   const methods = useForm({
     defaultValues: { VisualizationObject: "Продукт" },
@@ -20,7 +20,6 @@ export const AggregateForm = ({ send, category, projectType, loading }) => {
         ProjectPlans: angles,
       };
       await send(sendData);
-      methods.reset();
     } catch (error) {}
   };
 
@@ -54,11 +53,7 @@ export const AggregateForm = ({ send, category, projectType, loading }) => {
         <ContactBrief />
         <div className="lg:flex flex-row-reverse justify-between items-center">
           <ModalApproveForm name="Agreement" />
-          <ButtonSubmit
-            text="Отправить бриф"
-            variant="blue"
-            loading={loading}
-          />
+          <ButtonSubmit text="Отправить бриф" variant="blue" />
         </div>
       </form>
     </FormProvider>

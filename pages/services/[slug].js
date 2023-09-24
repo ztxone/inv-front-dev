@@ -13,10 +13,10 @@ import Wrapper from "@/components/ui/Wrapper";
 import ServicesForCategory from "@/components/Services/ServicesForCategory";
 import Line from "@/components/ui/Line";
 
-export default function Service({ category, projects, services }) {
-  // const i18n = useTranslation();
+export default function Service({ category, projects }) {
+  const i18n = useTranslation();
   const { t } = useTranslation("common");
-  // const locale = i18n.lang;
+  const locale = i18n.lang;
 
   const seo = {
     metaTitle: category.attributes.SEO[0].metaTitle,
@@ -24,7 +24,6 @@ export default function Service({ category, projects, services }) {
     shareImage: category.attributes.image,
   };
 
-  console.log(services);
   return (
     <>
       <Seo seo={seo} />
@@ -49,7 +48,7 @@ export default function Service({ category, projects, services }) {
           image={category.attributes.image}
         />
 
-        <ServicesForCategory services={services} />
+        <ServicesForCategory parent={category.id} />
 
         <IntroCost />
         <ServicesSlides />
@@ -112,28 +111,10 @@ export async function getStaticProps({ params, locale }) {
     populate: "*",
   });
 
-  const servicesRes = await fetchAPI("/services", {
-    locale: locale,
-    fields: ["Title", "slug"],
-    populate: ["categories", "Image"],
-    filters: {
-      categories: {
-        id: {
-          $eq: matchingCategories.data[0].id,
-        },
-      },
-    },
-    pagination: {
-      start: 0,
-      limit: 3,
-    },
-  });
-
   return {
     props: {
       category: matchingCategories.data[0],
       projects: projectsRes.data,
-      services: servicesRes.data,
     },
     revalidate: 1,
   };
