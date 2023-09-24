@@ -13,9 +13,12 @@ export default function ProjectCarousel({ photos, poster, videofile }) {
   const [openZoom, setOpenZoom] = useState(false);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [current, setCurrent] = useState();
-  const slides = photos
-    ? [{ poster: poster.data, videofile: videofile.data }, ...photos]
-    : [{ poster: poster.data, videofile: videofile.data }];
+
+  const videoSlides = videofile.data ? videofile.data : [];
+  const slides = photos ? [...videoSlides, ...photos] : [...videoSlides];
+
+  console.log(slides, poster);
+
   return (
     <>
       <ImageZoomModal
@@ -34,7 +37,7 @@ export default function ProjectCarousel({ photos, poster, videofile }) {
           }}
           className="max-h-[530px]"
         >
-          {slides.map((photo, index) =>
+          {/* {slides.map((photo, index) =>
             index === 0 ? (
               <SwiperSlide
                 key={index}
@@ -43,14 +46,11 @@ export default function ProjectCarousel({ photos, poster, videofile }) {
                     ? null
                     : () => {
                         setOpenZoom(true);
-                        setCurrent(photo);
+                        setCurrent(photo.poster);
                       }
                 }
               >
-                <Video
-                  poster={{ data: photo.poster }}
-                  videofile={{ data: photo?.videofile }}
-                />
+                <Video poster={photo.poster} videofile={photo?.videofile} />
               </SwiperSlide>
             ) : (
               <SwiperSlide
@@ -60,35 +60,37 @@ export default function ProjectCarousel({ photos, poster, videofile }) {
                   setCurrent(photo);
                 }}
               >
-                <Video poster={{ data: photo }} videofile={null} />
+                <Video poster={photo} videofile={null} />
               </SwiperSlide>
             )
-          )}
+          )} */}
         </Swiper>
-        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5">
-          <Swiper
-            slidesPerView={"auto"}
-            spaceBetween={30}
-            scrollbar={{ draggable: true }}
-            loop={true}
-            onSwiper={setThumbsSwiper}
-          >
-            {slides.map((photo, index) =>
-              index === 0 ? (
-                <SwiperSlide key={index} style={{ flexShrink: 1 }}>
-                  <ProjectSlide
-                    photo={photo.poster}
-                    videofile={photo.videofile}
-                  />
-                </SwiperSlide>
-              ) : (
-                <SwiperSlide key={index} style={{ flexShrink: 1 }}>
-                  <ProjectSlide photo={photo} />
-                </SwiperSlide>
-              )
-            )}
-          </Swiper>
-        </div>
+        {/* {slides.length > 1 && (
+          <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5">
+            <Swiper
+              slidesPerView={"auto"}
+              spaceBetween={30}
+              scrollbar={{ draggable: true }}
+              loop={true}
+              onSwiper={setThumbsSwiper}
+            >
+              {slides.map((photo, index) =>
+                index === 0 ? (
+                  <SwiperSlide key={index} style={{ flexShrink: 1 }}>
+                    <ProjectSlide
+                      photo={photo.poster}
+                      videofile={photo.videofile}
+                    />
+                  </SwiperSlide>
+                ) : (
+                  <SwiperSlide key={index} style={{ flexShrink: 1 }}>
+                    <ProjectSlide photo={photo} />
+                  </SwiperSlide>
+                )
+              )}
+            </Swiper>
+          </div>
+        )} */}
       </div>
     </>
   );

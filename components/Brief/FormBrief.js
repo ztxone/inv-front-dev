@@ -1,25 +1,27 @@
 import TagsBrief from "./TagsBrief";
 import sendBrief from "lib/sendBrief";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import TagsBriefDirection from "./TagsBriefDirection";
 import { AggregateForm } from "./Forms/AggregateForm";
-import { Toast } from "./Email/Toast";
 import { getCategoryProject } from "lib/getCategoryProject";
+import { useContext, useEffect, useState } from "react";
+import { ToastrContext } from "../Toastr/ToastrProvider";
 
 export default function FormBrief({ visobjs, categories, service = "" }) {
   const [category, setCategory] = useState();
   const [projectType, setProjectType] = useState();
-  const [success, setSuccess] = useState(true);
-  const [openToast, setOpenToast] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const { setOpen, setSuccess, setMessage, Confirmation_Form_Brief } =
+    useContext(ToastrContext);
   const openSuccessToast = () => {
+    setMessage(Confirmation_Form_Brief);
     setSuccess(true);
-    setOpenToast(true);
+    setOpen(true);
   };
   const openErrorToast = () => {
     setSuccess(false);
-    setOpenToast(true);
+    setOpen(true);
   };
 
   const send = async (data) => {
@@ -63,9 +65,6 @@ export default function FormBrief({ visobjs, categories, service = "" }) {
   return (
     <>
       <div className="container">
-        {openToast && (
-          <Toast success={success} close={() => setOpenToast(false)} />
-        )}
         <p
           className="pt-7
       md:text-1xl md:w-2/3 md:leading-7

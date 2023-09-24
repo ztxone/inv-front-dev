@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-export const Toast = ({ success, close }) => {
+export const Toast = ({ success, close, message }) => {
   const toastTimer = 3000;
   useEffect(() => {
     setTimeout(() => close(), toastTimer);
@@ -23,7 +23,7 @@ export const Toast = ({ success, close }) => {
         </svg>
         <span className="sr-only">Check icon</span>
       </div>
-      <div className="ml-3 text-sm font-normal">Brief send successfully.</div>
+      <div className="ml-3 text-sm font-normal">{message}</div>
       <button
         type="button"
         className="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-white hover:bg-gray-light rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8"

@@ -37,7 +37,6 @@ function Project({ project, categories }) {
       title: project.attributes.Title,
     },
   ];
-
   return (
     <>
       <Seo seo={seo} />
@@ -54,13 +53,11 @@ function Project({ project, categories }) {
         videofile={project.attributes.VideoFile}
       /> */}
 
-      {
-        <ProjectCarousel
-          photos={project.attributes.ProjectSliderFotos.data}
-          poster={project.attributes.Poster}
-          videofile={project.attributes.VideoFile}
-        />
-      }
+      <ProjectCarousel
+        photos={project.attributes.ProjectSliderFotos.data}
+        poster={project.attributes.Poster}
+        videofile={project.attributes.VideoFile}
+      />
 
       <ProjectAbout
         task={project.attributes.ProjectTask}

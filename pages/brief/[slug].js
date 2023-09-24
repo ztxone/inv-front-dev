@@ -5,9 +5,10 @@ import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import Line from "@/components/ui/Line";
 import FormBrief from "@/components/Brief/FormBrief";
+import { useContext } from "react";
+import { GlobalContext } from "pages/_app";
 
 export default function Brief({ categories, visobjs, service }) {
-  console.log(service);
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
@@ -23,9 +24,7 @@ export default function Brief({ categories, visobjs, service }) {
           },
         ]}
       />
-
       <FormBrief categories={categories} visobjs={visobjs} service={service} />
-
       <Line variantColor="grey" />
     </>
   );
