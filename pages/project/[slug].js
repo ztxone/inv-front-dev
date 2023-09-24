@@ -56,7 +56,7 @@ function Project({ project, categories }) {
       <ProjectCarousel
         photos={project.attributes.ProjectSliderFotos.data}
         poster={project.attributes.Poster}
-        videofile={project.attributes.VideoFile}
+        videoFiles={project.attributes.VideoFile}
       />
 
       <ProjectAbout
