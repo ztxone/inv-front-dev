@@ -30,7 +30,7 @@ export default function ServicesChildrenItem({ title, image, path }) {
       <div className="absolute bottom-9 left-9">
         <PillowLink
           text="Заказать"
-          link={`/brief/${path}`}
+          link="/brief"
           variant="white"
           variantSvg="blueSvg"
         />

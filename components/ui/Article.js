@@ -28,13 +28,14 @@ export default function Article({
           src={getStrapiMedia(image)}
           alt={title}
         />
+
         <div
-          className=" bg-white rounded-full px-[15px] py-[8px] inline-flex items-center w-auto self-start mb-5 mt-10 ml-5
-        absolute top-0 left-0 md:m-0"
+          className="bg-white rounded-full px-[15px] py-[8px] inline-flex items-center w-auto self-start mb-5 mt-10 ml-5
+        md:absolute bottom-[32px] left-[32px] md:m-0"
         >
           <span className="bg-blue rounded-full w-[4px] h-[4px]"></span>
           {/* <span className="text-l bold pr-1 text-nero2">#</span> */}
-          <p className=" text-black-russian font-interTight uppercase font-medium text-xxs ml-2">
+          <p className="text-black-russian font-interTight uppercase font-medium text-xxs ml-2">
             {tag}
           </p>
         </div>
