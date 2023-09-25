@@ -3,8 +3,6 @@ import TitleSection from "@/components/ui/TitleSection";
 import useTranslation from "next-translate/useTranslation";
 import Line from "@/components/ui/Line";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
-import IntroNews from "@/components/News/IntroNews";
-import CarouselNews from "@/components/News/CarouselNews";
 
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
@@ -27,11 +25,10 @@ export default function Tag({ tag, projects, categories }) {
       title: tag.attributes.Name,
     },
   ];
-
   return (
     <>
-      {/* <Seo seo={seo} /> */}
-      <TitleSection text={tag.attributes.Name} />
+      <Seo seo={seo} />
+      <TitleSection text={`# ${tag.attributes.Name}`} />
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
       <ProjectsListPortfolio

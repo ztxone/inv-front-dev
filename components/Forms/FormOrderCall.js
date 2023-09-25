@@ -1,13 +1,13 @@
 import { FormProvider, useForm } from "react-hook-form";
-import sendEmail from "lib/email";
 import Image from "next/image";
 import ModalLabel from "../ui/ModalLabel";
 import ModalFieldset from "../ui/ModalFieldset";
 import ButtonSubmit from "../ui/ButtonSubmit";
 import ModalInputForBrief from "../ui/ModalInputForBrief";
 import ModalApproveForm from "./ModalApproveForm";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { sendCallOrder } from "lib/sendCallOrder";
+import { ToastrContext } from "../Toastr/ToastrProvider";
 
 const options = [
   {
@@ -25,20 +25,30 @@ const options = [
 ];
 
 export const FormOrderCall = ({ title, onClose }) => {
-  const [checked, setChecked] = useState(true);
+  const [loading, setLoading] = useState(false);
   const methods = useForm();
+  const { setOpen, setSuccess, setMessage, Confirmation_Form_Phone } =
+    useContext(ToastrContext);
+  const openSuccessToast = () => {
+    setMessage(Confirmation_Form_Phone);
+    setSuccess(true);
+    setOpen(true);
+  };
+  const openErrorToast = () => {
+    setSuccess(false);
+    setOpen(true);
+  };
 
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       await sendCallOrder(data);
-      const res = await fetch("/api/send", {
-        method: "POST",
-        body: JSON.stringify(data),
-      });
       onClose();
-      console.log("Email sent successfully!");
+      openSuccessToast();
     } catch (error) {
-      console.error("Email sending error:", error);
+      openErrorToast();
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -76,26 +86,27 @@ export const FormOrderCall = ({ title, onClose }) => {
 
             <ModalFieldset width="w-full">
               <ModalLabel
-                htmlFor="phone"
+                htmlFor="Phone"
                 text="Телефон"
                 align="text-left"
                 required={true}
               />
               <ModalInputForBrief
                 type="tel"
-                id="phone"
+                id="Phone"
                 placeholder="+7 (000) 000 00-00"
                 error={methods.formState.errors.phone?.message}
-                name={"phone"}
+                name={"Phone"}
                 pattern={{ required: "Phone is required" }}
                 register={methods.register}
               />
             </ModalFieldset>
 
-            <ModalApproveForm name={"approve"} fullWidth />
+            <ModalApproveForm name={"Agreement"} fullWidth />
             <ButtonSubmit
-              disabled={!checked && methods.formState.isValid}
+              disabled={!methods.formState.isValid}
               fullWidth
+              loading={loading}
             />
           </form>
         </FormProvider>
