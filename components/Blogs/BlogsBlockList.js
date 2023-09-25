@@ -24,7 +24,6 @@ export default function BlogsBlockList({
   const { t } = useTranslation("common");
   const i18n = useTranslation();
 
-  console.log(blogRes);
   // const [data, setData] = useState();
 
   const locale = i18n.lang;
@@ -97,16 +96,10 @@ export default function BlogsBlockList({
         spaceBetween={30}
         slidesPerView={3}
         scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log("slide change")}
         navigation={{
           prevEl: navigationPrevRef.current,
           nextEl: navigationNextRef.current,
         }}
-        // onBeforeInit={(swiper) => {
-        //   swiper.params.navigation.prevEl = navigationPrevRef.current;
-        //   swiper.params.navigation.nextEl = navigationNextRef.current;
-        // }}
-        virtual
         className="!pl-3.8 !-mr-3.8 flex  pb-7
         md:pb-10 md:gap-7
         lg:pb-9 lg:!pl-20"
