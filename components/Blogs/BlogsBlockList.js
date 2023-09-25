@@ -19,8 +19,6 @@ export default function BlogsBlockList({
   buttonColor,
   blogRes,
 }) {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
   const { t } = useTranslation("common");
   const i18n = useTranslation();
 
@@ -45,6 +43,10 @@ export default function BlogsBlockList({
   //   return <Loading />;
   // }
 
+  const swiperRef = useRef();
+  const prevSlide = () => swiperRef.current.slidePrev();
+  const nextSlide = () => swiperRef.current.slideNext();
+
   return (
     <section
       className="text-white pt-18 pb-[38px] overflow-hidden max-w-full
@@ -58,7 +60,7 @@ export default function BlogsBlockList({
         <TitleColor textPart1="Блог" textPart2=" invert" color={titleColor} />
 
         <div className="flex">
-          <div ref={navigationPrevRef}>
+          <div onClick={prevSlide}>
             <ButtonPagination variant={buttonColor}>
               <svg
                 className='w-[9px] h-[15px] viewBox="0 0 9 15'
@@ -73,7 +75,7 @@ export default function BlogsBlockList({
               </svg>
             </ButtonPagination>
           </div>
-          <div ref={navigationNextRef}>
+          <div onClick={nextSlide}>
             <ButtonPagination variant={buttonColor}>
               <svg
                 className='w-[9px] h-[15px] viewBox="0 0 9 15 rotate-180'
@@ -92,24 +94,21 @@ export default function BlogsBlockList({
       </div>
 
       <Swiper
-        modules={[Navigation, Pagination]}
+        loop={true}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        // modules={[Navigation, Pagination]}
         spaceBetween={30}
         slidesPerView={"auto"}
         scrollbar={{ draggable: true }}
-        navigation={{
-          prevEl: navigationPrevRef.current,
-          nextEl: navigationNextRef.current,
-        }}
         className="!pl-3.8 !-mr-3.8 flex  pb-7
         md:pb-10 md:gap-7
         lg:pb-9 lg:!pl-20"
       >
         {blogRes &&
           blogRes.map((blog, key) => (
-            <SwiperSlide
-              className="max-w-[288px] sm:max-w-[526px] "
-              key={blog.attributes.Title}
-            >
+            <SwiperSlide className="max-w-[288px] sm:max-w-[526px] " key={key}>
               <Article
                 image={blog.attributes.Image_preview}
                 link={blog.attributes.slug}
