@@ -73,7 +73,7 @@ export async function getStaticProps({ locale }) {
         populate: ["Video"],
         locale: locale,
       }),
-      await fetchAPI("/blogs", {
+      fetchAPI("/blogs", {
         fields: ["Title", "slug", "Preview"],
         populate: ["tags", "Image_preview"],
         locale: locale,

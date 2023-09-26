@@ -6,12 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Virtual, Navigation, Pagination } from "swiper/modules";
 import Loading from "@/components/ui/Loading";
+import useTranslation from "next-translate/useTranslation";
 
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import useTranslation from "next-translate/useTranslation";
-import { fetchAPI } from "lib/api";
 
 export default function BlogsBlockList({
   titleColor,
@@ -98,7 +95,6 @@ export default function BlogsBlockList({
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
-        // modules={[Navigation, Pagination]}
         spaceBetween={30}
         slidesPerView={"auto"}
         scrollbar={{ draggable: true }}

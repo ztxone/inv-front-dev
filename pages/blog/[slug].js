@@ -5,9 +5,11 @@ import Line from "@/components/ui/Line";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import IntroNews from "@/components/News/IntroNews";
 import CarouselNews from "@/components/News/CarouselNews";
-
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
+import VideoBlock from "./VideoBlock";
+import QuoteBlock from "./QuoteBlock";
+import ReactMarkdown from "react-markdown";
 
 export default function Blog({ blog }) {
   const { t } = useTranslation("common");
@@ -33,8 +35,25 @@ export default function Blog({ blog }) {
       <TitleSection text={blog.attributes.Title} />
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
-      <IntroNews />
-      <CarouselNews />
+      <IntroNews blog={blog} />
+      <CarouselNews slides={blog.attributes.PhotoSlides} blog={blog} />
+      {blog.attributes.Text2 && (
+        <div className="container pt-3">
+          <ReactMarkdown>{blog.attributes.Text2}</ReactMarkdown>
+        </div>
+      )}
+      {blog.attributes.File?.data && (
+        <LoadFileBlock file={blog.attributes.File.data} />
+      )}
+      {blog.attributes.Quote && <QuoteBlock quote={blog.attributes.Quote} />}
+
+      {blog.attributes.Video?.data && (
+        <VideoBlock
+          blog={blog}
+          video={blog.attributes.Video}
+          poster={blog.attributes.Image_preview}
+        />
+      )}
     </>
   );
 }
