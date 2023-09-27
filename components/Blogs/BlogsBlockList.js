@@ -2,16 +2,11 @@ import PillowLink from "@/components/ui/PillowLink";
 import Article from "@/components/ui/Article";
 import ButtonPagination from "@/components/ui/ButtonPagination";
 import TitleColor from "../ui/TitleColor";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Virtual, Navigation, Pagination } from "swiper/modules";
-import Loading from "@/components/ui/Loading";
+import useTranslation from "next-translate/useTranslation";
 
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import useTranslation from "next-translate/useTranslation";
-import { fetchAPI } from "lib/api";
 
 export default function BlogsBlockList({
   titleColor,
@@ -21,27 +16,7 @@ export default function BlogsBlockList({
 }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
-
-  // const [data, setData] = useState();
-
   const locale = i18n.lang;
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const blogsRes = await fetchAPI("/blogs", {
-  //       fields: ["Title", "slug", "Preview"],
-  //       populate: ["tags", "Image_preview"],
-  //       locale: locale,
-  //     });
-
-  //     setData(blogsRes.data);
-  //   }
-  //   fetchData();
-  // }, [locale]);
-
-  // if (!data) {
-  //   return <Loading />;
-  // }
 
   const swiperRef = useRef();
   const prevSlide = () => swiperRef.current.slidePrev();
@@ -98,7 +73,6 @@ export default function BlogsBlockList({
         onSwiper={(swiper) => {
           swiperRef.current = swiper;
         }}
-        // modules={[Navigation, Pagination]}
         spaceBetween={30}
         slidesPerView={"auto"}
         scrollbar={{ draggable: true }}
