@@ -10,6 +10,7 @@ import Seo from "@/components/seo";
 import VideoBlock from "./VideoBlock";
 import QuoteBlock from "./QuoteBlock";
 import ReactMarkdown from "react-markdown";
+import LoadFileBlock from "./LoadFileBlock";
 
 export default function Blog({ blog }) {
   const { t } = useTranslation("common");
@@ -38,14 +39,18 @@ export default function Blog({ blog }) {
       <IntroNews blog={blog} />
       <CarouselNews slides={blog.attributes.PhotoSlides} blog={blog} />
       {blog.attributes.Text2 && (
-        <div className="container pt-3">
-          <ReactMarkdown>{blog.attributes.Text2}</ReactMarkdown>
+        <div className="container pt-12">
+          <ReactMarkdown className="markDown">
+            {blog.attributes.Text2}
+          </ReactMarkdown>
         </div>
       )}
       {blog.attributes.File?.data && (
         <LoadFileBlock file={blog.attributes.File.data} />
       )}
+      <Line variantColor="grey" />
       {blog.attributes.Quote && <QuoteBlock quote={blog.attributes.Quote} />}
+      <Line variantColor="grey" />
 
       {blog.attributes.Video?.data && (
         <VideoBlock

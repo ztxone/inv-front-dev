@@ -4,12 +4,12 @@ import { getStrapiMediaCarousel } from "lib/mediaCarousel";
 
 export const BlogSlide = ({ photo }) => {
   return (
-    <div className="w-full h-full rounded-lr overflow-hidden">
+    <div className="rounded-lr  h-[187px] w-[275px] md:h-[421px] md:w-[619px] xl:h-[602px] xl:w-[859px] overflow-hidden">
       <Image
-        className="w-full h-full"
-        width="366"
+        className="w-full h-full object-cover"
+        width="266"
+        height="151"
         alt={photo.attributes.name}
-        height="251"
         src={getStrapiMediaCarousel(photo)}
       />
     </div>

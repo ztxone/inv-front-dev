@@ -105,3 +105,15 @@
 .richText ul {
   margin-bottom: 15px;
 }
+
+.markDown p {
+  @apply leading-4 md:text-xl xl:w-1/2 pb-3;
+}
+
+.markDown h1 {
+  @apply text-xl pb-[21px] leading-6.3;
+}
+
+.opacityMarkdown p {
+  @apply opacity-70;
+}
