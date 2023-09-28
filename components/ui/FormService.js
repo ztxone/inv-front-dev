@@ -2,6 +2,9 @@ import FormFieldset from "./FormFieldset";
 import TitleH3 from "./TitleH3";
 import FormButton from "./FormButton";
 import { FormProvider, useForm } from "react-hook-form";
+import { useContext, useEffect, useState } from "react";
+import { ToastrContext } from "../Toastr/ToastrProvider";
+import { sendCallOrder } from "lib/sendCallOrder";
 
 function FormInput({ type, id, placeholder, register, name, pattern }) {
   return (
@@ -21,14 +24,28 @@ function FormInput({ type, id, placeholder, register, name, pattern }) {
 
 export default function FormService() {
   const methods = useForm();
+  const [loading, setLoading] = useState(false);
+  const { setOpen, setSuccess, setMessage, Confirmation_Form_Brief } =
+    useContext(ToastrContext);
+  const openSuccessToast = () => {
+    setMessage(Confirmation_Form_Brief);
+    setSuccess(true);
+    setOpen(true);
+  };
+  const openErrorToast = () => {
+    setSuccess(false);
+    setOpen(true);
+  };
 
   const onSubmit = async (data) => {
-    console.log(data);
+    setLoading(true);
     try {
-      // await sendEmail(data);
-      console.log("Email sent successfully!");
+      await sendCallOrder({ ...data, Agreement: true });
+      openSuccessToast();
     } catch (error) {
-      console.error("Email sending error:", error);
+      openErrorToast();
+    } finally {
+      setLoading(false);
     }
   };
   return (
@@ -58,13 +75,17 @@ export default function FormService() {
           />
           <FormInput
             type="tel"
-            id="phone"
+            id="Phone"
             placeholder="Телефон*"
-            name={"phone"}
+            name={"Phone"}
             pattern={{ required: "Phone is required" }}
             register={methods.register}
           />
-          <FormButton text="Отправить" />
+          <FormButton
+            text="Отправить"
+            loading={loading}
+            disabled={!methods.formState.isValid}
+          />
         </FormFieldset>
       </form>
     </FormProvider>

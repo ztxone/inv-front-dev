@@ -2,16 +2,11 @@ import PillowLink from "@/components/ui/PillowLink";
 import Article from "@/components/ui/Article";
 import ButtonPagination from "@/components/ui/ButtonPagination";
 import TitleColor from "../ui/TitleColor";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Virtual, Navigation, Pagination } from "swiper/modules";
-import Loading from "@/components/ui/Loading";
+import useTranslation from "next-translate/useTranslation";
 
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import useTranslation from "next-translate/useTranslation";
-import { fetchAPI } from "lib/api";
 
 export default function BlogsBlockList({
   titleColor,
@@ -19,32 +14,13 @@ export default function BlogsBlockList({
   buttonColor,
   blogRes,
 }) {
-  const navigationPrevRef = useRef(null);
-  const navigationNextRef = useRef(null);
   const { t } = useTranslation("common");
   const i18n = useTranslation();
-
-  console.log(blogRes);
-  // const [data, setData] = useState();
-
   const locale = i18n.lang;
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const blogsRes = await fetchAPI("/blogs", {
-  //       fields: ["Title", "slug", "Preview"],
-  //       populate: ["tags", "Image_preview"],
-  //       locale: locale,
-  //     });
-
-  //     setData(blogsRes.data);
-  //   }
-  //   fetchData();
-  // }, [locale]);
-
-  // if (!data) {
-  //   return <Loading />;
-  // }
+  const swiperRef = useRef();
+  const prevSlide = () => swiperRef.current.slidePrev();
+  const nextSlide = () => swiperRef.current.slideNext();
 
   return (
     <section
@@ -59,7 +35,7 @@ export default function BlogsBlockList({
         <TitleColor textPart1="Блог" textPart2=" invert" color={titleColor} />
 
         <div className="flex">
-          <div ref={navigationPrevRef}>
+          <div onClick={prevSlide}>
             <ButtonPagination variant={buttonColor}>
               <svg
                 className='w-[9px] h-[15px] viewBox="0 0 9 15'
@@ -74,7 +50,7 @@ export default function BlogsBlockList({
               </svg>
             </ButtonPagination>
           </div>
-          <div ref={navigationNextRef}>
+          <div onClick={nextSlide}>
             <ButtonPagination variant={buttonColor}>
               <svg
                 className='w-[9px] h-[15px] viewBox="0 0 9 15 rotate-180'
@@ -93,31 +69,20 @@ export default function BlogsBlockList({
       </div>
 
       <Swiper
-        modules={[Navigation, Pagination]}
-        spaceBetween={30}
-        slidesPerView={3}
-        scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log("slide change")}
-        navigation={{
-          prevEl: navigationPrevRef.current,
-          nextEl: navigationNextRef.current,
+        loop={true}
+        onSwiper={(swiper) => {
+          swiperRef.current = swiper;
         }}
-        // onBeforeInit={(swiper) => {
-        //   swiper.params.navigation.prevEl = navigationPrevRef.current;
-        //   swiper.params.navigation.nextEl = navigationNextRef.current;
-        // }}
-        virtual
+        spaceBetween={30}
+        slidesPerView={"auto"}
+        scrollbar={{ draggable: true }}
         className="!pl-3.8 !-mr-3.8 flex  pb-7
         md:pb-10 md:gap-7
         lg:pb-9 lg:!pl-20"
       >
         {blogRes &&
           blogRes.map((blog, key) => (
-            <SwiperSlide
-              key={blog.attributes.Title}
-              // className=" bg-blue"
-              virtualIndex={blog.attributes.Title}
-            >
+            <SwiperSlide className="max-w-[288px] sm:max-w-[526px] " key={key}>
               <Article
                 image={blog.attributes.Image_preview}
                 link={blog.attributes.slug}

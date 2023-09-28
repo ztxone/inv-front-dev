@@ -6,6 +6,7 @@ import { getStrapiMedia } from "lib/media";
 import useTranslation from "next-translate/useTranslation";
 import { useCallback, useEffect, useState } from "react";
 import TagItemSection from "../ui/TagItemSection";
+import { useRouter } from "next/router";
 
 export default function ProjectsListPortfolio({
   projects,
@@ -15,6 +16,7 @@ export default function ProjectsListPortfolio({
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
+  const router = useRouter();
 
   const [selectedCategory, setSelectedCategory] = useState(null);
   const filterProjects = useCallback(
@@ -44,11 +46,12 @@ export default function ProjectsListPortfolio({
   };
 
   const handleCategoryClick = (category) => {
-    if (category === selectedCategory) {
-      setSelectedCategory(null);
-    } else {
-      setSelectedCategory(category);
-    }
+    router.push(`/services/${category.attributes.slug}`);
+    // if (category === selectedCategory) {
+    //   setSelectedCategory(null);
+    // } else {
+    //   setSelectedCategory(category);
+    // }
   };
 
   return (
@@ -59,7 +62,7 @@ export default function ProjectsListPortfolio({
             key={category.id}
             text={category.attributes.name}
             color={category.id === selectedCategory ? "blue" : "white"}
-            onClick={() => handleCategoryClick(category.id)}
+            onClick={() => handleCategoryClick(category)}
           />
         ))}
       </div>

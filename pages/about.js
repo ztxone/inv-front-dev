@@ -11,7 +11,7 @@ import Line from "@/components/ui/Line";
 import AboutIntro from "@/components/About/AboutIntro";
 import Seo from "@/components/seo";
 
-export default function About({ about, projects }) {
+export default function About({ about, projects, blogs }) {
   const { t } = useTranslation("common");
   const seo = {
     metaTitle: about.attributes.Seo.metaTitle,
@@ -48,13 +48,14 @@ export default function About({ about, projects }) {
         articleColor="nero"
         titleColor="white"
         buttonColor="white"
+        blogRes={blogs}
       />
     </>
   );
 }
 
 export async function getStaticProps({ locale }) {
-  const [aboutRes, projectsRes] = await Promise.all([
+  const [aboutRes, projectsRes, blogRes] = await Promise.all([
     fetchAPI("/about", {
       populate: "*",
       locale: locale,
@@ -71,12 +72,18 @@ export async function getStaticProps({ locale }) {
         limit: 6,
       },
     }),
+    fetchAPI("/blogs", {
+      fields: ["Title", "slug", "Preview"],
+      populate: ["tags", "Image_preview"],
+      locale: locale,
+    }),
   ]);
 
   return {
     props: {
       about: aboutRes.data,
       projects: projectsRes.data,
+      blogs: blogRes.data,
     },
     revalidate: 1,
   };
@@ -84,7 +91,13 @@ export async function getStaticProps({ locale }) {
 
 About.getLayout = function getLayout(page) {
   return (
-    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="" variantSvg='darkSvg'>
+    <Layout
+      bg="black"
+      headerBg="white"
+      footerBg="black"
+      pillowColor=""
+      variantSvg="darkSvg"
+    >
       {page}
     </Layout>
   );
