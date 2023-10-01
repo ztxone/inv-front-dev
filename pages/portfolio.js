@@ -26,7 +26,7 @@ export default function Portfolio({ projects, categories, blogs }) {
     <>
       <Seo seo={seo} />
       <Wrapper color="grey">
-        <TitleSection text={t(`works.title`)} children={undefined} />
+        <TitleSection text={t(`works.title`)} />
         <Line variantColor="grey" />
         <BreadCrumbs
           links={[

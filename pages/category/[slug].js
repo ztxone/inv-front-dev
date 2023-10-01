@@ -31,7 +31,7 @@ export default function CategoryPortfolio({
     <>
       <Seo seo={seo} />
       <Wrapper color="grey">
-        <TitleSection text={t(`works.title`)} children={undefined} />
+        <TitleSection text={t(`works.title`)} />
         <Line variantColor="grey" />
         <BreadCrumbs
           links={[
