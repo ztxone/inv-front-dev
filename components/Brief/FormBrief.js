@@ -6,8 +6,10 @@ import { AggregateForm } from "./Forms/AggregateForm";
 import { getCategoryProject } from "lib/getCategoryProject";
 import { useContext, useEffect, useState } from "react";
 import { ToastrContext } from "../Toastr/ToastrProvider";
+import { useEnquiryForm } from "lib/useEnquiryForm";
 
 export default function FormBrief({ visobjs, categories, service = "" }) {
+  const checkUser = useEnquiryForm();
   const [category, setCategory] = useState();
   const [projectType, setProjectType] = useState();
   const [loading, setLoading] = useState(false);
@@ -32,8 +34,13 @@ export default function FormBrief({ visobjs, categories, service = "" }) {
         categories: category,
         ProjectType: projectType?.attributes?.name,
       };
-      await sendBrief(sendData);
-      openSuccessToast();
+      const isUser = await checkUser();
+      if (isUser) {
+        await sendBrief(sendData);
+        openSuccessToast();
+      } else {
+        openErrorToast();
+      }
     } catch (error) {
       openErrorToast();
     } finally {

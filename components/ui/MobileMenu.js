@@ -34,7 +34,9 @@ export default function MobileMenu({ menu, onClose, handleOpenModal, isOpen }) {
         className={`fixed flex  flex-col z-20 top-0 left-0 right-0 bg-white pt-[20px] pb-5 px-3.8 xl:hidden`}
       >
         <div className="flex justify-between items-center pb-7 color-black">
-          <Logo color="black" />
+          <div onClick={onClose} className="cursor-pointer">
+            <Logo color="black" />
+          </div>
           <div onClick={onClose} className="cursor-pointer">
             <div className="">
               <svg

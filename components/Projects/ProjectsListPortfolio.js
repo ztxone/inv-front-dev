@@ -4,7 +4,6 @@ import ProjectItemWork from "../ui/ProjectItemWork";
 import ProjectItemImage from "../ui/ProjectItemImage";
 import { getStrapiMedia } from "lib/media";
 import useTranslation from "next-translate/useTranslation";
-import { useCallback, useEffect, useState } from "react";
 import TagItemSection from "../ui/TagItemSection";
 import { useRouter } from "next/router";
 
@@ -12,46 +11,15 @@ export default function ProjectsListPortfolio({
   projects,
   categories,
   tag = "",
+  slug = "",
 }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
   const router = useRouter();
 
-  const [selectedCategory, setSelectedCategory] = useState(null);
-  const filterProjects = useCallback(
-    (project) => {
-      if (!selectedCategory) return project;
-      const projectCategories = project.attributes.categories.data;
-      if (!projectCategories || projectCategories.length === 0) {
-        return false;
-      }
-      const projectCategoryIds = projectCategories.map(
-        (category) => category.id
-      );
-      return projectCategoryIds.includes(selectedCategory);
-    },
-    [selectedCategory]
-  );
-
-  const filterByTag = (project) => {
-    if (!tag) return true;
-    const projectTag = project.attributes.tags?.data?.map(
-      (tag) => tag.attributes.Name
-    );
-    if (!projectTag || projectTag.length === 0) {
-      return false;
-    }
-    return projectTag.includes(tag);
-  };
-
   const handleCategoryClick = (category) => {
-    router.push(`/services/${category.attributes.slug}`);
-    // if (category === selectedCategory) {
-    //   setSelectedCategory(null);
-    // } else {
-    //   setSelectedCategory(category);
-    // }
+    router.push(`/category/${category.attributes.slug}`);
   };
 
   return (
@@ -61,7 +29,7 @@ export default function ProjectsListPortfolio({
           <TagItemSection
             key={category.id}
             text={category.attributes.name}
-            color={category.id === selectedCategory ? "blue" : "white"}
+            color={category.attributes.slug === slug ? "blue" : "white"}
             onClick={() => handleCategoryClick(category)}
           />
         ))}
@@ -74,8 +42,8 @@ export default function ProjectsListPortfolio({
           >
             <Masonry gutter="37px">
               {projects
-                .filter(filterProjects)
-                .filter(filterByTag)
+                // .filter(filterProjects)
+                // .filter(filterByTag)
                 .map((project) => (
                   <ProjectItemWork
                     key={project.id}

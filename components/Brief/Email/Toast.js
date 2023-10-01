@@ -10,7 +10,7 @@ export const Toast = ({ success, close, message }) => {
       {success ? (
         <div
           id="toast-success"
-          className="fixed top-0 z-10 flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow "
+          className=" top-0 z-10 flex items-center mx-auto w-full max-w-xs p-4 mb-4 bg-white rounded-lg shadow "
           role="alert"
         >
           <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green rounded-lg ">
@@ -54,7 +54,7 @@ export const Toast = ({ success, close, message }) => {
       ) : (
         <div
           id="toast-danger"
-          className=" top-0  z-10 flex items-center mx-auto w-full max-w-xs p-4 mb-4 text-gray bg-white rounded-lg shadow "
+          className=" top-0 z-10 flex items-center mx-auto w-full max-w-xs p-4 mb-4 text-gray bg-white rounded-lg shadow "
           role="alert"
         >
           <div className="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg text-white bg-orange">
