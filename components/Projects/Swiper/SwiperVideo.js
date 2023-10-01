@@ -10,8 +10,9 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
   return (
     <>
       <Swiper
+        slidesPerView={1.3}
+        centeredSlides={true}
         loop={true}
-        slidesPerView={1}
         modules={[Thumbs]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,

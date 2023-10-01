@@ -1,12 +1,42 @@
 import FormFieldset from "./FormFieldset";
 import TitleH3 from "./TitleH3";
 import FormButton from "./FormButton";
-import { FormProvider, useForm } from "react-hook-form";
+import {
+  Controller,
+  FormProvider,
+  useForm,
+  useFormContext,
+} from "react-hook-form";
 import { useContext, useEffect, useState } from "react";
 import { ToastrContext } from "../Toastr/ToastrProvider";
 import { sendCallOrder } from "lib/sendCallOrder";
+import { useEnquiryForm } from "lib/useEnquiryForm";
+import InputMask from "react-input-mask";
 
-function FormInput({ type, id, placeholder, register, name, pattern }) {
+function FormInput({ type, id, placeholder, name, pattern, register }) {
+  const mask = "+7 (999) 999-99-99";
+  if (name === "Phone") {
+    return (
+      <InputMask
+        {...register(name, {
+          pattern: {
+            value: /^[^_]*$/,
+            message: pattern.required,
+          },
+        })}
+        className="w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5 border-transparent
+          xl:mb-0 xl:mr-7 xl:pb-5
+          hover:border-white hover:border-opacity-40 hover:placeholder:text-white
+          focus:border-white
+          active:border-white active:outline-none"
+        maskPlaceholder={placeholder}
+        mask={mask}
+        placeholder={placeholder}
+        type={type}
+      />
+    );
+  }
+
   return (
     <input
       className="w-full pt-[17px] pb-[14px] px-7 bg-nero rounded-lr mb-2.5 border-transparent
@@ -24,6 +54,7 @@ function FormInput({ type, id, placeholder, register, name, pattern }) {
 
 export default function FormService() {
   const methods = useForm();
+  const checkUser = useEnquiryForm();
   const [loading, setLoading] = useState(false);
   const { setOpen, setSuccess, setMessage, Confirmation_Form_Brief } =
     useContext(ToastrContext);
@@ -38,10 +69,16 @@ export default function FormService() {
   };
 
   const onSubmit = async (data) => {
+    console.log("data", data.Phone.length);
     setLoading(true);
     try {
-      await sendCallOrder({ ...data, Agreement: true });
-      openSuccessToast();
+      const isUser = checkUser();
+      if (isUser) {
+        await sendCallOrder({ ...data, Agreement: true });
+        openSuccessToast();
+      } else {
+        openErrorToast();
+      }
     } catch (error) {
       openErrorToast();
     } finally {

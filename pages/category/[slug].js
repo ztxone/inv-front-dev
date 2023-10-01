@@ -11,7 +11,12 @@ import Wrapper from "@/components/ui/Wrapper";
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
 
-export default function Portfolio({ projects, categories, blogs }) {
+export default function CategoryPortfolio({
+  projects,
+  categories,
+  params,
+  blogs,
+}) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
@@ -37,7 +42,11 @@ export default function Portfolio({ projects, categories, blogs }) {
             },
           ]}
         />
-        <ProjectsListPortfolio projects={projects} categories={categories} />
+        <ProjectsListPortfolio
+          projects={projects}
+          categories={categories}
+          slug={params}
+        />
       </Wrapper>
       <IntroSlides />
       <IntroCost />
@@ -51,24 +60,57 @@ export default function Portfolio({ projects, categories, blogs }) {
   );
 }
 
-export async function getStaticProps({ locale }) {
+CategoryPortfolio.getLayout = function getLayout(page) {
+  return (
+    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="">
+      {page}
+    </Layout>
+  );
+};
+
+export async function getStaticPaths({ locale }) {
+  const categoriesRes = await fetchAPI("/categories", {
+    fields: ["name", "slug", "text"],
+    populate: ["projects"],
+    locale: locale,
+  });
+
+  return {
+    paths: [
+      ...categoriesRes.data.map((category) => ({
+        params: {
+          slug: category.attributes.slug,
+        },
+      })),
+
+      ...categoriesRes.data.map((category) => ({
+        params: {
+          slug: category.attributes.slug,
+        },
+        locale: "en",
+      })),
+    ],
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ locale, params }) {
   const [projectsRes, categoriesRes, blogRes] = await Promise.all([
     fetchAPI("/projects", {
       sort: ["ListPosition:asc"],
       populate: ["Poster", "tags", "categories"],
       fields: ["Title", "slug"],
       locale: locale,
+      filters: {
+        categories: {
+          slug: { $eq: params.slug },
+        },
+      },
     }),
     fetchAPI("/categories", {
-      // Fetch categories from the API
       fields: ["name", "slug", "text"],
       populate: ["projects"],
       locale: locale,
-      //   filters: {
-      //     id: {
-      //       $in: [13, 9, 8, 25],
-      //     },
-      //   },
     }),
     fetchAPI("/blogs", {
       fields: ["Title", "slug", "Preview"],
@@ -81,16 +123,9 @@ export async function getStaticProps({ locale }) {
     props: {
       categories: categoriesRes.data,
       projects: projectsRes.data,
+      params: params.slug,
       blogs: blogRes.data,
     },
     revalidate: 1,
   };
 }
-
-Portfolio.getLayout = function getLayout(page) {
-  return (
-    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="">
-      {page}
-    </Layout>
-  );
-};

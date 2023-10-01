@@ -2,6 +2,7 @@ import { SwiperVideo } from "./Swiper/SwiperVideo";
 import { SwiperPhotos } from "./Swiper/SwiperPhotos";
 
 export default function ProjectCarousel({ photos, poster, videoFiles }) {
+  console.log(photos, videoFiles);
   return (
     <>
       <div className="pt-2.5 pb-7 lg:container w-full mx-auto">
