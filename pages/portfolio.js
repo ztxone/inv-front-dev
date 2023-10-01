@@ -60,15 +60,9 @@ export async function getStaticProps({ locale }) {
       locale: locale,
     }),
     fetchAPI("/categories", {
-      // Fetch categories from the API
       fields: ["name", "slug", "text"],
       populate: ["projects"],
       locale: locale,
-      //   filters: {
-      //     id: {
-      //       $in: [13, 9, 8, 25],
-      //     },
-      //   },
     }),
     fetchAPI("/blogs", {
       fields: ["Title", "slug", "Preview"],

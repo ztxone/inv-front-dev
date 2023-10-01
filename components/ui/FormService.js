@@ -1,20 +1,16 @@
 import FormFieldset from "./FormFieldset";
 import TitleH3 from "./TitleH3";
 import FormButton from "./FormButton";
-import {
-  Controller,
-  FormProvider,
-  useForm,
-  useFormContext,
-} from "react-hook-form";
+import { FormProvider, useForm } from "react-hook-form";
 import { useContext, useEffect, useState } from "react";
 import { ToastrContext } from "../Toastr/ToastrProvider";
 import { sendCallOrder } from "lib/sendCallOrder";
 import { useEnquiryForm } from "lib/useEnquiryForm";
 import InputMask from "react-input-mask";
+import { GlobalContext } from "pages/_app";
 
 function FormInput({ type, id, placeholder, name, pattern, register }) {
-  const mask = "+7 (999) 999-99-99";
+  const { mask } = useContext(GlobalContext);
   if (name === "Phone") {
     return (
       <InputMask
@@ -69,10 +65,10 @@ export default function FormService() {
   };
 
   const onSubmit = async (data) => {
-    console.log("data", data.Phone.length);
     setLoading(true);
     try {
-      const isUser = checkUser();
+      const isUser = await checkUser();
+      console.log(isUser);
       if (isUser) {
         await sendCallOrder({ ...data, Agreement: true });
         openSuccessToast();
@@ -80,6 +76,7 @@ export default function FormService() {
         openErrorToast();
       }
     } catch (error) {
+      console.log(error);
       openErrorToast();
     } finally {
       setLoading(false);

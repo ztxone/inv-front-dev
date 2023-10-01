@@ -1,6 +1,8 @@
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { InputErrorMessage } from "./InputErrorMessage";
 import InputMask from "react-input-mask";
+import { GlobalContext } from "pages/_app";
+import { useContext } from "react";
 
 export default function ModalInputForBrief({
   type,
@@ -16,7 +18,8 @@ export default function ModalInputForBrief({
     control,
     formState: { errors },
   } = useFormContext();
-  const mask = "+7 (999) 999-99-99";
+  const { mask } = useContext(GlobalContext);
+
   if (name === "Phone") {
     return (
       <>
