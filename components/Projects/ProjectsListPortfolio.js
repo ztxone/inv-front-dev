@@ -17,10 +17,18 @@ export default function ProjectsListPortfolio({
   const i18n = useTranslation();
   const locale = i18n.lang;
   const router = useRouter();
+  const { id } = router.query;
 
-  const handleCategoryClick = (category) => {
-    router.push(`/category/${category.attributes.slug}`);
+  const handleCategoryClick = (id) => {
+    router.push(`/portfolio?id=${id}`);
   };
+
+  const filterProjects = (project) =>
+    id
+      ? project.attributes.categories.data.some(
+          (elem) => String(elem.id) === id
+        )
+      : true;
 
   return (
     <section className="bg-whisper relative z-10 rounded-5xl pb-25 pt-6 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-12 lg:pb-9 lg:rounded-7xl">
@@ -29,8 +37,8 @@ export default function ProjectsListPortfolio({
           <TagItemSection
             key={category.id}
             text={category.attributes.name}
-            color={category.attributes.slug === slug ? "blue" : "white"}
-            onClick={() => handleCategoryClick(category)}
+            color={String(category.id) === id ? "blue" : "white"}
+            onClick={() => handleCategoryClick(category.id)}
           />
         ))}
       </div>
@@ -42,7 +50,7 @@ export default function ProjectsListPortfolio({
           >
             <Masonry gutter="37px">
               {projects
-                // .filter(filterProjects)
+                .filter(filterProjects)
                 // .filter(filterByTag)
                 .map((project) => (
                   <ProjectItemWork

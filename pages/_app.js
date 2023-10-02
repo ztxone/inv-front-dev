@@ -13,7 +13,6 @@ export const GlobalContext = createContext({});
 const MyApp = ({ Component, pageProps }) => {
   const { global } = pageProps;
   const getLayout = Component.getLayout || ((page) => page);
-  console.log(global);
 
   return (
     <>
