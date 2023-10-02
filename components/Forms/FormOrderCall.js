@@ -8,6 +8,7 @@ import ModalApproveForm from "./ModalApproveForm";
 import { useContext, useState } from "react";
 import { sendCallOrder } from "lib/sendCallOrder";
 import { ToastrContext } from "../Toastr/ToastrProvider";
+import { useEnquiryForm } from "lib/useEnquiryForm";
 
 const options = [
   {
@@ -25,6 +26,7 @@ const options = [
 ];
 
 export const FormOrderCall = ({ title, onClose }) => {
+  const checkUser = useEnquiryForm();
   const [loading, setLoading] = useState(false);
   const methods = useForm();
   const { setOpen, setSuccess, setMessage, Confirmation_Form_Phone } =
@@ -42,9 +44,14 @@ export const FormOrderCall = ({ title, onClose }) => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      await sendCallOrder(data);
-      onClose();
-      openSuccessToast();
+      const isUser = await checkUser();
+      if (isUser) {
+        await sendCallOrder(data);
+        onClose();
+        openSuccessToast();
+      } else {
+        openErrorToast();
+      }
     } catch (error) {
       openErrorToast();
     } finally {

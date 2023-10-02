@@ -48,11 +48,6 @@ function Project({ project, categories }) {
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
 
-      {/* <Video
-        poster={project.attributes.Poster}
-        videofile={project.attributes.VideoFile}
-      /> */}
-
       <ProjectCarousel
         photos={project.attributes.ProjectSliderFotos.data}
         poster={project.attributes.Poster}

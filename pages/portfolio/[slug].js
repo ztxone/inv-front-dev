@@ -28,7 +28,14 @@ export default function Tag({ tag, projects, categories }) {
   return (
     <>
       <Seo seo={seo} />
-      <TitleSection text={`# ${tag.attributes.Name}`} />
+      <TitleSection text={tag.attributes.Name}>
+        <span
+          className="text-4xl tracking-tight
+        md:text-6xl text-blue"
+        >
+          #
+        </span>
+      </TitleSection>
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
       <ProjectsListPortfolio
@@ -50,6 +57,7 @@ export async function getStaticPaths({ locales }) {
           slug: tag.attributes.slug,
         },
       })),
+
       ...tagsRes.data.map((tag) => ({
         params: {
           slug: tag.attributes.slug,
@@ -67,6 +75,11 @@ export async function getStaticProps({ params }) {
       sort: ["ListPosition:asc"],
       populate: ["Poster", "tags", "categories"],
       fields: ["Title", "slug"],
+      filters: {
+        tags: {
+          slug: { $eq: params.slug },
+        },
+      },
     }),
     fetchAPI("/categories", {
       fields: ["name", "slug", "text"],
@@ -80,7 +93,7 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      tag: matchingTags.data[0],
+      tag: matchingTags?.data[0],
       categories: categoriesRes.data,
       projects: projectsRes.data,
     },

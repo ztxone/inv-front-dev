@@ -9,6 +9,7 @@ import ModalSelectForBrief from "../Brief/ModalSelectForBrief";
 import ModalApproveForm from "./ModalApproveForm";
 import { useContext, useState } from "react";
 import { ToastrContext } from "../Toastr/ToastrProvider";
+import { useEnquiryForm } from "lib/useEnquiryForm";
 
 const options = [
   {
@@ -27,6 +28,7 @@ const options = [
 
 export const FormOrder = ({ onSubmitForm }) => {
   const methods = useForm();
+  const checkUser = useEnquiryForm();
   const [loading, setLoading] = useState(false);
   const { setOpen, setSuccess, setMessage, Confirmation_Form_Zayavka } =
     useContext(ToastrContext);
@@ -43,8 +45,14 @@ export const FormOrder = ({ onSubmitForm }) => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
-      await sendEmail(data);
-      openSuccessToast();
+      const isUser = await checkUser();
+
+      if (isUser) {
+        await sendEmail(data);
+        openSuccessToast();
+      } else {
+        openErrorToast();
+      }
     } catch (error) {
       openErrorToast();
     } finally {
@@ -101,7 +109,7 @@ export const FormOrder = ({ onSubmitForm }) => {
                 id="phone"
                 placeholder="+7 (000) 000 00-00"
                 error={methods.formState.errors.phone?.message}
-                name={"phone"}
+                name={"Phone"}
                 pattern={{ required: "Phone is required" }}
                 register={methods.register}
               />

@@ -26,17 +26,13 @@ export const SwiperPhotos = ({ poster, photos }) => {
 
   return (
     <>
-      {/* <ImageZoomModal
-        isOpen={openZoom}
-        onClose={() => setOpenZoom((x) => !x)}
-        current={current}
-      /> */}
       <Swiper
+        slidesPerView={1.3}
+        centeredSlides={true}
         spaceBetween={10}
         className="mySwiper"
         loop
         zoom
-        slidesPerView={1}
         modules={[Thumbs, Zoom]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
@@ -53,9 +49,6 @@ export const SwiperPhotos = ({ poster, photos }) => {
             <div className="  w-[100wh] h-[566px] relative swiper-zoom-container">
               <Image
                 fill={true}
-                // width="266"
-                // height="151"
-                // className="w-full h-full object-cover"
                 className="object-cover min-w-20 min-h-fit rounded-lr "
                 alt={photo.attributes.name}
                 src={getLink(photo)}
