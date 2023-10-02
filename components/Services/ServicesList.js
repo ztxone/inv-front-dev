@@ -26,8 +26,6 @@ export default function ServicesList() {
     fetchData();
   }, [locale]);
 
-  console.log(data);
-
   if (!data) {
     return <Loading />;
   }

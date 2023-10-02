@@ -6,7 +6,6 @@ import Line from "@/components/ui/Line";
 import ServicesDoc from "@/components/ui/ServicesDoc";
 
 export default function About({ about, servicesAbout }) {
-  console.log(servicesAbout);
   return (
     <div className="relative">
       <section
