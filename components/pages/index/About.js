@@ -66,7 +66,9 @@ export default function About({ about, servicesAbout }) {
                 >
                   <div className="absolute top-0 bottom-0 left-0 right-0">
                     <Image
-                      src="/image/content/flyer-paper-mockup.png"
+                      src={getStrapiMedia(
+                        item.attributes.Slides.BackgroundImage
+                      )}
                       width="389"
                       height="275"
                       className="w-full rounded-4xl h-full cover"
@@ -114,7 +116,9 @@ export default function About({ about, servicesAbout }) {
                   <div className="absolute top-0 bottom-0 left-0 right-0">
                     <Image
                       className="rounded-4xl w-full h-full"
-                      src="/image/content/video.png"
+                      src={getStrapiMedia(
+                        item.attributes.Slides.BackgroundImage
+                      )}
                       width="286"
                       height="347"
                       alt=""
