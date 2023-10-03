@@ -10,7 +10,7 @@ export default function ModalApproveForm({ fullWidth = false, name }) {
 
   return (
     <div
-      className={`relative flex pb-9 items-center md:pt-6 ${
+      className={`relative flex pb-4 items-center md:pt24 ${
         fullWidth ? "w-full" : "md:w-3/5 lg:max-w-[422px]"
       }`}
     >

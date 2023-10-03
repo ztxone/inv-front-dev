@@ -64,15 +64,15 @@ export const FormOrder = ({ onSubmitForm }) => {
   return (
     <div>
       <Image
-        className="w-full bg-black min-h-[202px] object-cover rounded-t-5xl"
+        className="w-full bg-black h-[101px] object-cover rounded-t-5xl"
         src="/image/content/modal.png"
-        width="398"
-        height="202"
+        width="275"
+        height="10"
         alt=""
       />
       <div className="px-10 pb-15 pt-9 text-center">
         <h2 className="text-xl pb-1.5">Отправить заявку</h2>
-        <p className="pb-15">
+        <p className="pb-5">
           Оставьте свои контактные данные и мы вышлем вам Коммерческое
           предложение
         </p>
