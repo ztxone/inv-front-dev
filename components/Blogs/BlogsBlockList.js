@@ -81,7 +81,7 @@ export default function BlogsBlockList({
         lg:pb-9 lg:!pl-20"
       >
         {blogRes &&
-          blogRes.map((blog, key) => (
+          [...blogRes, ...blogRes].map((blog, key) => (
             <SwiperSlide className="max-w-[288px] sm:max-w-[526px] " key={key}>
               <Article
                 image={blog.attributes.Image_preview}

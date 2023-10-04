@@ -25,7 +25,6 @@ function FormInput({ type, id, placeholder, name, pattern, register }) {
           hover:border-white hover:border-opacity-40 hover:placeholder:text-white
           focus:border-white
           active:border-white active:outline-none"
-        maskPlaceholder={placeholder}
         mask={mask}
         placeholder={placeholder}
         type={type}
