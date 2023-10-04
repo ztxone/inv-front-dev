@@ -99,16 +99,16 @@ export const FormOrder = ({ onSubmitForm }) => {
 
             <ModalFieldset width="w-full">
               <ModalLabel
-                htmlFor="phone"
+                htmlFor="Phone"
                 text="Телефон"
                 align="text-left"
                 required={true}
               />
               <ModalInputForBrief
                 type="tel"
-                id="phone"
+                id="Phone"
                 placeholder="+7 (000) 000 00-00"
-                error={methods.formState.errors.phone?.message}
+                error={methods.formState.errors.Phone?.message}
                 name={"Phone"}
                 pattern={{ required: "Phone is required" }}
                 register={methods.register}
