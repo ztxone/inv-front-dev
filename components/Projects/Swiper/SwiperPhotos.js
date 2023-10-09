@@ -7,6 +7,9 @@ import Image from "next/image";
 import "swiper/css";
 
 import { getStrapiURL } from "lib/api";
+import ModalImage from "@/components/ui/ModalImage";
+import { getStrapiMedia } from "lib/media";
+
 export function getLink(media) {
   try {
     const { url } = media.attributes;
@@ -27,15 +30,22 @@ export const SwiperPhotos = ({ poster, photos }) => {
   return (
     <>
       <Swiper
-        slidesPerView={1.3}
+        slidesPerView={1}
         centeredSlides={true}
         spaceBetween={10}
         className="mySwiper"
+        autoHeight={true}
         loop
         zoom
         modules={[Thumbs, Zoom]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+        }}
+        breakpoints={{
+          // Set slidesPerView to 1 for mobile screens
+          768: {
+            slidesPerView: 1.3,
+          },
         }}
       >
         {slides.map((photo, index) => (
@@ -44,9 +54,11 @@ export const SwiperPhotos = ({ poster, photos }) => {
             onClick={() => {
               setCurrent(photo);
               setOpenZoom(true);
+              console.log(current);
             }}
           >
-            <div className="  w-[100wh] h-[566px] relative swiper-zoom-container">
+            <div className=" h-[80vh] relative swiper-zoom-container">
+              {/*  h-[566px]  */}
               <Image
                 fill={true}
                 className="object-cover min-w-20 min-h-fit rounded-lr "
@@ -57,8 +69,20 @@ export const SwiperPhotos = ({ poster, photos }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      {current && (
+        <ModalImage isOpen={openZoom} onClose={() => setOpenZoom(false)}>
+          <Image
+            width="1200"
+            height={800}
+            className="relative max-w-[90vw] h-auto object-cover rounded-lr "
+            alt={current.attributes.name}
+            src={getLink(current)}
+          />
+        </ModalImage>
+      )}
+
       {slides.length > 1 && (
-        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5">
+        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 lg:container w-full mx-auto">
           <Swiper
             slidesPerView={"auto"}
             spaceBetween={10}
@@ -73,7 +97,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
           >
             {slides.map((photo, index) => (
               <SwiperSlide key={index} style={{ flexShrink: 1 }}>
-                <div className="rounded-lr  h-[151px] w-[266px] overflow-hidden">
+                <div className="rounded-lr   w-[266px] overflow-hidden">
                   <Image
                     className="w-full h-full object-cover"
                     width="266"
