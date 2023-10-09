@@ -107,8 +107,9 @@
 }
 
 .markDown p {
-  @apply leading-4 md:text-xl xl:w-1/2 pb-3;
+  @apply leading-4 md:text-xl  pb-3;
 }
+/*xl:w-1/2*/
 
 .markDown h1 {
   @apply text-xl pb-[21px] leading-6.3;

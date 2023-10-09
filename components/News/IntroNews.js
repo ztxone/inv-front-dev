@@ -45,7 +45,7 @@ export default function IntroNews({ blog }) {
             onClick={() => onClickLink("news")}
           />
         </TagItemContainer>
-        <ReactMarkdown className="pt-[43px] pb-[30px] markDown">
+        <ReactMarkdown className="pt-[43px] pb-[30px] markDown mx-auto">
           {blog.attributes.Preview}
         </ReactMarkdown>
       </div>
