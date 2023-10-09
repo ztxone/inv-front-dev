@@ -67,11 +67,11 @@ export default function CarouselNews({ slides, blog }) {
         <ReactMarkdown className="markDown opacityMarkdown">
           {blog.attributes.Advertise}
         </ReactMarkdown>
-        <div className="py-12">
+        {/* <div className="py-12">
           <Link className="text-blue underline" href="#">
             Ссылка на источник{" "}
           </Link>
-        </div>
+        </div> */}
       </div>
       {slides.data && (
         <Swiper
