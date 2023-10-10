@@ -50,13 +50,12 @@ export default function IntroNews({ blog }) {
         </ReactMarkdown>
       </div>
       <Image
-        className="w-full aspect-[428/244]
-      md:aspect-[834/322]
-      lg:aspect-[1920/742] lg:max-h-[742px]"
+        className="w-full "
         src={getStrapiMediaCarousel(blog.attributes.Image_preview.data)}
-        width="428"
-        height="244"
+        width="1200"
+        height="800"
         alt=""
+        quality={100}
       />
     </div>
   );
