@@ -37,6 +37,13 @@ export default function Blog({ blog }) {
       <Line variantColor="grey" />
       <BreadCrumbs links={breadCrumbsItems} />
       <IntroNews blog={blog} />
+      {blog.attributes.Text && (
+        <div className="container pt-12">
+          <ReactMarkdown className="markDown">
+            {blog.attributes.Text}
+          </ReactMarkdown>
+        </div>
+      )}
       <CarouselNews slides={blog.attributes.PhotoSlides} blog={blog} />
       {blog.attributes.Text2 && (
         <div className="container pt-12">
@@ -58,6 +65,13 @@ export default function Blog({ blog }) {
           video={blog.attributes.Video}
           poster={blog.attributes.Image_preview}
         />
+      )}
+      {blog.attributes.Text3 && (
+        <div className="container pt-12">
+          <ReactMarkdown className="markDown">
+            {blog.attributes.Text3}
+          </ReactMarkdown>
+        </div>
       )}
     </>
   );
