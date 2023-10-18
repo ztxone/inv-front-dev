@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Thumbs, Zoom } from "swiper/modules";
+import { Pagination, Thumbs, Zoom } from "swiper/modules";
 
 import { ImageZoomModal } from "../ImageZoomModal";
 import Image from "next/image";
@@ -26,25 +26,43 @@ export const SwiperPhotos = ({ poster, photos }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [openZoom, setOpenZoom] = useState(false);
   const [current, setCurrent] = useState();
+  const [showPagination, setShowPagination] = useState(true);
+
+  const updatePaginationVisibility = () => {
+    setShowPagination(window.innerWidth < 768);
+  };
+
+  useEffect(() => {
+    updatePaginationVisibility();
+
+    // Update visibility on window resize
+    window.addEventListener("resize", updatePaginationVisibility);
+
+    return () => {
+      window.removeEventListener("resize", updatePaginationVisibility);
+    };
+  }, []);
 
   return (
     <>
       <Swiper
         slidesPerView={1}
+        //slidesPerView={"auto"}
         centeredSlides={true}
         spaceBetween={10}
         className="mySwiper"
         autoHeight={true}
         loop
-        zoom
-        modules={[Thumbs, Zoom]}
+        //zoom
+        modules={showPagination ? [Thumbs, Pagination] : [Thumbs]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
+        pagination={showPagination ? true : null}
         breakpoints={{
           // Set slidesPerView to 1 for mobile screens
           768: {
-            slidesPerView: 1.3,
+            slidesPerView: 1.1,
           },
         }}
       >
@@ -53,19 +71,17 @@ export const SwiperPhotos = ({ poster, photos }) => {
             key={index}
             onClick={() => {
               setCurrent(photo);
-              setOpenZoom(true);
-              console.log(current);
+              //setOpenZoom(true);
+              //console.log(current);
             }}
+            style={{ width: "100%", height: "90vh" }}
           >
-            <div className=" h-[80vh] relative swiper-zoom-container">
-              {/*  h-[566px]  */}
-              <Image
-                fill={true}
-                className="object-cover min-w-20 min-h-fit rounded-lr "
-                alt={photo.attributes.name}
-                src={getLink(photo)}
-              />
-            </div>
+            <Image
+              fill={true}
+              className="object-contain rounded-lr "
+              alt={photo.attributes.name}
+              src={getLink(photo)}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
@@ -75,13 +91,13 @@ export const SwiperPhotos = ({ poster, photos }) => {
             width="1200"
             height={800}
             className="relative max-w-[90vw] h-auto object-cover rounded-lr "
-            alt={current.attributes.name}
+            alt={current.attributes.name ? current.attributes.name : ""}
             src={getLink(current)}
           />
         </ModalImage>
       )}
 
-      {slides.length > 1 && (
+      {slides.length > 1 && !showPagination && (
         <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 lg:container w-full mx-auto">
           <Swiper
             slidesPerView={"auto"}
