@@ -156,7 +156,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
           >
             {slides.map((photo, index) => (
               <SwiperSlide key={index} style={{ flexShrink: 1 }}>
-                <div className="rounded-lr   w-[266px] overflow-hidden">
+                <div className="rounded-lr   w-[266px] h-[150px] overflow-hidden">
                   <Image
                     className="w-full h-full object-cover"
                     width="266"
