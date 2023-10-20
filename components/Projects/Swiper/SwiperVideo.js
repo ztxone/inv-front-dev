@@ -55,7 +55,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
       {videoSlides.length > 1 && (
         <div
           className={`2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 ${
-            showPagination ? "w-[90vw]" : "w-0 h-0"
+            showPagination ? "w-[100%]" : "w-0 h-0"
           } mx-auto`}
         >
           <Swiper
@@ -67,7 +67,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
                 slidesPerView: 2,
               },
               992: {
-                slidesPerView: 3,
+                slidesPerView: videoSlides.length < 3 ? 2 : 3,
               },
             }}
             spaceBetween={30}
