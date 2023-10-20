@@ -53,11 +53,11 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
           centeredSlides={true}
           loop={true}
           modules={[Thumbs]}
-          //   thumbs={{
-          //     swiper:
-          //       thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
-          //   }}
-          thumbs={{ swiper: thumbsSwiper }}
+          thumbs={{
+            swiper:
+              //thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+              thumbsSwiper,
+          }}
         >
           {videoSlides.map((video, index) => (
             <SwiperSlide key={index}>
@@ -67,7 +67,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
         </Swiper>
 
         {videoSlides.length > 1 && (
-          <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 w-[90vw] mx-auto	 z-5">
+          <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 w-[90vw] mx-auto">
             <Swiper
               slidesPerView={2}
               breakpoints={{
