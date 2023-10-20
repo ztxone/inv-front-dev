@@ -11,13 +11,17 @@ export function getLink(media) {
   }
 }
 
-export const VideoPlayer = ({ poster, videofile, small = false, stop = false }) => {
+export const VideoPlayer = ({
+  poster,
+  videofile,
+  small = false,
+  stop = false,
+}) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const handlePlay = () => {
     if (small) return;
     if (isPlaying) {
-
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
@@ -29,8 +33,7 @@ export const VideoPlayer = ({ poster, videofile, small = false, stop = false }) 
   useEffect(() => {
     videoRef.current.pause();
     setIsPlaying(false);
-  }, [stop])
-
+  }, [stop]);
 
   return (
     <div
@@ -38,9 +41,10 @@ export const VideoPlayer = ({ poster, videofile, small = false, stop = false }) 
       className="w-full h-full relative rounded-lr overflow-hidden"
     >
       <video
-        onClick={() => console.log('click')}
+        onClick={() => console.log("click")}
         ref={videoRef}
         poster={getLink(poster)}
+        controls
         className="w-full h-full"
       >
         <source src={getLink(videofile)} type="video/mp4" />
@@ -50,47 +54,47 @@ export const VideoPlayer = ({ poster, videofile, small = false, stop = false }) 
           <a href="#">этой ссылке</a>.
         </p>
       </video>
-      {
-        small ? (
-          <div className="absolute top-0 opacity-0 w-full h-full z-10">
-            <div
-              className={`absolute top-1/2 left-1/2 -translate-y-5 -translate-x-2
+      {small ? (
+        <div className="absolute top-0 opacity-0 w-full h-full z-10">
+          <div
+            className={`absolute top-1/2 left-1/2 -translate-y-5 -translate-x-2
           ${small ? "" : "md:-translate-y-10 md:-translate-x-5"}
         `}
+          >
+            <svg
+              viewBox="0 0 36 43"
+              className={`w-[36px] h-[43px] cursor-pointer ${
+                small ? "" : "md:w-[86px] md:h-[86px]"
+              } `}
             >
-              <svg
-                viewBox="0 0 36 43"
-                className={`w-[36px] h-[43px] cursor-pointer ${small ? "" : "md:w-[86px] md:h-[86px]"
-                  } `}
-              >
-                <path
-                  d="M33.4217 17.2697C36.5342 19.231 36.5342 23.7688 33.4217 25.7301L7.85702 41.8395C4.52747 43.9376 0.191389 41.5448 0.191389 37.6093L0.19139 5.39047C0.191391 1.45501 4.52746 -0.937803 7.85701 1.16029L33.4217 17.2697Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
+              <path
+                d="M33.4217 17.2697C36.5342 19.231 36.5342 23.7688 33.4217 25.7301L7.85702 41.8395C4.52747 43.9376 0.191389 41.5448 0.191389 37.6093L0.19139 5.39047C0.191391 1.45501 4.52746 -0.937803 7.85701 1.16029L33.4217 17.2697Z"
+                fill="white"
+              />
+            </svg>
           </div>
-        ) : (
-          !isPlaying && (
-            <div
-              className={`absolute top-1/2 left-1/2 -translate-y-5 -translate-x-2
+        </div>
+      ) : (
+        !isPlaying && (
+          <div
+            className={`absolute top-1/2 left-1/2 -translate-y-5 -translate-x-2
           ${small ? "" : "md:-translate-y-10 md:-translate-x-5"}
         `}
+          >
+            <svg
+              viewBox="0 0 36 43"
+              className={`w-[36px] h-[43px] cursor-pointer ${
+                small ? "" : "md:w-[86px] md:h-[86px]"
+              } `}
             >
-              <svg
-                viewBox="0 0 36 43"
-                className={`w-[36px] h-[43px] cursor-pointer ${small ? "" : "md:w-[86px] md:h-[86px]"
-                  } `}
-              >
-                <path
-                  d="M33.4217 17.2697C36.5342 19.231 36.5342 23.7688 33.4217 25.7301L7.85702 41.8395C4.52747 43.9376 0.191389 41.5448 0.191389 37.6093L0.19139 5.39047C0.191391 1.45501 4.52746 -0.937803 7.85701 1.16029L33.4217 17.2697Z"
-                  fill="white"
-                />
-              </svg>
-            </div>
-          )
+              <path
+                d="M33.4217 17.2697C36.5342 19.231 36.5342 23.7688 33.4217 25.7301L7.85702 41.8395C4.52747 43.9376 0.191389 41.5448 0.191389 37.6093L0.19139 5.39047C0.191391 1.45501 4.52746 -0.937803 7.85701 1.16029L33.4217 17.2697Z"
+                fill="white"
+              />
+            </svg>
+          </div>
         )
-      }
-    </div >
+      )}
+    </div>
   );
 };
