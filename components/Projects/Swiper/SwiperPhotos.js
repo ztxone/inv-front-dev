@@ -43,24 +43,21 @@ export const SwiperPhotos = ({ poster, photos }) => {
     };
   }, []);
 
-  return (
-    <>
+  const renderSwiperWithPagination = () => {
+    return (
       <Swiper
         slidesPerView={1}
-        //slidesPerView={"auto"}
         centeredSlides={true}
         spaceBetween={10}
         className="mySwiper"
         autoHeight={true}
         loop
-        //zoom
-        modules={showPagination ? [Thumbs, Pagination] : [Thumbs]}
+        modules={[Thumbs, Pagination]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
-        pagination={showPagination ? true : null}
+        pagination={showPagination ? { clickable: true } : null}
         breakpoints={{
-          // Set slidesPerView to 1 for mobile screens
           768: {
             slidesPerView: 1.1,
           },
@@ -71,8 +68,6 @@ export const SwiperPhotos = ({ poster, photos }) => {
             key={index}
             onClick={() => {
               setCurrent(photo);
-              //setOpenZoom(true);
-              //console.log(current);
             }}
             style={{ width: "100%", height: "90vh" }}
           >
@@ -85,6 +80,54 @@ export const SwiperPhotos = ({ poster, photos }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+    );
+  };
+
+  const renderSwiperWithoutPagination = () => {
+    return (
+      <Swiper
+        slidesPerView={1}
+        centeredSlides={true}
+        spaceBetween={10}
+        className="mySwiper"
+        autoHeight={true}
+        loop
+        modules={[Thumbs]}
+        thumbs={{
+          swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
+        }}
+        breakpoints={{
+          768: {
+            slidesPerView: 1.1,
+          },
+        }}
+      >
+        {slides.map((photo, index) => (
+          <SwiperSlide
+            key={index}
+            onClick={() => {
+              setCurrent(photo);
+            }}
+            style={{ width: "100%", height: "90vh" }}
+          >
+            <Image
+              fill={true}
+              className="object-contain rounded-lr "
+              alt={photo.attributes.name}
+              src={getLink(photo)}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    );
+  };
+
+  return (
+    <>
+      {showPagination
+        ? renderSwiperWithPagination()
+        : renderSwiperWithoutPagination()}
+
       {current && (
         <ModalImage isOpen={openZoom} onClose={() => setOpenZoom(false)}>
           <Image
