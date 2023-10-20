@@ -7,6 +7,7 @@ import { VideoPlayer } from "../VideoPlayer";
 export const SwiperVideo = ({ videoSlides, poster }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [showPagination, setShowPagination] = useState(true);
+  const [stopVideo, setStopVideo] = useState(true)
 
 
   useEffect(() => {
@@ -20,9 +21,13 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
       window.removeEventListener("resize", updatePaginationVisibility);
     };
   }, []);
+
   return (
     <>
       <Swiper
+        onSlideChange={() => {
+          setStopVideo(x => !x)
+        }}
         slidesPerView={1}
         centeredSlides={true}
         loop={true}
@@ -37,13 +42,14 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
       >
         {videoSlides.map((video, index) => (
           <SwiperSlide key={index}>
-            <VideoPlayer poster={poster?.data} videofile={video} />
+            <VideoPlayer poster={poster?.data} videofile={video} stop={stopVideo} />
           </SwiperSlide>
         ))}
       </Swiper>
       {videoSlides.length > 1 && (
         <div className={`2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 ${showPagination ? 'w-[90vw]' : 'w-0 h-0'} mx-auto`}>
           <Swiper
+            className="videoGalery"
             slidesPerView={2}
             breakpoints={{
               768: {
@@ -58,6 +64,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
             scrollbar={{ draggable: true }}
             loop={true}
             onSwiper={setThumbsSwiper}
+            watchSlidesProgress={true}
           >
             {videoSlides.map((video, index) => (
               <SwiperSlide key={index}>
