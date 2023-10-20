@@ -127,3 +127,12 @@
 .swiper-pagination-bullet-active{
   background:#0000ff!important;
 }
+
+.videoGalery .swiper-slide {
+  width: 25%;
+  height: 100%;
+  opacity: 0.4;
+}
+.videoGalery .swiper-slide-thumb-active {
+  opacity: 1;
+}

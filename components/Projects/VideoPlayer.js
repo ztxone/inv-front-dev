@@ -1,5 +1,5 @@
 import { getStrapiURL } from "lib/api";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export function getLink(media) {
   try {
@@ -11,7 +11,7 @@ export function getLink(media) {
   }
 }
 
-export const VideoPlayer = ({ poster, videofile, small = false }) => {
+export const VideoPlayer = ({ poster, videofile, small = false, stop = false }) => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const handlePlay = () => {
@@ -25,6 +25,13 @@ export const VideoPlayer = ({ poster, videofile, small = false }) => {
       setIsPlaying(true);
     }
   };
+
+  useEffect(() => {
+    videoRef.current.pause();
+    setIsPlaying(false);
+  }, [stop])
+
+
   return (
     <div
       onClick={handlePlay}
@@ -34,7 +41,6 @@ export const VideoPlayer = ({ poster, videofile, small = false }) => {
         onClick={() => console.log('click')}
         ref={videoRef}
         poster={getLink(poster)}
-        // controls
         className="w-full h-full"
       >
         <source src={getLink(videofile)} type="video/mp4" />
