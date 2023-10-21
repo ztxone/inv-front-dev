@@ -35,7 +35,7 @@ export const AggregateForm = ({ send, category, projectType, loading }) => {
     <FormProvider {...methods}>
       <form
         className="pb-15 pr-18
-          lg:w-4/6"
+          max-w-[800px]"
         onSubmit={methods.handleSubmit(onSubmit)}
       >
         {fieldsInputs ? (

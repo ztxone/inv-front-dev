@@ -55,7 +55,7 @@ export default function ModalSelectForBrief({ options, name, id = "" }) {
       <div
         id={id}
         onClick={toggleOption}
-        className="py-3 px-5 w-full min-w-[292px] border border-link-water rounded-5xl text-left cursor-pointer flex items-center justify-between"
+        className="py-3 px-5 w-full min-w-[292px] bg-white border border-link-water rounded-5xl text-left cursor-pointer flex items-center justify-between"
       >
         <span className="opacity-50 whitespace-nowrap">{option}</span>
         <svg
