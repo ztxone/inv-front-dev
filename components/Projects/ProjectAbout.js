@@ -32,20 +32,20 @@ export default function ProjectAbout({
           className="lg:w-1/2 container
       md:pb-6"
         >
-          <Line variantColor="grey" />
+          <Line variantColor="grey" width="full" />
           <IntroDescription title={t("project.task")} text={task} />
         </div>
       )}
 
       {done && (
-        <div className="lg:w-1/2 lg:order-3 container">
-          <Line variantColor="grey" />
+        <div className="lg:w-1/2 lg:order-3 container md:pb-6">
+          <Line variantColor="grey" width="full" />
           <IntroDescription title={t("project.done")} text={done} />
         </div>
       )}
 
       {CustomerName && CustomerUrl && (
-        <div className="container lg:w-1/2">
+        <div className="container lg:w-1/2 pt-6">
           {CustomerName && (
             <>
               <p className="uppercase opacity-40 pb-3.8">

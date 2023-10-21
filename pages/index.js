@@ -13,7 +13,7 @@ const Home = ({ projects, services, servicesAbout, about, blogs, global }) => {
   const seo = {
     metaTitle: global.attributes.metaTitle,
     metaDescription: global.attributes.metaDescription,
-    shareImage: global.Logo,
+    //shareImage: global.Logo,
   };
 
   return (
@@ -93,7 +93,7 @@ export async function getStaticProps({ locale }) {
       locale: locale,
     }),
     fetchAPI("/global", {
-      fields: ["Logo"],
+      //fields: ["Logo"],
       populate: ["defaultSeo"],
       locale: locale,
     }),
