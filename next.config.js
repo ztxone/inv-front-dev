@@ -7,8 +7,8 @@ module.exports = nextTranslate({
   reactStrictMode: true,
   images: {
     loader: "default",
-    //domains: ["localhost"],
-    domains: ["inv.ptzsite.ru", "localhost"],
+    domains: ["localhost"],
+    //domains: ["inv.ptzsite.ru", "localhost"],
   },
 });
 

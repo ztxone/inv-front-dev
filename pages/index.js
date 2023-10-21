@@ -7,10 +7,18 @@ import ServicesListHome from "@/components/Services/ServicesListHome";
 import Line from "@/components/ui/Line";
 import Wrapper from "@/components/ui/Wrapper";
 import ProjectsListForMain from "@/components/Projects/ProjectsListForMain";
+import Seo from "@/components/seo";
 
-const Home = ({ projects, services, servicesAbout, about, blogs }) => {
+const Home = ({ projects, services, servicesAbout, about, blogs, global }) => {
+  const seo = {
+    metaTitle: global.attributes.metaTitle,
+    metaDescription: global.attributes.metaDescription,
+    shareImage: global.Logo,
+  };
+
   return (
     <>
+      <Seo seo={seo} />
       <About about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />
       <Wrapper color="grey" position="top">
@@ -28,57 +36,68 @@ const Home = ({ projects, services, servicesAbout, about, blogs }) => {
 };
 
 export async function getStaticProps({ locale }) {
-  const [projectsRes, servicesRes, servicesAboutRes, aboutRes, blogRes] =
-    await Promise.all([
-      fetchAPI("/projects", {
-        sort: ["ListPosition:asc"],
-        populate: {
-          Poster: "*",
-          Poster_for_mainPage: "*",
-          tags: "*",
+  const [
+    projectsRes,
+    servicesRes,
+    servicesAboutRes,
+    aboutRes,
+    blogRes,
+    globalRes,
+  ] = await Promise.all([
+    fetchAPI("/projects", {
+      sort: ["ListPosition:asc"],
+      populate: {
+        Poster: "*",
+        Poster_for_mainPage: "*",
+        tags: "*",
+      },
+      fields: ["title", "slug"],
+      locale: locale,
+      filters: {
+        ShowOnMainPage: true,
+      },
+      pagination: {
+        start: 0,
+        limit: 6,
+      },
+    }),
+    fetchAPI("/categories", {
+      populate: "*",
+      fields: ["name", "slug", "text"],
+      locale: locale,
+      filters: {
+        ShowOnMainPage: true,
+      },
+    }),
+    fetchAPI("/categories", {
+      filters: {
+        ShowAsSlide: true,
+      },
+      fields: ["name", "slug"],
+      locale: locale,
+      populate: {
+        Slides: {
+          sort: ["SlidePosition:asc"],
+          populate: "*",
         },
-        fields: ["title", "slug"],
-        locale: locale,
-        filters: {
-          ShowOnMainPage: true,
-        },
-        pagination: {
-          start: 0,
-          limit: 6,
-        },
-      }),
-      fetchAPI("/categories", {
-        populate: "*",
-        fields: ["name", "slug", "text"],
-        locale: locale,
-        filters: {
-          ShowOnMainPage: true,
-        },
-      }),
-      fetchAPI("/categories", {
-        filters: {
-          ShowAsSlide: true,
-        },
-        fields: ["name", "slug"],
-        locale: locale,
-        populate: {
-          Slides: {
-            sort: ["SlidePosition:asc"],
-            populate: "*",
-          },
-        },
-      }),
-      fetchAPI("/about", {
-        fields: ["SloganPart1", "SloganPart2"],
-        populate: ["Video"],
-        locale: locale,
-      }),
-      fetchAPI("/blogs", {
-        fields: ["Title", "slug", "Preview"],
-        populate: ["tags", "Image_preview"],
-        locale: locale,
-      }),
-    ]);
+      },
+    }),
+    fetchAPI("/about", {
+      fields: ["SloganPart1", "SloganPart2"],
+      populate: ["Video"],
+      locale: locale,
+    }),
+    fetchAPI("/blogs", {
+      fields: ["Title", "slug", "Preview"],
+      populate: ["tags", "Image_preview"],
+      locale: locale,
+    }),
+    fetchAPI("/global", {
+      fields: ["Logo"],
+      populate: ["defaultSeo"],
+      locale: locale,
+    }),
+  ]);
 
   return {
     props: {
@@ -87,6 +106,7 @@ export async function getStaticProps({ locale }) {
       servicesAbout: servicesAboutRes.data,
       about: aboutRes.data,
       blogs: blogRes.data,
+      global: globalRes.data,
     },
     revalidate: 1,
   };
