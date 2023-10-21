@@ -5,14 +5,22 @@ import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import Line from "@/components/ui/Line";
 import FormBrief from "@/components/Brief/FormBrief";
+import Seo from "@/components/seo";
 
-export default function Brief({ categories, visobjs }) {
+export default function Brief({ categories, visobjs, seoBrief }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
 
+  const seo = {
+    metaTitle: seoBrief.attributes.SeoBrief.metaTitle,
+    metaDescription: seoBrief.attributes.SeoBrief.metaDescription,
+    //shareImage: project.attributes.Poster,
+  };
+
   return (
     <>
+      <Seo seo={seo} />
       <TitleSection text={t("brief.title_fill")} />
       <Line variantColor="grey" />
       <BreadCrumbs
@@ -31,7 +39,7 @@ export default function Brief({ categories, visobjs }) {
 }
 
 export async function getStaticProps({ locale }) {
-  const [categoriesRes, visobjRes] = await Promise.all([
+  const [categoriesRes, visobjRes, seoBriefRes] = await Promise.all([
     fetchAPI("/categories", {
       fields: ["name", "slug"],
       locale: locale,
@@ -40,12 +48,19 @@ export async function getStaticProps({ locale }) {
       populate: "*",
       locale: locale,
     }),
+    fetchAPI("/about", {
+      fields: ["Title"],
+      populate: ["SeoBrief"],
+
+      locale: locale,
+    }),
   ]);
 
   return {
     props: {
       categories: categoriesRes.data,
       visobjs: visobjRes.data,
+      seoBrief: seoBriefRes.data,
     },
     revalidate: 1,
   };

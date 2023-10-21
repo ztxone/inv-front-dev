@@ -9,11 +9,9 @@ import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import useTranslation from "next-translate/useTranslation";
 import TagBlock from "@/components/Projects/TagBlock";
 import Line from "@/components/ui/Line";
-import Video from "@/components/Projects/Video";
 import ProjectCarousel from "@/components/Projects/ProjectCarousel";
 import ProjectAbout from "@/components/Projects/ProjectAbout";
 import IntroCost from "@/components/ui/IntroCost";
-import PortfolioCarousel from "@/components/Portfolio/PortfolioCarousel";
 
 function Project({ project, categories }) {
   const { t } = useTranslation("common");
@@ -63,7 +61,7 @@ function Project({ project, categories }) {
 
       <Line variantColor="grey" />
       <IntroCost />
-      {/* <PortfolioCarousel title="Другие проекты" /> */}
+
       <Line variantColor="grey" />
     </>
   );
