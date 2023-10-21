@@ -31,13 +31,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
         centeredSlides={true}
         loop={true}
         modules={[Thumbs, Pagination]}
-        pagination={
-          !showPagination
-            ? {
-                clickable: true,
-              }
-            : false
-        }
+        pagination={!showPagination ? { clickable: true } : false}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
@@ -45,7 +39,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
         {videoSlides.map((video, index) => (
           <SwiperSlide key={index}>
             <VideoPlayer
-              poster={poster?.data}
+              poster={thumbsSwiper ? null : poster?.data}
               videofile={video}
               stop={stopVideo}
             />
