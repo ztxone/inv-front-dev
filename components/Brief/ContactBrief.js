@@ -11,11 +11,11 @@ export default function ContactBrief() {
   return (
     <div
       className="mt-7
-    md:flex flex-wrap md:justify-between"
+	  grid grid-cols-1 md:grid-cols-2 gap-5"
     >
       <h2
         className="mb-7 text-xl
-      md:w-full
+      md:w-full md:col-span-2 
       lg:text-3.8xl"
       >
         Контактные данные

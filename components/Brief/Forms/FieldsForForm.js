@@ -44,11 +44,11 @@ export default function FieldsForForm({ title, children, inputs }) {
   return (
     <div
       className="pt-10.5
-    md:pt-20 md:flex flex-wrap md:justify-between"
+    md:pt-20 grid grid-cols-1 md:grid-cols-2 gap-5	"
     >
       <h2
         className="mb-7 text-xl
-      md:w-full
+      md:w-full md:col-span-2 
       lg:text-3.8xl"
       >
         {title}
