@@ -70,7 +70,7 @@ export const FormOrder = ({ onSubmitForm }) => {
         height="10"
         alt=""
       />
-      <div className="px-10 pb-15 pt-9 text-center">
+      <div className="px-10 pb-15 pt-9   text-center">
         <h2 className="text-xl pb-1.5">Отправить заявку</h2>
         <p className="pb-5">
           Оставьте свои контактные данные и мы вышлем вам Коммерческое
