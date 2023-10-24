@@ -11,8 +11,8 @@ import Seo from "@/components/seo";
 
 const Home = ({ projects, services, servicesAbout, about, blogs, global }) => {
   const seo = {
-    metaTitle: global.attributes.metaTitle,
-    metaDescription: global.attributes.metaDescription,
+    metaTitle: global.attributes.defaultSeo.metaTitle,
+    metaDescription: global.attributes.defaultSeo.metaDescription,
     //shareImage: global.Logo,
   };
 
