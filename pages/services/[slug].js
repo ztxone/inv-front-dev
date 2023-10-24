@@ -109,6 +109,11 @@ export async function getStaticProps({ params, locale }) {
     //fields: ["name", "text", "Description"],
     locale: locale,
     populate: "*",
+    filters: {
+      categories: {
+        slug: { $eq: params.slug },
+      },
+    },
   });
 
   return {

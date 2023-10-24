@@ -44,23 +44,21 @@ export default function ProjectAbout({
         </div>
       )}
 
-      {CustomerName && CustomerUrl && (
-        <div className="container lg:w-1/2 pt-6">
-          {CustomerName && (
-            <>
-              <p className="uppercase opacity-40 pb-3.8">
-                {t("project.customer")}
-              </p>
-              <p className="text-3.5xl pb-6">{CustomerName}</p>
-            </>
-          )}
-          {CustomerUrl && (
-            <Link href={CustomerUrl} className="underline" target="_blank">
-              {CustomerUrl}
-            </Link>
-          )}
-        </div>
-      )}
+      <div className="container lg:w-1/2 pt-6">
+        {CustomerName && (
+          <>
+            <p className="uppercase opacity-40 pb-3.8">
+              {t("project.customer")}
+            </p>
+            <p className="text-3.5xl pb-6">{CustomerName}</p>
+          </>
+        )}
+        {CustomerUrl && (
+          <Link href={CustomerUrl} className="underline" target="_blank">
+            {CustomerUrl}
+          </Link>
+        )}
+      </div>
     </div>
   );
 }
