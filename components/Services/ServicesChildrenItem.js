@@ -3,7 +3,14 @@ import PillowLink from "../ui/PillowLink";
 import { getStrapiMedia } from "lib/media";
 import Link from "next/link";
 
-export default function ServicesChildrenItem({ title, image, path }) {
+export default function ServicesChildrenItem({
+  title,
+  image,
+  path,
+  serviceId,
+}) {
+  const link = `/brief?serviceId=${serviceId}`;
+
   return (
     <div
       className="bg-white pt-9 rounded-5xl mb-10 last:mb-0 relative
@@ -30,7 +37,7 @@ export default function ServicesChildrenItem({ title, image, path }) {
       <div className="absolute bottom-9 left-9">
         <PillowLink
           text="Заказать"
-          link="/brief"
+          link={link}
           variant="white"
           variantSvg="blueSvg"
         />
