@@ -67,7 +67,7 @@ export default function About({ about, servicesAbout }) {
                   <div className="absolute top-0 bottom-0 left-0 right-0">
                     <Image
                       src={getStrapiMedia(
-                        item.attributes.Slides.BackgroundImage
+                        item.attributes.imagePresentationLink
                       )}
                       width="389"
                       height="275"
@@ -117,7 +117,7 @@ export default function About({ about, servicesAbout }) {
                     <Image
                       className="rounded-4xl w-full h-full"
                       src={getStrapiMedia(
-                        item.attributes.Slides.BackgroundImage
+                        item.attributes.imagePresentationLink
                       )}
                       width="286"
                       height="347"

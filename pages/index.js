@@ -81,6 +81,7 @@ export async function getStaticProps({ locale }) {
           sort: ["SlidePosition:asc"],
           populate: "*",
         },
+        imagePresentationLink: "*",
       },
     }),
     fetchAPI("/about", {
