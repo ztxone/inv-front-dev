@@ -22,7 +22,8 @@ export function getLink(media) {
 
 export const SwiperPhotos = ({ poster, photos }) => {
   const photoSlides = photos || [];
-  const slides = poster ? [poster, ...photoSlides] : photoSlides;
+  //const slides = poster ? [poster, ...photoSlides] : photoSlides;
+  const slides = photoSlides;
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [openZoom, setOpenZoom] = useState(false);
   const [current, setCurrent] = useState();
@@ -76,6 +77,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
               className="object-contain rounded-lr "
               alt={photo.attributes.name}
               src={getLink(photo)}
+              loading="lazy"
             />
           </SwiperSlide>
         ))}
@@ -115,6 +117,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
               className="object-contain rounded-lr "
               alt={photo.attributes.name}
               src={getLink(photo)}
+              loading="lazy"
             />
           </SwiperSlide>
         ))}
