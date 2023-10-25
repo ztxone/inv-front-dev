@@ -26,9 +26,9 @@ export default function ServicesSlides() {
             sort: ["SlidePosition:asc"],
             populate: "*",
           },
-          imagePresentationLink: "*",
         },
       });
+
       setData(slideRes.data);
     }
     fetchData();
@@ -43,7 +43,7 @@ export default function ServicesSlides() {
       {data.map((item) => (
         <ServicesSlidesItem
           key={item.id}
-          background={getStrapiMedia(item.attributes.imagePresentationLink)}
+          background={getStrapiMedia(item.attributes.Slides.BackgroundImage)}
         >
           <Tag
             text={item.attributes.Slides.TypeofDocument}
