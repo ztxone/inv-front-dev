@@ -23,12 +23,17 @@ export default function ProjectsListPortfolio({
     router.push(`/portfolio?id=${id}`);
   };
 
-  const filterProjects = (project) =>
-    id
-      ? project.attributes.categories.data.some(
-          (elem) => String(elem.id) === id
-        )
-      : true;
+  const filterProjects = (project) => {
+    if (id && id !== "") {
+      return project.attributes.categories.data.some(
+        (elem) => String(elem.id) === id
+      );
+    } else {
+      // If id is empty, show all services
+      return true;
+    }
+  };
+  const allServicesButtonColor = !router.query.id ? "blue" : "white";
 
   return (
     <section className="bg-whisper relative z-10 rounded-5xl pb-25 pt-6 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-12 lg:pb-9 lg:rounded-7xl">
@@ -41,6 +46,12 @@ export default function ProjectsListPortfolio({
             onClick={() => handleCategoryClick(category.id)}
           />
         ))}
+        <TagItemSection
+          key="222"
+          text={t("services.allServices")}
+          color={allServicesButtonColor}
+          onClick={() => router.push("/portfolio")}
+        />
       </div>
       {projects && (
         <div className="px-3.8 lg:px-24.5 lg:pb-20">
