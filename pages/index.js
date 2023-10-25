@@ -55,6 +55,7 @@ export async function getStaticProps({ locale }) {
       locale: locale,
       filters: {
         ShowOnMainPage: true,
+        publishedAt: { ne: null },
       },
       pagination: {
         start: 0,
