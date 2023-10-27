@@ -47,7 +47,7 @@ export default function ContactBrief() {
       </ModalFieldset>
 
       <ModalFieldset>
-        <ModalLabel htmlFor="Email" text="E-mail" required={false} />
+        <ModalLabel htmlFor="Email" text="E-mail" required={true} />
         <ModalInputForBrief
           type="email"
           id="Email"
@@ -66,7 +66,7 @@ export default function ContactBrief() {
       </ModalFieldset>
 
       <ModalFieldset>
-        <ModalLabel htmlFor="Company" text="Компания" required={false} />
+        <ModalLabel htmlFor="Company" text="Компания" required={true} />
         <ModalInputForBrief
           type="text"
           id="Company"
