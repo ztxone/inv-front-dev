@@ -62,6 +62,8 @@ export default function About({ about, servicesAbout }) {
                 <Link
                   href={getStrapiMedia(item.attributes.Slides.Document)}
                   key={item.id}
+                  rel="noopener noreferrer"
+                  target="_blank"
                   className="bg-blackRussian relative block rounded-4xl p-[25px] min-h-[286px] w-[72%] aspect-square"
                 >
                   <div className="absolute top-0 bottom-0 left-0 right-0">
@@ -109,6 +111,8 @@ export default function About({ about, servicesAbout }) {
                 <Link
                   href={getStrapiMedia(item.attributes.Slides.Document)}
                   key={item.id}
+                  rel="noopener noreferrer"
+                  target="_blank"
                   className="bg-blackRussian relative 
           block rounded-4xl p-[25px] -mt-24.5 ml-auto min-h-[347px]
           md:-mt-[108px] w-[72%] aspect-[286/347] "
