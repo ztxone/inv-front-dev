@@ -39,7 +39,7 @@ export default function ServicesChildrenItem({
           text="Заказать"
           link={link}
           variant="white"
-          variantSvg="blueSvg"
+          variantSvg="blueClassesSvg"
         />
       </div>
     </div>

@@ -41,7 +41,7 @@ export default function Article({
         </div>
       </div>
       <div
-        className=" px-5 overflow-hidden
+        className="p-5 overflow-hidden
       md:pt-6"
       >
         <h3

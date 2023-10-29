@@ -131,7 +131,7 @@ export default function MobileMenu({ menu, onClose, handleOpenModal, isOpen }) {
               text="Оставить заявку"
               link="#"
               variant="white"
-              variantSvg="black"
+              variantSvg="darkClassesSvg"
             />
           </div>
           <Link

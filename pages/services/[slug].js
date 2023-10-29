@@ -50,7 +50,7 @@ export default function Service({ category, projects }) {
 
         <ServicesForCategory parent={category.id} />
 
-        <IntroCost />
+        {/* <IntroCost /> */}
         <ServicesSlides />
         <ProjectsList
           projects={projects}

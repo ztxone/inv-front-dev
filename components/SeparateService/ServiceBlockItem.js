@@ -10,7 +10,7 @@ export default function ServiceBlockItem({title, path}) {
         <PillowLink text='Заказать'
           link="#"
           variant="white"
-          variantSvg="blueSvg" />
+          variantSvg="blueClassesSvg" />
       </div>
     </div>
   );
