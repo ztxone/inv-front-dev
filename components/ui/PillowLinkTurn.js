@@ -15,7 +15,7 @@ export default function PillowLinkTurn({
   variant,
   text,
   link = '#',
-  variantSvg = 'whiteSvg',
+  variantSvg = 'whiteClassesSvg',
 }) {
   return (
     <Link
@@ -26,9 +26,9 @@ export default function PillowLinkTurn({
     >
       <span
         className={`${
-          variantSvg === 'whiteSvg'
+          variantSvg === 'whiteClassesSvg'
             ? whiteClassesSvg
-            : variantSvg === 'darkSvg'
+            : variantSvg === 'darkClassesSvg'
             ? darkClassesSvg
             : blueClassesSvg
         } w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 mr-5`}

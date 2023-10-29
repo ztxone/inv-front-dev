@@ -2,10 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-/* @font-face {
+@font-face {
     font-family: "Inter Tight";
     src: url("../public/fonts/InterTight-Regular.woff2");
-} */
+}
 
 @layer utilities {
   .masonry-lg {

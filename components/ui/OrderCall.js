@@ -5,15 +5,15 @@ import { FormOrderCall } from "../Forms/FormOrderCall";
 const darkClasses =
   "bg-nero text-white hover:text-black hover:bg-white border-none";
 const whiteClasses =
-  "text-black bg-white hover:text-white hover:bg-nero border-eclipse";
+  "text-black bg-white hover:text-white hover:bg-nero border-none";
 const darkClassesSvg = " bg-royal-blue text-white";
 const whiteClassesSvg =
   "bg-white text-black group-hover:bg-royal-blue group-hover:text-white";
 
 export function OrderCall({
-  variant,
+  variant = 'whiteClasses',
   text,
-  variantSvg = "blueSvg",
+  variantSvg="blueClassesSvg",
   formTitle,
 }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -35,7 +35,7 @@ export function OrderCall({
         {text}
         <span
           className={`${
-            variantSvg === "whiteSvg" ? whiteClassesSvg : darkClassesSvg
+            variantSvg === "whiteClassesSvg" ? whiteClassesSvg : darkClassesSvg
           } w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-12 mr-1`}
         >
           <svg className='w-[9px] h-[15px] viewBox="0 0 9 15" rotate-180'>

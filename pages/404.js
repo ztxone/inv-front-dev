@@ -13,7 +13,7 @@ export default function ErrorPage({}) {
       <Wrapper color='black' position='bottom'>
         <IntroError />
       </Wrapper>
-      <div className='py-3.8'>
+      <div className='py-3.8 container'>
         <ServicesSlides />
       </div>
       <Line variantColor='grey' />

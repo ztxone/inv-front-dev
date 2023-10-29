@@ -7,7 +7,7 @@ export default function Layout({
   footerBg,
   children,
   pillowColor,
-  variantSvg = 'whiteSvg',
+  variantSvg = 'whiteClassesSvg',
 }) {
   return (
     <div

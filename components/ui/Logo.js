@@ -8,7 +8,7 @@ export default function Logo({ color }) {
       href="/"
       className={`${colorClass} block mr-auto w-[102px] h-auto 
       md:w-[115px]
-      lg:w-[148px] lg:mr-[65px]`}
+      lg:w-[148px]`}
     >
       <svg
         className="w-full h-auto"

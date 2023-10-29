@@ -104,7 +104,7 @@ export default function BlogsBlockList({
           text={t("All_news")}
           link="/news"
           variant="dark"
-          variantSvg="whiteSvg"
+          variantSvg="whiteClassesSvg"
         />
       </div>
     </section>

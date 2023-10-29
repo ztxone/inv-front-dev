@@ -21,8 +21,8 @@ lg:px-21 lg:pt-25 lg:pb-20"
           {t("brief.how_much")}
         </h3>
         <p
-          className="pr-6 w-full mb-auto pb-5
-      md:text-xl md:max-w-[378px] md:pr-0 md:w-2/4
+          className="pr-6 w-full mb-auto pb-5 tracking-tighter
+      md:text-xl md:max-w-[378px] le md:pr-0 md:w-2/4
       lg:text-1xl "
         >
           {t("brief.order")}

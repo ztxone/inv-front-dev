@@ -46,7 +46,7 @@ export default function ServicesListHome({services}) {
             text={t('services.allServices')}
             link={'/services'}
             variant='dark'
-            variantSvg='whiteSvg'
+            variantSvg='whiteClassesSvg'
           />
         </div>
       </div>

@@ -48,7 +48,7 @@ export default function IntroError() {
             <PillowLink
               text="Заполнить бриф"
               link="/brief"
-              variantSvg="darkSvg"
+              variantSvg="darkClassesSvg"
               variant="white"
             ></PillowLink>
           </div>

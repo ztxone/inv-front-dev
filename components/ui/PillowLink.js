@@ -5,7 +5,7 @@ const darkClasses =
 const whiteClasses =
   'text-black bg-white hover:text-white hover:bg-nero border-white';
 
-const blueClassesSvg = ' bg-royal-blue text-white';
+const blueClassesSvg = 'bg-royal-blue text-white';
 const whiteClassesSvg =
   'bg-white text-black group-hover:bg-royal-blue group-hover:text-white';
 const darkClassesSvg =
@@ -15,7 +15,7 @@ export default function PillowLink({
   variant,
   text,
   link = '#',
-  variantSvg = 'whiteSvg',
+  variantSvg = 'whiteClassesSvg',
 }) {
   return (
     <Link
@@ -27,9 +27,9 @@ export default function PillowLink({
       {text}
       <span
         className={`${
-          variantSvg === 'whiteSvg'
+          variantSvg === 'whiteClassesSvg'
             ? whiteClassesSvg
-            : variantSvg === 'darkSvg'
+            : variantSvg === 'darkClassesSvg'
             ? darkClassesSvg
             : blueClassesSvg
         } w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-12 mr-1`}
