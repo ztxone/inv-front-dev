@@ -20,7 +20,7 @@ function ModalImage({ isOpen, onClose, children }) {
         flex flex-col items-center justify-center"
         bodyOpenClassName="overflow-hidden"
       >
-        <div className="modal-content max-h-[85vh]">{children}</div>
+        <div className="modal-content max-h-[85vh] rounded-5xl">{children}</div>
         <ButtonClose onClick={handleClose} />
       </ReactModal>
     </>

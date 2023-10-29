@@ -104,7 +104,7 @@ export default function Blog({ blogs, titleColor, articleColor, buttonColor }) {
           text={t("All_news")}
           link={`/${i18n.lang}/blogs`}
           variant="dark"
-          variantSvg="whiteSvg"
+          variantSvg="whiteClassesSvg"
         />
       </div>
     </section>

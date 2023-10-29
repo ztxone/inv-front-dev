@@ -18,7 +18,7 @@ export default function Confidence({ agreement, text }) {
   };
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" pillowColor={""}>
+    <Layout bg="white" headerBg="white" footerBg="white" pillowColor={""} variantSvg='darkClassesSvg'>
       <Seo seo={seo} />
       <TitleSection text={agreement.attributes.Title} />
       <BreadCrumbs

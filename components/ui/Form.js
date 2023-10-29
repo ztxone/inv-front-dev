@@ -1,11 +1,10 @@
+import useTranslation from 'next-translate/useTranslation';
+import PillowLink from './PillowLink';
+import Title from './Title';
+import {OrderCall} from './OrderCall';
 
-import useTranslation from "next-translate/useTranslation";
-import PillowLink from "./PillowLink";
-import Title from "./Title";
-import { OrderCall } from "./OrderCall";
-
-export default function Form({ pillowColor }) {
-  const { t } = useTranslation("common");
+export default function Form({pillowColor}) {
+  const {t} = useTranslation('common');
 
   return (
     <div
@@ -22,18 +21,16 @@ export default function Form({ pillowColor }) {
       md:pt-10.5 md:gap-6
       lg:pt-13'
       >
-
         <OrderCall
           variant={pillowColor}
-          text={t("footer.order_call")}
-          formTitle={"Напишите телефон и мы Вам перезвоним"}
-
+          text={t('footer.order_call')}
+          formTitle={'Напишите телефон и мы Вам перезвоним'}
         />
         <PillowLink
           text={t('brief.title_fill')}
           link='/brief'
           variant={pillowColor}
-          variantSvg='whiteSvg'
+          variantSvg='whiteClassesSvg'
         />
       </div>
     </div>

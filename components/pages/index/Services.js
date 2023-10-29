@@ -47,7 +47,7 @@ export default function Services({services}) {
             text={t("services.allServices")}
             link={`${i18n.lang}/services`}
             variant="dark"
-            variantSvg="whiteSvg"
+            variantSvg="whiteClassesSvg"
           />
         </div>
       </div>

@@ -62,7 +62,7 @@ export const FormOrder = ({ onSubmitForm }) => {
   };
 
   return (
-    <div>
+    <div className='bg-black rounded-5xl'>
       <Image
         className="w-full bg-black h-[101px] object-cover rounded-t-5xl"
         src="/image/content/modal.png"
@@ -70,7 +70,7 @@ export const FormOrder = ({ onSubmitForm }) => {
         height="10"
         alt=""
       />
-      <div className="px-10 pb-15 pt-9   text-center">
+      <div className="px-10 pb-15 pt-9   text-center bg-white rounded-b-5xl">
         <h2 className="text-xl pb-1.5">Отправить заявку</h2>
         <p className="pb-5">
           Оставьте свои контактные данные и мы вышлем вам Коммерческое

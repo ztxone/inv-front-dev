@@ -70,7 +70,7 @@ module.exports = {
       base: ['1rem', {lineHeight: '1.5625rem'}], //16px
       baseHeight: ['1rem', {lineHeight: '1.125rem'}], //16px - 18px
       // lg: ['1.125rem', {lineHeight: '1.75rem'}],
-      lg: ['1.125rem', {lineHeight: '1.375rem'}], //18px
+      lg: ['1.125rem', {lineHeight: '1.35rem'}], //18px
       xl: ['1.25rem', {lineHeight: '1.5rem'}], //20px
       '1xl': ['1.375rem', {lineHeight: '1.5rem'}], //22 px
       '2xl': ['1.5rem', {lineHeight: '2rem'}], //24px
@@ -167,6 +167,7 @@ module.exports = {
     letterSpacing: {
       1.05: '-1.05px',
       tighter: '-0.05em',
+      tighter1: '-0.056em',
       tight: '-0.035em',
       normal: '0em',
       wide: '0.025em',
