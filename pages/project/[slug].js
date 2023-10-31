@@ -13,6 +13,7 @@ import ProjectCarousel from "@/components/Projects/ProjectCarousel";
 import ProjectAbout from "@/components/Projects/ProjectAbout";
 import IntroCost from "@/components/ui/IntroCost";
 import ProjectsListBlock from "@/components/Projects/ProjectsListBlock";
+import PortfolioCarousel from "@/components/Portfolio/PortfolioCarousel";
 
 function Project({ project, projectsOther, categories }) {
   const { t } = useTranslation("common");
@@ -65,8 +66,8 @@ function Project({ project, projectsOther, categories }) {
         <IntroCost />
       </div>
 
-      <ProjectsListBlock projects={projectsOther} />
-
+      {/* <ProjectsListBlock projects={projectsOther} /> */}
+      <PortfolioCarousel title="Другие проекты" projects={projectsOther} />
       <Line variantColor="grey" />
     </>
   );
@@ -103,6 +104,10 @@ export async function getStaticProps({ params }) {
   const projectsOtherRes = await fetchAPI("/projects", {
     fields: "*",
     populate: "*",
+    pagination: {
+      start: 0,
+      limit: 6,
+    },
   });
   const categoriesRes = await fetchAPI("/categories");
 
