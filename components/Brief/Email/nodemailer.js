@@ -1,6 +1,6 @@
 import { fetchAPI } from "lib/api";
 import { CreateEmail } from "./createEmail";
-import useTranslation from "next-translate/useTranslation";
+// import useTranslation from "next-translate/useTranslation";
 var nodemailer = require("nodemailer");
 
 const user = "invfront164@gmail.com";
@@ -21,15 +21,13 @@ export const SendMail = async (data) => {
   const response = await fetchAPI("/global", {
     fields: ["Email_forms"],
   });
-  const { t } = useTranslation("common");
-  //console.log(data);
   const { formName } = JSON.parse(data);
 
   const result = await transporter.sendMail({
     subject: formName,
     to: response.data.attributes.Email_forms,
 
-    html: CreateEmail(data),
+    html: await CreateEmail(data),
   });
   const failed = result.rejected.concat(result.pending).filter(Boolean);
   if (failed.length) {

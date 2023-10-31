@@ -7,9 +7,13 @@ import { getCategoryProject } from "lib/getCategoryProject";
 import { useContext, useEffect, useState } from "react";
 import { ToastrContext } from "../Toastr/ToastrProvider";
 import { useEnquiryForm } from "lib/useEnquiryForm";
+import { useSearchParams } from 'next/navigation'
 
-export default function FormBrief({ visobjs, categories, service = "" }) {
+
+export default function FormBrief({ visobjs, categories }) {
   const checkUser = useEnquiryForm();
+  const searchParams = useSearchParams()
+  const serviceId = searchParams.get('serviceId')
   const [category, setCategory] = useState();
   const [projectType, setProjectType] = useState();
   const [loading, setLoading] = useState(false);
@@ -34,9 +38,11 @@ export default function FormBrief({ visobjs, categories, service = "" }) {
         categories: category,
         ProjectType: projectType?.attributes?.name,
       };
+      console.log(sendData);
       const isUser = await checkUser();
       if (isUser) {
         await sendBrief(sendData);
+        // console.log(sendData);
         openSuccessToast();
       } else {
         openErrorToast();
@@ -51,10 +57,12 @@ export default function FormBrief({ visobjs, categories, service = "" }) {
     setCategory(category);
     setProjectType(undefined);
   };
+
+
   useEffect(() => {
-    if (service) {
+    if (serviceId) {
       const { selectCategory, selectProject } = getCategoryProject(
-        service,
+        serviceId,
         categories
       );
       setCategory(selectCategory);
@@ -62,7 +70,7 @@ export default function FormBrief({ visobjs, categories, service = "" }) {
     } else {
       setCategory(categories[0]);
     }
-  }, [service, categories]);
+  }, [serviceId, categories]);
   return (
     <>
       <div className="container">
