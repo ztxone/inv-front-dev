@@ -9,7 +9,8 @@ export default function ServicesChildrenItem({
   path,
   serviceId,
 }) {
-  const link = `/brief?serviceId=${serviceId}`;
+  // const link = `/brief?serviceId=${serviceId}`;
+  const link = `/brief?serviceId=${path}`
 
   return (
     <div

@@ -1,5 +1,5 @@
 import Layout from '@/components/layout';
-import {fetchAPI} from 'lib/api';
+import { fetchAPI } from 'lib/api';
 import TitleSection from '@/components/ui/TitleSection';
 import BreadCrumbs from '@/components/ui/Breadcrumbs';
 import useTranslation from 'next-translate/useTranslation';
@@ -11,8 +11,8 @@ import PortfolioCarousel from '@/components/Portfolio/PortfolioCarousel';
 import Seo from '@/components/seo';
 import IntroSlides from '@/components/ui/IntroSlides';
 
-export default function Services({services, projects}) {
-  const {t} = useTranslation('common');
+export default function Services({ services, projects }) {
+  const { t } = useTranslation('common');
   const i18n = useTranslation();
   const locale = i18n.lang;
 
@@ -50,7 +50,7 @@ export default function Services({services, projects}) {
   );
 }
 
-export async function getStaticProps({locale}) {
+export async function getStaticProps({ locale }) {
   // Run API calls in parallel
   const [servicesRes, projectsRes] = await Promise.all([
     fetchAPI('/categories', {
