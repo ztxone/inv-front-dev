@@ -63,16 +63,6 @@ import ReactMarkdown from "react-markdown";
 export default function CarouselNews({ slides, blog }) {
   return (
     <div className="pt-12">
-      <div className="container ">
-        <ReactMarkdown className="markDown opacityMarkdown">
-          {blog.attributes.Advertise}
-        </ReactMarkdown>
-        {/* <div className="py-12">
-          <Link className="text-blue underline" href="#">
-            Ссылка на источник{" "}
-          </Link>
-        </div> */}
-      </div>
       {slides.data && (
         <Swiper
           loop={true}

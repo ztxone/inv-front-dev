@@ -7,11 +7,11 @@ import IntroNews from "@/components/News/IntroNews";
 import CarouselNews from "@/components/News/CarouselNews";
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
-import VideoBlock from "@/components/News/VideoBlock";
 import QuoteBlock from "@/components/News/QuoteBlock";
 import ReactMarkdown from "react-markdown";
 import LoadFileBlock from "@/components/News/LoadFileBlock";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
+import Video from "@/components/Projects/Video";
 
 export default function Blog({ blog, blogsOthers }) {
   const { t } = useTranslation("common");
@@ -20,7 +20,7 @@ export default function Blog({ blog, blogsOthers }) {
     metaDescription: blog.attributes.Text,
     shareImage: blog.attributes.Image_preview,
   };
-  console.log(blogsOthers);
+  //console.log(blogsOthers);
   const breadCrumbsItems = [
     {
       title: t("All_news"),
@@ -39,46 +39,57 @@ export default function Blog({ blog, blogsOthers }) {
       <BreadCrumbs links={breadCrumbsItems} />
       <IntroNews blog={blog} />
       {blog.attributes.Text && (
-        <div className="container pt-12">
-          <ReactMarkdown className="markDown">
-            {blog.attributes.Text}
+        <div
+          className="container pt-12 !max-w-screen-lg"
+          dangerouslySetInnerHTML={{ __html: blog.attributes.Text }}
+        />
+      )}
+      {blog.attributes.Advertise && (
+        <div className="container pt-12 !max-w-screen-lg">
+          <ReactMarkdown className=" !max-w-screen-lg markDown opacityMarkdown">
+            {blog.attributes.Advertise}
           </ReactMarkdown>
         </div>
       )}
       <CarouselNews slides={blog.attributes.PhotoSlides} blog={blog} />
       {blog.attributes.Text2 && (
-        <div className="container pt-12">
-          <ReactMarkdown className="markDown">
-            {blog.attributes.Text2}
-          </ReactMarkdown>
-        </div>
+        <div
+          className="container pt-12 !max-w-screen-lg"
+          dangerouslySetInnerHTML={{ __html: blog.attributes.Text2 }}
+        />
       )}
       {blog.attributes.File?.data && (
         <LoadFileBlock file={blog.attributes.File.data} />
       )}
-      <Line variantColor="grey" />
+      <div className="mx-auto !max-w-screen-lg">
+        <Line variantColor="grey" />
+      </div>
       {blog.attributes.Quote && <QuoteBlock quote={blog.attributes.Quote} />}
-      <Line variantColor="grey" />
+      <div className="mx-auto !max-w-screen-lg">
+        <Line variantColor="grey" />
+      </div>
 
       {blog.attributes.Video?.data && (
-        <VideoBlock
-          blog={blog}
-          video={blog.attributes.Video}
-          poster={blog.attributes.Image_preview}
-        />
-      )}
-      {blog.attributes.Text3 && (
-        <div className="container pt-12">
-          <ReactMarkdown className="markDown">
-            {blog.attributes.Text3}
-          </ReactMarkdown>
+        <div className="pt-[52px]">
+          <Video
+            poster={blog.attributes.Poster}
+            videofile={blog.attributes.Video}
+          />
         </div>
+      )}
+
+      {blog.attributes.Text3 && (
+        <div
+          className="container pt-12 !max-w-screen-lg"
+          dangerouslySetInnerHTML={{ __html: blog.attributes.Text3 }}
+        />
       )}
       <BlogsBlockList
         articleColor="inherit"
         titleColor="black"
         buttonColor="black"
         blogRes={blogsOthers}
+        titleOthers={true}
       />
       <Line variantColor="grey" />
     </>
