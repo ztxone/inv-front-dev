@@ -5,9 +5,9 @@ export default function NewsList({ news }) {
   return (
     <div className="container">
       <div
-        className="pt-25 pb-10
+        className="py-25 pb-10
       lg:flex flex-wrap justify-between
-      lg:pt-16 lg:pb-0"
+      lg:py-16 lg:pb-0"
       >
         {news.map((item, key) => (
           <ArticleNew
@@ -21,7 +21,7 @@ export default function NewsList({ news }) {
           />
         ))}
       </div>
-      <ProjectButton text="Загрузить еще" />
+      {/* <ProjectButton text="Загрузить еще" link="/news" /> */}
     </div>
   );
 }
