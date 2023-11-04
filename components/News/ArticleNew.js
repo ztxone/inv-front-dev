@@ -23,19 +23,14 @@ export default function ArticleNew({
     >
       <div className="rounded-l15 w-full relative">
         <Image
-          className="rounded-l15 md:w-full md:aspect-[804/287] object-cover"
+          className="rounded-l15 md:w-full object-cover"
           width="804"
           height="287"
           src={getStrapiMedia(image)}
           alt={title}
         />
+        {/* md:aspect-[804/287] */}
         {tag.data && (
-          //   <div className="bg-white rounded-full px-3.8 py-2 inline-flex items-center w-auto self-start absolute left-3 bottom-3">
-          //     <span className=" bg-royal-blue rounded-full w-[4px] h-[4px] mr-[5px]"></span>
-          //     <p className="text-black-russian font-interTight uppercase font-medium text-xxs">
-          //       {tag.data.attributes.Name}
-          //     </p>
-          //   </div>
           <Tag
             key={tag.data.attributes.Name}
             text={tag.data.attributes.Name}

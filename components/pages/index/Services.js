@@ -4,10 +4,10 @@ import PillowLink from "@/components/ui/PillowLink";
 import FormService from "@/components/ui/FormService";
 import useTranslation from "next-translate/useTranslation";
 
-export default function Services({services}) {
-  const {t}=useTranslation("common");
-  const i18n=useTranslation();
-  const locale=i18n.lang;
+export default function Services({ services }) {
+  const { t } = useTranslation("common");
+  const i18n = useTranslation();
+  const locale = i18n.lang;
 
   return (
     <section
@@ -61,6 +61,7 @@ export default function Services({services}) {
             link={`${i18n.lang}/services/${service.attributes.slug}`}
             descriptionItem1={service.attributes.text}
             image={service.attributes.image}
+            centered={false}
           />
         ))}
       </div>

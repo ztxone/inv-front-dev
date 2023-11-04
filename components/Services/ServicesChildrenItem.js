@@ -10,7 +10,7 @@ export default function ServicesChildrenItem({
   serviceId,
 }) {
   // const link = `/brief?serviceId=${serviceId}`;
-  const link = `/brief?serviceId=${path}`
+  const link = `/brief?serviceId=${path}`;
 
   return (
     <div
@@ -27,7 +27,7 @@ export default function ServicesChildrenItem({
       </h3>
       {image && (
         <Image
-          className="rounded-b-5xl w-full aspect-[398/313]
+          className="rounded-b-5xl w-full 
           md:aspect-[562/313]"
           src={getStrapiMedia(image)}
           width="398"
