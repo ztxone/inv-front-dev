@@ -3,8 +3,6 @@ import useTranslation from "next-translate/useTranslation";
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 
-import Markdown from "react-markdown";
-
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
 
@@ -16,9 +14,16 @@ export default function Confidence({ agreement, text }) {
     metaDescription: agreement.attributes.Seo.metaDescription,
     shareImage: "",
   };
+  console.log(agreement);
 
   return (
-    <Layout bg="white" headerBg="white" footerBg="white" pillowColor={""} variantSvg='darkClassesSvg'>
+    <Layout
+      bg="white"
+      headerBg="white"
+      footerBg="white"
+      pillowColor={""}
+      variantSvg="darkClassesSvg"
+    >
       <Seo seo={seo} />
       <TitleSection text={agreement.attributes.Title} />
       <BreadCrumbs
@@ -30,9 +35,10 @@ export default function Confidence({ agreement, text }) {
           },
         ]}
       />
-      <Markdown className="richText container">
-        {agreement.attributes.Text}
-      </Markdown>
+      <div
+        className="richText container"
+        dangerouslySetInnerHTML={{ __html: agreement.attributes.TextEditor }}
+      />
     </Layout>
   );
 }
