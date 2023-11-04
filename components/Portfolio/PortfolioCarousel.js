@@ -21,7 +21,7 @@ export default function PortfolioCarousel({
     return <Loading />;
   }
   const { t } = useTranslation("common");
-  console.log(projects);
+  //console.log(projects);
   return (
     <div
       className="container overflow-hidden pt-21 pb-18 flex flex-col gap-10 w-full
@@ -35,18 +35,26 @@ export default function PortfolioCarousel({
         link="/portfolio"
       />
       <Swiper
-        slidesPerView={"auto"}
+        slidesPerView={1.3}
         spaceBetween={10}
         className="pb-7
         w-full
 
 		!-mr-3.8 flex  pb-7
         md:pb-10 md:gap-7
-        lg:pb-9 lg:!pl-20
-        "
+        lg:pb-9         "
+        breakpoints={{
+          768: {
+            slidesPerView: 1.8,
+          },
+          1024: {
+            slidesPerView: 3,
+          },
+        }}
       >
         {projects.map((project) => (
-          <SwiperSlide key={project.id} style={{ flexShrink: 1 }}>
+          //   <SwiperSlide key={project.id} style={{ flexShrink: 1 }}>
+          <SwiperSlide key={project.id}>
             <ProjectItemCarousel
               name={project.attributes.Title}
               link={project.attributes.slug}
