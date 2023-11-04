@@ -44,7 +44,8 @@
   },
   "confidence_policy": "Confidence policy",
   "news": {
-    "company_news": "Company news"
+    "company_news": "Company news",
+    "title_other_news": "Other news"
   },
   "sendForm": {
     "Name": "Name",

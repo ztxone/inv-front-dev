@@ -4,7 +4,7 @@ import React from "react";
 
 export const LoadFileBlock = ({ file }) => {
   return (
-    <div className="container py-10.5">
+    <div className="container py-10.5  !max-w-screen-lg">
       <div className="bg-white p-7 pb-[36px] rounded-2.5xl flex justify-between">
         <p className="lowercase text-xl">{file?.attributes?.name}</p>
         <p className="pt-10 flex items-center justify-center ">

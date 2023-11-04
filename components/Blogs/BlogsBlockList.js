@@ -8,12 +8,14 @@ import useTranslation from "next-translate/useTranslation";
 
 import "swiper/css";
 import Loading from "../ui/Loading";
+import Title from "../ui/Title";
 
 export default function BlogsBlockList({
   titleColor,
   articleColor,
   buttonColor,
   blogRes,
+  titleOthers = false,
 }) {
   if (!blogRes) {
     return <Loading />;
@@ -36,7 +38,11 @@ export default function BlogsBlockList({
         className="flex justify-between pb-10 items-center
         md:pb-15 lg:pb-18 container"
       >
-        <TitleColor textPart1="Блог" textPart2=" invert" color={titleColor} />
+        {titleOthers ? (
+          <Title text={t("news.title_other_news")} variant="black" />
+        ) : (
+          <TitleColor textPart1="Блог" textPart2=" invert" color={titleColor} />
+        )}
 
         <div className="flex">
           <div onClick={prevSlide}>

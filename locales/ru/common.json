@@ -45,7 +45,8 @@
   },
   "confidence_policy": "Политика конфиденциальности",
   "news": {
-    "company_news": "Новости компании"
+    "company_news": "Новости компании",
+    "title_other_news": "Другие новости"
   },
   "sendForm": {
     "Name": "Имя",

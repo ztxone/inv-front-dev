@@ -3,7 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 export const QuoteBlock = (quote) => {
   return (
-    <div className="container">
+    <div className="container !max-w-screen-lg">
       <div className="py-13 flex flex-row">
         <svg
           className="shrink-0 mr-10.5"
