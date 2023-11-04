@@ -10,8 +10,8 @@ export default function IntroError() {
       lg:pt-20 lg:pb-34"
     >
       <div
-        className="w-full bg-[url('/image/content/bg-intro-mob.png')] bg-no-repeat bg-cover pt-[76px] pb-10 px-10 rounded-5xl 
-        md:bg-[url('/image/content/bg-intro.png')] md:bg-right-top-30 min-h-[463px] text-white mx-auto
+        className="w-full bg-[url('/image/404_bg_mini.jpg')] bg-no-repeat bg-cover pt-[76px] pb-10 px-10 rounded-5xl 
+        md:bg-[url('/image/404_bg.jpg')] bg-center min-h-[463px] text-white mx-auto
     md:pb-33  md:min-h-[600px] md:pt-[88px]  md:border-eclipse md:border-2
     lg:px-21 lg:pt-29 lg:pb-20"
       >
