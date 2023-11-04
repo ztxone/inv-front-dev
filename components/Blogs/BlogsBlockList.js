@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import useTranslation from "next-translate/useTranslation";
 
 import "swiper/css";
+import Loading from "../ui/Loading";
 
 export default function BlogsBlockList({
   titleColor,
@@ -14,6 +15,9 @@ export default function BlogsBlockList({
   buttonColor,
   blogRes,
 }) {
+  if (!blogRes) {
+    return <Loading />;
+  }
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;

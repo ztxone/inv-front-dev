@@ -57,7 +57,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import BlogSlide from "pages/blog/BlogSlide";
+import BlogSlide from "@/components/News/BlogSlide";
 import ReactMarkdown from "react-markdown";
 
 export default function CarouselNews({ slides, blog }) {
