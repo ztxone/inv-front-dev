@@ -17,11 +17,11 @@ export default function PortfolioCarousel({
   title = "Смотреть портфолио",
   projects,
 }) {
+  const { t } = useTranslation("common");
+  //console.log(projects);
   if (!projects) {
     return <Loading />;
   }
-  const { t } = useTranslation("common");
-  //console.log(projects);
   return (
     <div
       className="container overflow-hidden pt-21 pb-18 flex flex-col gap-10 w-full

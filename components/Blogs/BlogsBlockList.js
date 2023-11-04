@@ -17,16 +17,14 @@ export default function BlogsBlockList({
   blogRes,
   titleOthers = false,
 }) {
-  if (!blogRes) {
-    return <Loading />;
-  }
   const { t } = useTranslation("common");
-  const i18n = useTranslation();
-  const locale = i18n.lang;
 
   const swiperRef = useRef();
   const prevSlide = () => swiperRef.current.slidePrev();
   const nextSlide = () => swiperRef.current.slideNext();
+  if (!blogRes) {
+    return <Loading />;
+  }
 
   return (
     <section
