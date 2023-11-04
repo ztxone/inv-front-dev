@@ -45,28 +45,27 @@ export default function PortfolioCarousel({
         lg:pb-9 lg:!pl-20
         "
       >
-        {projects.data[0] &&
-          projects.data.map((project) => (
-            <SwiperSlide key={project.id} style={{ flexShrink: 1 }}>
-              <ProjectItemCarousel
-                name={project.attributes.Title}
-                link={project.attributes.slug}
-              >
-                <ProjectItemImage
-                  link={getStrapiMedia(project.attributes.Poster)}
-                  width="288"
-                  height="147"
-                  variant="imageBlock"
-                />
-                <div className="flex gap-2">
-                  {project.attributes.tags.data.length > 0 &&
-                    project.attributes.tags.data.map((tag) => {
-                      return <Tag key={tag.id} text={tag.attributes.Name} />;
-                    })}
-                </div>
-              </ProjectItemCarousel>
-            </SwiperSlide>
-          ))}
+        {projects.map((project) => (
+          <SwiperSlide key={project.id} style={{ flexShrink: 1 }}>
+            <ProjectItemCarousel
+              name={project.attributes.Title}
+              link={project.attributes.slug}
+            >
+              <ProjectItemImage
+                link={getStrapiMedia(project.attributes.Poster)}
+                width="288"
+                height="147"
+                variant="imageBlock"
+              />
+              <div className="flex gap-2">
+                {project.attributes.tags.data.length > 0 &&
+                  project.attributes.tags.data.map((tag) => {
+                    return <Tag key={tag.id} text={tag.attributes.Name} />;
+                  })}
+              </div>
+            </ProjectItemCarousel>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );
