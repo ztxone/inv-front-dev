@@ -57,6 +57,7 @@ export async function getStaticProps({ locale }) {
         ShowOnMainPage: true,
         publishedAt: { ne: null },
       },
+      publicationState: "live",
       pagination: {
         start: 0,
         limit: 6,
@@ -66,6 +67,7 @@ export async function getStaticProps({ locale }) {
       populate: "*",
       fields: ["name", "slug", "text"],
       locale: locale,
+      publicationState: "live",
       filters: {
         ShowOnMainPage: true,
       },
@@ -76,6 +78,7 @@ export async function getStaticProps({ locale }) {
       },
       fields: ["name", "slug"],
       locale: locale,
+      publicationState: "live",
       populate: {
         Slides: {
           sort: ["SlidePosition:asc"],
@@ -93,6 +96,7 @@ export async function getStaticProps({ locale }) {
       fields: ["Title", "slug", "Preview"],
       populate: ["tags", "Image_preview"],
       locale: locale,
+      publicationState: "live",
     }),
     fetchAPI("/global", {
       //fields: ["Logo"],
