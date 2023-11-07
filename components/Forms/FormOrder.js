@@ -62,12 +62,12 @@ export const FormOrder = ({ onSubmitForm }) => {
   };
 
   return (
-    <div className='bg-black rounded-5xl'>
+    <div className="bg-black rounded-5xl">
       <Image
         className="w-full bg-black h-[101px] object-cover rounded-t-5xl"
-        src="/image/content/modal.png"
-        width="275"
-        height="10"
+        src="/image/content/modal_new.jpg"
+        width="568"
+        height="215"
         alt=""
       />
       <div className="px-10 pb-15 pt-9   text-center bg-white rounded-b-5xl">
@@ -79,6 +79,16 @@ export const FormOrder = ({ onSubmitForm }) => {
 
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmit)}>
+            <ModalFieldset width="w-full">
+              <ModalLabel
+                htmlFor="theme"
+                text="Выберите направление"
+                align="text-left"
+                required={true}
+              />
+              <ModalSelectForBrief options={options} name={"Direction"} />
+            </ModalFieldset>
+
             <ModalFieldset width="w-full">
               <ModalLabel
                 htmlFor="Name"
@@ -139,15 +149,6 @@ export const FormOrder = ({ onSubmitForm }) => {
               />
             </ModalFieldset>
 
-            <ModalFieldset width="w-full">
-              <ModalLabel
-                htmlFor="theme"
-                text="Выберите направление"
-                align="text-left"
-                required={true}
-              />
-              <ModalSelectForBrief options={options} name={"Direction"} />
-            </ModalFieldset>
             <ModalApproveForm name={"Agreement"} fullWidth />
             <ButtonSubmit fullWidth loading={loading} />
           </form>
