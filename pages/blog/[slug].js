@@ -12,9 +12,13 @@ import ReactMarkdown from "react-markdown";
 import LoadFileBlock from "@/components/News/LoadFileBlock";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 import Video from "@/components/Projects/Video";
+import Loading from "@/components/ui/Loading";
 
 export default function Blog({ blog, blogsOthers }) {
   const { t } = useTranslation("common");
+  if (!blog) {
+    return <Loading />;
+  }
   const seo = {
     metaTitle: blog.attributes.Title,
     metaDescription: blog.attributes.Text,
