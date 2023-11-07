@@ -12,9 +12,13 @@ import ReactMarkdown from "react-markdown";
 import LoadFileBlock from "@/components/News/LoadFileBlock";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 import Video from "@/components/Projects/Video";
+import Loading from "@/components/ui/Loading";
 
 export default function Blog({ blog, blogsOthers }) {
   const { t } = useTranslation("common");
+  if (!blog) {
+    return <Loading />;
+  }
   const seo = {
     metaTitle: blog.attributes.Title,
     metaDescription: blog.attributes.Text,
@@ -123,6 +127,7 @@ export async function getStaticProps({ params, locale }) {
     fetchAPI("/blogs", {
       filters: { slug: params.slug },
       locale: locale,
+      publicationState: "live",
       populate: "*",
     }),
     fetchAPI("/blogs", {
@@ -132,13 +137,14 @@ export async function getStaticProps({ params, locale }) {
         start: 0,
         limit: 3,
       },
+      publicationState: "live",
       locale: locale,
     }),
   ]);
-
+  const blog = matchingBlogs.data.length > 0 ? matchingBlogs.data[0] : null;
   return {
     props: {
-      blog: matchingBlogs.data[0],
+      blog,
       blogsOthers: blogsOthersRes.data,
     },
     revalidate: 1,
