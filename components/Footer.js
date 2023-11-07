@@ -48,7 +48,7 @@ export default function Footer({ variant, pillowColor = "dark" }) {
       lg:mx-auto lg:pb-18"
       >
         <Form pillowColor={pillowColor} />
-        <NavFooter menu={menu} />
+        <NavFooter menu={menu} variant={variant} />
         <Contact contact={data} colorSocials={colorSocials} />
       </div>
       <Line variantColor={colorLine} />
