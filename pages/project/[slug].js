@@ -126,8 +126,8 @@ Project.getLayout = function getLayout(page) {
       bg="white"
       headerBg="white"
       footerBg="white"
-      pillowColorFooter="whiteClasses"
-      variantSvg="darkClassesSvg"
+      pillowColor="white"
+      variantSvg="dark"
     >
       {page}
     </Layout>
