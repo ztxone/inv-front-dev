@@ -5,7 +5,7 @@ export default function ProjectCarousel({ photos, poster, videoFiles }) {
   //console.log( photos, poster, videoFiles);
   return (
     <>
-      <div className="pt-2.5 pb-7 w-full mx-auto">
+      <div className="pt-2.5 pb-7 container w-full mx-auto">
         {videoFiles?.data ? (
           <SwiperVideo videoSlides={videoFiles.data} poster={poster} />
         ) : (
