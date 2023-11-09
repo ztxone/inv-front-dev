@@ -36,7 +36,7 @@ export default function ServicesForCategory({ parent }) {
   if (!data) {
     return false;
   }
-  //console.log(data);
+  console.log(data);
 
   return (
     <div
@@ -51,7 +51,9 @@ export default function ServicesForCategory({ parent }) {
             serviceId={parent}
             title={service.attributes.Title}
             path={service.attributes.categories.data[0].attributes.slug}
-            pathDirection={service.attributes.direction_brief}
+            pathDirection={
+              service.attributes.direction_brief.data.attributes.slug
+            }
             image={service.attributes.Image}
           />
         ))}
