@@ -3,8 +3,8 @@
 @import "tailwindcss/utilities";
 
 @font-face {
-    font-family: "Inter Tight";
-    src: url("../public/fonts/InterTight-Regular.woff2");
+  font-family: "Inter Tight";
+  src: url("../public/fonts/InterTight-Regular.woff2");
 }
 
 @layer utilities {
@@ -119,13 +119,12 @@
   @apply opacity-70;
 }
 
-
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   background: #f9f9f9 !important;
 }
 
-.swiper-pagination-bullet-active{
-  background:#0000ff!important;
+.swiper-pagination-bullet-active {
+  background: #0000ff !important;
 }
 
 .videoGalery .swiper-slide {
