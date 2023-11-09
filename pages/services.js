@@ -9,7 +9,6 @@ import ServicesListPage from "@/components/Services/ServicesListPage";
 import ServicesSlides from "@/components/Services/ServicesSlides";
 import PortfolioCarousel from "@/components/Portfolio/PortfolioCarousel";
 import Seo from "@/components/seo";
-import IntroSlides from "@/components/ui/IntroSlides";
 
 export default function Services({ services, projects }) {
   const { t } = useTranslation("common");

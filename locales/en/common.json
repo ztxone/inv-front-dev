@@ -30,7 +30,8 @@
   },
   "brief": {
     "how_much": "How much cost project?",
-    "order": "Fill the form and get your individual offer!",
+    "order_1": "Fill the form ",
+    "order_2": "and get your individual offer!",
     "fill": "Fill the brief",
     "title_fill": "Fill up brief"
   },

@@ -40,4 +40,6 @@ input:focus {
 .ReactModal__Body--open {
   overflow: hidden;
 }
-
+.bgBriefCost {
+  background-position: !important center;
+}
