@@ -14,7 +14,7 @@ export default function ServicesForCategory({ parent }) {
       const servicesRes = await fetchAPI("/services", {
         locale: locale,
         fields: ["Title", "slug"],
-        populate: ["categories", "Image"],
+        populate: "*",
         filters: {
           categories: {
             id: {
@@ -51,6 +51,9 @@ export default function ServicesForCategory({ parent }) {
             serviceId={parent}
             title={service.attributes.Title}
             path={service.attributes.categories.data[0].attributes.slug}
+            pathDirection={
+              service.attributes.direction_brief.data.attributes.slug
+            }
             image={service.attributes.Image}
           />
         ))}
