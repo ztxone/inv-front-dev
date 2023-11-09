@@ -7,7 +7,7 @@ export default function PillowLink({
   link = "#",
   variantSvg = "white",
 }) {
-  console.log(variant, variantSvg, linkPosition);
+  //console.log(variant, variantSvg, linkPosition);
   let darkClasses,
     whiteClasses,
     blueClassesSvg,
