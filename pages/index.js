@@ -64,12 +64,16 @@ export async function getStaticProps({ locale }) {
       },
     }),
     fetchAPI("/categories", {
-      populate: "*",
-      fields: ["name", "slug", "text"],
+      populate: ["image"],
+      fields: ["name", "slug", "textPart1", "textPart2"],
       locale: locale,
       publicationState: "live",
       filters: {
         ShowOnMainPage: true,
+      },
+      pagination: {
+        start: 0,
+        limit: 3,
       },
     }),
     fetchAPI("/categories", {
