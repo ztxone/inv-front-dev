@@ -19,8 +19,9 @@ export default function About({ about, servicesAbout }) {
         xl:grid xl:grid-cols-[2fr, 1fr] xl:grid-rows-2 xl:pt-24.5 gap-5  xl:pb-[136px]"
         >
           <h2
-            className="text-4xl tracking-tight mb-25 flex flex-wrap items-baseline md:text-6xl xl:text-7.5xl md:mb-15
-        xl:justify-between xl:max-w-[887px] xl:self-start xl:mb-0"
+            className=" tracking-tight mb-25 flex flex-wrap items-baseline 
+			text-2xl  sm:text-4xl lg:text-6xl  xl:text-7.5xl
+        	md:mb-15 xl:justify-between xl:max-w-[887px] xl:self-start xl:mb-0 titleAbout"
           >
             <span
               className="w-full mb-3.8
