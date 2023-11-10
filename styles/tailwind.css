@@ -133,9 +133,14 @@
 .videoGalery .swiper-slide-thumb-active {
   opacity: 1;
 }
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 320px) and (max-width: 380px) {
   .titleAbout {
     font-size: 1.75rem;
+  }
+}
+@media (min-width: 381px) and (max-width: 480px) {
+  .titleAbout {
+    font-size: 2.1rem;
   }
 }
 @media (min-width: 481px) and (max-width: 640px) {
