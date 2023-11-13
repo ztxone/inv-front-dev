@@ -7,8 +7,10 @@ import DescriptionServiceItem from "./DescriptionServiceItem";
 export default function ServiceItem({
   title,
   subtitle,
-  textPart1,
-  textPart2,
+  textPart1 = "",
+  textPart2 = "",
+  textPart3 = "",
+  textPart4 = "",
   link,
   centered = false,
   image = "",
@@ -23,7 +25,12 @@ export default function ServiceItem({
         {/* <div className="bg-nero3 w-full h-full z-10 p-9 rounded-5xl"> */}
         <div className="w-full h-full z-10 p-9 rounded-5xl">
           <TitleH3 text={title} subtext={subtitle} />
-          <DescriptionServiceItem textPart1={textPart1} textPart2={textPart2} />
+          <DescriptionServiceItem
+            textPart1={textPart1}
+            textPart2={textPart2}
+            textPart3={textPart3}
+            textPart4={textPart4}
+          />
         </div>
         {image && (
           <div

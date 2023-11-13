@@ -115,6 +115,10 @@
   @apply leading-4 pb-3;
 }
 /*xl:w-1/2*/
+.AboutTitles {
+  font-weight: 700;
+  font-size: 1em;
+}
 
 .markDown h1 {
   @apply text-xl pb-[21px] leading-6.3;
@@ -260,6 +264,14 @@
   .titleAbout {
     font-size: 80px;
     line-height: 80px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .contRightFull {
+    padding-right: 0px;
+  }
+  .contRightMargin {
+    margin-right: -1em;
   }
 }
 @media (max-width: 1279px) {
