@@ -74,6 +74,7 @@ export default function About({ about, servicesAbout }) {
                       )}
                       width="389"
                       height="275"
+                      quality={100}
                       className="w-full rounded-4xl h-full object-cover"
                       alt=""
                     />
