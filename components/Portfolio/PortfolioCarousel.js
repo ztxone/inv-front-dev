@@ -63,7 +63,7 @@ export default function PortfolioCarousel({
               />
               <div className="flex gap-2">
                 {project.attributes.tags.data.length > 0 &&
-                  project.attributes.tags.data.map((tag) => {
+                  project.attributes.tags.data.slice(0, 2).map((tag) => {
                     return <Tag key={tag.id} text={tag.attributes.Name} />;
                   })}
               </div>

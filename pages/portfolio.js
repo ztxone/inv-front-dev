@@ -11,7 +11,7 @@ import Wrapper from "@/components/ui/Wrapper";
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
 
-export default function Portfolio({ projects, categories, blogs }) {
+export default function Portfolio({ projects, categories, blogs, brief }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
@@ -27,7 +27,9 @@ export default function Portfolio({ projects, categories, blogs }) {
       <Seo seo={seo} />
       <Wrapper color="grey">
         <TitleSection text={t(`works.title`)} />
-        <Line variantColor="grey" />
+        <div className="container">
+          <Line variantColor="grey" />
+        </div>
         <BreadCrumbs
           links={[
             {
@@ -39,9 +41,9 @@ export default function Portfolio({ projects, categories, blogs }) {
         />
         <ProjectsListPortfolio projects={projects} categories={categories} />
       </Wrapper>
-      <div className="pt-2.5 md:pt-10 lg:pt-25">
+      <div className="container pt-2.5 md:pt-10 lg:pt-25">
         <IntroSlides />
-        <IntroCost />
+        <IntroCost texts={brief} />
       </div>
 
       <BlogsBlockList
@@ -55,7 +57,7 @@ export default function Portfolio({ projects, categories, blogs }) {
 }
 
 export async function getStaticProps({ locale }) {
-  const [projectsRes, categoriesRes, blogRes] = await Promise.all([
+  const [projectsRes, categoriesRes, blogRes, briefRes] = await Promise.all([
     fetchAPI("/projects", {
       sort: ["ListPosition:asc"],
       populate: ["Poster", "tags", "categories"],
@@ -74,6 +76,10 @@ export async function getStaticProps({ locale }) {
       locale: locale,
       publicationState: "live",
     }),
+    fetchAPI("/global", {
+      populate: ["BriefTexts"],
+      locale: locale,
+    }),
   ]);
 
   return {
@@ -81,6 +87,7 @@ export async function getStaticProps({ locale }) {
       categories: categoriesRes.data,
       projects: projectsRes.data,
       blogs: blogRes.data,
+      brief: briefRes.data.attributes.BriefTexts,
     },
     revalidate: 1,
   };

@@ -51,7 +51,7 @@ export default function Header({ variant, variantSvg }) {
   return (
     <header className={`${headerClass} relative text-inherit`}>
       <div
-        className="container flex justify-between items-center  
+        className="container contPadding  flex justify-between items-center  
       pt-5 flex-wrap pb-5 md:py-[17px]
       lg:pb-10 lg:pt-[38px] lg:flex-nowrap"
       >
@@ -75,7 +75,9 @@ export default function Header({ variant, variantSvg }) {
           handleOpenModal={handleOpenModal}
         />
       </div>
-      <Line variantColor={colorLine} />
+      <div className="container">
+        <Line variantColor={colorLine} />
+      </div>
     </header>
   );
 }
