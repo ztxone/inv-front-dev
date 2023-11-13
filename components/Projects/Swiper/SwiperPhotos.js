@@ -78,6 +78,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
               alt={photo.attributes.name}
               src={getLink(photo)}
               loading="lazy"
+              q={100}
             />
           </SwiperSlide>
         ))}
@@ -118,6 +119,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
               alt={photo.attributes.name}
               src={getLink(photo)}
               loading="lazy"
+              q={100}
             />
           </SwiperSlide>
         ))}

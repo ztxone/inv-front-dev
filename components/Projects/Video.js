@@ -14,6 +14,7 @@ export default function Video({ poster, videofile, small = false }) {
           src={getStrapiMedia(poster)}
           width="1064"
           height="604"
+          q={100}
           alt=""
         />
       )}

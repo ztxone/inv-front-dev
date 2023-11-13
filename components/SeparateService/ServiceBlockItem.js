@@ -1,16 +1,25 @@
-import Image from 'next/image';
-import PillowLink from '../ui/PillowLink';
+import Image from "next/image";
+import PillowLink from "../ui/PillowLink";
 
-export default function ServiceBlockItem({title, path}) {
+export default function ServiceBlockItem({ title, path }) {
   return (
-    <div className='bg-white pt-9 rounded-5xl mb-10 relative'>
-      <h3 className='text-3xl ml-9 mb-12'>{title}</h3>
-      <Image className='w-full rounded-b-5xl' src={path} width='398' height='466' alt=''></Image>
-      <div className='absolute bottom-9 left-9'>
-        <PillowLink text='Заказать'
+    <div className="bg-white pt-9 rounded-5xl mb-10 relative">
+      <h3 className="text-3xl ml-9 mb-12">{title}</h3>
+      <Image
+        className="w-full rounded-b-5xl"
+        src={path}
+        width="398"
+        height="466"
+        alt=""
+        q={100}
+      ></Image>
+      <div className="absolute bottom-9 left-9">
+        <PillowLink
+          text="Заказать"
           link="#"
           variant="white"
-          variantSvg="blueClassesSvg" />
+          variantSvg="blueClassesSvg"
+        />
       </div>
     </div>
   );

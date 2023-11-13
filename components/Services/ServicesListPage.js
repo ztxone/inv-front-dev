@@ -14,7 +14,14 @@ export default function ServicesListPage({ services }) {
   useEffect(() => {
     async function fetchData() {
       const serviceRes = await fetchAPI("/categories", {
-        fields: ["name", "slug"],
+        fields: [
+          "name",
+          "slug",
+          "textPart1",
+          "textPart2",
+          "textPart3",
+          "textPart4",
+        ],
         locale: locale,
         populate: ["image"],
         filters: {
@@ -48,6 +55,8 @@ export default function ServicesListPage({ services }) {
             link={`${i18n.lang}/services/${service.attributes.slug}`}
             textPart1={service.attributes.textPart1}
             textPart2={service.attributes.textPart2}
+            textPart3={service.attributes.textPart3}
+            textPart4={service.attributes.textPart4}
             image={service.attributes.image}
             centered={false}
           />
@@ -58,7 +67,10 @@ export default function ServicesListPage({ services }) {
           title={data.attributes.name}
           subtitle=""
           link={`/services/${data.attributes.slug}`}
-          descriptionItem1={data.attributes.text}
+          textPart1={data.attributes.textPart1}
+          textPart2={data.attributes.textPart2}
+          textPart3={data.attributes.textPart3}
+          textPart4={data.attributes.textPart4}
           image={data.attributes.image}
           centered={true}
         />
