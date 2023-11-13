@@ -10,6 +10,7 @@ export default function BigImageSlide({ photo }) {
         width="266"
         height="151"
         alt={photo.attributes.name}
+        q={100}
       />
     </div>
   );

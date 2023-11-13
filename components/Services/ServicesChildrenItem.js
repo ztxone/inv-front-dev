@@ -34,6 +34,7 @@ export default function ServicesChildrenItem({
           width="398"
           height="313"
           alt={title}
+          q={100}
         />
       )}
       <div className="absolute bottom-9 left-9">

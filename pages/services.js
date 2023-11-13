@@ -26,7 +26,9 @@ export default function Services({ services, projects }) {
       <Seo seo={seo} />
       <Wrapper>
         <TitleSection text={t`services.title`} variantColor="white" />
-        <Line />
+        <div className="container">
+          <Line />
+        </div>
         <BreadCrumbs
           links={[
             {
@@ -45,7 +47,9 @@ export default function Services({ services, projects }) {
 
       {projects && <PortfolioCarousel projects={projects} />}
 
-      <Line variantColor="grey" />
+      <div className="container">
+        <Line variantColor="grey" />
+      </div>
     </>
   );
 }
@@ -55,7 +59,14 @@ export async function getStaticProps({ locale }) {
   const [servicesRes, projectsRes] = await Promise.all([
     fetchAPI("/categories", {
       populate: "*",
-      fields: ["name", "slug", "textPart1", "textPart2"],
+      fields: [
+        "name",
+        "slug",
+        "textPart1",
+        "textPart2",
+        "textPart3",
+        "textPart4",
+      ],
       locale: locale,
       filters: {
         ShowOnMainPage: true,

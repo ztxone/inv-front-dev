@@ -30,7 +30,9 @@ const Home = ({ projects, services, servicesAbout, about, blogs, global }) => {
         buttonColor="white"
         blogRes={blogs}
       />
-      <Line variantColor="eclipse" />
+      <div className="container">
+        <Line variantColor="eclipse" />
+      </div>
     </>
   );
 };

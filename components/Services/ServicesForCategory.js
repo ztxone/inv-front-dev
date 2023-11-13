@@ -42,7 +42,7 @@ export default function ServicesForCategory({ parent }) {
     <div
       className="container
     md:flex flex-row md:overflow-hidden md:pb-5
-    xl:overflow-visible"
+   "
     >
       {data[0] &&
         data.map((service, key) => (

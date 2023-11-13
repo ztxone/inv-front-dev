@@ -22,11 +22,13 @@ export default function IntroCost() {
   }, [locale]);
 
   return (
-    <div className="py-6 md:py-5">
+    <div className="py-6 md:py-5 container">
       {data && (
         <div
-          className="w-full bg-[url('/image/content/bg-intro-mob.png')] bg-no-repeat bg-cover pt-15 pb-10 px-10 rounded-5xl flex flex-col justify-between md:bg-[url('/image/content/bg-intro.png')] md:bg-right-top-30 min-h-[463px] text-white mx-auto
-    md:pb-33 lg:px-21 lg:pt-25 lg:pb-20"
+          className="w-full bg-[url('/image/content/bg-intro-mob.png')] bg-no-repeat bg-cover 
+		  pt-15 pb-10 px-10 rounded-5xl flex flex-col justify-between md:bg-[url('/image/content/bg-intro.png')] 
+		  md:bg-right-top-30 min-h-[463px] text-white mx-auto
+    	md:pb-33 lg:px-21 lg:pt-25 lg:pb-20"
         >
           <h3
             className="text-4xl tracking-tight md:w-9/12 mb-10

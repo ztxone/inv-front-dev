@@ -45,7 +45,9 @@ function Project({ project, projectsOther, categories }) {
       {project.attributes.tags.data[0] && (
         <TagBlock tags={project.attributes.tags.data} />
       )}
-      <Line variantColor="grey" />
+      <div className="container">
+        <Line variantColor="grey" />
+      </div>
       <BreadCrumbs links={breadCrumbsItems} />
 
       <ProjectCarousel
@@ -61,14 +63,18 @@ function Project({ project, projectsOther, categories }) {
         CustomerUrl={project.attributes.CustomerUrl}
       />
 
-      <Line variantColor="grey" />
+      <div className="container">
+        <Line variantColor="grey" />
+      </div>
       <div className="py-10 md:py-15 lg:py-18">
         <IntroCost />
       </div>
 
       {/* <ProjectsListBlock projects={projectsOther} /> */}
       <PortfolioCarousel title="Другие проекты" projects={projectsOther} />
-      <Line variantColor="grey" />
+      <div className="container">
+        <Line variantColor="grey" />
+      </div>
     </>
   );
 }

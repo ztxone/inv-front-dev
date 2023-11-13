@@ -22,7 +22,9 @@ export default function Brief({ categories, visobjs, seoBrief }) {
     <>
       <Seo seo={seo} />
       <TitleSection text={t("brief.title_fill")} />
-      <Line variantColor="grey" />
+      <div className="container">
+        <Line variantColor="grey" />
+      </div>
       <BreadCrumbs
         links={[
           {
@@ -33,7 +35,9 @@ export default function Brief({ categories, visobjs, seoBrief }) {
 
       <FormBrief categories={categories} visobjs={visobjs} />
 
-      <Line variantColor="grey" />
+      <div className="container">
+        <Line variantColor="grey" />
+      </div>
     </>
   );
 }

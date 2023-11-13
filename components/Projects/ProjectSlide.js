@@ -17,6 +17,7 @@ export default function ProjectSlide({ photo, videofile = null }) {
           width="266"
           alt={photo.attributes.name}
           height="151"
+          q={100}
           src={getStrapiMediaCarousel(photo)}
         />
       )}

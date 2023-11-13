@@ -126,6 +126,7 @@ export default function About({ about, servicesAbout }) {
                       width="286"
                       height="347"
                       alt=""
+                      q={100}
                     />
                   </div>
                   <div className="relative z-1 flex flex-col items-start h-full">

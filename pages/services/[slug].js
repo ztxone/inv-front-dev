@@ -29,7 +29,9 @@ export default function Service({ category, projects }) {
       <Seo seo={seo} />
       <Wrapper color="grey" position="bottom">
         <TitleSection text={category.attributes.name} />
-        <Line variantColor="grey" />
+        <div className="container">
+          <Line variantColor="grey" />
+        </div>
         <BreadCrumbs
           links={[
             {
@@ -50,8 +52,9 @@ export default function Service({ category, projects }) {
 
         <ServicesForCategory parent={category.id} />
 
-        {/* <IntroCost /> */}
-        <ServicesSlides />
+        <div className="container contRightFull">
+          <ServicesSlides />
+        </div>
         <ProjectsList
           projects={projects}
           moreProjects={true}
