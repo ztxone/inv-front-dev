@@ -7,10 +7,10 @@ export default function NavFooter({ menu, variant }) {
   }
 
   const borderColor =
-    variant === "black" ? "lg:border-white/10" : "lg:gray-800/10";
+    variant === "black" ? "footerNavBorderBlack" : "footerNavBorderWhite";
   return (
     <div
-      className={`pb-5 lg:w-[445px] lg:mt-10.5 lg:pl-7 xl:border-l-1 xl:border-r-1 xl:pb-[59px] lg:self-stretch ${borderColor}`}
+      className={`pb-5 lg:w-[445px] lg:mt-10.5 footerNav lg:pl-7 xl:pb-[59px] lg:self-stretch ${borderColor}`}
     >
       <ul
         className="grid 

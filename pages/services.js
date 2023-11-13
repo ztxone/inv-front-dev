@@ -55,7 +55,7 @@ export async function getStaticProps({ locale }) {
   const [servicesRes, projectsRes] = await Promise.all([
     fetchAPI("/categories", {
       populate: "*",
-      fields: ["name", "slug"],
+      fields: ["name", "slug", "textPart1", "textPart2"],
       locale: locale,
       filters: {
         ShowOnMainPage: true,

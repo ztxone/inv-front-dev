@@ -28,13 +28,13 @@ export default function BlogsBlockList({
 
   return (
     <section
-      className="text-white pt-18 pb-[38px] overflow-hidden max-w-full
+      className="text-white pt-18 pb-[38px] overflow-hidden container
     md:pb-20 md:pt-18
     lg:pb-25 lg:pt-29"
     >
       <div
         className="flex justify-between pb-10 items-center
-        md:pb-15 lg:pb-18 container"
+        md:pb-15 lg:pb-18 "
       >
         {titleOthers ? (
           <Title text={t("news.title_other_news")} variant="black" />
@@ -86,7 +86,7 @@ export default function BlogsBlockList({
         scrollbar={{ draggable: true }}
         className="!pl-3.8 !-mr-3.8 flex  pb-7
         md:pb-10 md:gap-7
-        lg:pb-9 lg:!pl-20"
+        lg:pb-9 "
       >
         {blogRes &&
           [...blogRes, ...blogRes].map((blog, key) => (

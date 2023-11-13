@@ -40,10 +40,10 @@ export default function Footer({ variant, pillowColor = "dark" }) {
 
   return (
     <footer
-      className={`${footerClass} mx-auto pb-[38px] text-inherit shrink-0 w-full`}
+      className={`${footerClass} mx-auto pb-[38px] text-inherit shrink-0 w-full container`}
     >
       <div
-        className="container xl:flex 
+        className="xl:flex 
       flex-wrap xl:justify-end xl:items-start lg:pt-10
       lg:mx-auto lg:pb-18"
       >
