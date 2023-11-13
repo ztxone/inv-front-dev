@@ -9,12 +9,10 @@ export default function ServiceItem({
   subtitle,
   textPart1,
   textPart2,
-  descriptionItem1,
   link,
   centered = false,
   image = "",
 }) {
-  //console.log(textPart1);
   return (
     <div
       className={`w-full h-[600px] mb-2.5 rounded-5xl relative

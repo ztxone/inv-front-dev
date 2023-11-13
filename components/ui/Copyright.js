@@ -5,7 +5,7 @@ export default function Copyright() {
   const { t } = useTranslation("common");
   return (
     <div
-      className="container pt-10.5 text-sm flex items-end 
+      className="pt-10.5 text-sm flex items-end 
     justify-between flex-wrap text-inherit
     md:pt-[64px] md:items-baseline
     lg:w-full lg:pt-1.5"

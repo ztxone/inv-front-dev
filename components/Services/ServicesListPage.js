@@ -32,6 +32,7 @@ export default function ServicesListPage({ services }) {
   if (!data || !services) {
     return <Loading />;
   }
+
   return (
     <section
       className="container pt-10 pb-11
@@ -45,7 +46,8 @@ export default function ServicesListPage({ services }) {
             title={service.attributes.name}
             subtitle=""
             link={`${i18n.lang}/services/${service.attributes.slug}`}
-            descriptionItem1={service.attributes.text}
+            textPart1={service.attributes.textPart1}
+            textPart2={service.attributes.textPart2}
             image={service.attributes.image}
             centered={false}
           />

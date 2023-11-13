@@ -144,7 +144,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
       )}
 
       {slides.length > 1 && !showPagination && (
-        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 lg:container w-full mx-auto">
+        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 w-full mx-auto">
           <Swiper
             slidesPerView={"auto"}
             spaceBetween={10}

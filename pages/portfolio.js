@@ -27,7 +27,9 @@ export default function Portfolio({ projects, categories, blogs }) {
       <Seo seo={seo} />
       <Wrapper color="grey">
         <TitleSection text={t(`works.title`)} />
-        <Line variantColor="grey" />
+        <div className="container">
+          <Line variantColor="grey" />
+        </div>
         <BreadCrumbs
           links={[
             {
@@ -39,7 +41,7 @@ export default function Portfolio({ projects, categories, blogs }) {
         />
         <ProjectsListPortfolio projects={projects} categories={categories} />
       </Wrapper>
-      <div className="pt-2.5 md:pt-10 lg:pt-25">
+      <div className="container pt-2.5 md:pt-10 lg:pt-25">
         <IntroSlides />
         <IntroCost />
       </div>

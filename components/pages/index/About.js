@@ -13,15 +13,13 @@ export default function About({ about, servicesAbout }) {
       md:pb-0 bg-center"
       >
         <div
-          className="container pt-[95px]
-        md:pt-[132px]
-        lg:px-[86px]
-        xl:grid xl:grid-cols-[2fr, 1fr] xl:grid-rows-2 xl:pt-24.5 gap-5  xl:pb-[136px]"
+          className="container contPadding pt-[95px]
+        md:pt-[132px] xl:grid xl:grid-cols-[2fr, 1fr] xl:grid-rows-2 xl:pt-24.5 
+		gap-5  xl:pb-[136px]"
         >
           <h2
             className=" tracking-tight mb-25 flex flex-wrap items-baseline 
-			text-2xl  sm:text-4xl lg:text-6xl  xl:text-7.5xl
-        	md:mb-15 xl:justify-between xl:max-w-[887px] xl:self-start xl:mb-0 titleAbout"
+			md:mb-15 xl:justify-between xl:max-w-[887px] xl:self-start xl:mb-0 titleAbout"
           >
             <span
               className="w-full mb-3.8
@@ -85,7 +83,7 @@ export default function About({ about, servicesAbout }) {
                     <h3 className="text-1xl max-w-min overflow-hidden">
                       {item.attributes.name}
                     </h3>
-                    {/* <div className="button-round bg-black-russian2 mt-auto shrink-0">
+                    <div className="button-round bg-black-russian2 mt-auto shrink-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="11"
@@ -102,7 +100,7 @@ export default function About({ about, servicesAbout }) {
                       >
                         <path stroke="#fff" d="M0 1.25h9" />
                       </svg>
-                    </div> */}
+                    </div>
                   </div>
                 </Link>
               ))}
@@ -135,7 +133,7 @@ export default function About({ about, servicesAbout }) {
                     <h3 className="text-1xl max-w-min ">
                       {item.attributes.name}
                     </h3>
-                    <div className="mt-auto">
+                    {/* <div className="mt-auto">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="37"
@@ -156,7 +154,7 @@ export default function About({ about, servicesAbout }) {
                           fill="white"
                         />
                       </svg>
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               ))}
