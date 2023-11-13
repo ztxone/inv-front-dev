@@ -37,12 +37,7 @@ export default function PortfolioCarousel({
       <Swiper
         slidesPerView={1.3}
         spaceBetween={10}
-        className="pb-7
-        w-full
-
-		!-mr-3.8 flex  pb-7
-        md:pb-10 md:gap-7
-        lg:pb-9         "
+        className="pb-7  w-full flex md:pb-10 md:gap-7 lg:pb-9"
         breakpoints={{
           768: {
             slidesPerView: 1.8,
@@ -52,6 +47,7 @@ export default function PortfolioCarousel({
           },
         }}
       >
+        {/* !-mr-3.8 */}
         {projects.map((project) => (
           //   <SwiperSlide key={project.id} style={{ flexShrink: 1 }}>
           <SwiperSlide key={project.id}>

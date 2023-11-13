@@ -91,16 +91,28 @@
   background: #555;
 }
 
+.richText {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  color: #000;
+}
 .richText p {
   margin-bottom: 15px;
 }
 .richText ul li {
-  list-style-type: circle;
-
-  margin-left: 35px;
+  list-style-type: disc;
 }
 
+.richText ol,
 .richText ul {
+  display: block;
+  list-style-type: decimal;
+  margin-block-start: 0.5em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 20px;
   margin-bottom: 15px;
 }
 
@@ -162,5 +174,9 @@
     max-width: 422px;
     padding-bottom: 0.95rem;
     padding-top: 0.95rem;
+  }
+  .divLayout {
+    padding-left: 80px;
+    padding-right: 80px;
   }
 }

@@ -74,6 +74,7 @@ export default function About({ about, servicesAbout }) {
                       )}
                       width="389"
                       height="275"
+                      quality={100}
                       className="w-full rounded-4xl h-full object-cover"
                       alt=""
                     />
@@ -84,7 +85,7 @@ export default function About({ about, servicesAbout }) {
                     <h3 className="text-1xl max-w-min overflow-hidden">
                       {item.attributes.name}
                     </h3>
-                    <div className="button-round bg-black-russian2 mt-auto shrink-0">
+                    {/* <div className="button-round bg-black-russian2 mt-auto shrink-0">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="11"
@@ -101,7 +102,7 @@ export default function About({ about, servicesAbout }) {
                       >
                         <path stroke="#fff" d="M0 1.25h9" />
                       </svg>
-                    </div>
+                    </div> */}
                   </div>
                 </Link>
               ))}

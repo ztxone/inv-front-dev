@@ -36,7 +36,7 @@ export default function Confidence({ agreement, text }) {
         ]}
       />
       <div
-        className="richText container"
+        className="richText container !max-w-[800px] !ml-[0px]"
         dangerouslySetInnerHTML={{ __html: agreement.attributes.TextEditor }}
       />
     </Layout>

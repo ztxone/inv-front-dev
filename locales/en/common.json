@@ -16,7 +16,10 @@
     "mainServices": "Main services",
     "allServices": "All services",
     "linkServices": "Services",
-    "title": "Services",
+    "title": "Services"
+  },
+  "services_seo": {
+    "meta_title": "Services",
     "meta_description": "All services of company"
   },
   "All_news": "All news",
