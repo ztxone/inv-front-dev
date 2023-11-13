@@ -16,7 +16,10 @@
     "mainServices": "Основные услуги",
     "allServices": "Все услуги",
     "linkServices": "Услуги",
-    "title": "Услуги",
+    "title": "Услуги"
+  },
+  "services_seo": {
+    "meta_title": "Услуги",
     "meta_description": "Все услуги компании"
   },
   "All_projects": "Все проекты",

@@ -14,7 +14,7 @@ export default function ServicesListPage({ services }) {
   useEffect(() => {
     async function fetchData() {
       const serviceRes = await fetchAPI("/categories", {
-        fields: ["name", "slug", "text"],
+        fields: ["name", "slug"],
         locale: locale,
         populate: ["image"],
         filters: {
@@ -29,10 +29,9 @@ export default function ServicesListPage({ services }) {
     fetchData();
   }, [locale]);
 
-  if (!data) {
+  if (!data || !services) {
     return <Loading />;
   }
-  console.log(services);
   return (
     <section
       className="container pt-10 pb-11

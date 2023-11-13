@@ -17,7 +17,7 @@ export default function ServicesList() {
     async function fetchData() {
       const servicesRes = await fetchAPI("/categories", {
         populate: "*",
-        fields: ["name", "slug", "text"],
+        fields: ["name", "slug"],
         locale: locale,
       });
 

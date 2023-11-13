@@ -14,7 +14,7 @@ export default function ServiceItem({
   centered = false,
   image = "",
 }) {
-  console.log(textPart1);
+  //console.log(textPart1);
   return (
     <div
       className={`w-full h-[600px] mb-2.5 rounded-5xl relative
