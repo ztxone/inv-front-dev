@@ -11,7 +11,7 @@ import Wrapper from "@/components/ui/Wrapper";
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
 
-export default function Portfolio({ projects, categories, blogs, brief }) {
+export default function Portfolio({ projects, categories, blogs }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
@@ -43,7 +43,7 @@ export default function Portfolio({ projects, categories, blogs, brief }) {
       </Wrapper>
       <div className="container pt-2.5 md:pt-10 lg:pt-25">
         <IntroSlides />
-        <IntroCost texts={brief} />
+        <IntroCost />
       </div>
 
       <BlogsBlockList
@@ -57,7 +57,7 @@ export default function Portfolio({ projects, categories, blogs, brief }) {
 }
 
 export async function getStaticProps({ locale }) {
-  const [projectsRes, categoriesRes, blogRes, briefRes] = await Promise.all([
+  const [projectsRes, categoriesRes, blogRes] = await Promise.all([
     fetchAPI("/projects", {
       sort: ["ListPosition:asc"],
       populate: ["Poster", "tags", "categories"],
@@ -76,10 +76,6 @@ export async function getStaticProps({ locale }) {
       locale: locale,
       publicationState: "live",
     }),
-    fetchAPI("/global", {
-      populate: ["BriefTexts"],
-      locale: locale,
-    }),
   ]);
 
   return {
@@ -87,7 +83,6 @@ export async function getStaticProps({ locale }) {
       categories: categoriesRes.data,
       projects: projectsRes.data,
       blogs: blogRes.data,
-      brief: briefRes.data.attributes.BriefTexts,
     },
     revalidate: 1,
   };
