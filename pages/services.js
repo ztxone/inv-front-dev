@@ -16,8 +16,8 @@ export default function Services({ services, projects }) {
   const locale = i18n.lang;
 
   const seo = {
-    metaTitle: t("services.title"),
-    metaDescription: t("services.meta_description"),
+    metaTitle: t("services_seo.meta_title"),
+    metaDescription: t("services_seo.meta_description"),
     shareImage: "",
   };
 
@@ -36,7 +36,7 @@ export default function Services({ services, projects }) {
             },
           ]}
         />
-        <ServicesListPage services={services} />
+        {services && <ServicesListPage services={services} />}
       </Wrapper>
 
       <div className="container md:pt-15 lg:pt-20">
@@ -44,6 +44,7 @@ export default function Services({ services, projects }) {
       </div>
 
       {projects && <PortfolioCarousel projects={projects} />}
+
       <Line variantColor="grey" />
     </>
   );
@@ -54,18 +55,19 @@ export async function getStaticProps({ locale }) {
   const [servicesRes, projectsRes] = await Promise.all([
     fetchAPI("/categories", {
       populate: "*",
-      fields: ["name", "slug", "text"],
+      fields: ["name", "slug"],
       locale: locale,
       filters: {
         ShowOnMainPage: true,
       },
+      pagination: {
+        start: 0,
+        limit: 3,
+      },
     }),
     fetchAPI("/projects", {
       sort: ["ListPosition:asc"],
-      populate: {
-        Poster: "*",
-        tags: "*",
-      },
+      populate: ["Poster", "tags"],
       fields: ["Title", "slug"],
       locale: locale,
       filters: {

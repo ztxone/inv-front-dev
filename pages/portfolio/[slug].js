@@ -82,7 +82,7 @@ export async function getStaticProps({ params }) {
       },
     }),
     fetchAPI("/categories", {
-      fields: ["name", "slug", "text"],
+      fields: ["name", "slug"],
       populate: ["projects"],
     }),
     fetchAPI("/tags", {

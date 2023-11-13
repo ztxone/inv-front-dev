@@ -64,7 +64,7 @@ export async function getStaticProps({ locale }) {
       publicationState: "live",
     }),
     fetchAPI("/categories", {
-      fields: ["name", "slug", "text"],
+      fields: ["name", "slug"],
       populate: ["projects"],
       locale: locale,
     }),
