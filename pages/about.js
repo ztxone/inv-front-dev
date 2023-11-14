@@ -102,8 +102,8 @@ About.getLayout = function getLayout(page) {
       bg="black"
       headerBg="white"
       footerBg="black"
-      pillowColor=""
-      variantSvg="darkClassesSvg"
+      pillowColor="dark"
+      variantSvg="darkSvg"
     >
       {page}
     </Layout>

@@ -176,7 +176,7 @@ export default function About({ about, servicesAbout }) {
             </svg>
           </div>
         </div>
-        <div className="hidden md:block">
+        <div className="hidden md:block container">
           <Line variantColor="eclipse" />
         </div>
       </section>
