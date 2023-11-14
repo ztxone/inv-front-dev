@@ -41,8 +41,10 @@ export default function Portfolio({ projects, categories, blogs }) {
         />
         <ProjectsListPortfolio projects={projects} categories={categories} />
       </Wrapper>
-      <div className="container pt-2.5 md:pt-10 lg:pt-25">
-        <IntroSlides />
+      <div className="pt-2.5 md:pt-10 lg:pt-25">
+        <div className="container">
+          <IntroSlides />
+        </div>
         <IntroCost />
       </div>
 
@@ -94,8 +96,8 @@ Portfolio.getLayout = function getLayout(page) {
       bg="black"
       headerBg="white"
       footerBg="black"
-      pillowColor=""
-      variantSvg="darkClassesSvg"
+      pillowColor="dark"
+      variantSvg="darkSvg"
     >
       {page}
     </Layout>

@@ -130,7 +130,13 @@ export async function getStaticProps({ params, locale }) {
 
 Service.getLayout = function getLayout(page) {
   return (
-    <Layout bg="black" headerBg="white" footerBg="black" pillowColor="">
+    <Layout
+      bg="black"
+      headerBg="white"
+      footerBg="black"
+      pillowColor="dark"
+      variantSvg="darkSvg"
+    >
       {page}
     </Layout>
   );
