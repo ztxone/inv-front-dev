@@ -10,6 +10,7 @@ import Line from "@/components/ui/Line";
 import Wrapper from "@/components/ui/Wrapper";
 import { fetchAPI } from "lib/api";
 import Seo from "@/components/seo";
+import ServicesSlides from "@/components/Services/ServicesSlides";
 
 export default function Portfolio({ projects, categories, blogs }) {
   const { t } = useTranslation("common");
@@ -43,7 +44,8 @@ export default function Portfolio({ projects, categories, blogs }) {
       </Wrapper>
       <div className="pt-2.5 md:pt-10 lg:pt-25">
         <div className="container">
-          <IntroSlides />
+          {/* <IntroSlides /> */}
+          <ServicesSlides />
         </div>
         <IntroCost />
       </div>
