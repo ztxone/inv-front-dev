@@ -50,8 +50,12 @@ export default function ServicesForCategory({ parent }) {
             key={key}
             serviceId={parent}
             title={service.attributes.Title}
-            path={service.attributes.categories.data[0].id}
-            pathDirection={service.attributes.direction_brief.data.id}
+            pathCategory={service.attributes.category_brief.data.id}
+            pathDirection={
+              service.attributes.direction_brief.data != null
+                ? service.attributes.direction_brief.data.id
+                : ""
+            }
             image={service.attributes.Image}
           />
         ))}
