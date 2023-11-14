@@ -95,12 +95,15 @@
 .richText p {
   margin-bottom: 15px;
 }
-.richText ul li {
+.richText ul li,
+.markDown ul li {
   list-style-type: disc;
 }
 
 .richText ol,
-.richText ul {
+.richText ul,
+.markDown ol,
+.markDown ul {
   display: block;
   list-style-type: decimal;
   margin-block-start: 0.5em;
@@ -112,7 +115,28 @@
 }
 
 .markDown p {
-  @apply leading-4 pb-3;
+  padding-bottom: 0.75rem;
+  color: #4e4e4e;
+  font-size: 16px;
+  line-height: 18px;
+}
+.markDown p img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.markDown hr {
+  color: #c7c9c9;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.markDown h1,
+.markDown h2,
+.markDown h3,
+.markDown h4,
+.markDown h5 {
+  padding-bottom: 40px;
+  padding-top: 20px;
+  color: #0c0c0c;
 }
 /*xl:w-1/2*/
 .AboutTitles {
@@ -121,13 +145,22 @@
 }
 
 .markDown h1 {
-  @apply text-xl pb-[21px] leading-6.3;
+  font-size: 36px;
+  line-height: 36px;
 }
-
+.markDown h2 {
+  font-size: 33px;
+  line-height: 33px;
+}
+.markDown h3 {
+  font-size: 30px;
+  line-height: 30px;
+}
+/*
 .opacityMarkdown p {
   @apply opacity-70;
 }
-
+*/
 .swiper-pagination-bullet {
   background: #f9f9f9 !important;
 }
@@ -209,7 +242,8 @@
 }
 @media (min-width: 768px) {
   .markDown p {
-    font-size: 1.25rem;
+    font-size: 22px;
+    line-height: 24px;
   }
   .titleAbout {
     font-size: 64px;
@@ -230,7 +264,7 @@
     padding-bottom: 0.95rem;
     padding-top: 0.95rem;
   }
-  .container {
+  .container:not(.markDown) {
     padding-left: 86px;
     padding-right: 86px;
   }
@@ -282,10 +316,10 @@
 @media (min-width: 1280px) {
   .footerNavBorderBlack {
     border-left: 1px solid rgba(255, 255, 255, 0.1);
-    /*border-right: 1px solid rgba(255, 255, 255, 0.1);*/
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
   }
   .footerNavBorderWhite {
     border-left: 1px solid rgba(31, 31, 32, 0.1);
-    /*border-right: 1px solid rgba(31, 31, 32, 0.1);*/
+    border-right: 1px solid rgba(31, 31, 32, 0.1);
   }
 }

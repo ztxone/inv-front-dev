@@ -24,7 +24,7 @@ export default function Blog({ blog, blogsOthers }) {
     metaDescription: blog.attributes.Text,
     shareImage: blog.attributes.Image_preview,
   };
-  //console.log(blogsOthers);
+  //console.log(blog);
   const breadCrumbsItems = [
     {
       title: t("All_news"),
@@ -43,11 +43,15 @@ export default function Blog({ blog, blogsOthers }) {
       <BreadCrumbs links={breadCrumbsItems} />
       <IntroNews blog={blog} />
       {blog.attributes.Text && (
-        <div
-          className="container pt-12 !max-w-screen-lg"
-          dangerouslySetInnerHTML={{ __html: blog.attributes.Text }}
-        />
+        // <div
+        //   className="container pt-12 !max-w-screen-lg"
+        //   dangerouslySetInnerHTML={{ __html: blog.attributes.Text }}
+        // />
+        <ReactMarkdown className=" container pt-12 !max-w-screen-lg markDown opacityMarkdown">
+          {blog.attributes.Text}
+        </ReactMarkdown>
       )}
+
       {blog.attributes.Advertise && (
         <div className="container pt-12 !max-w-screen-lg">
           <ReactMarkdown className=" !max-w-screen-lg markDown opacityMarkdown">
@@ -55,23 +59,18 @@ export default function Blog({ blog, blogsOthers }) {
           </ReactMarkdown>
         </div>
       )}
-      <CarouselNews slides={blog.attributes.PhotoSlides} blog={blog} />
+      {blog.attributes.PhotoSlides && (
+        <CarouselNews slides={blog.attributes.PhotoSlides} blog={blog} />
+      )}
       {blog.attributes.Text2 && (
-        <div
-          className="container pt-12 !max-w-screen-lg"
-          dangerouslySetInnerHTML={{ __html: blog.attributes.Text2 }}
-        />
+        <ReactMarkdown className=" container pt-12 !max-w-screen-lg markDown opacityMarkdown">
+          {blog.attributes.Text2}
+        </ReactMarkdown>
       )}
       {blog.attributes.File?.data && (
         <LoadFileBlock file={blog.attributes.File.data} />
       )}
-      <div className="mx-auto !max-w-screen-lg">
-        <Line variantColor="grey" />
-      </div>
       {blog.attributes.Quote && <QuoteBlock quote={blog.attributes.Quote} />}
-      <div className="mx-auto !max-w-screen-lg">
-        <Line variantColor="grey" />
-      </div>
 
       {blog.attributes.Video?.data && (
         <div className="pt-[52px]">
@@ -83,10 +82,9 @@ export default function Blog({ blog, blogsOthers }) {
       )}
 
       {blog.attributes.Text3 && (
-        <div
-          className="container pt-12 !max-w-screen-lg"
-          dangerouslySetInnerHTML={{ __html: blog.attributes.Text3 }}
-        />
+        <ReactMarkdown className=" container pt-12 !max-w-screen-lg markDown opacityMarkdown">
+          {blog.attributes.Text3}
+        </ReactMarkdown>
       )}
       <BlogsBlockList
         articleColor="inherit"
