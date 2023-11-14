@@ -103,11 +103,7 @@ export default function BlogsBlockList({
           ))}
       </Swiper>
 
-      <div
-        className="pt-7 container
-      md:pt-10
-      lg:pt-9"
-      >
+      <div className="pt-7 md:pt-10 lg:pt-9">
         <PillowLink
           text={t("All_news")}
           link="/news"
