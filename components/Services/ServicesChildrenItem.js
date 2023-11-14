@@ -12,7 +12,7 @@ export default function ServicesChildrenItem({
 }) {
   // const link = `/brief?serviceId=${serviceId}`;
   const link = `/brief?serviceId=${path}&directionId=${pathDirection}`;
-
+  console.log(link);
   return (
     <div
       className="bg-white pt-9 rounded-5xl mb-10 last:mb-0 relative

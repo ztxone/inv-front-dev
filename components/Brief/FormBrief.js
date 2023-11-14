@@ -13,6 +13,7 @@ export default function FormBrief({ visobjs, categories }) {
   const checkUser = useEnquiryForm();
   const searchParams = useSearchParams();
   const serviceId = searchParams.get("serviceId");
+  const directionId = searchParams.get("directionId");
   const [category, setCategory] = useState();
   const [projectType, setProjectType] = useState();
   const [loading, setLoading] = useState(false);
@@ -41,7 +42,6 @@ export default function FormBrief({ visobjs, categories }) {
       const isUser = await checkUser();
       if (isUser) {
         await sendBrief(sendData);
-        // console.log(sendData);
         openSuccessToast();
       } else {
         openErrorToast();
@@ -59,8 +59,10 @@ export default function FormBrief({ visobjs, categories }) {
 
   useEffect(() => {
     if (serviceId) {
+
       const { selectCategory, selectProject } = getCategoryProject(
         serviceId,
+        directionId,
         categories
       );
       setCategory(selectCategory);
@@ -68,9 +70,9 @@ export default function FormBrief({ visobjs, categories }) {
     } else {
       setCategory(categories[0]);
     }
-  }, [serviceId, categories]);
+  }, [serviceId, directionId, categories]);
 
-  //console.log(category);
+
   return (
     <>
       <div className="container">
