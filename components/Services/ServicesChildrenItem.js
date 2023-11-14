@@ -10,11 +10,10 @@ export default function ServicesChildrenItem({
   pathDirection = "",
   serviceId,
 }) {
-  const linkDirection = `${
-    pathDirection !== ""
+  const linkDirection = `${pathDirection !== ""
       ? `/brief?categoryId=${pathCategory}&directionId=${pathDirection}`
       : `/brief?categoryId=${pathCategory}`
-  }`;
+    }`;
   return (
     <div
       className="bg-white pt-9 rounded-5xl mb-10 last:mb-0 relative

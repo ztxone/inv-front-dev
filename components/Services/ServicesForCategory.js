@@ -36,7 +36,6 @@ export default function ServicesForCategory({ parent }) {
   if (!data) {
     return false;
   }
-  //console.log(data);
 
   return (
     <div

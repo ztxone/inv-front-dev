@@ -12,7 +12,9 @@ import { useSearchParams } from "next/navigation";
 export default function FormBrief({ visobjs, categories }) {
   const checkUser = useEnquiryForm();
   const searchParams = useSearchParams();
-  const serviceId = searchParams.get("serviceId");
+  const categoryId = searchParams.get("categoryId");
+  const directionId = searchParams.get("directionId");
+
   const [category, setCategory] = useState();
   const [projectType, setProjectType] = useState();
   const [loading, setLoading] = useState(false);
@@ -37,11 +39,9 @@ export default function FormBrief({ visobjs, categories }) {
         categories: category,
         ProjectType: projectType?.attributes?.name,
       };
-      console.log(sendData);
       const isUser = await checkUser();
       if (isUser) {
         await sendBrief(sendData);
-        // console.log(sendData);
         openSuccessToast();
       } else {
         openErrorToast();
@@ -58,9 +58,11 @@ export default function FormBrief({ visobjs, categories }) {
   };
 
   useEffect(() => {
-    if (serviceId) {
+    if (categoryId) {
+
       const { selectCategory, selectProject } = getCategoryProject(
-        serviceId,
+        categoryId,
+        directionId,
         categories
       );
       setCategory(selectCategory);
@@ -68,9 +70,9 @@ export default function FormBrief({ visobjs, categories }) {
     } else {
       setCategory(categories[0]);
     }
-  }, [serviceId, categories]);
+  }, [categoryId, directionId, categories]);
 
-  //console.log(category);
+
   return (
     <>
       <div className="container">
