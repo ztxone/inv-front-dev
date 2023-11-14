@@ -6,13 +6,14 @@ import Link from "next/link";
 export default function ServicesChildrenItem({
   title,
   image,
-  path,
-  pathDirection,
+  pathCategory,
+  pathDirection = "",
   serviceId,
 }) {
-  // const link = `/brief?serviceId=${serviceId}`;
-  const link = `/brief?serviceId=${path}&directionId=${pathDirection}`;
-  console.log(link);
+  const linkDirection = `${pathDirection !== ""
+      ? `/brief?categoryId=${pathCategory}&directionId=${pathDirection}`
+      : `/brief?categoryId=${pathCategory}`
+    }`;
   return (
     <div
       className="bg-white pt-9 rounded-5xl mb-10 last:mb-0 relative
@@ -23,7 +24,6 @@ export default function ServicesChildrenItem({
         className="text-3xl px-9 pb-12
       "
       >
-        {/* <Link href={`/services/${path}`}>{title}</Link> */}
         {title}
       </h3>
       {image && (
@@ -40,7 +40,7 @@ export default function ServicesChildrenItem({
       <div className="absolute bottom-9 left-9">
         <PillowLink
           text="Заказать"
-          link={link}
+          link={linkDirection}
           variant="white"
           variantSvg="blueClassesSvg"
         />
