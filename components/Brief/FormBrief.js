@@ -58,18 +58,13 @@ export default function FormBrief({ visobjs, categories }) {
   };
 
   useEffect(() => {
-    if (categoryId) {
-
-      const { selectCategory, selectProject } = getCategoryProject(
-        categoryId,
-        directionId,
-        categories
-      );
-      setCategory(selectCategory);
-      setProjectType(selectProject);
-    } else {
-      setCategory(categories[0]);
-    }
+    const { selectCategory, selectProject } = getCategoryProject(
+      categoryId,
+      directionId,
+      categories
+    );
+    setCategory(selectCategory);
+    setProjectType(selectProject);
   }, [categoryId, directionId, categories]);
 
 
