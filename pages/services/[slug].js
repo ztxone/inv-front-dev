@@ -72,28 +72,14 @@ export async function getStaticPaths() {
   });
   const categoriesPaths = categoriesRes.data.map((category) => ({
     params: {
-      //slug: category.attributes.slug,
       slug:
         category.attributes.slug !== null
           ? category.attributes.slug.toString()
           : "",
     },
   }));
-  // const categoriesPathsEng = categoriesRes.data.map((category) => ({
-  //   params: {
-  //     slug:
-  //       category.attributes.slug !== null
-  //         ? category.attributes.slug.toString()
-  //         : "",
-  //   },
-  //   locale: "en",
-  // }));
-
   return {
-    paths: [
-      ...categoriesPaths,
-      // ...categoriesPathsEng
-    ],
+    paths: [...categoriesPaths],
     fallback: false,
   };
 }
