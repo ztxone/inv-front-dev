@@ -1,9 +1,7 @@
 import Seo from "@/components/seo";
 import Layout from "@/components/layout";
-import Image from "next/image";
 import { fetchAPI } from "lib/api";
 import { getStrapiMedia } from "lib/media";
-
 import TitleSection from "@/components/ui/TitleSection";
 import BreadCrumbs from "@/components/ui/Breadcrumbs";
 import useTranslation from "next-translate/useTranslation";
@@ -12,14 +10,13 @@ import Line from "@/components/ui/Line";
 import ProjectCarousel from "@/components/Projects/ProjectCarousel";
 import ProjectAbout from "@/components/Projects/ProjectAbout";
 import IntroCost from "@/components/ui/IntroCost";
-import ProjectsListBlock from "@/components/Projects/ProjectsListBlock";
 import PortfolioCarousel from "@/components/Portfolio/PortfolioCarousel";
 
 function Project({ project, projectsOther, categories }) {
   const { t } = useTranslation("common");
   const i18n = useTranslation();
   const locale = i18n.lang;
-  const imageUrl = getStrapiMedia(project.attributes.Poster);
+  //const imageUrl = getStrapiMedia(project.attributes.Poster);
 
   const seo = {
     metaTitle: t("seo.project") + project.attributes.Seo[0].metaTitle,
@@ -80,28 +77,26 @@ function Project({ project, projectsOther, categories }) {
 }
 
 export async function getStaticPaths() {
-  const projectsRes = await fetchAPI("/projects", { fields: ["slug"] });
-
+  const projectsSlug = await fetchAPI("/projects", {
+    fields: ["slug"],
+  });
+  const projectsSlugPath = projectsSlug.data.map((project) => ({
+    params: {
+      slug:
+        project.attributes.slug !== null
+          ? project.attributes.slug.toString()
+          : "",
+    },
+  }));
   return {
-    paths: [
-      ...projectsRes.data.map((project) => ({
-        params: {
-          slug: project.attributes.slug,
-        },
-      })),
-      ...projectsRes.data.map((project) => ({
-        params: {
-          slug: project.attributes.slug,
-        },
-        locale: "en",
-      })),
-    ],
+    paths: [...projectsSlugPath],
     fallback: false,
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params, locale }) {
   const projectsRes = await fetchAPI("/projects", {
+    locale: locale,
     filters: {
       slug: params.slug,
     },
@@ -109,6 +104,7 @@ export async function getStaticProps({ params }) {
   });
   const projectsOtherRes = await fetchAPI("/projects", {
     fields: "*",
+    locale: locale,
     populate: "*",
     pagination: {
       start: 0,

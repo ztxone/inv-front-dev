@@ -24,7 +24,7 @@ export default function News({ news }) {
     metaDescription: t("news.meta_description"),
     shareImage: "",
   };
-
+  console.log(news);
   return (
     // <Layout bg="white" headerBg="white" footerBg="white" pillowColor=''>
     <>
@@ -43,12 +43,13 @@ export async function getStaticProps({ locale }) {
   // Run API calls in parallel
   const [blogsRes] = await Promise.all([
     fetchAPI("/blogs", {
-      fields: ["Title", "slug", "Preview"],
+      fields: ["Title", "slug", "Preview", "Weight"],
       locale: locale,
       populate: {
         Image_preview: "*",
         tag: "*",
       },
+      orderBy: { Weight: "desc" },
       pagination: {
         start: 0,
         limit: 6,
