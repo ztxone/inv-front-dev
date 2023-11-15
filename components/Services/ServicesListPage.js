@@ -74,7 +74,7 @@ export default function ServicesListPage({ services }) {
           image={data.attributes.image}
           centered={true}
         />
-        <BriefCost title="Заполните бриф" />
+        <BriefCost title={t("brief.services_list_title")} />
       </div>
     </section>
   );
