@@ -15,7 +15,7 @@ export default function BriefCost({ title }) {
 		 min-h-[463px] text-white mx-auto
     	flex flex-col justify-between md:justify-start lg:h-full 
 		border border-gray-300/50
-		bgBriefCost  bg-no-repeat bg-[url('/image/404_bg.jpg')] bg-center"
+		bgBriefCost  bg-no-repeat bg-[url('/image/brif_uslugi1.png')] bg-center"
         style={{ backgroundPosition: "center" }}
       >
         <h3
