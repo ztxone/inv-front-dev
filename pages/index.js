@@ -62,7 +62,7 @@ export async function getStaticProps({ locale }) {
       publicationState: "live",
       pagination: {
         start: 0,
-        limit: 6,
+        limit: 8,
       },
     }),
     fetchAPI("/categories", {
