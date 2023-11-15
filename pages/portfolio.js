@@ -23,6 +23,8 @@ export default function Portfolio({ projects, categories, blogs }) {
     shareImage: "",
   };
 
+  console.log(projects);
+
   return (
     <>
       <Seo seo={seo} />
