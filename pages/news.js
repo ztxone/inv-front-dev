@@ -49,7 +49,7 @@ export async function getStaticProps({ locale }) {
         Image_preview: "*",
         tag: "*",
       },
-      orderBy: { Weight: "desc" },
+      sort: "Weight:asc",
       pagination: {
         start: 0,
         limit: 6,
