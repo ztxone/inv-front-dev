@@ -97,15 +97,16 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params, locale }) {
   const projectsRes = await fetchAPI("/projects", {
     locale: locale,
+    populate: "*",
+    fields: ["Title", "slug", "CustomerName", "CustomerUrl"],
     filters: {
       slug: params.slug,
     },
-    populate: "*",
   });
   const projectsOtherRes = await fetchAPI("/projects", {
-    fields: "*",
+    fields: ["Title", "slug"],
     locale: locale,
-    populate: "*",
+    populate: ["Poster", "tags"],
     pagination: {
       start: 0,
       limit: 6,
