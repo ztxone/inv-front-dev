@@ -4,13 +4,14 @@ import Link from "next/link";
 export default function DescriptionNews({ linktext }) {
   return (
     <div className="pt-[52px]">
-      <Image
+      <img
         className="w-full aspect-[428/244]
       md:aspect-[834/322]
       lg:aspect-[1920/742] lg:max-h-[742px]"
         src="/image/content/new.png"
         width="428"
-        q={100}
+        // q={100}
+        loading="lazy"
         height="244"
         alt=""
       />

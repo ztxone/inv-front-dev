@@ -72,7 +72,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
             }}
             style={{ width: "100%", height: "90vh" }}
           >
-            <Image
+            <img
               fill={true}
               className="object-contain rounded-lr "
               alt={photo.attributes.name}
@@ -113,13 +113,13 @@ export const SwiperPhotos = ({ poster, photos }) => {
             }}
             style={{ width: "100%", height: "90vh" }}
           >
-            <Image
+            <img
               fill={true}
               className="object-contain rounded-lr "
               alt={photo.attributes.name}
               src={getLink(photo)}
               loading="lazy"
-              q={100}
+              //   q={100}
             />
           </SwiperSlide>
         ))}
@@ -135,12 +135,13 @@ export const SwiperPhotos = ({ poster, photos }) => {
 
       {current && (
         <ModalImage isOpen={openZoom} onClose={() => setOpenZoom(false)}>
-          <Image
+          <img
             width="1200"
             height={800}
             className="relative max-w-[90vw] h-auto object-cover rounded-lr "
             alt={current.attributes.name ? current.attributes.name : ""}
             src={getLink(current)}
+            loading="lazy"
           />
         </ModalImage>
       )}

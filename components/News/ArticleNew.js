@@ -27,6 +27,7 @@ export default function ArticleNew({
           width="804"
           height="287"
           src={getStrapiMedia(image)}
+          loading="lazy"
           alt={title}
         />
         {/* md:aspect-[804/287] */}

@@ -63,11 +63,12 @@ export const FormOrder = ({ onSubmitForm }) => {
 
   return (
     <div className="bg-black rounded-5xl">
-      <Image
+      <img
         className="w-full bg-black h-[101px] object-cover rounded-t-5xl"
         src="/image/content/modal_new.jpg"
         width="568"
         height="215"
+        loading="lazy"
         alt=""
       />
       <div className="px-10 pb-15 pt-9   text-center bg-white rounded-b-5xl">

@@ -9,6 +9,7 @@ export default function ProjectItemImage({ link, width, height, variant }) {
           width={width}
           height={height}
           src={link}
+          loading="lazy"
           //   quality={100}
           alt="Project name"
         />
@@ -25,6 +26,7 @@ export default function ProjectItemImage({ link, width, height, variant }) {
         height={height}
         src={link}
         alt="Project name"
+        loading="lazy"
         // quality={100}
         className="md:w-full md:h-auto rounded-l15 object-cover"
       />
