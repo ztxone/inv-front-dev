@@ -22,7 +22,7 @@ export default function ArticleNew({
          lg:w-[31%] lg:mb-10`}
     >
       <div className="rounded-l15 w-full relative">
-        <Image
+        <img
           className="rounded-l15 md:w-full object-cover"
           width="804"
           height="287"
