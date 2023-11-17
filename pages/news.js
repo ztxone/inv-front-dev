@@ -30,11 +30,15 @@ export default function News({ news }) {
     <>
       <Seo seo={seo} />
       <TitleSection text={t("news.company_news")} />
-      <Line variantColor="grey" />
+      <div className="container">
+        <Line variantColor="grey" />
+      </div>
       <BreadCrumbs links={breadCrumbsItems} />
       <NewsList news={news} />
       <IntroCost />
-      <Line variantColor="grey" />
+      <div className="container">
+        <Line variantColor="grey" />
+      </div>
     </>
   );
 }
