@@ -66,13 +66,14 @@ export default function About({ about, servicesAbout }) {
                   className="bg-blackRussian relative flex flex-col rounded-4xl p-[25px] w-[72%] aspect-square"
                 >
                   <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full">
-                    <Image
+                    <img
                       src={getStrapiMedia(
                         item.attributes.imagePresentationLink
                       )}
                       width="389"
                       height="275"
-                      quality={100}
+                      //   quality={100}
+                      loading="lazy"
                       className="w-full rounded-4xl h-full object-cover"
                       alt=""
                     />
@@ -118,15 +119,16 @@ export default function About({ about, servicesAbout }) {
           md:-mt-[108px] w-[72%] aspect-[286/347] "
                 >
                   <div className="absolute top-0 bottom-0 left-0 right-0">
-                    <Image
+                    <img
                       className="rounded-4xl w-full h-full"
                       src={getStrapiMedia(
                         item.attributes.imagePresentationLink
                       )}
                       width="286"
+                      loading="lazy"
                       height="347"
                       alt=""
-                      q={100}
+                      //   q={100}
                     />
                   </div>
                   <div className="relative z-1 flex flex-col items-start h-full">

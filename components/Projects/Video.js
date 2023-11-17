@@ -9,12 +9,13 @@ export default function Video({ poster, videofile, small = false }) {
       {videofile?.data ? (
         <VideoPlayer poster={poster} videofile={videofile} small={small} />
       ) : (
-        <Image
+        <img
           className="w-full rounded-lr h-full"
           src={getStrapiMedia(poster)}
           width="1064"
           height="604"
-          q={100}
+          //   q={100}
+          loading="lazy"
           alt=""
         />
       )}

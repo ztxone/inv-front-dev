@@ -12,12 +12,13 @@ export default function ProjectSlide({ photo, videofile = null }) {
           small={true}
         />
       ) : (
-        <Image
+        <img
           className="w-full h-full"
           width="266"
           alt={photo.attributes.name}
           height="151"
-          q={100}
+          //   q={100}
+          loading="lazy"
           src={getStrapiMediaCarousel(photo)}
         />
       )}
