@@ -36,14 +36,14 @@ export default function IntroNews({ blog }) {
           dangerouslySetInnerHTML={{ __html: blog.attributes.Preview }}
         />
       </div>
-      <Image
+      <img
         className="w-full "
         src={getStrapiMedia(blog.attributes.Poster)}
         width="1200"
         height="800"
         alt={blog.attributes.title}
         title={blog.attributes.title}
-        quality={100}
+        // quality={100}
       />
     </div>
   );
