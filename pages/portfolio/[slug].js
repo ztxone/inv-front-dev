@@ -71,11 +71,11 @@ export async function getStaticPaths({ locales }) {
   };
 }
 
-export async function getStaticProps({ params, locale }) {
+export async function getStaticProps({ params }) {
   const [projectsRes, categoriesRes, matchingTags] = await Promise.all([
     fetchAPI("/projects", {
       sort: ["ListPosition:asc"],
-      locale: locale,
+      //locale: locale,
       populate: ["Poster", "tags", "categories"],
       fields: ["Title", "slug"],
       filters: {
@@ -86,12 +86,12 @@ export async function getStaticProps({ params, locale }) {
     }),
     fetchAPI("/categories", {
       fields: ["name", "slug"],
-      locale: locale,
+      //locale: locale,
       populate: ["projects"],
     }),
     fetchAPI("/tags", {
       populate: "*",
-      locale: locale,
+      //locale: locale,
       filters: { slug: params.slug },
     }),
   ]);
