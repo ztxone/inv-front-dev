@@ -9,14 +9,15 @@ export default function ServiceIntro({ title, text, image }) {
     >
       {image && (
         <div className="lg:w-2/4  lg:order-2 lg:pl-25 flex-shrink-0 -mx-3.8">
-          <Image
+          <img
             className="h-full aspect-[428/320] object-cover w-full
         lg:rounded-l15 lg:aspect-[858/320]"
             src={getStrapiMedia(image)}
             width="451"
             height="320"
-            q={100}
-            alt=""
+            // q={100}
+            loading="lazy"
+            alt={title}
           />
         </div>
       )}

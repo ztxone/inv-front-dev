@@ -43,6 +43,7 @@ export default function IntroNews({ blog }) {
         height="800"
         alt={blog.attributes.title}
         title={blog.attributes.title}
+        loading="lazy"
         // quality={100}
       />
     </div>

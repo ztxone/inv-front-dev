@@ -20,13 +20,14 @@ export default function Article({
          md:h-[471px]`}
     >
       <div className="rounded-l15 w-full relative">
-        <Image
+        <img
           className="rounded-l15 w-full"
           width="288"
           height="147"
-          quality={100}
+          //   quality={100}
           src={getStrapiMedia(image)}
           alt={title}
+          loading="lazy"
         />
 
         <div

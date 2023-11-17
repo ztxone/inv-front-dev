@@ -43,7 +43,7 @@ export default function ProjectsListForMain({
                     link={project.attributes.slug}
                   >
                     <div className="rounded-l15 relative">
-                      <Image
+                      <img
                         src={getStrapiMedia(
                           project.attributes.Poster_for_mainPage
                             ? project.attributes.Poster_for_mainPage
@@ -51,7 +51,8 @@ export default function ProjectsListForMain({
                         )}
                         width="600"
                         height={aspectRatio}
-                        quality={100}
+                        // quality={100}
+                        loading="lazy"
                         alt={project.attributes.Title}
                         className="rounded-l15 relative w-full"
                       />

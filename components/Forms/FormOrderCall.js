@@ -61,11 +61,12 @@ export const FormOrderCall = ({ title, onClose }) => {
 
   return (
     <div>
-      <Image
+      <img
         className="w-full bg-black min-h-[202px] object-cover rounded-t-5xl"
         src="/image/content/modal.png"
         width="398"
         height="202"
+        loading="lazy"
         alt=""
       />
       <div className="px-10 pb-15 pt-9 text-center">

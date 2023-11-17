@@ -1,15 +1,9 @@
-import ProjectItem from "@/components/ui/ProjectItem";
 import Tag from "@/components/ui/Tag";
-import ProjectImage from "@/components/Projects/ProjectImage";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import ProjectItemWork from "../ui/ProjectItemWork";
 import ProjectItemImage from "../ui/ProjectItemImage";
-import Loading from "../ui/Loading";
 import { getStrapiMedia } from "lib/media";
 import useTranslation from "next-translate/useTranslation";
-import { useEffect, useState } from "react";
-import { fetchAPI } from "lib/api";
-import TagItemSection from "../ui/TagItemSection";
 import ProjectButton from "../ui/ProjectButton";
 
 export default function ProjectsList({

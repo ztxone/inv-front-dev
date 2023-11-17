@@ -64,12 +64,13 @@ export default function ServicesSlides({ from = "" }) {
             link={getStrapiMedia(item.attributes.Slides.Document)}
             variant={item.attributes.Slides.BlackTagBg ? "black" : "white"}
           >
-            <Image
+            <img
               src={getStrapiMedia(item.attributes.Slides.SlidesIconLink)}
               width="37"
               height="37"
               alt=""
-              q={100}
+              //   q={100}
+              loading="lazy"
             />
           </ServicesSlidesButton>
         </ServicesSlidesItem>
