@@ -70,16 +70,18 @@ export const SwiperPhotos = ({ poster, photos }) => {
             onClick={() => {
               setCurrent(photo);
             }}
-            style={{ width: "100%", height: "90vh" }}
+            style={{ width: "100%" }}
           >
-            <img
-              fill={true}
-              className="object-contain rounded-lr "
-              alt={photo.attributes.name}
-              src={getLink(photo)}
-              loading="lazy"
-              q={100}
-            />
+            <div className="h-auto min-h-[250px] lg:h-90 ddd">
+              <img
+                fill={true}
+                className="object-contain rounded-lr "
+                alt={photo.attributes.name}
+                src={getLink(photo)}
+                loading="lazy"
+                //   q={100}
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -111,16 +113,19 @@ export const SwiperPhotos = ({ poster, photos }) => {
             onClick={() => {
               setCurrent(photo);
             }}
-            style={{ width: "100%", height: "90vh" }}
+            style={{ width: "100%" }}
           >
-            <img
-              fill={true}
-              className="object-contain rounded-lr "
-              alt={photo.attributes.name}
-              src={getLink(photo)}
-              loading="lazy"
-              //   q={100}
-            />
+            {/* height: "90vh".  lg:h-90 */}
+            <div className="h-auto min-h-[600px]">
+              <img
+                fill={true}
+                className="object-contain rounded-lr "
+                alt={photo.attributes.name}
+                src={getLink(photo)}
+                loading="lazy"
+                //   q={100}
+              />
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>
