@@ -52,6 +52,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
         spaceBetween={10}
         className="mySwiper"
         autoHeight={true}
+        lazy={true}
         loop
         modules={[Thumbs, Pagination]}
         thumbs={{
@@ -70,9 +71,8 @@ export const SwiperPhotos = ({ poster, photos }) => {
             onClick={() => {
               setCurrent(photo);
             }}
-            style={{ width: "100%" }}
           >
-            <div className="h-auto min-h-[250px] lg:h-90 ddd">
+            <div className="h-auto min-h-[250px]">
               <img
                 fill={true}
                 className="object-contain rounded-lr "
@@ -97,6 +97,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
         className="mySwiper"
         autoHeight={true}
         loop
+        lazy={true}
         modules={[Thumbs]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
@@ -113,7 +114,6 @@ export const SwiperPhotos = ({ poster, photos }) => {
             onClick={() => {
               setCurrent(photo);
             }}
-            style={{ width: "100%" }}
           >
             {/* height: "90vh".  lg:h-90 */}
             <div className="h-auto min-h-[600px]">
