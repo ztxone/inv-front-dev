@@ -15,10 +15,12 @@ export default function ProjectItemCarousel({ name, link, children }) {
           {children}
         </div>
         <h3
-          className="text-black text-base tracking-tight pb-0 border-b
-        border-black-russian inline-block pt-[8px]
+          className="text-black text-base tracking-tight pb-0 
+		  underline
+		  inline-block pt-[8px]
         md:text-2xl md:pt-7"
         >
+          {/* border-b border-black-russian  */}
           {name}
         </h3>
       </Link>
