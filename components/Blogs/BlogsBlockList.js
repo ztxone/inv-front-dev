@@ -84,7 +84,7 @@ export default function BlogsBlockList({
         spaceBetween={30}
         slidesPerView={"auto"}
         scrollbar={{ draggable: true }}
-        className="!pl-3.8 !-mr-3.8 flex  pb-7
+        className="!pl-3.8 !-mr-[85px] flex  pb-7
         md:pb-10 md:gap-7
         lg:pb-9 "
       >

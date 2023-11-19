@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@/components/layout";
 import { fetchAPI } from "lib/api";
-import About from "@/components/pages/index/About";
+import ServicesAbout from "@/components/Services/ServicesAbout";
 import BlogsBlockList from "@/components/Blogs/BlogsBlockList";
 import ServicesListHome from "@/components/Services/ServicesListHome";
 import Line from "@/components/ui/Line";
@@ -19,7 +19,7 @@ const Home = ({ projects, services, servicesAbout, about, blogs, global }) => {
   return (
     <>
       <Seo seo={seo} />
-      <About about={about} servicesAbout={servicesAbout} />
+      <ServicesAbout about={about} servicesAbout={servicesAbout} />
       <ServicesListHome services={services} />
       <Wrapper color="grey" position="top">
         <ProjectsListForMain projects={projects} moreProjects={true} />
