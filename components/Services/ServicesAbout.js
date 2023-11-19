@@ -5,7 +5,7 @@ import Link from "next/link";
 import Line from "@/components/ui/Line";
 import ServicesDoc from "@/components/ui/ServicesDoc";
 
-export default function About({ about, servicesAbout }) {
+export default function ServicesAbout({ about, servicesAbout }) {
   return (
     <div className="relative">
       <section
