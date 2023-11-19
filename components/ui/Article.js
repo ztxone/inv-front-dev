@@ -31,8 +31,11 @@ export default function Article({
         />
 
         <div
-          className="bg-white rounded-full px-[15px] py-[8px] inline-flex items-center w-auto self-start mb-5 mt-10 ml-5
-        absolute top-5 left-5 md:m-0"
+          className="bg-white rounded-full 
+		  px-[15px] py-[8px] 
+		  inline-flex items-center w-auto self-start 
+		  lg:mb-5 lg:ml-5
+        absolute bottom-5 left-5"
         >
           <span className="bg-blue rounded-full w-[4px] h-[4px]"></span>
           {/* <span className="text-l bold pr-1 text-nero2">#</span> */}
