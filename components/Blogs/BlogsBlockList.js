@@ -94,7 +94,7 @@ export default function BlogsBlockList({
               <Article
                 image={blog.attributes.Image_preview}
                 link={blog.attributes.slug}
-                tag="VR"
+                tag={blog.attributes.tag}
                 title={blog.attributes.Title}
                 text={blog.attributes.Preview}
                 variant={articleColor}
