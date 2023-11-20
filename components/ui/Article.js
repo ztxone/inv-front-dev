@@ -1,6 +1,7 @@
 import { getStrapiMedia } from "lib/media";
 import Image from "next/image";
 import Link from "next/link";
+import Tag from "./Tag";
 
 const colorInherit = "bg-inherit border-1 border-nobel text-nero2";
 const colorNero = "bg-nero4";
@@ -13,6 +14,7 @@ export default function Article({
   text,
   variant = "colorNero",
 }) {
+  console.log(tag);
   return (
     <article
       className={`${variant == "nero" ? colorNero : colorInherit}
@@ -29,8 +31,15 @@ export default function Article({
           alt={title}
           loading="lazy"
         />
-
-        <div
+        {tag.data && (
+          <Tag
+            key={tag.data.attributes.Name}
+            text={tag.data.attributes.Name}
+            href={tag.data.attributes.slug}
+            usedFor="blog"
+          />
+        )}
+        {/* <div
           className="bg-white rounded-full 
 		  px-[15px] py-[8px] 
 		  inline-flex items-center w-auto self-start 
@@ -38,11 +47,11 @@ export default function Article({
         absolute bottom-5 left-5"
         >
           <span className="bg-blue rounded-full w-[4px] h-[4px]"></span>
-          {/* <span className="text-l bold pr-1 text-nero2">#</span> */}
+        
           <p className="text-black-russian font-interTight uppercase font-medium text-xxs ml-2">
             {tag}
           </p>
-        </div>
+        </div> */}
       </div>
       <div
         className="p-5 overflow-hidden

@@ -8,9 +8,9 @@ export default function ServiceIntro({ title, text, image }) {
     container mx-auto"
     >
       {image && (
-        <div className="lg:w-2/4  lg:order-2 lg:pl-25 flex-shrink-0 -mx-3.8">
+        <div className="lg:w-1/2 w-full  lg:order-2 lg:pl-25 flex-shrink-0 -mx-3.8 lg:mx-0">
           <img
-            className="h-full aspect-[428/320] object-cover w-full
+            className="h-full aspect-[428/220] object-cover w-full
         lg:rounded-l15 lg:aspect-[858/320]"
             src={getStrapiMedia(image)}
             width="451"
@@ -22,7 +22,7 @@ export default function ServiceIntro({ title, text, image }) {
         </div>
       )}
 
-      <div className="pt-15">
+      <div className="pt-15 lg:w-1/2 w-full">
         <h2 className="text-base uppercase font-bold pb-9">{title}</h2>
         <p
           className="leading-snug
