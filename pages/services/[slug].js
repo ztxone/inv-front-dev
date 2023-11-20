@@ -52,6 +52,8 @@ export default function Service({ category, projects }) {
 
         <ServicesForCategory parent={category.id} />
 
+        <IntroCost />
+
         <div className="container contRightFull">
           <ServicesSlides />
         </div>

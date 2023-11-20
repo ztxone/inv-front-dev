@@ -17,8 +17,8 @@ export default function ServicesChildrenItem({
   }`;
   return (
     <div
-      className="bg-white pt-9 rounded-5xl mb-10 last:mb-0 relative
-    md:mb-0 md:w-[562px] md:shrink-0 md:mr-5 md:last:mr-0
+      className="bg-white pt-9 rounded-5xl 
+    relative w-full
     xl:shrink flex flex-col justify-between"
     >
       <h3
