@@ -40,7 +40,7 @@ export default function ServicesSlides({ from = "" }) {
 
   return (
     <div
-      className={`flex flex-col gap-2.5 py-6 md:flex-row md:overflow-hidden 
+      className={`flex flex-col gap-2.5 pb-6 md:flex-row md:overflow-hidden 
 	lg:order-3 lg:w-full ${from === "About" && "contRightMargin"} `}
     >
       {data.map((item) => (
