@@ -41,23 +41,30 @@ export default function ServicesForCategory({ parent }) {
     <div
       className="container
     md:flex flex-row md:overflow-hidden md:pb-5
+	
    "
     >
-      {data[0] &&
-        data.map((service, key) => (
-          <ServiceChildrenItem
-            key={key}
-            serviceId={parent}
-            title={service.attributes.Title}
-            pathCategory={service.attributes.category_brief.data.id}
-            pathDirection={
-              service.attributes.direction_brief.data != null
-                ? service.attributes.direction_brief.data.id
-                : ""
-            }
-            image={service.attributes.Image}
-          />
-        ))}
+      {data[0] && (
+        <div
+          className="flex flex-col gap-2.5 py-6 md:flex-row md:overflow-hidden 
+	lg:order-3 lg:w-full"
+        >
+          {data.map((service, key) => (
+            <ServiceChildrenItem
+              key={key}
+              serviceId={parent}
+              title={service.attributes.Title}
+              pathCategory={service.attributes.category_brief.data.id}
+              pathDirection={
+                service.attributes.direction_brief.data != null
+                  ? service.attributes.direction_brief.data.id
+                  : ""
+              }
+              image={service.attributes.Image}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
