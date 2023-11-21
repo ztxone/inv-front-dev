@@ -88,6 +88,7 @@ export async function getStaticPaths() {
           : "",
     },
   }));
+
   return {
     paths: [...projectsSlugPath],
     fallback: false,
