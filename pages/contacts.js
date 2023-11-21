@@ -70,7 +70,7 @@ export async function getStaticProps({ locale }) {
     }),
     fetchAPI("/blogs", {
       fields: ["Title", "slug", "Preview"],
-      populate: ["tags", "Image_preview"],
+      populate: ["tag", "Image_preview"],
       locale: locale,
     }),
   ]);
