@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
 import { FormOrderCall } from "../Forms/FormOrderCall";
+import { FormOrder } from "../Forms/FormOrder";
 
 const darkClasses =
   "bg-nero text-white hover:text-black hover:bg-white border-none";
@@ -11,9 +12,9 @@ const whiteClassesSvg =
   "bg-white text-black group-hover:bg-royal-blue group-hover:text-white";
 
 export function OrderCall({
-  variant = 'whiteClasses',
+  variant = "whiteClasses",
   text,
-  variantSvg="blueClassesSvg",
+  variantSvg = "blueClassesSvg",
   formTitle,
 }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -49,7 +50,8 @@ export function OrderCall({
         </span>
       </div>
       <Modal isOpen={modalIsOpen} onClose={handleCloseModal}>
-        <FormOrderCall title={formTitle} onClose={handleCloseModal} />
+        {/* <FormOrderCall title={formTitle} onClose={handleCloseModal} /> */}
+        <FormOrder onSubmitForm={handleCloseModal} />
       </Modal>
     </>
   );
