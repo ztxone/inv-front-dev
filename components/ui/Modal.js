@@ -11,6 +11,9 @@ function Modal({ isOpen, onClose, children }) {
   };
 
   return (
+    // <div className="absolute bg-white p-15 z-1000 w-35% rounded-md">
+    //   <div className="fixed flex justify-center top-0 left-0 w-full h-full bg-black bg-opacity-80 z-1000 overflow-y-auto">
+    //
     <>
       <ReactModal
         isOpen={isOpen}
