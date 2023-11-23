@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /en/
+
+Host: https://invert.studio
+Sitemap: https://invert.studio/sitemap_invert.xml
