@@ -20,7 +20,7 @@ export function getLink(media) {
   }
 }
 
-export const SwiperPhotos = ({ poster, photos }) => {
+export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
   const photoSlides = photos || [];
   //const slides = poster ? [poster, ...photoSlides] : photoSlides;
   const slides = photoSlides;
@@ -43,7 +43,8 @@ export const SwiperPhotos = ({ poster, photos }) => {
       window.removeEventListener("resize", updatePaginationVisibility);
     };
   }, []);
-
+  const slidesCount = verticalPhotos ? 1.8 : 1.1;
+  //This is for Mobile screens
   const renderSwiperWithPagination = () => {
     return (
       <Swiper
@@ -61,7 +62,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
         pagination={showPagination ? { clickable: true } : null}
         breakpoints={{
           768: {
-            slidesPerView: 1.1,
+            slidesPerView: slidesCount,
           },
         }}
       >
@@ -88,6 +89,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
     );
   };
 
+  //This is for Large screens
   const renderSwiperWithoutPagination = () => {
     return (
       <Swiper
@@ -104,7 +106,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
         }}
         breakpoints={{
           768: {
-            slidesPerView: 1.1,
+            slidesPerView: slidesCount,
           },
         }}
       >
@@ -152,7 +154,7 @@ export const SwiperPhotos = ({ poster, photos }) => {
       )}
 
       {slides.length > 1 && !showPagination && (
-        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 w-full mx-auto">
+        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 w-full mx-auto container">
           <Swiper
             slidesPerView={"auto"}
             spaceBetween={10}

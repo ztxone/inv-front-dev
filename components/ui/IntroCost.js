@@ -1,6 +1,6 @@
 import useTranslation from "next-translate/useTranslation";
 import PillowLink from "./PillowLink";
-import Loading from "./Loading";
+//import Loading from "./Loading";
 import { useEffect, useState } from "react";
 import { fetchAPI } from "lib/api";
 
@@ -46,7 +46,7 @@ export default function IntroCost() {
           <PillowLink
             text={data.ButtonText}
             link="/brief"
-            variantSvg="dark"
+            variantSvg="darkSvg"
             variant="white"
           ></PillowLink>
         </div>

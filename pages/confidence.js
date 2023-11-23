@@ -22,7 +22,7 @@ export default function Confidence({ agreement, text }) {
       headerBg="white"
       footerBg="white"
       pillowColor={""}
-      variantSvg="darkClassesSvg"
+      variantSvg="darkSvg"
     >
       <Seo seo={seo} />
       <TitleSection text={agreement.attributes.Title} />

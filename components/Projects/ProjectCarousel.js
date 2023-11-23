@@ -1,15 +1,24 @@
 import { SwiperVideo } from "./Swiper/SwiperVideo";
 import { SwiperPhotos } from "./Swiper/SwiperPhotos";
 
-export default function ProjectCarousel({ photos, poster, videoFiles }) {
-  //console.log( photos, poster, videoFiles);
+export default function ProjectCarousel({
+  photos,
+  poster,
+  videoFiles,
+  verticalPhotos = false,
+}) {
+  console.log(verticalPhotos);
   return (
     <>
-      <div className="pt-2.5 pb-7 container w-full mx-auto">
+      <div className="pt-2.5 pb-7 w-full mx-auto">
         {videoFiles?.data ? (
           <SwiperVideo videoSlides={videoFiles.data} poster={poster} />
         ) : (
-          <SwiperPhotos poster={poster?.data} photos={photos} />
+          <SwiperPhotos
+            poster={poster?.data}
+            photos={photos}
+            verticalPhotos={verticalPhotos}
+          />
         )}
       </div>
     </>
