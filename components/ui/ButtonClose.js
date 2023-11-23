@@ -1,7 +1,7 @@
 export default function ButtonClose({ onClick }) {
   return (
     <button
-      className="w-7 h-7 text-white fixed left-[70%] top-6"
+      className="w-7 h-7 text-white fixed left-[70%] top-2"
       onClick={onClick}
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">

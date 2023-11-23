@@ -21,6 +21,7 @@ const MyApp = ({ Component, pageProps }) => {
           rel="shortcut icon"
           href={getStrapiMedia(global?.attributes.favicon)}
         />
+        <meta name="yandex-verification" content="4e608efa98929572" />
       </Head>
       <GoogleReCaptchaProvider
         reCaptchaKey={global.attributes.CAPTCHA_SITE_KEY}
