@@ -96,7 +96,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
         slidesPerView={1}
         centeredSlides={true}
         spaceBetween={10}
-        className="mySwiper"
+        className="mySwiper lg:container"
         autoHeight={true}
         loop
         lazy={true}
