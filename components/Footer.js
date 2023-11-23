@@ -1,4 +1,4 @@
-import Form from "./ui/Form";
+import FooterForm from "./ui/FooterForm";
 import NavFooter from "./ui/NavFooter";
 import Contact from "./ui/Contact";
 import Copyright from "./ui/Copyright";
@@ -47,7 +47,7 @@ export default function Footer({ variant, pillowColor = "dark" }) {
       flex-wrap xl:justify-end xl:items-start lg:pt-10
       lg:mx-auto lg:pb-18"
       >
-        <Form pillowColor={pillowColor} />
+        <FooterForm pillowColor={pillowColor} />
         <NavFooter menu={menu} variant={variant} />
         <Contact contact={data} colorSocials={colorSocials} />
       </div>

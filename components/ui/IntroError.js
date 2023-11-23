@@ -42,13 +42,13 @@ export default function IntroError() {
             <PillowLink
               text="Вернуться на главную"
               link="/"
-              variantSvg="blue"
+              variantSvg="blueSvg"
               variant="white"
             ></PillowLink>
             <PillowLink
               text="Заполнить бриф"
               link="/brief"
-              variantSvg="darkClassesSvg"
+              variantSvg="darkSvg"
               variant="white"
             ></PillowLink>
           </div>

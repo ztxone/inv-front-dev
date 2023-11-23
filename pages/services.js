@@ -107,7 +107,7 @@ Services.getLayout = function getLayout(page) {
       headerBg="black"
       footerBg="white"
       pillowColor="white"
-      variantSvg="darkClassesSvg"
+      variantSvg="darkSvg"
     >
       {page}
     </Layout>

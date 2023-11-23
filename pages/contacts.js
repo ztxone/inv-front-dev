@@ -91,7 +91,7 @@ Contacts.getLayout = function getLayout(page) {
       headerBg="white"
       footerBg="white"
       pillowColor="white"
-      variantSvg="darkClassesSvg"
+      variantSvg="darkSvg"
     >
       {page}
     </Layout>

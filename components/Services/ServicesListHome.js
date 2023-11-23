@@ -50,7 +50,7 @@ export default function ServicesListHome({ services }) {
             text={t("services.allServices")}
             link={"/services"}
             variant="dark"
-            variantSvg="whiteClassesSvg"
+            variantSvg="whiteSvg"
           />
         </div>
       </div>

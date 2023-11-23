@@ -19,8 +19,8 @@ function Project({ project, projectsOther, categories }) {
   //const imageUrl = getStrapiMedia(project.attributes.Poster);
 
   const seo = {
-    metaTitle: t("seo.project") + project.attributes.Seo[0].metaTitle,
-    metaDescription: project.attributes.Seo[0].metaDescription,
+    metaTitle: t("seo.project") + project.attributes.Seo.metaTitle,
+    metaDescription: project.attributes.Seo.metaDescription,
     shareImage: project.attributes.Poster,
     project: true,
   };
@@ -34,6 +34,8 @@ function Project({ project, projectsOther, categories }) {
       title: project.attributes.Title,
     },
   ];
+  //console.log(project);
+
   return (
     <>
       <Seo seo={seo} />
@@ -51,6 +53,7 @@ function Project({ project, projectsOther, categories }) {
         photos={project.attributes.ProjectSliderFotos.data}
         poster={project.attributes.Poster}
         videoFiles={project.attributes.VideoFile}
+        verticalPhotos={project.attributes.Vertical_photos}
       />
 
       <ProjectAbout
@@ -68,7 +71,10 @@ function Project({ project, projectsOther, categories }) {
       </div>
 
       {/* <ProjectsListBlock projects={projectsOther} /> */}
-      <PortfolioCarousel title="Другие проекты" projects={projectsOther} />
+      <PortfolioCarousel
+        title={t`project.other_projects`}
+        projects={projectsOther}
+      />
       <div className="container">
         <Line variantColor="grey" />
       </div>
@@ -99,7 +105,7 @@ export async function getStaticProps({ params, locale }) {
   const projectsRes = await fetchAPI("/projects", {
     locale: locale,
     populate: "*",
-    fields: ["Title", "slug", "CustomerName", "CustomerUrl"],
+    fields: "*",
     filters: {
       slug: params.slug,
     },
@@ -131,7 +137,7 @@ Project.getLayout = function getLayout(page) {
       headerBg="white"
       footerBg="white"
       pillowColor="white"
-      variantSvg="dark"
+      variantSvg="darkSvg"
     >
       {page}
     </Layout>

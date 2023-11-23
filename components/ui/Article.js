@@ -14,7 +14,7 @@ export default function Article({
   text,
   variant = "colorNero",
 }) {
-  console.log(tag);
+  //console.log(tag);
   return (
     <article
       className={`${variant == "nero" ? colorNero : colorInherit}

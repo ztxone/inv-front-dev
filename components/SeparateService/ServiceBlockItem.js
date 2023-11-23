@@ -19,7 +19,7 @@ export default function ServiceBlockItem({ title, path }) {
           text="Заказать"
           link="#"
           variant="white"
-          variantSvg="blueClassesSvg"
+          variantSvg="blueSvg"
         />
       </div>
     </div>

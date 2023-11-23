@@ -151,7 +151,7 @@ export const FormOrder = ({ onSubmitForm }) => {
             </ModalFieldset>
 
             <ModalApproveForm name={"Agreement"} fullWidth />
-            <div className="mb-5">
+            <div className="mb-15">
               <ButtonSubmit fullWidth loading={loading} />
             </div>
           </form>

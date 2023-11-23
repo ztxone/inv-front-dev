@@ -196,7 +196,7 @@ export const exteriorFieldsInputs = [
   {
     name: MODEL_3D,
     type: "select",
-    label: { text: "3D модель здания", required: true },
+    label: { text: "3D модель", required: true },
     input: {
       options: exteriorModelOptions,
     },
@@ -364,7 +364,7 @@ export const productVisualization = [
   {
     type: "select",
     name: MODEL_3D,
-    label: { text: "3D модель здания", required: true },
+    label: { text: "3D модель", required: true },
     input: {
       options: exteriorModelOptions,
     },

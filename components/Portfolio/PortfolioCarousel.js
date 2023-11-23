@@ -31,7 +31,7 @@ export default function PortfolioCarousel({
       <PillowLink
         variant="white"
         text={t("All_projects")}
-        variantSvg="blueClassesSvg"
+        variantSvg="blueSvg"
         link="/portfolio"
       />
       <Swiper

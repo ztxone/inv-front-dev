@@ -3,7 +3,7 @@ import PillowLink from "./PillowLink";
 import Title from "./Title";
 import { OrderCall } from "./OrderCall";
 
-export default function Form({ pillowColor }) {
+export default function FooterForm({ pillowColor }) {
   const { t } = useTranslation("common");
   //console.log(pillowColor);
   return (
@@ -31,7 +31,7 @@ export default function Form({ pillowColor }) {
           link="/brief"
           variant={pillowColor}
           linkPosition="footer"
-          variantSvg={pillowColor}
+          variantSvg={`${pillowColor}Svg`}
         />
       </div>
     </div>

@@ -37,7 +37,7 @@ export default function BriefCost({ title }) {
         <PillowLink
           text={t("brief.fill")}
           link="/brief"
-          variantSvg="blue"
+          variantSvg="blueSvg"
           variant="white"
         ></PillowLink>
       </div>

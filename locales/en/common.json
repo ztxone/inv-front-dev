@@ -29,7 +29,8 @@
   "project": {
     "task": "Task",
     "done": "What is done",
-    "customer": "Customer"
+    "customer": "Customer",
+    "other_projects": "Other projects"
   },
   "brief": {
     "how_much": "How much cost project?",
