@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "./Modal";
-import { FormOrderCall } from "../Forms/FormOrderCall";
+//import { FormOrderCall } from "../Forms/FormOrderCall";
 import { FormOrder } from "../Forms/FormOrder";
 
 const darkClasses =
@@ -12,9 +12,9 @@ const whiteClassesSvg =
   "bg-white text-black group-hover:bg-royal-blue group-hover:text-white";
 
 export function OrderCall({
-  variant = "whiteClasses",
+  variant = "white",
   text,
-  variantSvg = "blueClassesSvg",
+  variantSvg = "blueSvg",
   formTitle,
 }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -36,7 +36,7 @@ export function OrderCall({
         {text}
         <span
           className={`${
-            variantSvg === "whiteClassesSvg" ? whiteClassesSvg : darkClassesSvg
+            variantSvg === "whiteSvg" ? whiteClassesSvg : darkClassesSvg
           } w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-12 mr-1`}
         >
           <svg className='w-[9px] h-[15px] viewBox="0 0 9 15" rotate-180'>

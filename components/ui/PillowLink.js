@@ -5,16 +5,18 @@ export default function PillowLink({
   text,
   linkPosition = "",
   link = "#",
-  variantSvg = "white",
+  variantSvg = "whiteSvg",
 }) {
-  //console.log(variant, variantSvg, linkPosition);
+  if (linkPosition == "footer") {
+    //console.log(variant, variantSvg, linkPosition);
+  }
   let darkClasses,
     whiteClasses,
     blueClassesSvg,
     whiteClassesSvg,
     darkClassesSvg;
 
-  if (linkPosition === "footer") {
+  if (linkPosition == "footer") {
     darkClasses =
       "bg-nero text-white hover:text-black hover:bg-white border-none";
     whiteClasses =
@@ -25,12 +27,22 @@ export default function PillowLink({
       "bg-black text-white group-hover:bg-white group-hover:text-black";
     darkClassesSvg =
       "bg-white text-black group-hover:bg-royal-blue group-hover:text-white";
-  } else if (linkPosition === "header") {
-  } else {
+  } else if (linkPosition == "header") {
     darkClasses =
       "bg-nero text-white hover:text-black hover:bg-white border-none";
     whiteClasses =
       "text-black bg-white hover:text-white hover:bg-nero border-white";
+
+    blueClassesSvg = "bg-royal-blue text-white";
+    whiteClassesSvg =
+      "bg-white text-black group-hover:bg-royal-blue group-hover:text-white";
+    darkClassesSvg =
+      "bg-black text-white group-hover:bg-white group-hover:text-black";
+  } else {
+    darkClasses =
+      "bg-nero text-white hover:text-black hover:bg-white border-none";
+    whiteClasses =
+      "text-black bg-white hover:text-white hover:bg-nero border-black";
 
     blueClassesSvg = "bg-royal-blue text-white";
     whiteClassesSvg =
@@ -48,9 +60,9 @@ export default function PillowLink({
       {text}
       <span
         className={`${
-          variantSvg === "white"
+          variantSvg === "whiteSvg"
             ? whiteClassesSvg
-            : variantSvg === "dark"
+            : variantSvg === "darkSvg"
             ? darkClassesSvg
             : blueClassesSvg
         } w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-12 mr-1`}

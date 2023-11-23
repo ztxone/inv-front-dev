@@ -10,6 +10,7 @@ export default function ProjectAbout({
   CustomerName,
   CustomerUrl,
 }) {
+  console.log(task, done, CustomerName, CustomerUrl);
   const { t } = useTranslation("common");
   return (
     <div
