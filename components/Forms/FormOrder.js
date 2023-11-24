@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from "react-hook-form";
 import sendEmail from "lib/email";
-import Image from "next/image";
+//import Image from "next/image";
 import ModalLabel from "../ui/ModalLabel";
 import ModalFieldset from "../ui/ModalFieldset";
 import ButtonSubmit from "../ui/ButtonSubmit";
