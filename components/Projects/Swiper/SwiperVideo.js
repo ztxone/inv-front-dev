@@ -23,6 +23,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
 
   return (
     <div className="container">
+      {/* Variant for 1 video */}
       <Swiper
         onSlideChange={() => {
           setStopVideo((x) => !x);
@@ -52,6 +53,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
             showPagination ? "w-[100%]" : "w-0 h-0"
           } mx-auto`}
         >
+          {/* Variant for more than 1 video */}
           <Swiper
             className="videoGalery"
             slidesPerView={2}
@@ -61,7 +63,8 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
                 slidesPerView: 2,
               },
               992: {
-                slidesPerView: videoSlides.length < 3 ? 2 : 3,
+                //slidesPerView: videoSlides.length < 3 ? 2 : 3,
+                slidesPerView: 3,
               },
             }}
             spaceBetween={30}

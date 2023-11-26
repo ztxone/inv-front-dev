@@ -14,7 +14,6 @@ export default function Confidence({ agreement, text }) {
     metaDescription: agreement.attributes.Seo.metaDescription,
     shareImage: "",
   };
-  console.log(agreement);
 
   return (
     <Layout

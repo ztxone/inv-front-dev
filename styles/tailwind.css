@@ -347,3 +347,6 @@
   right: 1.5rem;
   position: absolute;
 }
+.swiperLarge {
+  height: 80vh !important;
+}
