@@ -8,3 +8,4 @@ Disallow: /VR/
 Disallow: /templates/
 
 Host: https://invert.studio
+Sitemap: https://invert.studio/sitemap_invert.xml

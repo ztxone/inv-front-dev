@@ -96,8 +96,8 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
         slidesPerView={1}
         centeredSlides={true}
         spaceBetween={10}
-        className="mySwiper lg:container"
-        autoHeight={true}
+        className="mySwiper lg:container swiperLarge"
+        autoHeight={false}
         loop
         lazy={true}
         modules={[Thumbs]}
@@ -118,7 +118,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
             }}
           >
             {/* height: "90vh".  lg:h-90 */}
-            <div className="h-auto min-h-[600px]">
+            <div className="h-auto min-h-[600px] h-[80vh]">
               <img
                 fill={true}
                 className="object-contain rounded-lr "
