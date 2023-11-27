@@ -117,17 +117,14 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
               setCurrent(photo);
             }}
           >
-            {/* height: "90vh".  lg:h-90 */}
-            <div className="h-auto min-h-[600px] h-[80vh]">
-              <img
-                fill={true}
-                className="object-contain rounded-lr "
-                alt={photo.attributes.name}
-                src={getLink(photo)}
-                loading="lazy"
-                //   q={100}
-              />
-            </div>
+            <img
+              fill={true}
+              className="object-contain rounded-lr "
+              alt={photo.attributes.name}
+              src={getLink(photo)}
+              loading="lazy"
+              //   q={100}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
