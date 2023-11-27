@@ -169,12 +169,12 @@
   background: #0000ff !important;
 }
 
-.videoGalery .swiper-slide {
+.videoGallery .swiper-slide {
   width: 25%;
   height: 100%;
   opacity: 0.4;
 }
-.videoGalery .swiper-slide-thumb-active {
+.videoGallery .swiper-slide-thumb-active {
   opacity: 1;
 }
 
