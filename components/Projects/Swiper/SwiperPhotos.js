@@ -53,7 +53,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
         spaceBetween={10}
         className="mySwiper"
         autoHeight={true}
-        lazy={true}
+        // lazy={true}
         loop
         modules={[Thumbs, Pagination]}
         thumbs={{
@@ -79,7 +79,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
                 className="object-contain rounded-lr "
                 alt={photo.attributes.name}
                 src={getLink(photo)}
-                loading="lazy"
+                // loading="lazy"
                 //   q={100}
               />
             </div>
@@ -99,7 +99,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
         className="mySwiper lg:container swiperLarge"
         autoHeight={false}
         loop
-        lazy={true}
+        // lazy={true}
         modules={[Thumbs]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
@@ -122,7 +122,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
               className="object-contain rounded-lr "
               alt={photo.attributes.name}
               src={getLink(photo)}
-              loading="lazy"
+              //   loading="lazy"
               //   q={100}
             />
           </SwiperSlide>
@@ -145,7 +145,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
             className="relative max-w-[90vw] h-auto object-cover rounded-lr "
             alt={current.attributes.name ? current.attributes.name : ""}
             src={getLink(current)}
-            loading="lazy"
+            // loading="lazy"
           />
         </ModalImage>
       )}
