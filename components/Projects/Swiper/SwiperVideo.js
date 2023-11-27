@@ -22,7 +22,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container !max-w-[1600px]">
       {/* Variant for 1 video */}
       <Swiper
         onSlideChange={() => {
@@ -30,6 +30,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
         }}
         slidesPerView={1}
         centeredSlides={true}
+        className="swiperVideo"
         loop={true}
         modules={[Thumbs, Pagination]}
         pagination={!showPagination ? { clickable: true } : false}
@@ -55,7 +56,7 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
         >
           {/* Variant for more than 1 video */}
           <Swiper
-            className="videoGalery"
+            className="videoGallery"
             slidesPerView={2}
             breakpoints={{
               768: {
