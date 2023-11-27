@@ -3,11 +3,9 @@ import { CreateEmail } from "./createEmail";
 // import useTranslation from "next-translate/useTranslation";
 var nodemailer = require("nodemailer");
 
-const user = "invfront164@gmail.com";
-// process.env.NEXT_EMAIL;
+const user = process.env.NEXT_EMAIL;
 
-const pass = "eozhrawqisgqkrez";
-//  process.env.NEXT_EMAIL_PASS;
+const pass = process.env.NEXT_EMAIL_PASS;
 
 export const transporter = nodemailer.createTransport({
   service: "gmail",

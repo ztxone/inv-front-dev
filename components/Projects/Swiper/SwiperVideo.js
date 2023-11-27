@@ -63,8 +63,8 @@ export const SwiperVideo = ({ videoSlides, poster }) => {
                 slidesPerView: 2,
               },
               992: {
-                //slidesPerView: videoSlides.length < 3 ? 2 : 3,
-                slidesPerView: 3,
+                slidesPerView: videoSlides.length < 3 ? 2 : 3,
+                //slidesPerView: 3,
               },
             }}
             spaceBetween={30}
