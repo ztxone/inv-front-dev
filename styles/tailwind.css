@@ -350,3 +350,13 @@
 .swiperLarge {
   height: 80vh !important;
 }
+.swiperLarge > .swiper-wrapper {
+  height: 80vh;
+}
+.swiperLarge > .swiper-wrapper > .swiper-slide {
+  height: 80vh;
+}
+.swiperLarge > .swiper-wrapper > .swiper-slide > img {
+  height: 100%;
+  width: 100%;
+}
