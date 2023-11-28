@@ -92,7 +92,7 @@ export async function getStaticProps({ locale }) {
       projects: projectsRes.data,
       blogs: blogRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 

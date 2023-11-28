@@ -66,7 +66,7 @@ export async function getStaticProps({ locale }) {
       visobjs: visobjRes.data,
       seoBrief: seoBriefRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 

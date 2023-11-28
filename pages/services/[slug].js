@@ -112,7 +112,7 @@ export async function getStaticProps({ params, locale }) {
       category: matchingCategories.data[0],
       projects: projectsRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 

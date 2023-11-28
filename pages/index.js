@@ -120,7 +120,7 @@ export async function getStaticProps({ locale }) {
       blogs: blogRes.data,
       global: globalRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 
