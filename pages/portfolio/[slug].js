@@ -102,7 +102,7 @@ export async function getStaticProps({ params }) {
       categories: categoriesRes.data,
       projects: projectsRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 

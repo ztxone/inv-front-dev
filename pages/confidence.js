@@ -55,6 +55,6 @@ export async function getStaticProps({ locale }) {
     props: {
       agreement: agreementRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }

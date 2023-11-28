@@ -7,8 +7,7 @@ module.exports = nextTranslate({
   //reactStrictMode: true,
   images: {
     loader: "default",
-    //domains: ["localhost"],
-    domains: ["inv.ptzsite.ru", "localhost"],
+    domains: ["process.env.NEXT_ADMIN_LINK"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
   //   async redirects() {
