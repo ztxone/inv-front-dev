@@ -80,7 +80,7 @@ export async function getStaticProps({ locale }) {
       contact: contactRes.data,
       blogs: blogsRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 

@@ -145,7 +145,7 @@ export async function getStaticProps({ params, locale }) {
       blog,
       blogsOthers: blogsOthersRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 

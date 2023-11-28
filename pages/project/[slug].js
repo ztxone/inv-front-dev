@@ -127,7 +127,7 @@ export async function getStaticProps({ params, locale }) {
       projectsOther: projectsOtherRes.data,
       categories: categoriesRes,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 Project.getLayout = function getLayout(page) {

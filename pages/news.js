@@ -65,7 +65,7 @@ export async function getStaticProps({ locale }) {
     props: {
       news: blogsRes.data,
     },
-    revalidate: 1,
+    revalidate: 3600,
   };
 }
 
