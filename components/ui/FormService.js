@@ -47,7 +47,7 @@ function FormInput({ type, id, placeholder, name, pattern, register }) {
   );
 }
 
-export default function FormService() {
+export default function FormService({ onSubmitForm }) {
   const methods = useForm();
   const checkUser = useEnquiryForm();
   const [loading, setLoading] = useState(false);
