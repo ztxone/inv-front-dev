@@ -15,7 +15,7 @@ export default function Logo({ color }) {
         xmlns="http://www.w3.org/2000/svg"
         width="102"
         height="35"
-        viewBox="0 0 102 35"
+        viewBox="0 0 102  35"
         fill="currentColor"
       >
         <path
