@@ -23,7 +23,7 @@ export default function Portfolio({ projects, categories, blogs }) {
     shareImage: "",
   };
 
-  console.log(projects);
+  //console.log(projects);
 
   return (
     <>
@@ -68,6 +68,9 @@ export async function getStaticProps({ locale }) {
       sort: ["ListPosition:asc"],
       populate: ["Poster", "tags", "categories"],
       fields: ["Title", "slug"],
+      pagination: {
+        pageSize: 100,
+      },
       locale: locale,
       publicationState: "live",
     }),

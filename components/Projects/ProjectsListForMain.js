@@ -13,9 +13,10 @@ export default function ProjectsListForMain({
   projects,
   moreProjects = false,
 }) {
-  // if (!projects) {
-  //   return <Loading />;
-  // }
+  if (!projects) {
+    return <Loading />;
+  }
+  //console.log(projects);
 
   return (
     <section className="pt-16 pb-5 md:pt-[60px] text-blackRussian md:pb-12 lg:pt-36 lg:pb-9">
@@ -30,12 +31,12 @@ export default function ProjectsListForMain({
           >
             <Masonry gutter="30px">
               {projects.map((project, i) => {
-                const posterHeight =
-                  project.attributes.Poster_for_mainPage.data.attributes.height;
-                const posterWidth =
-                  project.attributes.Poster_for_mainPage.data.attributes.width;
-
-                const aspectRatio = (600 / posterWidth) * posterHeight;
+                const aspectRatio = 400;
+                if (project.attributes.Poster_for_mainPage.data != null) {
+                  const posterHeight = project.attributes.Poster_for_mainPage.data.attributes.height;
+                  const posterWidth = project.attributes.Poster_for_mainPage.data.attributes.width;
+                  const aspectRatio = (600 / posterWidth) * posterHeight;
+                }
                 return (
                   <ProjectItem
                     key={project.id}
@@ -43,19 +44,21 @@ export default function ProjectsListForMain({
                     link={project.attributes.slug}
                   >
                     <div className="rounded-l15 relative">
-                      <img
-                        src={getStrapiMedia(
-                          project.attributes.Poster_for_mainPage
-                            ? project.attributes.Poster_for_mainPage
-                            : project.attributes.Poster
-                        )}
-                        width="600"
-                        height={aspectRatio}
-                        // quality={100}
-                        loading="lazy"
-                        alt={project.attributes.Title}
-                        className="rounded-l15 relative w-full"
-                      />
+                      {project.attributes.Poster_for_mainPage.data != null && (
+                        <img
+                          src={getStrapiMedia(
+                            project.attributes.Poster_for_mainPage
+                              ? project.attributes.Poster_for_mainPage
+                              : project.attributes.Poster
+                          )}
+                          width="600"
+                          height={aspectRatio}
+                          // quality={100}
+                          loading="lazy"
+                          alt={project.attributes.Title}
+                          className="rounded-l15 relative w-full"
+                        />
+                      )}
                       {project.attributes.tags.data.length > 0 && (
                         <div className="absolute top-5 left-5 right-5">
                           <div

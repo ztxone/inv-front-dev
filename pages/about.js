@@ -73,6 +73,7 @@ export async function getStaticProps({ locale }) {
         Poster: "*",
         tags: "*",
       },
+	  locale: locale,
       fields: ["title", "slug"],
       pagination: {
         start: 0,

@@ -88,13 +88,9 @@ export async function getStaticPaths() {
   });
   const projectsSlugPath = projectsSlug.data.map((project) => ({
     params: {
-      slug:
-        project.attributes.slug !== null
-          ? project.attributes.slug.toString()
-          : "",
+      slug: project.attributes.slug,
     },
   }));
-
   return {
     paths: [...projectsSlugPath],
     fallback: false,
