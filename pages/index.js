@@ -8,13 +8,17 @@ import Line from "@/components/ui/Line";
 import Wrapper from "@/components/ui/Wrapper";
 import ProjectsListForMain from "@/components/Projects/ProjectsListForMain";
 import Seo from "@/components/seo";
+import useTranslation from 'next-translate/useTranslation';
 
 const Home = ({ projects, services, servicesAbout, about, blogs, global }) => {
+  const i18n = useTranslation();
+  const locale = i18n.lang;
   const seo = {
     metaTitle: global.attributes.defaultSeo.metaTitle,
     metaDescription: global.attributes.defaultSeo.metaDescription,
     //shareImage: global.Logo,
   };
+  
 
   return (
     <>
