@@ -85,6 +85,9 @@ function Project({ project, projectsOther, categories }) {
 export async function getStaticPaths() {
   const projectsSlug = await fetchAPI("/projects", {
     fields: ["slug"],
+    pagination: {
+      pageSize: 100,
+    },
   });
   const projectsSlugPath = projectsSlug.data.map((project) => ({
     params: {

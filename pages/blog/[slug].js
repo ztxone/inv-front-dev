@@ -99,7 +99,12 @@ export default function Blog({ blog, blogsOthers }) {
 }
 
 export async function getStaticPaths() {
-  const blogsRes = await fetchAPI("/blogs", { fields: ["slug"] });
+  const blogsRes = await fetchAPI("/blogs", { fields: ["slug"],      
+  	pagination: {
+    	pageSize: 100,
+  		},
+  },
+  );
 
   const blogPaths = blogsRes.data.map((blog) => ({
     params: {
