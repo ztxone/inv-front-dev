@@ -91,14 +91,8 @@ export async function getStaticPaths() {
       slug: project.attributes.slug,
     },
   }));
-  const projectsSlugPathEng = projectsSlug.data.map((project) => ({
-    params: {
-      slug: project.attributes.slug,
-    },
-    locale: "en",
-  }));
   return {
-    paths: [...projectsSlugPath, ...projectsSlugPathEng],
+    paths: [...projectsSlugPath],
     fallback: false,
   };
 }
