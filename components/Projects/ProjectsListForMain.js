@@ -31,12 +31,12 @@ export default function ProjectsListForMain({
           >
             <Masonry gutter="30px">
               {projects.map((project, i) => {
-                const posterHeight =
-                  project.attributes.Poster_for_mainPage.data.attributes.height;
-                const posterWidth =
-                  project.attributes.Poster_for_mainPage.data.attributes.width;
-
-                const aspectRatio = (600 / posterWidth) * posterHeight;
+                const aspectRatio = 400;
+                if (project.attributes.Poster_for_mainPage.data != null) {
+                  const posterHeight = project.attributes.Poster_for_mainPage.data.attributes.height;
+                  const posterWidth = project.attributes.Poster_for_mainPage.data.attributes.width;
+                  const aspectRatio = (600 / posterWidth) * posterHeight;
+                }
                 return (
                   <ProjectItem
                     key={project.id}
@@ -44,7 +44,7 @@ export default function ProjectsListForMain({
                     link={project.attributes.slug}
                   >
                     <div className="rounded-l15 relative">
-                      {project.attributes.Poster_for_mainPage && (
+                      {project.attributes.Poster_for_mainPage.data != null && (
                         <img
                           src={getStrapiMedia(
                             project.attributes.Poster_for_mainPage
