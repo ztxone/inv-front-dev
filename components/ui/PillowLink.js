@@ -4,6 +4,7 @@ export default function PillowLink({
   variant,
   text,
   linkPosition = "",
+  heightFit = false,
   link = "#",
   variantSvg = "whiteSvg",
 }) {
@@ -55,7 +56,7 @@ export default function PillowLink({
       href={link}
       className={`${
         variant == "dark" ? darkClasses : whiteClasses
-      } text-base tracking-tight pl-[24px] py-[4px] pr-[2px] w-max flex justify-center items-center rounded-6xl trans-default group border cursor-pointer`}
+      } ${heightFit && 'h-fit'} text-base tracking-tight pl-[24px] py-[4px] pr-[2px] w-max flex justify-center items-center rounded-6xl trans-default group border cursor-pointer`}
     >
       {text}
       <span
@@ -63,8 +64,8 @@ export default function PillowLink({
           variantSvg === "whiteSvg"
             ? whiteClassesSvg
             : variantSvg === "darkSvg"
-            ? darkClassesSvg
-            : blueClassesSvg
+              ? darkClassesSvg
+              : blueClassesSvg
         } w-[37px] h-[37px] flex items-center justify-center rounded-full shrink-0 ml-12 mr-1`}
       >
         <svg className='w-[9px] h-[15px] viewBox="0 0 9 15" rotate-180'>
