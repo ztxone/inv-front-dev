@@ -6,7 +6,7 @@ export default function TagItemSection({ text, color = "white", onClick }) {
     <div
       className={`${
         color === "white" ? white : blue
-      } w-fit rounded-full px-[21px] py-[7px] mb-[7px] mr-2.5 flex items-center
+      }   w-fit rounded-full px-[21px] py-[7px] mb-[7px] mr-2.5 flex items-center
     md:mb-5 md:mr-5 md:px-6 md:py-4.5 cursor-pointer flex-shrink-0`}
       onClick={onClick}
     >
