@@ -7,12 +7,12 @@ export default function Language({ lang }) {
   const router = useRouter();
   const setLanguageRu = () => {
     if (lang === "en") setLanguage("ru");
-    router.push("/");
+    //router.push("/");
   };
 
   const setLanguageEn = () => {
     if (lang === "ru") setLanguage("en");
-    router.push("/en");
+    //router.push("/en");
   };
   return (
     <div

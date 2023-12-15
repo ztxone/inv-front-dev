@@ -25,11 +25,12 @@ export default function PortfolioCarousel({
   return (
     <div
       className="container overflow-hidden pt-21 pb-18 flex flex-col gap-10 w-full
-    md:flex-row flex-wrap justify-between   max-w-[1746px] lg:mx-auto "
+    md:flex-row flex-wrap justify-between  items-center max-w-[1746px] lg:mx-auto "
     >
       <Title text={title} variant="white" />
       <PillowLink
         variant="white"
+        heightFit={true}
         text={t("All_projects")}
         variantSvg="blueSvg"
         link="/portfolio"

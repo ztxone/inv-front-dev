@@ -89,6 +89,7 @@ export async function getStaticPaths() {
       pageSize: 100,
     },
   });
+  
   const projectsSlugPath = projectsSlug.data.map((project) => ({
     params: {
       slug: project.attributes.slug,
@@ -105,6 +106,9 @@ export async function getStaticProps({ params, locale }) {
     locale: locale,
     populate: "*",
     fields: "*",
+    pagination: {
+      pageSize: 100,
+	  },
     filters: {
       slug: params.slug,
     },

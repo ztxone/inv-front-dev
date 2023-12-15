@@ -112,15 +112,8 @@ export async function getStaticPaths() {
     },
   }));
 
-  const blogPathsEng = blogsRes.data.map((blog) => ({
-    params: {
-      slug: blog.attributes.slug,
-    },
-    locale: "en",
-  }));
-
   return {
-    paths: [...blogPaths, ...blogPathsEng],
+    paths: [...blogPaths],
     fallback: false,
   };
 }
