@@ -14,7 +14,7 @@ export default function Tag({
   return (
     <div onClick={cancelPropagation}>
       {text && (
-        <span
+        <div
           className={`bg-${variant} cursor-pointer rounded-full inline-flex items-center px-3.8 ${
             usedFor === "blog"
               ? "w-auto self-start absolute left-5 bottom-5 py-2"
@@ -36,7 +36,7 @@ export default function Tag({
             {" "}
             {text}
           </p>
-        </span>
+        </div>
       )}
     </div>
   );
