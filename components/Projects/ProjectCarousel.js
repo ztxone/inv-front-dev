@@ -7,7 +7,7 @@ export default function ProjectCarousel({
   videoFiles,
   verticalPhotos = false,
 }) {
-  console.log(verticalPhotos);
+  
   return (
     <>
       <div className="pt-2.5 pb-7 w-full mx-auto">
