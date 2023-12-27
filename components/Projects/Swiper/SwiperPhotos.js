@@ -75,7 +75,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
           >
             <div className="h-auto min-h-[250px]">
               <img
-                fill={true}
+                fill="true"
                 className="object-contain rounded-lr "
                 alt={photo.attributes.name}
                 src={getLink(photo)}
@@ -118,7 +118,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
             }}
           >
             <img
-              fill={true}
+              fill="true"
               className="object-contain rounded-lr "
               alt={photo.attributes.name}
               src={getLink(photo)}
