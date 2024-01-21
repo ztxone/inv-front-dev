@@ -21,7 +21,7 @@ export default function Footer({ variant, pillowColor = "dark" }) {
         populate: "*",
       });
 
-      const menuRes = await fetchAPI("/navigation/render/2", {
+      const menuRes = await fetchAPI("/navigation/render/3", {
         fields: ["title", "path"],
         locale: locale,
       });
