@@ -2,7 +2,7 @@ name: Deploy Next.js site to VPS
 
 on:
   push:
-    branches: ["ztxone"]
+    branches: ["main"]
 
   workflow_dispatch:
 
