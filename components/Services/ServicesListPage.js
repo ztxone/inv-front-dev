@@ -26,7 +26,7 @@ export default function ServicesListPage({ services }) {
         populate: ["image"],
         filters: {
           id: {
-            $eq: 25,
+            $eq: 11,
           },
         },
       });
