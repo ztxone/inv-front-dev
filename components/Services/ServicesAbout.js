@@ -56,7 +56,7 @@ export default function ServicesAbout({ about, servicesAbout }) {
           xl:w-[400px]"
           >
             {servicesAbout
-              .filter((item) => item.id === 7)
+              .filter((item) => item.id === 1)
               .map((item) => (
                 <Link
                   href={getStrapiMedia(item.attributes.Slides.Document)}
@@ -107,7 +107,7 @@ export default function ServicesAbout({ about, servicesAbout }) {
               ))}
 
             {servicesAbout
-              .filter((item) => item.id === 9)
+              .filter((item) => item.id === 3)
               .map((item) => (
                 <Link
                   href={getStrapiMedia(item.attributes.Slides.Document)}

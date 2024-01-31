@@ -33,7 +33,7 @@ export default function Header({ variant, variantSvg }) {
 
   useEffect(() => {
     async function fetchData() {
-      const menuRes = await fetchAPI("/navigation/render/1", {
+      const menuRes = await fetchAPI("/navigation/render/2", {
         fields: ["title", "path"],
         locale: locale,
       });
