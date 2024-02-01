@@ -34,7 +34,7 @@ export default function ServicesForCategory({ parent }) {
   }, [locale, parent]);
 
   if (!data) {
-    return false;
+    return <Loading/>;
   }
 
   return (
