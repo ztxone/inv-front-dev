@@ -26,6 +26,7 @@ class MyDocument extends Document {
           </Script>			
           <Main />
           <NextScript />
+          <Script src="//cdn.callibri.ru/callibri.js" type="text/javascript" />
         </body>
       </Html>
     );
