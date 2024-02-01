@@ -41,6 +41,8 @@ jobs:
         with:
           node-version: ${{matrix.node-version}}
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - run: npm i
       - run: npm ci
       - run: npm run build --if-present
+      - name: Change directory
+        run: cd /var/www/front-runner/_work/inv-front/inv-front
+      - run: pm2 restart 0
