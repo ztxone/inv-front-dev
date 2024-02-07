@@ -6,6 +6,7 @@ export default function TagsBrief({
   setCategory,
   category,
 }) {
+  
   return (
     <div
       className="pt-10 pb-1.5
@@ -23,7 +24,7 @@ export default function TagsBrief({
           <TagItemBrief
             key={elem.attributes.name}
             color={
-              category?.attributes?.name === elem.attributes.name
+              category?.id == elem.id
                 ? "blue"
                 : "white"
             }
