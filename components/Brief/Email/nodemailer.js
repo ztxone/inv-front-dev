@@ -8,7 +8,10 @@ const user = process.env.NEXT_EMAIL;
 const pass = process.env.NEXT_EMAIL_PASS;
 
 export const transporter = nodemailer.createTransport({
-  service: "gmail",
+  //service: "gmail",
+  service: 'smtp.mail.ru',
+  port: 465, // This could be different, please verify with Mail.ru documentation
+  secure: true, // true for port 465, false for other ports
   auth: {
     user,
     pass,
