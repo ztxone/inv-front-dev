@@ -24,6 +24,7 @@ class MyDocument extends Document {
             });`
             }
           </Script>			
+          <noscript><div><img src="https://mc.yandex.ru/watch/50335891" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
           <Main />
           <NextScript />
           <Script src="//cdn.callibri.ru/callibri.js" type="text/javascript" />
