@@ -6,6 +6,7 @@ import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 import { ToastrProvider } from "@/components/Toastr/ToastrProvider";
 import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
+import { YandexMetrica } from "@/components/YandexMetrica";
 
 // Store Strapi Global object in context
 export const GlobalContext = createContext({});
@@ -23,21 +24,23 @@ const MyApp = ({ Component, pageProps }) => {
         />
         <meta name="yandex-verification" content="4e608efa98929572" />
       </Head>
-      <GoogleReCaptchaProvider
-        reCaptchaKey={global.attributes.CAPTCHA_SITE_KEY}
-        scriptProps={{
-          async: false,
-          defer: false,
-          appendTo: "head",
-          nonce: undefined,
-        }}
-      >
-        <GlobalContext.Provider value={global?.attributes}>
-          <ToastrProvider>
-            {getLayout(<Component {...pageProps} />)}
-          </ToastrProvider>
-        </GlobalContext.Provider>
-      </GoogleReCaptchaProvider>
+      <YandexMetrica>
+        <GoogleReCaptchaProvider
+          reCaptchaKey={global.attributes.CAPTCHA_SITE_KEY}
+          scriptProps={{
+            async: false,
+            defer: false,
+            appendTo: "head",
+            nonce: undefined,
+          }}
+        >
+          <GlobalContext.Provider value={global?.attributes}>
+            <ToastrProvider>
+              {getLayout(<Component {...pageProps} />)}
+            </ToastrProvider>
+          </GlobalContext.Provider>
+        </GoogleReCaptchaProvider>
+      </YandexMetrica>
     </>
   );
 };
