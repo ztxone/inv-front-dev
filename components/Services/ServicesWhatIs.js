@@ -16,7 +16,7 @@ export default function ServicesWhatIs({ data }) {
             <EnumCircle number="01" className="mb-12" />
             <Line width="320px" variantColor="bg-light-grey" />
             <h2 className="text-xl leading-7 text-black font-arial font-normal mt-6 mb-5">
-              Lorem ipsum dolor
+              {data.What_is_1_title}
             </h2>
             <p className="text-base leading-5 text-black opacity-60 font-arial font-normal w-[full] md:w-[360px]">
               {data.What_is_1}
@@ -28,7 +28,7 @@ export default function ServicesWhatIs({ data }) {
             <EnumCircle number="02" className="mb-12" />
             <Line width="320px" variantColor="bg-light-grey" />
             <h2 className="text-xl leading-7 text-black font-arial font-normal mt-6 mb-5">
-              Lorem ipsum dolor
+              {data.What_is_2_title}
             </h2>
             <p className="text-base leading-5 text-black opacity-60 font-arial font-normal w-[full] md:w-[360px]">
               {data.What_is_2}
@@ -40,7 +40,7 @@ export default function ServicesWhatIs({ data }) {
             <EnumCircle number="03" className="mb-12" />
             <Line width="320px" variantColor="bg-light-grey" />
             <h2 className="text-xl leading-7 text-black font-arial font-normal mt-6 mb-5">
-              Lorem ipsum dolor
+              {data.What_is_3_title}
             </h2>
             <p className="text-base leading-5 text-black opacity-60 font-arial font-normal w-[full] md:w-[360px]">
               {data.What_is_3}
