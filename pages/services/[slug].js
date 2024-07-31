@@ -109,12 +109,12 @@ export default function Service({
           
         </section>
 
-        <ProjectsList
+        {/* <ProjectsList
           projects={projects}
           moreProjects={true}
           // projectsQuantity='100'
           focusService={category.id}
-        />
+        /> */}
         {category.attributes.Category_workplan && (
           <ServicesWorkPlan data={category.attributes.Category_workplan} />
         )}
@@ -222,9 +222,10 @@ export async function getStaticProps({ params, locale }) {
       },
     }),
     fetchAPI('/projects', {
-      //fields: ["name", "text", "Description"],
+      fields: ['Title',  'slug'],
       locale: locale,
-      populate: '*',
+      populate: ['Poster', 'tags'],
+      publicationState: 'live',
       filters: {
         categories: {
           slug: { $eq: params.slug },
