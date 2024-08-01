@@ -109,12 +109,12 @@ export default function Service({
           
         </section>
 
-        {/* <ProjectsList
+        <ProjectsList
           projects={projects}
           moreProjects={true}
           // projectsQuantity='100'
           focusService={category.id}
-        /> */}
+        />
         {category.attributes.Category_workplan && (
           <ServicesWorkPlan data={category.attributes.Category_workplan} />
         )}
