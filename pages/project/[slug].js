@@ -86,13 +86,13 @@ function Project({ project, projectsOther, data, menu, headerMenu }) {
   );
 }
 
-export async function getStaticPaths() {
+export async function generateStaticParams() {
   const projectsSlug = await fetchAPI('/projects', {
     fields: ['slug'],
     pagination: {
       pageSize: 100,
     },
-  });
+  }, { next: { revalidate: 3600 } });
 
   const projectsSlugPath = projectsSlug.data.map((project) => ({
     params: {
@@ -108,7 +108,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params, locale }) {
+export async function getServerSideProps({ params, locale }) {
   // const categoriesRes = await fetchAPI("/categories");
 
   const [headerRes, contactRes, menuRes, projectsOtherRes, projectsRes] =
@@ -155,8 +155,7 @@ export async function getStaticProps({ params, locale }) {
       headerMenu: headerRes,
       project: projectsRes.data[0],
       projectsOther: projectsOtherRes.data,
-    },
-    revalidate: 3600,
+    }
   };
 }
 

@@ -360,3 +360,7 @@
   height: 100%;
   width: 100%;
 }
+.next-video-bg-video, .next-video-bg-poster {
+  height: 100%;
+
+}

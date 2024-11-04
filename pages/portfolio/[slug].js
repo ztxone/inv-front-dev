@@ -57,7 +57,7 @@ export default function Portfolio({ tag, projects, categories, data, menu, heade
   );
 }
 
-export async function getStaticPaths({ locales }) {
+export async function generateStaticParams({ locales }) {
   const tagsRes = await fetchAPI("/tags", { fields: ["slug"] });
 
   return {
@@ -72,7 +72,7 @@ export async function getStaticPaths({ locales }) {
   };
 }
 
-export async function getStaticProps({ params, locale }) {
+export async function getServerSideProps({ params, locale }) {
   const [headerRes,
     contactRes,
     menuRes,
