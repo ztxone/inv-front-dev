@@ -1,16 +1,19 @@
 import Image from "next/image";
+import { useState } from 'react'
 
 export default function ProjectItemImage({ link, width, height, variant }) {
+  let [loaded, setLoaded] = useState(false)
   if (variant === "imageBlock") {
     return (
       <div className="absolute top-0 bottom-0 left-0 right-0">
         <Image
-          className="w-full h-full obj rounded-l15 object-cover"
+          className={`w-full h-full obj rounded-l15 object-cover ${loaded ? 'blur-0' : 'blur-xl'}`}
           width={width}
           height={height}
           src={link}
           loading="lazy"
-          //   quality={100}
+          quality={100}
+          onLoad={() => setLoaded(true)}
           alt="Project name"
         />
       </div>

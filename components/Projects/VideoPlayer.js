@@ -1,6 +1,6 @@
 import { getStrapiURL } from "lib/api";
 import React, { useEffect, useRef, useState } from "react";
-
+import Player from 'next-video/player';
 export function getLink(media) {
   try {
     const { url } = media.attributes;
@@ -32,7 +32,7 @@ export const VideoPlayer = ({
   };
 
   useEffect(() => {
-    videoRef.current.pause();
+    // videoRef.current.pause();
     setIsPlaying(false);
   }, [stop]);
 
@@ -43,19 +43,20 @@ export const VideoPlayer = ({
     >
       <div className="absolute bottom-15 w-full h-full z-10" onClick={handlePlay} />
       <div className="absolute bottom-8 left-2 w-10 h-10 z-10" onClick={handlePlay} />
-      <video
+      <Player
+        src={getLink(videofile)}
         ref={videoRef}
         poster={getLink(poster)}
         controls
         className="w-full h-full"
       >
-        <source src={getLink(videofile)} type="video/mp4" />
+        {/* <source src={getLink(videofile)} type="video/mp4" />
         <p>
           Ваш браузер не поддерживает встроенные видео. Попробуйте скачать его
           по
           <a href="#">этой ссылке</a>.
-        </p>
-      </video>
+        </p> */}
+      </Player>
       {small ? (
         <div className="absolute top-0 opacity-0 w-full h-full z-10">
           <div
