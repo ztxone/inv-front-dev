@@ -25,6 +25,7 @@ export default function Portfolio({ tag, projects, categories, data, menu, heade
       title: tag.attributes.Name,
     },
   ];
+
   return (
     <Layout
       data={data}
@@ -57,7 +58,7 @@ export default function Portfolio({ tag, projects, categories, data, menu, heade
   );
 }
 
-export async function generateStaticParams({ locales }) {
+export async function getStaticPaths({ locales }) {
   const tagsRes = await fetchAPI("/tags", { fields: ["slug"] });
 
   return {
@@ -72,7 +73,7 @@ export async function generateStaticParams({ locales }) {
   };
 }
 
-export async function getServerSideProps({ params, locale }) {
+export async function getStaticProps({ params, locale }) {
   const [headerRes,
     contactRes,
     menuRes,
@@ -121,8 +122,8 @@ export async function getServerSideProps({ params, locale }) {
       tag: matchingTags?.data[0],
       categories: categoriesRes.data,
       projects: projectsRes.data,
-    },
-    revalidate: 3600,
+    }
+    
   };
 }
 

@@ -28,7 +28,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
   const [openZoom, setOpenZoom] = useState(false);
   const [current, setCurrent] = useState();
   const [showPagination, setShowPagination] = useState(true);
-
+  let [loaded, setLoaded] = useState(false)
   const updatePaginationVisibility = () => {
     setShowPagination(window.innerWidth < 768);
   };
@@ -74,13 +74,19 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
             }}
           >
             <div className="h-auto min-h-[250px]">
-              <Image
-                fill
-                className="object-contain rounded-lr "
-                alt={photo.attributes.name}
+            <Image
+                className={`w-full h-full obj rounded-l15 object-cover`}
+                style={{
+                  filter: !loaded ? "blur(70px)" : "none",
+                  transition: "filter 0.2s ease-out",
+                }}
                 src={getLink(photo)}
-                // loading="lazy"
-                //   q={100}
+                placeholder="blur"
+                blurDataURL={getLink(photo)}
+                width={1000}
+                fill
+                alt="Project name"
+                onLoad={() => setLoaded(true)}
               />
             </div>
           </SwiperSlide>
@@ -118,13 +124,14 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
             }}
           >
             <Image
-              fill
-              className="object-contain rounded-lr "
-              alt={photo.attributes.name}
-              src={getLink(photo)}
-              //   loading="lazy"
-              //   q={100}
-            />
+                className={`w-full h-full obj rounded-l15 object-cover bg-red-500 transition:filter_500ms_cubic-bezier(.4,0,.2,1) ${loaded ? 'blur-0' : 'blur-xl'}`}
+                src={getLink(photo)}
+                placeholder="blur"
+                blurDataURL={getLink(photo)}
+                fill
+                alt="Project name"
+                onLoad={() => setLoaded(true)}
+              />
           </SwiperSlide>
         ))}
       </Swiper>
