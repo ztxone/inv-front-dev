@@ -4,7 +4,7 @@ import { Pagination, Thumbs, Zoom } from "swiper/modules";
 
 import { ImageZoomModal } from "../ImageZoomModal";
 import Image from "next/image";
-import "swiper/css";
+// import "swiper/css";
 
 import { getStrapiURL } from "lib/api";
 import ModalImage from "@/components/ui/ModalImage";
@@ -49,17 +49,16 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
     return (
       <Swiper
         slidesPerView={1}
-        centeredSlides={true}
         spaceBetween={10}
+        centeredSlides={true}
         className="mySwiper"
         autoHeight={true}
-        // lazy={true}
         loop
         modules={[Thumbs, Pagination]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
-        pagination={showPagination ? { clickable: true } : null}
+        pagination={showPagination ? { clickable: true, dynamicBullets: true } : null}
         breakpoints={{
           768: {
             slidesPerView: slidesCount,
@@ -73,17 +72,15 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
               setCurrent(photo);
             }}
           >
-            <div className="h-auto min-h-[250px]">
+            <div className="min-h-[450px] px-4">
             <Image
-                className={`w-full h-full obj rounded-l15 object-cover`}
+                className="w-full h-full rounded-l15 object-cover"
                 style={{
                   filter: !loaded ? "blur(70px)" : "none",
                   transition: "filter 0.2s ease-out",
                 }}
-                src={getLink(photo)}
-                placeholder="blur"
-                blurDataURL={getLink(photo)}
                 fill
+                src={getLink(photo)}
                 alt="Project name"
                 onLoad={() => setLoaded(true)}
               />
@@ -100,11 +97,10 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
-        spaceBetween={10}
+        spaceBetween={20}
         className="mySwiper lg:container swiperLarge"
-        autoHeight={false}
+        autoHeight={true}
         loop
-        // lazy={true}
         modules={[Thumbs]}
         thumbs={{
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
@@ -121,16 +117,17 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
             onClick={() => {
               setCurrent(photo);
             }}
+            className="h-[80vh]"
           >
             <Image
-                className={`w-full h-full obj rounded-l15 object-cover bg-red-500 transition:filter_500ms_cubic-bezier(.4,0,.2,1) ${loaded ? 'blur-0' : 'blur-xl'}`}
-                src={getLink(photo)}
-                placeholder="blur"
-                blurDataURL={getLink(photo)}
-                fill
-                alt="Project name"
-                onLoad={() => setLoaded(true)}
-              />
+              className="w-full h-full rounded-l15 object-cover"
+              src={getLink(photo)}
+              fill
+              alt="Project name"
+              onLoad={() => setLoaded(true)}
+              loading="lazy"
+            />
+            <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -143,42 +140,42 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
         ? renderSwiperWithPagination()
         : renderSwiperWithoutPagination()}
 
-      {current && (
+      {/* {current && (
         <ModalImage isOpen={openZoom} onClose={() => setOpenZoom(false)}>
-          <img
+          <Image
             width="1200"
             height={800}
             className="relative max-w-[90vw] h-auto object-cover rounded-lr "
             alt={current.attributes.name ? current.attributes.name : ""}
             src={getLink(current)}
-            // loading="lazy"
+            loading="lazy"
+            style={{
+              filter: !loaded ? "blur(70px)" : "none",
+              transition: "filter 0.2s ease-out",
+            }}
           />
         </ModalImage>
-      )}
+      )} */}
 
       {slides.length > 1 && !showPagination && (
         <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 w-full mx-auto container">
           <Swiper
             slidesPerView={"auto"}
-            spaceBetween={10}
-            breakpoints={{
-              560: {
-                spaceBetween: 30,
-              },
-            }}
+            spaceBetween={20}
             scrollbar={{ draggable: true }}
             loop={true}
             onSwiper={setThumbsSwiper}
           >
             {slides.map((photo, index) => (
               <SwiperSlide key={index} style={{ flexShrink: 1 }}>
-                <div className="rounded-lr   w-[266px] h-[150px] overflow-hidden">
+                <div className="rounded-lr w-[266px] h-[150px] overflow-hidden">
                   <Image
                     className="w-full h-full object-cover"
-                    width="266"
-                    height="151"
+                    width={266}
+                    height={150}
                     alt={photo.attributes.name}
                     src={getLink(photo)}
+                    loading="lazy"
                   />
                 </div>
               </SwiperSlide>

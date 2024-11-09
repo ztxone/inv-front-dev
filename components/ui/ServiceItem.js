@@ -48,8 +48,6 @@ export default function ServiceItem({
                 transition: "filter 0.2s ease-out",
               }}
               src={getStrapiMedia(image)}
-              placeholder="blur"
-              blurDataURL={link.base64}
               width={398}
               height={600}
               alt={title}

@@ -75,7 +75,7 @@ export default function ServicesAbout({ about, servicesAbout }) {
                       //   quality={100}
                       loading="lazy"
                       className="w-full rounded-4xl h-full object-cover"
-                      alt=""
+                      alt="alt"
                     />
                   </div>
 

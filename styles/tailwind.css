@@ -364,3 +364,13 @@
   height: 100%;
 
 }
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+  opacity: 1;
+  background: rgb(150, 150, 150) !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: rgb(69, 116, 239) !important;
+}

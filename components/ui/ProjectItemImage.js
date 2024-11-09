@@ -13,8 +13,6 @@ export default function ProjectItemImage({ link, width, height, variant }) {
             transition: "filter 0.2s ease-out",
           }}
           src={link}
-          placeholder="blur"
-          blurDataURL={link}
           width={width}
           height={height}
           alt="Project name"
@@ -32,8 +30,6 @@ export default function ProjectItemImage({ link, width, height, variant }) {
           transition: "filter 0.2s ease-out",
         }}
         src={link}
-        placeholder="blur"
-        blurDataURL={link.base64}
         width={width}
         height={height}
         alt="Project name"
