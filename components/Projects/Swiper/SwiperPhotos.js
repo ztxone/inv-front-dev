@@ -28,7 +28,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
   const [openZoom, setOpenZoom] = useState(false);
   const [current, setCurrent] = useState();
   const [showPagination, setShowPagination] = useState(true);
-  let [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(false)
   const updatePaginationVisibility = () => {
     setShowPagination(window.innerWidth < 768);
   };
@@ -124,6 +124,10 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
               src={getLink(photo)}
               fill
               alt="Project name"
+              style={{
+                filter: !loaded ? "blur(70px)" : "none",
+                transition: "filter 0.2s ease-out",
+              }}
               onLoad={() => setLoaded(true)}
               loading="lazy"
             />
@@ -153,6 +157,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
               filter: !loaded ? "blur(70px)" : "none",
               transition: "filter 0.2s ease-out",
             }}
+            onLoad={() => setLoaded(true)}
           />
         </ModalImage>
       )} */}
@@ -175,6 +180,11 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
                     height={150}
                     alt={photo.attributes.name}
                     src={getLink(photo)}
+                    style={{
+                      filter: !loaded ? "blur(70px)" : "none",
+                      transition: "filter 0.2s ease-out",
+                    }}
+                    onLoad={() => setLoaded(true)}
                     loading="lazy"
                   />
                 </div>

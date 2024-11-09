@@ -2,7 +2,7 @@ import Image from "next/image"
 import { useState } from 'react'
 
 export default function ProjectItemImage({ link, width, height, variant }) {
-  let [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(false)
   if (variant === "imageBlock") {
     return (
       <div className="absolute top-0 bottom-0 left-0 right-0">
@@ -29,6 +29,7 @@ export default function ProjectItemImage({ link, width, height, variant }) {
           filter: !loaded ? "blur(70px)" : "none",
           transition: "filter 0.2s ease-out",
         }}
+        onLoad={() => setLoaded(true)}
         src={link}
         width={width}
         height={height}

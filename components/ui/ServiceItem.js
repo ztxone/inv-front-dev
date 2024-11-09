@@ -16,7 +16,7 @@ export default function ServiceItem({
   centered = false,
   image = "",
 }) {
-  let [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(false)
   return (
     <div
       className={`w-full h-[600px] mb-2.5 rounded-5xl relative
@@ -43,15 +43,16 @@ export default function ServiceItem({
               className={`object-cover w-full h-full rounded-5xl ${
                 centered ? "object-center" : "object-left-bottom"
               }`}
-              style={{
-                filter: !loaded ? "blur(70px)" : "none",
-                transition: "filter 0.2s ease-out",
-              }}
               src={getStrapiMedia(image)}
               width={398}
               height={600}
               alt={title}
               loading="lazy"
+              style={{
+                filter: !loaded ? "blur(70px)" : "none",
+                transition: "filter 0.2s ease-out",
+              }}
+              onLoad={() => setLoaded(true)}
             />
           </div>
         )}
