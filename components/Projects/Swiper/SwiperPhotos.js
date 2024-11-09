@@ -83,7 +83,6 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
                 src={getLink(photo)}
                 placeholder="blur"
                 blurDataURL={getLink(photo)}
-                width={1000}
                 fill
                 alt="Project name"
                 onLoad={() => setLoaded(true)}

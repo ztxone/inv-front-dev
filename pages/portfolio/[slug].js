@@ -122,7 +122,7 @@ export async function getStaticProps({ params, locale }) {
       tag: matchingTags?.data[0],
       categories: categoriesRes.data,
       projects: projectsRes.data,
-    }
+    }, revalidate: 3600
     
   };
 }

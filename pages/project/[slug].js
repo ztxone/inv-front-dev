@@ -86,7 +86,7 @@ function Project({ project, projectsOther, data, menu, headerMenu }) {
   );
 }
 
-export async function generateStaticParams() {
+export async function getStaticPaths() {
   const projectsSlug = await fetchAPI('/projects', {
     fields: ['slug'],
     pagination: {
@@ -108,7 +108,7 @@ export async function generateStaticParams() {
   };
 }
 
-export async function getServerSideProps({ params, locale }) {
+export async function getStaticProps({ params, locale }) {
   // const categoriesRes = await fetchAPI("/categories");
 
   const [headerRes, contactRes, menuRes, projectsOtherRes, projectsRes] =
@@ -155,7 +155,7 @@ export async function getServerSideProps({ params, locale }) {
       headerMenu: headerRes,
       project: projectsRes.data[0],
       projectsOther: projectsOtherRes.data,
-    }
+    }, revalidate: 3600
   };
 }
 
