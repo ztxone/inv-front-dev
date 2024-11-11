@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Thumbs, Zoom } from "swiper/modules";
+import { 
+  Pagination, 
+  Thumbs,
+  // Zoom 
+  } from "swiper/modules";
 
-import { ImageZoomModal } from "../ImageZoomModal";
+// import { ImageZoomModal } from "../ImageZoomModal";
 import Image from "next/image";
 // import "swiper/css";
 
 import { getStrapiURL } from "lib/api";
-import ModalImage from "@/components/ui/ModalImage";
-import { getStrapiMedia } from "lib/media";
+// import ModalImage from "@/components/ui/ModalImage";
+// import { getStrapiMedia } from "lib/media";
 
 export function getLink(media) {
   try {
@@ -120,7 +124,7 @@ export const SwiperPhotos = ({ poster, photos, verticalPhotos = false }) => {
             className="h-[80vh]"
           >
             <Image
-              className="w-full h-full rounded-l15 object-cover"
+              className="w-full h-full rounded-l15 object-contain"
               src={getLink(photo)}
               fill
               alt="Project name"

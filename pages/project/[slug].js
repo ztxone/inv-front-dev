@@ -58,7 +58,7 @@ function Project({ project, projectsOther, data, menu, headerMenu }) {
         photos={project.attributes.ProjectSliderFotos.data}
         poster={project.attributes.Poster}
         videoFiles={project.attributes.VideoFile}
-        verticalPhotos={project.attributes.Vertical_photos}
+        // verticalPhotos={project.attributes.Vertical_photos}
       />
 
       <ProjectAbout

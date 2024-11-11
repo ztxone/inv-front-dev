@@ -1,11 +1,11 @@
 import { SwiperVideo } from "./Swiper/SwiperVideo";
-import { SwiperPhotos } from "./Swiper/SwiperPhotos";
+// import { SwiperPhotos } from "./Swiper/SwiperPhotos";
+import { SwiperMedia } from "./Swiper/SwiperMedia";
 
 export default function ProjectCarousel({
   photos,
-  poster,
   videoFiles,
-  verticalPhotos = false,
+  poster,
 }) {
   
   return (
@@ -14,10 +14,9 @@ export default function ProjectCarousel({
         {videoFiles?.data ? (
           <SwiperVideo videoSlides={videoFiles.data} poster={poster} />
         ) : (
-          <SwiperPhotos
+          <SwiperMedia
             poster={poster?.data}
             photos={photos}
-            verticalPhotos={verticalPhotos}
           />
         )}
       </div>
