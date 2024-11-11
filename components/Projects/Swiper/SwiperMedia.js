@@ -44,7 +44,9 @@ export const SwiperMedia = ({ poster, photos}) => {
             slidesPerView: 1.1,
           },
         }}
-        className="container mx-auto !px-4 overflow-hidden h-[300px] md:h-[80vh]"   
+        autoHeight={true}
+        lazy={true}
+        className="container mx-auto !px-4 overflow-hidden"   
       >
         {slides.map((photo, index) => (
           <SwiperSlide
@@ -53,8 +55,9 @@ export const SwiperMedia = ({ poster, photos}) => {
               setCurrent(photo);
             }}
           >
+            <div className="min-h-[250px] md:h-[80vh]">
             <Image
-              className="w-full h-full rounded-2xl object-cover"
+              className="w-full h-full rounded-2xl object-contain"
               style={{
                 filter: !loaded ? "blur(70px)" : "none",
                 transition: "filter 0.2s ease-out",
@@ -64,7 +67,10 @@ export const SwiperMedia = ({ poster, photos}) => {
               src={getLink(photo)}
               alt="Project name"
               onLoad={() => setLoaded(true)}
+              loading="lazy"
             />
+            <div className="swiper-lazy-preloader swiper-lazy-preloader-white"></div>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

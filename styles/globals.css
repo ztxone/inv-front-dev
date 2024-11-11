@@ -42,5 +42,5 @@ input:focus {
   overflow: hidden;
 }
 .bgBriefCost {
-  background-position: !important center;
+  background-position: center !important ;
 }
