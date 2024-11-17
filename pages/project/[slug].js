@@ -11,6 +11,7 @@ import ProjectAbout from '@/components/Projects/ProjectAbout';
 import IntroCost from '@/components/ui/IntroCost';
 import PortfolioCarousel from '@/components/Portfolio/PortfolioCarousel';
 
+
 function Project({ project, projectsOther, data, menu, headerMenu }) {
   const { t } = useTranslation('common');
 
@@ -20,7 +21,7 @@ function Project({ project, projectsOther, data, menu, headerMenu }) {
     shareImage: project.attributes.Poster,
     project: true,
   };
-
+  
   const breadCrumbsItems = [
     {
       title: t('works.title'),
@@ -30,7 +31,7 @@ function Project({ project, projectsOther, data, menu, headerMenu }) {
       title: project.attributes.Title,
     },
   ];
-
+    
   return (
     <Layout
       data={data}
@@ -53,13 +54,26 @@ function Project({ project, projectsOther, data, menu, headerMenu }) {
         <Line variantColor="grey" />
       </div>
       <BreadCrumbs links={breadCrumbsItems} />
-
+      
       <ProjectCarousel
         photos={project.attributes.ProjectSliderFotos.data}
         poster={project.attributes.Poster}
         videoFiles={project.attributes.VideoFile}
+        rtVideos={project.attributes.rtVideos}
         // verticalPhotos={project.attributes.Vertical_photos}
       />
+      {/* <div className="container">
+        {project.attributes.rtVideos.length > 0 && 
+          project.attributes.rtVideos.map((video) => (
+            <iframe
+              width="720" height="405"
+              src={video.src}
+              allow="clipboard-write; autoplay; muted"
+              webkitAllowFullScreen mozallowfullscreen allowFullScreen>
+            </iframe>
+          ))
+        }
+      </div> */}
 
       <ProjectAbout
         task={project.attributes.ProjectTask}
@@ -92,8 +106,7 @@ export async function generateStaticParams() {
     pagination: {
       pageSize: 100,
     },
-  }, 
-  // { next: { revalidate: 3600 } }
+  }
 );
 
   const projectsSlugPath = projectsSlug.data.map((project) => ({
@@ -139,7 +152,7 @@ export async function getServerSideProps({ params, locale }) {
       }),
       fetchAPI('/projects', {
         locale: locale,
-        populate: '*',
+        populate: ['Poster', 'tags', 'rtVideos.poster', 'Seo', 'ProjectSliderFotos', 'VideoFile', 'categories', ],
         fields: '*',
         pagination: {
           pageSize: 100,
@@ -157,8 +170,7 @@ export async function getServerSideProps({ params, locale }) {
       headerMenu: headerRes,
       project: projectsRes.data[0],
       projectsOther: projectsOtherRes.data,
-    }, 
-    // revalidate: 3600
+    }
   };
 }
 

@@ -45,7 +45,7 @@ export const SwiperMedia = ({ poster, photos}) => {
           },
         }}
         autoHeight={true}
-        lazy={true}
+        lazy="true"
         className="container mx-auto !px-4 overflow-hidden"   
       >
         {slides.map((photo, index) => (
