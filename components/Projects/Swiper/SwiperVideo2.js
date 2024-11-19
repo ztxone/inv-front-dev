@@ -10,10 +10,10 @@ export const SwiperVideo2 = ({ videoSlides }) => {
   const [loaded, setLoaded] = useState(false)
   
   return (
-    <div className="relative container">     
-      <div className={`container mx-auto`}>        
+    <div className="relative container">
+      <div className="container relative overflow-hidden w-full h-full aspect-video">
         <Swiper
-          className="ddvideoGallery"
+          className="w-full h-full"
           scrollbar={{ draggable: true }}
           loop={true}
           centeredSlides={true}
@@ -24,34 +24,34 @@ export const SwiperVideo2 = ({ videoSlides }) => {
         >
           {videoSlides.map((video, index) => (
             <SwiperSlide key={index}>
+              <div className="relative w-full h-full">
               <iframe
-                className='rounded-xl mx-auto'
-                width="720" height="405"
+                className='rounded-xl mx-auto absolute inset-0 w-full h-full'
                 src={video.src}
                 loading="lazy"
                 aria-hidden="false"
                 allowFullScreen
                 >
               </iframe>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
-    
       {videoSlides.length > 1 && (
         <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 w-full mx-auto container">
           <Swiper
-            slidesPerView={"auto"}
+            slidesPerView={4}
             spaceBetween={20}
             scrollbar={{ draggable: true }}
             onSwiper={setThumbsSwiper}
           >
             {videoSlides.map((photo, index) => (
-              <SwiperSlide key={index} style={{ flexShrink: 1 }}>
-                <div className="rounded-lr w-[266px] h-[150px] overflow-hidden">
-                  {photo.poster.data == null ? <p className="flex items-center justify-center bg-gray w-full h-full text-white"> Poster has not set</p> : 
+              <SwiperSlide key={index} style={{ flexShrink: 1, height: '120px', width: '266px', borderRadius: '1rem', alignItems:'center' }}>
+                {/* <div className=""> */}
+                  {photo.poster.data == null ? <p className="flex items-center justify-center bg-gray w-full h-full text-white rounded-xl">Картинка не задана</p> : 
                     <Image
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-xl"
                     width={266}
                     height={150}
                     alt={photo.poster.data?.attributes.alternativeText}
@@ -64,7 +64,7 @@ export const SwiperVideo2 = ({ videoSlides }) => {
                     loading="lazy"
                     />
                   }
-                </div>
+                {/* </div> */}
               </SwiperSlide>
             ))}
           </Swiper>
