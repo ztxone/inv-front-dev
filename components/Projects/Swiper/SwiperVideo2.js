@@ -39,32 +39,34 @@ export const SwiperVideo2 = ({ videoSlides }) => {
         </Swiper>
       </div>
       {videoSlides.length > 1 && (
-        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 w-full mx-auto container">
+        <div className="2xl:pt-12 xl:pt-12 lg:pt-7 pt-2 z-5 w-full h-full mx-auto container">
           <Swiper
-            slidesPerView={4}
+            slidesPerView={"auto"}
             spaceBetween={20}
             scrollbar={{ draggable: true }}
+            loop={true}
             onSwiper={setThumbsSwiper}
           >
             {videoSlides.map((photo, index) => (
-              <SwiperSlide key={index} style={{ flexShrink: 1, height: '120px', width: '266px', borderRadius: '1rem', alignItems:'center' }}>
-                {/* <div className=""> */}
-                  {photo.poster.data == null ? <p className="flex items-center justify-center bg-gray w-full h-full text-white rounded-xl">Картинка не задана</p> : 
-                    <Image
-                    className="w-full h-full object-cover rounded-xl"
+              <SwiperSlide key={index} style={{ flexShrink: 1 }}>
+                <div className="rounded-lr w-[266px] h-[150px] overflow-hidden">
+                {photo.poster.data == null
+                  ? <p className="flex items-center justify-center bg-gray w-full h-full text-white rounded-xl">Картинка не задана</p>
+                  :  <Image
+                    className="w-full h-full object-cover"
                     width={266}
                     height={150}
                     alt={photo.poster.data?.attributes.alternativeText}
-                    src={`https://admin.invert.studio`+photo.poster.data.attributes.url}
+                    src={`https://admin.invert.studio`+photo.poster.data?.attributes.url}
                     style={{
                       filter: !loaded ? "blur(70px)" : "none",
                       transition: "filter 0.2s ease-out",
                     }}
                     onLoad={() => setLoaded(true)}
                     loading="lazy"
-                    />
-                  }
-                {/* </div> */}
+                  />
+                }
+                </div>
               </SwiperSlide>
             ))}
           </Swiper>
