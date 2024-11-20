@@ -62,18 +62,6 @@ function Project({ project, projectsOther, data, menu, headerMenu }) {
         rtVideos={project.attributes.rtVideos}
         // verticalPhotos={project.attributes.Vertical_photos}
       />
-      {/* <div className="container">
-        {project.attributes.rtVideos.length > 0 && 
-          project.attributes.rtVideos.map((video) => (
-            <iframe
-              width="720" height="405"
-              src={video.src}
-              allow="clipboard-write; autoplay; muted"
-              webkitAllowFullScreen mozallowfullscreen allowFullScreen>
-            </iframe>
-          ))
-        }
-      </div> */}
 
       <ProjectAbout
         task={project.attributes.ProjectTask}

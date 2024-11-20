@@ -25,14 +25,15 @@ export const SwiperVideo2 = ({ videoSlides }) => {
           {videoSlides.map((video, index) => (
             <SwiperSlide key={index}>
               <div className="relative w-full h-full">
-              <iframe
-                className='rounded-xl mx-auto absolute inset-0 w-full h-full'
-                src={video.src}
-                loading="lazy"
-                aria-hidden="false"
-                allowFullScreen
-                >
-              </iframe>
+                <iframe
+                  className='rounded-xl mx-auto absolute inset-0 w-full h-full'
+                  src={video.src}
+                  loading="lazy"
+                  aria-hidden="false"
+                  allowFullScreen
+                  allow="encrypted-media; picture-in-picture; web-share"
+                  >
+                </iframe>
               </div>
             </SwiperSlide>
           ))}
